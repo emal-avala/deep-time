@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deep Time — 13.8 billion years on one axis</title>
+<meta name="description" content="An interactive timeline of everything, readable on both a linear and a logarithmic time scale.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="masthead">
+  <h1>Deep Time</h1>
+  <p class="lede">Everything that happened, on one axis — read it linearly, then logarithmically, and watch the shape of history change.</p>
+  <span class="spacer"></span>
+  <span class="eyebrow" id="stat-count">—</span>
+  <button class="ghost-btn" id="btn-table" aria-pressed="false">Table</button>
+  <button class="ghost-btn" id="btn-theme">Theme</button>
+</header>
+
+<div class="rail">
+  <div class="field">
+    <span class="eyebrow">Scale</span>
+    <div class="segmented" role="group" aria-label="Time scale">
+      <button id="seg-linear" aria-pressed="false">Linear</button>
+      <button id="seg-log" aria-pressed="true">Logarithmic</button>
+    </div>
+    <input class="blend" id="blend" type="range" min="0" max="1" step="0.01" value="1"
+           aria-label="Blend between linear and logarithmic scale">
+  </div>
+
+  <div class="field" style="flex:1 1 320px; min-width:240px;">
+    <span class="eyebrow">Window</span>
+    <div class="ladder" id="ladder"></div>
+  </div>
+
+  <div class="field">
+    <input class="search" id="search" type="search" placeholder="Find an event…" aria-label="Search events">
+  </div>
+</div>
+
+<div class="rail" style="padding-top:8px; padding-bottom:9px;">
+  <div class="field" style="flex:1 1 auto;">
+    <span class="eyebrow">Layers</span>
+    <div class="legend" id="legend"></div>
+  </div>
+</div>
+
+<main class="stage" id="stage">
+  <canvas id="plot"></canvas>
+
+  <div class="readout" id="readout"></div>
+  <div class="empty-note" id="empty-note">No events match the current filters.</div>
+
+  <div class="tip" id="tip" role="tooltip"></div>
+
+  <aside class="panel" id="panel" data-open="0" aria-label="Event detail">
+    <button class="close" id="panel-close" aria-label="Close detail">&times;</button>
+    <div id="panel-body"></div>
+  </aside>
+
+  <div class="table-wrap" id="table-wrap" data-open="0">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:34%">Event</th>
+          <th style="width:16%">When</th>
+          <th style="width:18%">Layer</th>
+          <th>What it was</th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+  </div>
+</main>
+
+<footer class="footnote">
+  <span><kbd>drag</kbd> pan · <kbd>scroll</kbd> zoom · <kbd>L</kbd> toggle scale · <kbd>0</kbd> reset · <kbd>Esc</kbd> close</span>
+  <span class="spacer" style="flex:1"></span>
+  <span id="foot-note">Dates are scholarly consensus estimates; deep-time and prehistoric figures are approximate by nature.</span>
+</footer>
+
+<script src="data/events.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
