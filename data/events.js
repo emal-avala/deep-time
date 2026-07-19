@@ -1,28 +1,29 @@
 /* Deep Time — event dataset. GENERATED FILE, do not edit by hand.
  * Rebuild with:  node tools/build-dataset.js
  *
- * 562 entries compiled by a research fan-out of 12 domain
- * historians and 4 gap-fillers, then audited chunk-by-chunk and adversarially
- * adjudicated (see data/sources/corrections.json).
+ * 606 entries compiled by a research fan-out of 12 domain
+ * historians and 4 gap-fillers, audited chunk-by-chunk and adversarially
+ * adjudicated (see data/sources/corrections.json), then extended by a sourced
+ * research batch (data/sources/*.events.json); 74 carry a source link.
  *
  * Years are signed: negative = BCE, positive = CE, deep time in years
  * (66 million years ago = -66000000). `end` of 2026 means still ongoing.
- * Prehistoric dates are inherently approximate — see the `confidence` field.
+ * Prehistoric dates are inherently approximate — see the `confidence` field,
+ * and `start_min`/`start_max` where a record carries explicit bounds.
+ *
+ * `future` is a SEPARATE array. Those events postdate 2026, so their
+ * years-before-present is negative and log-scale positioning is undefined for
+ * them; a renderer must opt in and handle them deliberately.
+ *
+ * `t_since_bang` (seconds) is present on pre-recombination events, which all
+ * round to the same age in years and would otherwise stack on one pixel. The
+ * values are order-of-magnitude epoch boundaries for log placement, not
+ * measurements.
  */
 window.HISTORY_DATA = {
-  count: 562,
+  count: 606,
+  futureCount: 10,
   events: [
- {
-  "name": "Cosmic Inflation",
-  "category": "Cosmos & Earth",
-  "start": -13800000000,
-  "end": null,
-  "kind": "moment",
-  "description": "A fraction of a second after the Big Bang, the universe underwent an exponential burst of expansion that smoothed and flattened spacetime.",
-  "significance": "Inflation explains why the observable universe is so uniform and seeded the tiny density variations that later grew into all cosmic structure.",
-  "region": "Universe",
-  "confidence": "debated"
- },
  {
   "name": "The Big Bang",
   "category": "Cosmos & Earth",
@@ -35,37 +36,219 @@ window.HISTORY_DATA = {
   "confidence": "approximate"
  },
  {
-  "name": "Recombination and the Cosmic Microwave Background",
+  "name": "Baryogenesis",
   "category": "Cosmos & Earth",
-  "start": -13799620000,
+  "start": -13797000000,
   "end": null,
   "kind": "moment",
-  "description": "About 380,000 years after the Big Bang the cooling universe let electrons bind to nuclei, releasing the light we now see as the cosmic microwave background.",
-  "significance": "The CMB is the oldest observable light and our sharpest snapshot of the infant universe's composition and geometry.",
+  "description": "A tiny asymmetry — roughly one extra quark per billion quark-antiquark pairs — survived mutual annihilation.",
+  "significance": "Without that one-in-a-billion excess the universe would be pure radiation and no matter would exist at all.",
   "region": "Universe",
-  "confidence": "approximate"
+  "confidence": "debated",
+  "t_since_bang": 1e-11,
+  "dating_method": "theoretical (CP-violation models)",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Baryogenesis"
  },
  {
-  "name": "Birth of the Milky Way",
+  "name": "Big Bang Nucleosynthesis",
   "category": "Cosmos & Earth",
-  "start": -13600000000,
-  "end": -8000000000,
+  "start": -13797000000,
+  "end": null,
+  "kind": "moment",
+  "description": "In the first twenty minutes protons and neutrons fused into roughly 75% hydrogen and 25% helium-4 by mass, plus traces of deuterium, helium-3 and lithium-7.",
+  "significance": "Set the chemical starting composition of everything before a single star existed, and its predicted abundances match observation — a pillar of Big Bang cosmology.",
+  "region": "Universe",
+  "confidence": "exact",
+  "t_since_bang": 180,
+  "dating_method": "theoretical, confirmed by light-element abundances",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Big_Bang_nucleosynthesis"
+ },
+ {
+  "name": "Cosmic Inflation",
+  "category": "Cosmos & Earth",
+  "start": -13797000000,
+  "end": null,
+  "kind": "moment",
+  "description": "Exponential expansion by a factor of at least 10^26 in about 10^-33 seconds, smoothing curvature and stretching quantum fluctuations into the seeds of all later structure.",
+  "significance": "Explains why the microwave background is uniform to one part in 100,000 while still carrying the ripples that became galaxies.",
+  "region": "Universe",
+  "confidence": "approximate",
+  "t_since_bang": 1e-36,
+  "t_since_bang_end": 1e-32,
+  "dating_method": "theoretical, constrained by CMB flatness and horizon scale",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Cosmic_inflation"
+ },
+ {
+  "name": "Electroweak Symmetry Breaking",
+  "category": "Cosmos & Earth",
+  "start": -13797000000,
+  "end": null,
+  "kind": "moment",
+  "description": "Cooling past about 160 GeV, the Higgs field takes a non-zero vacuum value, the W and Z bosons gain mass, and electromagnetism separates from the weak force.",
+  "significance": "The moment fundamental particles acquire mass — the one epoch boundary confirmed directly by collider physics.",
+  "region": "Universe",
+  "confidence": "approximate",
+  "t_since_bang": 1e-12,
+  "dating_method": "theoretical, tested at the LHC",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Electroweak_epoch"
+ },
+ {
+  "name": "Grand Unification Epoch",
+  "category": "Cosmos & Earth",
+  "start": -13797000000,
+  "end": null,
+  "kind": "moment",
+  "description": "Gravity has already separated while the strong and electroweak forces remain unified at roughly 10^27 K.",
+  "significance": "Hosts the phase transition that may have driven both inflation and baryogenesis.",
+  "region": "Universe",
+  "confidence": "debated",
+  "t_since_bang": 1e-38,
+  "t_since_bang_end": 1e-36,
+  "dating_method": "theoretical (GUT models)",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Grand_Unification_epoch"
+ },
+ {
+  "name": "Hadron Epoch",
+  "category": "Cosmos & Earth",
+  "start": -13797000000,
+  "end": null,
+  "kind": "moment",
+  "description": "At about 10^10 K quarks confine into hadrons, forming protons and neutrons, after which most hadron-antihadron pairs annihilate.",
+  "significance": "Produces the nucleons that every atomic nucleus is still made of.",
+  "region": "Universe",
+  "confidence": "approximate",
+  "t_since_bang": 0.000001,
+  "t_since_bang_end": 1,
+  "dating_method": "theoretical (QCD confinement)",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Hadron_epoch"
+ },
+ {
+  "name": "Lepton Epoch",
+  "category": "Cosmos & Earth",
+  "start": -13797000000,
+  "end": null,
+  "kind": "moment",
+  "description": "Leptons dominate the mass-energy budget until most electron-positron pairs annihilate, leaving a small residual excess of electrons.",
+  "significance": "Sets the electron population that will later bind into the first atoms.",
+  "region": "Universe",
+  "confidence": "approximate",
+  "t_since_bang": 3,
+  "t_since_bang_end": 10,
+  "dating_method": "theoretical",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Lepton_epoch"
+ },
+ {
+  "name": "Matter-Radiation Equality",
+  "category": "Cosmos & Earth",
+  "start": -13797000000,
+  "end": null,
+  "kind": "moment",
+  "description": "Around 50,000 years in, the density of matter overtakes that of radiation.",
+  "significance": "The switch that finally lets gravity pull density seeds together, beginning all cosmic structure.",
+  "region": "Universe",
+  "confidence": "approximate",
+  "t_since_bang": 1600000000000,
+  "dating_method": "theoretical (Planck 2018 parameters)",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Matter-dominated_era"
+ },
+ {
+  "name": "Neutrino Decoupling",
+  "category": "Cosmos & Earth",
+  "start": -13797000000,
+  "end": null,
+  "kind": "moment",
+  "description": "About one second in, neutrinos stop interacting with matter and begin to free-stream, forming a cosmic neutrino background far colder than the later CMB.",
+  "significance": "The earliest relic background even in principle detectable, and it fixes the neutron-to-proton ratio going into nucleosynthesis.",
+  "region": "Universe",
+  "confidence": "approximate",
+  "t_since_bang": 1,
+  "dating_method": "theoretical",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Neutrino_decoupling"
+ },
+ {
+  "name": "Planck Epoch",
+  "category": "Cosmos & Earth",
+  "start": -13797000000,
+  "end": null,
+  "kind": "moment",
+  "description": "The first ~10^-43 seconds after the Big Bang, above ~10^32 K, when all four forces were plausibly unified and both general relativity and quantum field theory break down.",
+  "significance": "The boundary of physical knowledge — the t=0 from which every other date is measured.",
+  "region": "Universe",
+  "confidence": "debated",
+  "t_since_bang": 1e-43,
+  "dating_method": "theoretical (quantum-gravity extrapolation)",
+  "note": "No tested physics exists below the Planck scale.",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Planck_epoch"
+ },
+ {
+  "name": "Quark Epoch",
+  "category": "Cosmos & Earth",
+  "start": -13797000000,
+  "end": null,
+  "kind": "moment",
+  "description": "A quark-gluon plasma above 10^12 K, too hot for quarks to bind, with all four forces now in their present form.",
+  "significance": "The raw-material stage of the universe, before protons and neutrons exist.",
+  "region": "Universe",
+  "confidence": "approximate",
+  "t_since_bang": 1e-9,
+  "t_since_bang_end": 0.000001,
+  "dating_method": "theoretical (QCD)",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Quark_epoch"
+ },
+ {
+  "name": "Cosmic Dark Ages",
+  "category": "Cosmos & Earth",
+  "start": -13796622000,
+  "end": -13697000000,
   "kind": "period",
-  "description": "Our galaxy grew from an early halo and thick disk, later assembling its thin disk through gas accretion and mergers such as the Gaia-Enceladus event.",
-  "significance": "The Milky Way is the home galaxy whose chemical enrichment and quiet suburb made the Solar System's formation possible.",
-  "region": "Milky Way",
-  "confidence": "approximate"
+  "description": "A neutral-hydrogen fog with no luminous sources anywhere, between the release of the CMB and the ignition of the first stars.",
+  "significance": "The only stretch of cosmic history with no light in it — and the target of next-generation 21 cm radio astronomy.",
+  "region": "Universe",
+  "confidence": "approximate",
+  "dating_method": "theoretical (21 cm cosmology)",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Chronology_of_the_universe"
+ },
+ {
+  "name": "Recombination and the Cosmic Microwave Background",
+  "category": "Cosmos & Earth",
+  "start": -13796622000,
+  "end": null,
+  "kind": "moment",
+  "description": "At 377,700 years and about 3,000 K, electrons bound to nuclei and the universe became transparent, releasing the photons still seen today as a 2.725 K background uniform to one part in 100,000.",
+  "significance": "The oldest light there is, and the sharpest snapshot of the infant universe — it anchors nearly every cosmological parameter.",
+  "region": "Universe",
+  "confidence": "exact",
+  "t_since_bang": 11900000000000,
+  "dating_method": "CMB analysis (Planck 2018)",
+  "note": "377,700 +/- 3,200 yr after the Big Bang.",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Recombination_(cosmology)"
  },
  {
   "name": "The First Stars and Galaxies (Cosmic Dawn)",
   "category": "Cosmos & Earth",
-  "start": -13500000000,
+  "start": -13697000000,
   "end": -13000000000,
   "kind": "period",
-  "description": "Around 200 to 800 million years after the Big Bang the first massive stars ignited and clustered into the earliest protogalaxies, ending the cosmic dark ages.",
-  "significance": "These first luminous objects reionized the universe and began the assembly of galaxies out of primordial hydrogen and helium.",
+  "description": "Metal-free Population III stars ignite roughly 100 million years after the Big Bang, likely tens to hundreds of solar masses, burning hot and dying fast as supernovae.",
+  "significance": "They end the Dark Ages and forge the first elements heavier than lithium — every atom in you above helium traces back to them.",
   "region": "Universe",
-  "confidence": "approximate"
+  "confidence": "debated",
+  "dating_method": "theoretical, with indirect observational constraints",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Stellar_population"
+ },
+ {
+  "name": "JADES-GS-z14-0, the Earliest Known Galaxy",
+  "category": "Cosmos & Earth",
+  "start": -13507000000,
+  "end": null,
+  "kind": "moment",
+  "description": "The most distant spectroscopically confirmed galaxy, at redshift 14.32, seen about 290 million years after the Big Bang, roughly 1,600 light-years across and already enriched with oxygen.",
+  "significance": "Galaxies assembled far faster than pre-JWST models allowed, forcing a rethink of early structure formation.",
+  "region": "Universe",
+  "confidence": "approximate",
+  "dating_method": "JWST NIRSpec spectroscopy",
+  "note": "Carniani et al. 2024, Nature 633:318-322; a 2025 ALMA carbon-line measurement refined the redshift to 14.178 +/- 0.013.",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/JADES-GS-z14-0"
  },
  {
   "name": "Stellar Nucleosynthesis of the Heavy Elements",
@@ -79,6 +262,20 @@ window.HISTORY_DATA = {
   "confidence": "approximate"
  },
  {
+  "name": "Birth of the Milky Way",
+  "category": "Cosmos & Earth",
+  "start": -13000000000,
+  "end": -8000000000,
+  "kind": "period",
+  "description": "The Galaxy's thick disk began forming about 13 billion years ago, roughly 800 million years after the Big Bang, with the Gaia-Enceladus merger some 10 billion years ago adding stars and heating the disk.",
+  "significance": "Assembles the galaxy that will eventually host the Sun, and about two billion years earlier than expected.",
+  "region": "Milky Way",
+  "confidence": "approximate",
+  "dating_method": "asteroseismology and spectroscopy of ~250,000 stars",
+  "note": "Xiang & Rix 2022, Nature, from Gaia EDR3 and LAMOST.",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Milky_Way"
+ },
+ {
   "name": "Formation of the Milky Way",
   "category": "Cosmos & Earth",
   "start": -13000000000,
@@ -90,6 +287,20 @@ window.HISTORY_DATA = {
   "confidence": "approximate"
  },
  {
+  "name": "End of Reionization",
+  "category": "Cosmos & Earth",
+  "start": -12700000000,
+  "end": null,
+  "kind": "moment",
+  "description": "Ultraviolet light from the first stars and galaxies finished re-ionizing intergalactic hydrogen by redshift 5.3, about 1.1 billion years after the Big Bang.",
+  "significance": "Makes the universe transparent to ultraviolet light and marks the transition into the modern galaxy era.",
+  "region": "Universe",
+  "confidence": "approximate",
+  "dating_method": "quasar Lyman-alpha optical depth",
+  "note": "Bosman et al. 2022, MNRAS, from 67 quasars in the XQR-30 sample.",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Reionization"
+ },
+ {
   "name": "Formation of the Solar Nebula and Planetary Accretion",
   "category": "Cosmos & Earth",
   "start": -4600000000,
@@ -97,17 +308,6 @@ window.HISTORY_DATA = {
   "kind": "period",
   "description": "A collapsing cloud of gas and dust formed the Sun and a disk in which dust grains accreted into planetesimals and then the planets, including Earth.",
   "significance": "This event sets the zero point of Solar System and Earth history, dated precisely by the oldest meteorites.",
-  "region": "Solar System",
-  "confidence": "approximate"
- },
- {
-  "name": "Formation of the Sun and Solar System",
-  "category": "Cosmos & Earth",
-  "start": -4600000000,
-  "end": null,
-  "kind": "moment",
-  "description": "A collapsing molecular cloud formed the Sun surrounded by a disk from which planets accreted.",
-  "significance": "It marks the local starting line for planetary and eventually biological history.",
   "region": "Solar System",
   "confidence": "approximate"
  },
@@ -123,15 +323,45 @@ window.HISTORY_DATA = {
   "confidence": "approximate"
  },
  {
+  "name": "Formation of the Sun and Solar System",
+  "category": "Cosmos & Earth",
+  "start": -4567000000,
+  "end": null,
+  "kind": "moment",
+  "description": "A fragment of molecular cloud collapsed into the Sun and its protoplanetary disk; calcium-aluminium-rich inclusions in meteorites, the oldest solids known, date to 4.567 billion years.",
+  "significance": "The birth of the Sun, the planets, and every atom of Earth's raw material — and the zero point of Solar System chronology.",
+  "region": "Solar System",
+  "confidence": "exact",
+  "dating_method": "radiometric (Pb-Pb on CAIs)",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Formation_and_evolution_of_the_Solar_System"
+ },
+ {
   "name": "Moon-Forming Giant Impact",
   "category": "Cosmos & Earth",
   "start": -4510000000,
   "end": null,
   "kind": "moment",
-  "description": "A Mars-sized body, Theia, struck the proto-Earth and the ejected debris coalesced into the Moon.",
-  "significance": "It set Earth's spin and axial tilt and gave the planet tides and seasons that shaped later life.",
+  "description": "A Mars-sized body, Theia, struck the proto-Earth; the ejected debris coalesced into the Moon within about 100 million years of the Solar System's formation, leaving Earth with a magma ocean.",
+  "significance": "Stabilized Earth's axial tilt and drove the tides — both plausibly preconditions for a habitable, life-bearing planet.",
   "region": "Earth",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "dating_method": "radiometric dating of lunar samples",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Giant-impact_hypothesis"
+ },
+ {
+  "name": "Jack Hills Zircons and the First Crust",
+  "category": "Cosmos & Earth",
+  "start": -4404000000,
+  "end": null,
+  "kind": "moment",
+  "description": "Detrital zircon crystals from Jack Hills in Western Australia date to 4.404 billion years, carrying oxygen-isotope evidence of continental crust and probably liquid water.",
+  "significance": "Pushes the first stable crust and oceans to within 160 million years of Earth's formation, making the Hadean far less hellish than its name suggests.",
+  "region": "Western Australia",
+  "confidence": "exact",
+  "start_min": -4412000000,
+  "start_max": -4396000000,
+  "dating_method": "U-Pb on detrital zircon",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Jack_Hills"
  },
  {
   "name": "First Oceans and Liquid Water",
@@ -156,6 +386,22 @@ window.HISTORY_DATA = {
   "confidence": "debated"
  },
  {
+  "name": "LUCA and the origin of the genetic code",
+  "category": "Life & Extinctions",
+  "start": -4200000000,
+  "end": null,
+  "kind": "moment",
+  "description": "The last universal common ancestor of all cellular life, revised in 2024 to about 4.2 billion years ago, already a complex anaerobic acetogen with a genome of at least 2.5 megabases encoding some 2,600 proteins and living within an ecosystem.",
+  "significance": "Moving LUCA from ~3.8 to ~4.2 Ga leaves only 100 to 200 million years after the Moon-forming impact for life to arise at all.",
+  "region": "Global",
+  "confidence": "debated",
+  "start_min": -4330000000,
+  "start_max": -4090000000,
+  "dating_method": "molecular clock (Moody et al. 2024)",
+  "note": "Moody et al. 2024, Nature Ecology & Evolution 8:1654-1666. Revises earlier ~3.5-3.8 Ga estimates.",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Last_universal_common_ancestor"
+ },
+ {
   "name": "Late Heavy Bombardment",
   "category": "Cosmos & Earth",
   "start": -4100000000,
@@ -163,7 +409,7 @@ window.HISTORY_DATA = {
   "kind": "period",
   "description": "A proposed spike in asteroid and comet impacts battered the inner planets, cratering the Moon and resurfacing the young Earth.",
   "significance": "The bombardment shaped early planetary surfaces and may have both threatened and delivered ingredients for nascent life.",
-  "region": "Solar System",
+  "region": "Inner Solar System",
   "confidence": "debated"
  },
  {
@@ -178,17 +424,6 @@ window.HISTORY_DATA = {
   "confidence": "approximate"
  },
  {
-  "name": "LUCA and the origin of the genetic code",
-  "category": "Life & Extinctions",
-  "start": -4000000000,
-  "end": null,
-  "kind": "moment",
-  "description": "The last universal common ancestor, a cellular population already using DNA, RNA, ribosomes and a near-universal genetic code, lived on the early Earth.",
-  "significance": "Every living thing descends from this single lineage, making the shared genetic code the deepest evidence that all life is one family.",
-  "region": "Early Earth (global)",
-  "confidence": "debated"
- },
- {
   "name": "Origin of Life (First Life)",
   "category": "Life & Extinctions",
   "start": -3700000000,
@@ -196,7 +431,7 @@ window.HISTORY_DATA = {
   "kind": "moment",
   "description": "The earliest life on Earth appears as simple single-celled prokaryotes, evidenced by chemical signatures and stromatolite traces in ancient rocks.",
   "significance": "Marks the transition from chemistry to biology, seeding all subsequent life from a common ancestral lineage.",
-  "region": "Earth",
+  "region": "Global (early oceans)",
   "confidence": "debated"
  },
  {
@@ -247,12 +482,14 @@ window.HISTORY_DATA = {
   "name": "Oxygenic Photosynthesis Evolves",
   "category": "Life & Extinctions",
   "start": -3000000000,
-  "end": null,
-  "kind": "moment",
-  "description": "Cyanobacteria evolve the ability to split water using sunlight, releasing oxygen as a waste product.",
-  "significance": "Set the stage for planetary transformation, converting Earth's atmosphere and energizing complex life.",
-  "region": "Global (oceans)",
-  "confidence": "debated"
+  "end": -2500000000,
+  "kind": "period",
+  "description": "Cyanobacteria evolved the water-splitting photosynthesis that releases free oxygen as a waste product.",
+  "significance": "The single metabolic innovation that would go on to oxygenate an entire planet and make animal life possible.",
+  "region": "Global",
+  "confidence": "debated",
+  "dating_method": "biomarkers and isotopic proxies",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Evolutionary_history_of_photosynthesis"
  },
  {
   "name": "Oxygenic photosynthesis and the Great Oxidation Event",
@@ -278,23 +515,25 @@ window.HISTORY_DATA = {
  },
  {
   "name": "Great Oxidation Event",
+  "category": "Cosmos & Earth",
+  "start": -2430000000,
+  "end": -2060000000,
+  "kind": "period",
+  "description": "Oxygen from cyanobacterial photosynthesis accumulated in the atmosphere for the first time, collapsing atmospheric methane and probably triggering the Huronian glaciation.",
+  "significance": "Poisoned most of the existing biosphere while making aerobic metabolism — and therefore all complex life — possible.",
+  "region": "Global",
+  "confidence": "approximate",
+  "dating_method": "mass-independent sulfur isotope fractionation",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Great_Oxidation_Event"
+ },
+ {
+  "name": "Great Oxidation Event",
   "category": "Life & Extinctions",
   "start": -2400000000,
   "end": -2000000000,
   "kind": "period",
   "description": "Accumulating oxygen from cyanobacteria permanently oxygenated Earth's atmosphere and oceans.",
   "significance": "Earth's first mass extinction, of anaerobic life, showing how organisms can drastically remake their own planet.",
-  "region": "Global",
-  "confidence": "approximate"
- },
- {
-  "name": "Great Oxidation Event",
-  "category": "Cosmos & Earth",
-  "start": -2400000000,
-  "end": -2050000000,
-  "kind": "period",
-  "description": "Oxygen produced by cyanobacteria accumulated permanently in the atmosphere for the first time, transforming Earth's surface chemistry.",
-  "significance": "This first breath of oxygen drove a mass extinction of anaerobes yet paved the way for complex, energy-hungry life.",
   "region": "Global",
   "confidence": "approximate"
  },
@@ -310,17 +549,6 @@ window.HISTORY_DATA = {
   "confidence": "approximate"
  },
  {
-  "name": "Eukaryotes and the origin of mitochondria",
-  "category": "Life & Extinctions",
-  "start": -1850000000,
-  "end": null,
-  "kind": "moment",
-  "description": "An archaeal host cell engulfs a bacterium that becomes the mitochondrion, founding the complex eukaryotic cell.",
-  "significance": "This single endosymbiotic merger supplied the energy budget that all animals, plants, fungi and protists would later depend on.",
-  "region": "Global",
-  "confidence": "debated"
- },
- {
   "name": "Columbia (Nuna) Supercontinent",
   "category": "Cosmos & Earth",
   "start": -1800000000,
@@ -330,6 +558,21 @@ window.HISTORY_DATA = {
   "significance": "Columbia marks the beginning of the recognizable supercontinent cycle that has since reshaped continents and climate repeatedly.",
   "region": "Earth",
   "confidence": "debated"
+ },
+ {
+  "name": "Eukaryotes and the origin of mitochondria",
+  "category": "Life & Extinctions",
+  "start": -1800000000,
+  "end": null,
+  "kind": "moment",
+  "description": "An archaeal host engulfed a bacterium that became the mitochondrion, producing the eukaryotic cell with its internal membranes and, in one lineage, plastids.",
+  "significance": "A single endosymbiosis that appears to have happened once, and without which no complex multicellular life exists.",
+  "region": "Global",
+  "confidence": "debated",
+  "start_min": -2000000000,
+  "start_max": -1600000000,
+  "dating_method": "fossil record and molecular clock",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Eukaryote"
  },
  {
   "name": "First Eukaryotic Cells",
@@ -361,7 +604,7 @@ window.HISTORY_DATA = {
   "kind": "period",
   "description": "The supercontinent Rodinia assembled near the equator and then fragmented, opening new ocean basins in the late Precambrian.",
   "significance": "Rodinia's breakup is linked to weathering surges and the runaway cooling that triggered the Snowball Earth glaciations.",
-  "region": "Global",
+  "region": "Earth",
   "confidence": "approximate"
  },
  {
@@ -387,15 +630,28 @@ window.HISTORY_DATA = {
   "confidence": "debated"
  },
  {
-  "name": "Snowball Earth (Cryogenian Glaciations)",
+  "name": "Cryogenian Snowball Earth",
   "category": "Cosmos & Earth",
   "start": -720000000,
   "end": -635000000,
   "kind": "period",
-  "description": "During the Sturtian and Marinoan glaciations ice sheets may have reached the equator, encasing much of the planet in ice.",
-  "significance": "These extreme climate swings tested life to its limits and immediately preceded the rise of complex multicellular organisms.",
+  "description": "Extreme global glaciations covered much of Earth in ice during the Cryogenian period.",
+  "significance": "Severe climate stress immediately preceded, and may have triggered, the rise of complex animal life.",
   "region": "Global",
   "confidence": "approximate"
+ },
+ {
+  "name": "Snowball Earth (Cryogenian Glaciations)",
+  "category": "Cosmos & Earth",
+  "start": -717000000,
+  "end": -660000000,
+  "kind": "period",
+  "description": "The Sturtian glaciation, longest of the Neoproterozoic snowball episodes, began about 717 million years ago alongside the Franklin large igneous province, with ice possibly reaching the equator.",
+  "significance": "Extreme, planet-wide climate stress immediately preceding the rise of complex animal life.",
+  "region": "Global",
+  "confidence": "approximate",
+  "dating_method": "radiometric (U-Pb)",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Sturtian_glaciation"
  },
  {
   "name": "Ediacaran biota",
@@ -414,10 +670,12 @@ window.HISTORY_DATA = {
   "start": -571000000,
   "end": -539000000,
   "kind": "period",
-  "description": "The first large, soft-bodied multicellular organisms flourished on the seafloor.",
-  "significance": "Earth's earliest complex animal ecosystems, a prelude to the explosion of animal diversity.",
-  "region": "Global (oceans)",
-  "confidence": "approximate"
+  "description": "The first large soft-bodied multicellular organisms — Dickinsonia, Charnia and their kin — most of them unlike anything alive today.",
+  "significance": "The dress rehearsal for animal life, and a reminder that complex bodies were tried more than once.",
+  "region": "Global",
+  "confidence": "approximate",
+  "dating_method": "radiometric dating and stratigraphy",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Ediacaran_biota"
  },
  {
   "name": "Cambrian explosion",
@@ -425,10 +683,12 @@ window.HISTORY_DATA = {
   "start": -538800000,
   "end": -513000000,
   "kind": "period",
-  "description": "Nearly all modern animal phyla, including arthropods, chordates, molluscs and echinoderms, appear in a burst of rapid diversification with hard parts and eyes.",
-  "significance": "This rapid assembly of body plans set the fundamental architecture of animal life that still governs the biosphere today.",
-  "region": "Global (oceans)",
-  "confidence": "approximate"
+  "description": "Over 13 to 25 million years nearly every modern animal phylum appears in the fossil record, including the first chordates, preserved at Chengjiang and the Burgess Shale.",
+  "significance": "Established the animal body plans still in use today — the base date itself moved from 542 to 541 to 538.8 Ma as dating improved.",
+  "region": "Global",
+  "confidence": "exact",
+  "dating_method": "radiometric (U-Pb on volcanic ash)",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Cambrian_explosion"
  },
  {
   "name": "Paleozoic Era",
@@ -472,7 +732,9 @@ window.HISTORY_DATA = {
   "description": "The first small, moss-like land plants and their spores appear, greening the continents for the first time.",
   "significance": "Land plants created soils, drew down carbon dioxide and built the terrestrial habitats every land animal would later invade.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "dating_method": "spore microfossils",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Evolutionary_history_of_plants"
  },
  {
   "name": "Plants Colonize Land",
@@ -486,6 +748,17 @@ window.HISTORY_DATA = {
   "confidence": "approximate"
  },
  {
+  "name": "Late Ordovician Mass Extinction",
+  "category": "Life & Extinctions",
+  "start": -445000000,
+  "end": null,
+  "kind": "moment",
+  "description": "The first of the Big Five extinctions wiped out roughly 85% of species amid rapid glaciation and sea-level fall.",
+  "significance": "Reveals how abrupt climate swings alone, without any impact, can devastate global biodiversity.",
+  "region": "Global (oceans)",
+  "confidence": "approximate"
+ },
+ {
   "name": "Ordovician-Silurian mass extinction",
   "category": "Life & Extinctions",
   "start": -444000000,
@@ -493,8 +766,10 @@ window.HISTORY_DATA = {
   "kind": "moment",
   "description": "Rapid glaciation and sea-level fall wipe out roughly 85 percent of marine species in the first of the Big Five extinctions.",
   "significance": "It shows that even without land life, climate swings could devastate the biosphere, a recurring pattern in Earth's history.",
-  "region": "Global (oceans)",
-  "confidence": "approximate"
+  "region": "Global",
+  "confidence": "approximate",
+  "dating_method": "stratigraphy",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Late_Ordovician_mass_extinction"
  },
  {
   "name": "First jawed vertebrates",
@@ -552,6 +827,19 @@ window.HISTORY_DATA = {
   "confidence": "approximate"
  },
  {
+  "name": "Tiktaalik and the Fish-to-Tetrapod Transition",
+  "category": "Life & Extinctions",
+  "start": -375000000,
+  "end": null,
+  "kind": "moment",
+  "description": "Tiktaalik and its relatives Acanthostega and Ichthyostega bridge fish and tetrapods, with limb-like fins, wrists and a mobile neck.",
+  "significance": "Vertebrates move onto land — the transition every amphibian, reptile, bird and mammal descends from.",
+  "region": "Arctic Canada",
+  "confidence": "approximate",
+  "dating_method": "stratigraphy",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Tiktaalik"
+ },
+ {
   "name": "Vertebrates move onto land",
   "category": "Life & Extinctions",
   "start": -375000000,
@@ -559,7 +847,7 @@ window.HISTORY_DATA = {
   "kind": "moment",
   "description": "Lobe-finned fish such as Tiktaalik and early tetrapods evolve weight-bearing limbs and begin crawling into shallows and onto shores.",
   "significance": "This transition founded the tetrapod lineage and ultimately every amphibian, reptile, bird and mammal, including humans.",
-  "region": "Global",
+  "region": "Laurussia (Arctic Canada, Greenland)",
   "confidence": "approximate"
  },
  {
@@ -567,11 +855,13 @@ window.HISTORY_DATA = {
   "category": "Life & Extinctions",
   "start": -372000000,
   "end": -359000000,
-  "kind": "moment",
-  "description": "A prolonged series of pulses, likely driven by ocean anoxia and cooling, destroys reef ecosystems and much of marine life.",
-  "significance": "Reef-building organisms collapsed so thoroughly that complex reefs took over a hundred million years to fully recover.",
-  "region": "Global (oceans)",
-  "confidence": "approximate"
+  "kind": "period",
+  "description": "A prolonged series of extinction pulses, peaking around 374 and 359 million years ago, killed roughly 75% of species and hit reef ecosystems hardest.",
+  "significance": "Reshaped early vertebrate life and destroyed the reef systems, which took 100 million years to recover.",
+  "region": "Global",
+  "confidence": "approximate",
+  "dating_method": "stratigraphy",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Late_Devonian_extinction"
  },
  {
   "name": "Assembly and Breakup of Pangaea",
@@ -629,6 +919,17 @@ window.HISTORY_DATA = {
   "confidence": "exact"
  },
  {
+  "name": "Permian-Triassic Extinction (The Great Dying)",
+  "category": "Life & Extinctions",
+  "start": -252000000,
+  "end": null,
+  "kind": "moment",
+  "description": "The largest mass extinction in Earth's history killed roughly 90% of marine species, likely driven by Siberian Traps volcanism.",
+  "significance": "The most catastrophic collapse of life ever recorded, resetting evolution and clearing the way for dinosaurs.",
+  "region": "Global",
+  "confidence": "approximate"
+ },
+ {
   "name": "Siberian Traps Volcanism",
   "category": "Cosmos & Earth",
   "start": -252000000,
@@ -637,7 +938,9 @@ window.HISTORY_DATA = {
   "description": "One of the largest volcanic eruptions in Earth's history flooded Siberia with lava and released vast volumes of carbon dioxide and sulfur.",
   "significance": "The Siberian Traps are the leading cause of the end-Permian extinction, the most severe biodiversity crisis in Earth's history.",
   "region": "Siberia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "dating_method": "radiometric (U-Pb)",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Siberian_Traps"
  },
  {
   "name": "Triassic Period",
@@ -667,10 +970,12 @@ window.HISTORY_DATA = {
   "start": -251900000,
   "end": null,
   "kind": "moment",
-  "description": "Massive Siberian volcanism triggers runaway warming and ocean anoxia, killing about 90 percent of marine species in the Great Dying.",
-  "significance": "The most severe extinction in Earth's history, it reset the biosphere and shows how greenhouse gas release can nearly sterilise the oceans.",
+  "description": "The worst extinction in Earth's history removed about 96% of marine species and 70% of terrestrial vertebrate species in roughly 60,000 years, driven by the Siberian Traps.",
+  "significance": "Life came closer to ending here than at any other moment — and the recovery cleared the way for archosaurs and dinosaurs.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "exact",
+  "dating_method": "radiometric (U-Pb)",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Permian%E2%80%93Triassic_extinction_event"
  },
  {
   "name": "First Dinosaurs",
@@ -702,7 +1007,7 @@ window.HISTORY_DATA = {
   "kind": "moment",
   "description": "Tiny, shrew-like mammaliaforms such as Morganucodon evolve from cynodont ancestors in the shadow of the dinosaurs.",
   "significance": "These small nocturnal insectivores founded the lineage that, after the dinosaurs fell, would produce whales, bats, primates and humans.",
-  "region": "Global (Pangaea)",
+  "region": "Global",
   "confidence": "approximate"
  },
  {
@@ -717,6 +1022,17 @@ window.HISTORY_DATA = {
   "confidence": "exact"
  },
  {
+  "name": "Triassic-Jurassic Extinction",
+  "category": "Life & Extinctions",
+  "start": -201400000,
+  "end": null,
+  "kind": "moment",
+  "description": "The fourth of the Big Five eliminated many large amphibians and crurotarsan reptiles amid massive volcanism.",
+  "significance": "Removed dinosaurs' chief competitors, enabling their rise to total terrestrial dominance.",
+  "region": "Global",
+  "confidence": "approximate"
+ },
+ {
   "name": "Triassic-Jurassic mass extinction",
   "category": "Life & Extinctions",
   "start": -201300000,
@@ -725,7 +1041,9 @@ window.HISTORY_DATA = {
   "description": "Volcanism from the opening Atlantic rift causes climate upheaval that eliminates many large amphibians and archosaur competitors.",
   "significance": "By clearing rivals, this extinction opened the way for dinosaurs to become the undisputed rulers of the Jurassic world.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "dating_method": "radiometric",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Triassic%E2%80%93Jurassic_extinction_event"
  },
  {
   "name": "Atlantic Ocean Opens",
@@ -843,10 +1161,12 @@ window.HISTORY_DATA = {
   "start": -66000000,
   "end": null,
   "kind": "moment",
-  "description": "A roughly ten-kilometer asteroid struck the Yucatan Peninsula, throwing debris worldwide and plunging Earth into darkness.",
-  "significance": "The impact triggered the mass extinction that ended the non-avian dinosaurs and cleared the way for the age of mammals.",
+  "description": "An asteroid 10 to 15 kilometres across struck the Yucatan at about 20 kilometres per second, leaving a crater over 150 kilometres wide and a global iridium layer.",
+  "significance": "Ended the Mesozoic in an afternoon and opened every niche the mammals would go on to fill.",
   "region": "Yucatan, Mexico",
-  "confidence": "exact"
+  "confidence": "exact",
+  "dating_method": "radiometric dating and the global iridium anomaly",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Chicxulub_crater"
  },
  {
   "name": "Chicxulub Impact and End-Cretaceous Extinction",
@@ -868,7 +1188,9 @@ window.HISTORY_DATA = {
   "description": "A massive asteroid impact at Chicxulub, amid Deccan volcanism, wipes out the non-avian dinosaurs and about three-quarters of species.",
   "significance": "The most famous extinction shows how a single cosmic accident can redirect the entire course of life, clearing the stage for mammals.",
   "region": "Global (impact in Mexico)",
-  "confidence": "exact"
+  "confidence": "exact",
+  "dating_method": "iridium anomaly and radiometric dating",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Cretaceous%E2%80%93Paleogene_extinction_event"
  },
  {
   "name": "First Primates",
@@ -890,7 +1212,9 @@ window.HISTORY_DATA = {
   "description": "The earliest primates emerge from the mammalian radiation, with true euprimates diversifying by the warm Paleocene-Eocene boundary.",
   "significance": "This lineage of tree-dwelling, grasping, large-eyed mammals would ultimately lead to monkeys, apes and humans.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "dating_method": "fossil record and molecular clock",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Primate"
  },
  {
   "name": "Post-extinction mammalian radiation",
@@ -913,6 +1237,19 @@ window.HISTORY_DATA = {
   "significance": "A textbook case of adaptive radiation after catastrophe, launching the age of mammals.",
   "region": "Global",
   "confidence": "approximate"
+ },
+ {
+  "name": "Paleocene-Eocene Thermal Maximum",
+  "category": "Cosmos & Earth",
+  "start": -56000000,
+  "end": null,
+  "kind": "moment",
+  "description": "A massive release of carbon warmed the planet by 5 to 8 degrees Celsius within a few thousand years and acidified the oceans.",
+  "significance": "The closest natural analogue to modern carbon-driven warming, and the best deep-time test of what rapid CO2 release actually does.",
+  "region": "Global",
+  "confidence": "approximate",
+  "dating_method": "carbon isotope excursion in marine sediments",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Paleocene%E2%80%93Eocene_Thermal_Maximum"
  },
  {
   "name": "Uplift of the Himalaya and Tibetan Plateau",
@@ -986,10 +1323,14 @@ window.HISTORY_DATA = {
   "start": -7000000,
   "end": null,
   "kind": "moment",
-  "description": "The evolutionary divergence of the human lineage (hominins) from the lineage leading to chimpanzees and bonobos.",
-  "significance": "It marks the root of the human family tree and the starting point of all subsequent hominin evolution.",
+  "description": "The lineages leading to humans and to chimpanzees diverge, with Sahelanthropus tchadensis a candidate close to the branching point.",
+  "significance": "The start of the human lineage — everything on this timeline in the Human Origins lane descends from here.",
   "region": "Africa",
-  "confidence": "debated"
+  "confidence": "debated",
+  "start_min": -8000000,
+  "start_max": -6000000,
+  "dating_method": "molecular clock",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Chimpanzee%E2%80%93human_last_common_ancestor"
  },
  {
   "name": "Human-chimpanzee divergence",
@@ -1096,10 +1437,12 @@ window.HISTORY_DATA = {
   "start": -3200000,
   "end": null,
   "kind": "moment",
-  "description": "A small-brained but fully bipedal australopithecine known from the famous partial skeleton nicknamed Lucy.",
-  "significance": "It demonstrated that upright walking preceded brain expansion, a key turning point in the human story.",
-  "region": "Ethiopia, East Africa",
-  "confidence": "exact"
+  "description": "A skeleton about 40% complete showing habitual upright walking combined with a brain no larger than a chimpanzee's; the Laetoli footprints at 3.66 million years confirm the gait.",
+  "significance": "Settles the order of events — we stood up long before we grew large brains.",
+  "region": "Ethiopia",
+  "confidence": "exact",
+  "dating_method": "radiometric (Ar-Ar)",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Lucy_(Australopithecus)"
  },
  {
   "name": "Milankovitch Cycles and the Quaternary Ice Ages",
@@ -1142,6 +1485,17 @@ window.HISTORY_DATA = {
   "kind": "age",
   "description": "The Pleistocene epoch was dominated by repeated ice ages and warm interglacials paced by cyclic changes in Earth's orbit.",
   "significance": "These swings in climate and sea level repeatedly opened and closed migration routes, driving human evolution and dispersal.",
+  "region": "Global",
+  "confidence": "exact"
+ },
+ {
+  "name": "Quaternary Ice Ages",
+  "category": "Cosmos & Earth",
+  "start": -2580000,
+  "end": 2026,
+  "kind": "age",
+  "description": "Cyclical glacial and interglacial periods driven by orbital variations, with the Holocene as the current warm phase.",
+  "significance": "Repeated climate whiplash shaped human evolution, migration and ultimately agriculture.",
   "region": "Global",
   "confidence": "exact"
  },
@@ -1338,10 +1692,15 @@ window.HISTORY_DATA = {
   "start": -315000,
   "end": null,
   "kind": "moment",
-  "description": "Fossils from Jebel Irhoud in Morocco, dated to about 315,000 years ago, are the earliest known remains attributed to Homo sapiens.",
-  "significance": "They push the origin of our species back over 100,000 years and suggest it emerged across Africa rather than in a single region.",
-  "region": "North Africa",
-  "confidence": "approximate"
+  "description": "The oldest known Homo sapiens fossils, with recognisably modern faces but elongated braincases, dated by thermoluminescence on fire-heated flints to 315,000 years.",
+  "significance": "Pushed our species' origin back roughly 100,000 years and away from a single East African cradle toward a pan-African one.",
+  "region": "Morocco",
+  "confidence": "approximate",
+  "start_min": -349000,
+  "start_max": -281000,
+  "dating_method": "thermoluminescence on heated flint",
+  "note": "Supported by a 286 +/- 32 ka U-series/ESR tooth date.",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Jebel_Irhoud"
  },
  {
   "name": "Anatomically Modern Homo sapiens",
@@ -1459,10 +1818,27 @@ window.HISTORY_DATA = {
   "start": -74000,
   "end": null,
   "kind": "moment",
-  "description": "The Toba volcano on Sumatra erupted about 74,000 years ago in one of the largest eruptions of the Quaternary, ejecting enormous volumes of ash.",
-  "significance": "It is a test case for how far a single natural catastrophe shaped human populations, with debate over whether it caused a genetic bottleneck.",
-  "region": "Sumatra, Southeast Asia",
-  "confidence": "approximate"
+  "description": "The largest eruption of the Quaternary ejected some 2,800 cubic kilometres of material and about 535 teragrams of stratospheric sulfate — roughly twenty times Pinatubo — possibly causing a multi-year volcanic winter.",
+  "significance": "A candidate near-extinction event for early humans, though the population-bottleneck link is now heavily contested.",
+  "region": "Sumatra",
+  "confidence": "approximate",
+  "dating_method": "tephrochronology and ice cores",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Youngest_Toba_eruption"
+ },
+ {
+  "name": "Blombos Cave Engravings and Shell Beads",
+  "category": "Culture & Art",
+  "start": -71000,
+  "end": null,
+  "kind": "moment",
+  "description": "Cross-hatched engravings on ochre and deliberately pierced shell beads from a cave on the South African coast.",
+  "significance": "Among the earliest unambiguous evidence of symbolic thought — abstraction and ornament long before cave painting.",
+  "region": "South Africa",
+  "confidence": "approximate",
+  "start_min": -98000,
+  "start_max": -68000,
+  "dating_method": "optically stimulated luminescence and stratigraphy",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Blombos_Cave"
  },
  {
   "name": "Out of Africa dispersal of modern humans",
@@ -1511,13 +1887,16 @@ window.HISTORY_DATA = {
  {
   "name": "Peopling of Sahul (Australia and New Guinea)",
   "category": "Human Origins",
-  "start": -65000,
-  "end": -50000,
+  "start": -63000,
+  "end": -48000,
   "kind": "period",
-  "description": "Modern humans reached the ancient continent of Sahul, with the Madjedbebe site in northern Australia dated to around 65,000 years ago.",
-  "significance": "Reaching Australia required deliberate sea crossings, the earliest firm evidence of watercraft use and open-water navigation.",
-  "region": "Australia and New Guinea",
-  "confidence": "debated"
+  "description": "Occupation at Madjedbebe rock shelter dates to about 65,000 years ago on optically stimulated luminescence, though a 2025 genetic study argues for arrival no earlier than 50,000 and most other sites cluster between 43,000 and 54,000.",
+  "significance": "The earliest known deliberate open-water migration — people crossed to a continent they could not see.",
+  "region": "Australia",
+  "confidence": "debated",
+  "dating_method": "optically stimulated luminescence",
+  "note": "Clarkson et al. 2017, Nature. The ~65 ka date remains actively contested.",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Madjedbebe"
  },
  {
   "name": "Bow and Arrow",
@@ -1575,17 +1954,6 @@ window.HISTORY_DATA = {
   "confidence": "debated"
  },
  {
-  "name": "Neanderthal admixture with modern humans",
-  "category": "Human Origins",
-  "start": -50000,
-  "end": -47000,
-  "kind": "period",
-  "description": "As modern humans moved into Eurasia they interbred with Neanderthals, with recent genome studies dating the main gene flow to around 47,000 years ago.",
-  "significance": "It left roughly 1 to 2 percent Neanderthal DNA in living non-Africans, showing our species absorbed rather than merely replaced its relatives.",
-  "region": "West and Central Eurasia",
-  "confidence": "debated"
- },
- {
   "name": "The proposed sixth mass extinction",
   "category": "Life & Extinctions",
   "start": -50000,
@@ -1617,6 +1985,20 @@ window.HISTORY_DATA = {
   "significance": "It shows that symbolic storytelling through images arose very early in Homo sapiens and outside Europe, overturning Eurocentric accounts of art's origins.",
   "region": "Sulawesi, Indonesia",
   "confidence": "debated"
+ },
+ {
+  "name": "Neanderthal admixture with modern humans",
+  "category": "Human Origins",
+  "start": -48500,
+  "end": -41500,
+  "kind": "period",
+  "description": "Gene flow began about 50,500 years ago and lasted some 7,000 years, leaving 1 to 2% Neanderthal ancestry in everyone outside Africa; Denisovan admixture separately contributed 3 to 5% in Papuan and Melanesian populations.",
+  "significance": "A recent and unusually precise fix on a defining event — our species did not simply replace its relatives, it absorbed them.",
+  "region": "Eurasia",
+  "confidence": "approximate",
+  "dating_method": "ancient genomics (58 ancient and 275 modern genomes)",
+  "note": "Iasi et al., Science, 13 December 2024.",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Interbreeding_between_archaic_and_modern_humans"
  },
  {
   "name": "Earliest figurative cave art (Sulawesi)",
@@ -1657,10 +2039,13 @@ window.HISTORY_DATA = {
   "start": -40000,
   "end": null,
   "kind": "moment",
-  "description": "The disappearance of the last Neanderthal populations, leaving Homo sapiens as the sole surviving human species.",
-  "significance": "It ended hundreds of thousands of years of human diversity, a pattern of convergence toward a single lineage.",
-  "region": "Europe",
-  "confidence": "approximate"
+  "description": "Improved radiocarbon dating across 40 sites places the disappearance of Neanderthals at about 40,000 years ago, after an overlap with modern humans of roughly 2,600 to 5,400 years.",
+  "significance": "The extinction of our closest relatives, and the point at which Homo sapiens became the only surviving human species.",
+  "region": "Europe and West Asia",
+  "confidence": "approximate",
+  "dating_method": "AMS radiocarbon with ultrafiltration",
+  "note": "Higham et al. 2014, Nature.",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Neanderthal_extinction"
  },
  {
   "name": "Venus figurines",
@@ -1690,10 +2075,12 @@ window.HISTORY_DATA = {
   "start": -36000,
   "end": null,
   "kind": "moment",
-  "description": "Some of the oldest known figurative cave art, depicting animals with striking sophistication.",
-  "significance": "It shows that artistic mastery was present near the very start of European cave art, not a gradual crescendo.",
-  "region": "France, Western Europe",
-  "confidence": "approximate"
+  "description": "Sophisticated figurative paintings of lions, rhinos and horses, using shading and perspective, sealed in a French cave for 30,000 years.",
+  "significance": "Paleolithic art arrives already accomplished — there is no clumsy apprentice phase in the record.",
+  "region": "France",
+  "confidence": "approximate",
+  "dating_method": "radiocarbon",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Chauvet_Cave"
  },
  {
   "name": "Venus Figurines",
@@ -1738,6 +2125,37 @@ window.HISTORY_DATA = {
   "significance": "Its loss to rising postglacial seas is a vivid record of how climate warming can erase entire inhabited landscapes.",
   "region": "North Sea, Northwest Europe",
   "confidence": "approximate"
+ },
+ {
+  "name": "White Sands Footprints",
+  "category": "Human Origins",
+  "start": -20000,
+  "end": null,
+  "kind": "moment",
+  "description": "Human footprints preserved in lakebed sediments in New Mexico, dated to the Last Glacial Maximum, roughly 21,000 to 23,000 years ago.",
+  "significance": "If the dating holds, people were in the Americas some 7,000 years before the previous consensus allowed — the claim is confirmed by two independent methods and still contested.",
+  "region": "New Mexico",
+  "confidence": "debated",
+  "start_min": -21000,
+  "start_max": -19000,
+  "dating_method": "radiocarbon on seeds and pollen, plus quartz OSL",
+  "note": "Bennett et al. 2021, Science; independently confirmed by Pigati et al. 2023, Science; still challenged 2024-2025.",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/White_Sands_footprints"
+ },
+ {
+  "name": "Domestication of the Dog",
+  "category": "Human Origins",
+  "start": -18000,
+  "end": null,
+  "kind": "moment",
+  "description": "Wolves and dogs diverged somewhere between 40,000 and 20,000 years ago, though the oldest undisputed dog remains are about 14,200 years old; the timing, the location and even the number of separate domestications are all disputed.",
+  "significance": "The first domesticated animal and humanity's oldest interspecies partnership — it precedes farming by millennia.",
+  "region": "Eurasia",
+  "confidence": "debated",
+  "start_min": -38000,
+  "start_max": -13000,
+  "dating_method": "ancient DNA and fossil morphology",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Domestication_of_the_dog"
  },
  {
   "name": "Lascaux Cave Paintings",
@@ -1825,7 +2243,9 @@ window.HISTORY_DATA = {
   "description": "A sudden return to near-glacial conditions interrupted the warming at the end of the last ice age, likely from disrupted ocean circulation.",
   "significance": "This abrupt millennium-long chill shows how quickly climate can flip and coincides with the dawn of agriculture in the Near East.",
   "region": "North Atlantic",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "dating_method": "ice cores and varve counting",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Younger_Dryas"
  },
  {
   "name": "Agricultural (Neolithic) Revolution",
@@ -1968,7 +2388,9 @@ window.HISTORY_DATA = {
   "description": "A sudden cooling around 8,200 years ago, triggered by the drainage of glacial lakes into the North Atlantic, brought drier and colder conditions.",
   "significance": "It is a benchmark of abrupt Holocene climate change that disrupted early farming communities across the Northern Hemisphere.",
   "region": "North Atlantic",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "dating_method": "ice cores",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/8.2-kiloyear_event"
  },
  {
   "name": "Irrigation Agriculture in Mesopotamia",
@@ -2079,6 +2501,19 @@ window.HISTORY_DATA = {
   "significance": "The largest Bronze Age civilization by area achieved urban order seemingly without palaces, grand tombs, or evidence of kings — and its undeciphered script keeps its politics a mystery.",
   "region": "South Asia",
   "confidence": "approximate"
+ },
+ {
+  "name": "Yamnaya and the Indo-European Expansion",
+  "category": "Human Origins",
+  "start": -3300,
+  "end": -2600,
+  "kind": "period",
+  "description": "Pontic-Caspian steppe pastoralists with ox-wagons and dairying spread their ancestry across Eurasia from about 3300 BCE; 2024-2025 ancient DNA refines the homeland to the Caucasus-Lower Volga region.",
+  "significance": "Reshaped the genetics and the languages of half a continent — most Europeans and North Indians carry this ancestry.",
+  "region": "Pontic-Caspian steppe",
+  "confidence": "approximate",
+  "dating_method": "ancient DNA and radiocarbon",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Yamnaya_culture"
  },
  {
   "name": "Cuneiform Writing Invented",
@@ -2229,10 +2664,12 @@ window.HISTORY_DATA = {
   "start": -2200,
   "end": null,
   "kind": "moment",
-  "description": "A widespread multi-century drought struck the mid-latitudes around 4,200 years ago, drying monsoon regions and river valleys.",
-  "significance": "The megadrought is linked to the collapse of the Akkadian empire and Egypt's Old Kingdom and now defines a formal subdivision of the Holocene.",
-  "region": "Northern Hemisphere",
-  "confidence": "approximate"
+  "description": "A severe, widespread drought that defines the base of the Meghalayan Age and coincides with the fall of the Akkadian Empire, the Egyptian Old Kingdom and the Liangzhu culture.",
+  "significance": "The strongest candidate for a single climate event toppling several civilizations at once — though whether it was truly global is disputed.",
+  "region": "Global",
+  "confidence": "debated",
+  "dating_method": "speleothem and lake-sediment records",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/4.2-kiloyear_event"
  },
  {
   "name": "Third Dynasty of Ur (Ur III)",
@@ -3335,6 +3772,19 @@ window.HISTORY_DATA = {
   "confidence": "approximate"
  },
  {
+  "name": "Han Census of 2 CE",
+  "category": "Empires & Politics",
+  "start": 2,
+  "end": null,
+  "kind": "moment",
+  "description": "The first preserved nationwide census recorded 57,671,400 people in 12,366,470 households, taken while Augustus ruled Rome.",
+  "significance": "The earliest large-scale demographic record in existence, and evidence of a bureaucratic capacity Europe would not match for centuries.",
+  "region": "China",
+  "confidence": "exact",
+  "dating_method": "administrative census record",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Han_dynasty"
+ },
+ {
   "name": "Rise of early Christianity",
   "category": "Religion & Thought",
   "start": 30,
@@ -3434,6 +3884,19 @@ window.HISTORY_DATA = {
   "confidence": "approximate"
  },
  {
+  "name": "Roman Empire at its Greatest Extent",
+  "category": "Empires & Politics",
+  "start": 117,
+  "end": null,
+  "kind": "moment",
+  "description": "Under Trajan the empire reached about 5 million square kilometres, with a population traditionally estimated at 55 to 60 million, though some modern demographic work argues for considerably more.",
+  "significance": "The high-water mark of the classical Mediterranean world, and the largest political unit the West would know for 1,500 years.",
+  "region": "Mediterranean",
+  "confidence": "approximate",
+  "dating_method": "historical record",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Roman_Empire"
+ },
+ {
   "name": "Pantheon and the Height of Roman Architecture",
   "category": "Culture & Art",
   "start": 126,
@@ -3454,6 +3917,19 @@ window.HISTORY_DATA = {
   "significance": "It became the authoritative astronomical model for over 1,400 years across the Islamic and European worlds.",
   "region": "Roman Egypt",
   "confidence": "approximate"
+ },
+ {
+  "name": "Antonine Plague",
+  "category": "Life & Extinctions",
+  "start": 165,
+  "end": 180,
+  "kind": "period",
+  "description": "An epidemic, probably smallpox, carried back by Roman legions from the east; classical accounts suggest it killed perhaps a tenth of the empire, though recent modelling argues those figures are overstated.",
+  "significance": "Struck Rome at the peak of its power and began the manpower crisis that shadowed the following century.",
+  "region": "Roman Empire",
+  "confidence": "debated",
+  "dating_method": "historical accounts",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Antonine_Plague"
  },
  {
   "name": "Classic Maya Civilization",
@@ -3496,7 +3972,7 @@ window.HISTORY_DATA = {
   "kind": "moment",
   "description": "Emperors Constantine and Licinius granted legal toleration to Christianity throughout the Roman Empire.",
   "significance": "The pivot by which a persecuted sect became the empire's dominant faith, redirecting the religious history of Europe and the Mediterranean.",
-  "region": "Mediterranean",
+  "region": "Roman Empire",
   "confidence": "exact"
  },
  {
@@ -4310,7 +4786,7 @@ window.HISTORY_DATA = {
   "kind": "period",
   "description": "Centuries of cooler temperatures, driven by volcanic eruptions and low solar activity, advanced glaciers and froze European rivers.",
   "significance": "The chill brought famines and social upheaval and marks the last major natural climate swing before industrial warming.",
-  "region": "Global",
+  "region": "Northern Hemisphere",
   "confidence": "approximate"
  },
  {
@@ -4519,6 +4995,19 @@ window.HISTORY_DATA = {
   "kind": "moment",
   "description": "Johannes Gutenberg developed movable-type printing in Mainz, enabling mass production of books beginning with his famous Bible around 1455.",
   "significance": "A canonical case of information-technology acceleration: cheap replication of text diffused ideas faster than any authority could control them.",
+  "region": "Europe",
+  "confidence": "approximate",
+  "dating_method": "historical record",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Printing_press"
+ },
+ {
+  "name": "The Printing Press",
+  "category": "Science & Technology",
+  "start": 1440,
+  "end": null,
+  "kind": "moment",
+  "description": "Johannes Gutenberg combines movable metal type, press, and oil-based ink, building on earlier Chinese and Korean movable type.",
+  "significance": "Mass-produced text collapsed the cost of ideas, fueling the Reformation, science, and mass literacy.",
   "region": "Europe",
   "confidence": "approximate"
  },
@@ -5014,7 +5503,7 @@ window.HISTORY_DATA = {
   "kind": "period",
   "description": "An intellectual movement applying reason and scientific method to society, championing liberty, tolerance, rights, and constitutional government.",
   "significance": "Translated the Scientific Revolution's confidence in reason into politics, seeding democratic revolutions and modern secular thought.",
-  "region": "Europe / Atlantic world",
+  "region": "Europe / Atlantic World",
   "confidence": "approximate"
  },
  {
@@ -5026,7 +5515,9 @@ window.HISTORY_DATA = {
   "description": "Isaac Newton published his laws of motion and universal gravitation, mathematically unifying celestial and terrestrial physics.",
   "significance": "The capstone of the Scientific Revolution: one set of equations explained apples and planets alike, proving nature obeys universal law.",
   "region": "England",
-  "confidence": "exact"
+  "confidence": "exact",
+  "dating_method": "publication record",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Philosophi%C3%A6_Naturalis_Principia_Mathematica"
  },
  {
   "name": "The Steam Engine",
@@ -5150,6 +5641,19 @@ window.HISTORY_DATA = {
   "confidence": "exact"
  },
  {
+  "name": "Mount Tambora Eruption",
+  "category": "Cosmos & Earth",
+  "start": 1815,
+  "end": null,
+  "kind": "moment",
+  "description": "A VEI-7 eruption in the Dutch East Indies killed more than 70,000 people and loaded the stratosphere with enough sulfate to cause the 1816 'Year Without a Summer'.",
+  "significance": "The best-documented case of a single volcano forcing global climate and triggering crop failure and famine across three continents.",
+  "region": "Sumbawa, Indonesia",
+  "confidence": "exact",
+  "dating_method": "historical record and geological survey",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/1815_eruption_of_Mount_Tambora"
+ },
+ {
   "name": "Faraday's Electromagnetic Induction",
   "category": "Science & Technology",
   "start": 1831,
@@ -5271,6 +5775,19 @@ window.HISTORY_DATA = {
   "confidence": "exact"
  },
  {
+  "name": "Carrington Event",
+  "category": "Cosmos & Earth",
+  "start": 1859,
+  "end": null,
+  "kind": "moment",
+  "description": "The most intense geomagnetic storm ever recorded, throwing auroras as far as the tropics and setting telegraph equipment sparking.",
+  "significance": "The benchmark worst case for space weather — a repeat today would threaten power grids and satellites worldwide.",
+  "region": "Global",
+  "confidence": "exact",
+  "dating_method": "contemporary observational records",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Carrington_Event"
+ },
+ {
   "name": "Darwin Publishes On the Origin of Species",
   "category": "Science & Technology",
   "start": 1859,
@@ -5279,7 +5796,9 @@ window.HISTORY_DATA = {
   "description": "Charles Darwin set out evolution by natural selection as the mechanism generating all biological diversity.",
   "significance": "It unified all of life under one explanatory principle and displaced humanity from the center of creation.",
   "region": "Europe",
-  "confidence": "exact"
+  "confidence": "exact",
+  "dating_method": "publication record",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/On_the_Origin_of_Species"
  },
  {
   "name": "Germ Theory of Disease",
@@ -5289,7 +5808,7 @@ window.HISTORY_DATA = {
   "kind": "moment",
   "description": "Pasteur and later Koch established that microorganisms cause infectious disease.",
   "significance": "Sanitation, antisepsis, and vaccination followed, driving the steepest rise in human life expectancy ever recorded.",
-  "region": "France",
+  "region": "Europe",
   "confidence": "approximate"
  },
  {
@@ -5810,6 +6329,19 @@ window.HISTORY_DATA = {
   "confidence": "approximate"
  },
  {
+  "name": "Turing's \"Computing Machinery and Intelligence\"",
+  "category": "Science & Technology",
+  "start": 1950,
+  "end": null,
+  "kind": "moment",
+  "description": "Alan Turing proposed the imitation game and reframed \"can machines think?\" as a question about observable behaviour.",
+  "significance": "The intellectual starting point of artificial intelligence, written before the field or the hardware existed.",
+  "region": "United Kingdom",
+  "confidence": "exact",
+  "dating_method": "publication record",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Computing_Machinery_and_Intelligence"
+ },
+ {
   "name": "Structure of DNA Revealed",
   "category": "Science & Technology",
   "start": 1953,
@@ -5817,7 +6349,7 @@ window.HISTORY_DATA = {
   "kind": "moment",
   "description": "Watson and Crick, using Rosalind Franklin's X-ray data, described the double helix that encodes heredity.",
   "significance": "Life became readable and eventually writable, converging biology with information science.",
-  "region": "England",
+  "region": "Europe",
   "confidence": "exact"
  },
  {
@@ -5854,6 +6386,19 @@ window.HISTORY_DATA = {
   "confidence": "exact"
  },
  {
+  "name": "Dartmouth Workshop",
+  "category": "Science & Technology",
+  "start": 1956,
+  "end": null,
+  "kind": "moment",
+  "description": "The summer workshop at Dartmouth College where John McCarthy, Marvin Minsky and colleagues coined the term \"artificial intelligence\".",
+  "significance": "The founding of AI as a named research field — and the origin of nearly seventy years of alternating boom and winter.",
+  "region": "United States",
+  "confidence": "exact",
+  "dating_method": "historical record",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Dartmouth_workshop"
+ },
+ {
   "name": "African Decolonization Wave",
   "category": "Empires & Politics",
   "start": 1957,
@@ -5872,7 +6417,7 @@ window.HISTORY_DATA = {
   "kind": "moment",
   "description": "The Soviet Union launched the first artificial satellite into Earth orbit.",
   "significance": "It opened the space age and the satellite infrastructure now underlying navigation, weather, and communication.",
-  "region": "Soviet Union",
+  "region": "Global",
   "confidence": "exact"
  },
  {
@@ -6030,6 +6575,19 @@ window.HISTORY_DATA = {
   "confidence": "exact"
  },
  {
+  "name": "Backpropagation Popularized",
+  "category": "Science & Technology",
+  "start": 1986,
+  "end": null,
+  "kind": "moment",
+  "description": "Rumelhart, Hinton and Williams showed that multilayer neural networks could be trained by propagating errors backwards through the layers.",
+  "significance": "The algorithm underpinning essentially all deep learning — dormant for two decades until the hardware caught up.",
+  "region": "United States",
+  "confidence": "exact",
+  "dating_method": "publication record",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Backpropagation"
+ },
+ {
   "name": "Fall of the Berlin Wall",
   "category": "Empires & Politics",
   "start": 1989,
@@ -6070,7 +6628,7 @@ window.HISTORY_DATA = {
   "kind": "moment",
   "description": "Tim Berners-Lee released the web publicly, layering hyperlinked documents over the internet.",
   "significance": "It converted a research network into universal infrastructure for commerce, culture, and knowledge.",
-  "region": "Switzerland",
+  "region": "Global",
   "confidence": "exact"
  },
  {
@@ -6107,6 +6665,19 @@ window.HISTORY_DATA = {
   "confidence": "exact"
  },
  {
+  "name": "Deep Blue Defeats Kasparov",
+  "category": "Science & Technology",
+  "start": 1997,
+  "end": null,
+  "kind": "moment",
+  "description": "IBM's Deep Blue beat reigning world chess champion Garry Kasparov in a six-game match.",
+  "significance": "The first time a machine beat a reigning human champion at a game long treated as a proxy for intelligence.",
+  "region": "United States",
+  "confidence": "exact",
+  "dating_method": "historical record",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Deep_Blue_(chess_computer)"
+ },
+ {
   "name": "International Space Station",
   "category": "Science & Technology",
   "start": 1998,
@@ -6140,6 +6711,19 @@ window.HISTORY_DATA = {
   "confidence": "exact"
  },
  {
+  "name": "AlexNet and the ImageNet Breakthrough",
+  "category": "Science & Technology",
+  "start": 2012,
+  "end": null,
+  "kind": "moment",
+  "description": "A deep convolutional network trained on GPUs cut the ImageNet error rate so sharply that the field abandoned hand-engineered features almost overnight.",
+  "significance": "The practical spark of the modern AI boom — proof that depth, GPUs and large datasets together simply work.",
+  "region": "Canada",
+  "confidence": "exact",
+  "dating_method": "publication and competition record",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/AlexNet"
+ },
+ {
   "name": "CRISPR Gene Editing",
   "category": "Science & Technology",
   "start": 2012,
@@ -6162,6 +6746,58 @@ window.HISTORY_DATA = {
   "confidence": "exact"
  },
  {
+  "name": "Falcon 9 First Booster Landing",
+  "category": "Science & Technology",
+  "start": 2015,
+  "end": null,
+  "kind": "moment",
+  "description": "SpaceX landed and recovered an orbital-class rocket booster for the first time.",
+  "significance": "Reusability cut launch costs by roughly an order of magnitude and opened the modern space economy.",
+  "region": "United States",
+  "confidence": "exact",
+  "dating_method": "historical record",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Falcon_9"
+ },
+ {
+  "name": "AlphaGo Defeats Lee Sedol",
+  "category": "Science & Technology",
+  "start": 2016,
+  "end": null,
+  "kind": "moment",
+  "description": "DeepMind's AlphaGo beat one of the world's strongest Go players, a milestone most researchers had placed a decade away.",
+  "significance": "Showed that deep reinforcement learning could master a search space far too large to brute-force.",
+  "region": "United Kingdom and South Korea",
+  "confidence": "exact",
+  "dating_method": "historical record",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/AlphaGo"
+ },
+ {
+  "name": "The Transformer Architecture",
+  "category": "Science & Technology",
+  "start": 2017,
+  "end": null,
+  "kind": "moment",
+  "description": "Eight Google researchers replaced recurrence with self-attention in a paper titled \"Attention Is All You Need\", enabling training to be parallelised across entire sequences.",
+  "significance": "The architecture behind essentially every large model since — arguably the most consequential eight pages in modern computing.",
+  "region": "United States",
+  "confidence": "exact",
+  "dating_method": "publication record",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Transformer_(deep_learning_architecture)"
+ },
+ {
+  "name": "AlphaFold 2 Solves Protein Structure Prediction",
+  "category": "Science & Technology",
+  "start": 2020,
+  "end": null,
+  "kind": "moment",
+  "description": "DeepMind's AlphaFold 2 predicted protein structures at near-experimental accuracy at CASP14, and the resulting database went on to cover more than 200 million proteins.",
+  "significance": "Closed a fifty-year-old grand challenge in biology and won the 2024 Nobel Prize in Chemistry.",
+  "region": "United Kingdom",
+  "confidence": "exact",
+  "dating_method": "competition and publication record",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/AlphaFold"
+ },
+ {
   "name": "COVID-19 Pandemic",
   "category": "Life & Extinctions",
   "start": 2020,
@@ -6171,6 +6807,19 @@ window.HISTORY_DATA = {
   "significance": "mRNA vaccines were designed within days of the genome's release, compressing a decade of development into a year.",
   "region": "Global",
   "confidence": "exact"
+ },
+ {
+  "name": "GPT-3 and the Scaling Era",
+  "category": "Science & Technology",
+  "start": 2020,
+  "end": null,
+  "kind": "moment",
+  "description": "A 175-billion-parameter language model demonstrated strong few-shot learning with no fine-tuning, having scaled from 117 million parameters two years earlier.",
+  "significance": "Made scaling laws vivid and set up the chatbot era — capability arrived largely by making the same thing bigger.",
+  "region": "United States",
+  "confidence": "exact",
+  "dating_method": "publication record",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/GPT-3"
  },
  {
   "name": "mRNA Vaccines",
@@ -6184,6 +6833,32 @@ window.HISTORY_DATA = {
   "confidence": "exact"
  },
  {
+  "name": "Waymo Driverless Ride-Hailing",
+  "category": "Science & Technology",
+  "start": 2020,
+  "end": null,
+  "kind": "moment",
+  "description": "Waymo opened fully driverless public ride-hailing, one node in a thread running from the DARPA Grand Challenges through end-to-end driving to robot foundation models.",
+  "significance": "Autonomy leaving the laboratory — machine perception operating unsupervised among the public.",
+  "region": "United States",
+  "confidence": "exact",
+  "dating_method": "historical record",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Waymo"
+ },
+ {
+  "name": "ChatGPT Launch",
+  "category": "Science & Technology",
+  "start": 2022,
+  "end": null,
+  "kind": "moment",
+  "description": "OpenAI released a conversational interface to a large language model and reached mass adoption within weeks.",
+  "significance": "The consumer inflection point of the AI era — the moment the technology stopped being a research artifact.",
+  "region": "Global",
+  "confidence": "exact",
+  "dating_method": "historical record",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/ChatGPT"
+ },
+ {
   "name": "Generative AI",
   "category": "Science & Technology",
   "start": 2022,
@@ -6193,6 +6868,151 @@ window.HISTORY_DATA = {
   "significance": "Machines that generate language, images, and code mark technology beginning to automate cognition itself.",
   "region": "Global",
   "confidence": "exact"
+ },
+ {
+  "name": "AlphaFold 3",
+  "category": "Science & Technology",
+  "start": 2024,
+  "end": null,
+  "kind": "moment",
+  "description": "Structure prediction extended beyond proteins alone to their interactions with DNA, RNA and small molecules.",
+  "significance": "Moves AI structure prediction from a biology result toward a drug-discovery tool.",
+  "region": "United Kingdom",
+  "confidence": "exact",
+  "dating_method": "publication record",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/AlphaFold"
+ }
+],
+  future: [
+ {
+  "name": "Next Solar Maximum",
+  "category": "Cosmos & Earth",
+  "start": 2036,
+  "end": null,
+  "kind": "moment",
+  "description": "Solar Cycle 26 is projected to peak in the mid-2030s.",
+  "significance": "The next window of elevated space-weather risk to satellites, aviation and power grids.",
+  "region": "Solar System",
+  "confidence": "approximate",
+  "dating_method": "projection from the 11-year solar cycle",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Solar_cycle"
+ },
+ {
+  "name": "Two Degrees of Warming",
+  "category": "Cosmos & Earth",
+  "start": 2050,
+  "end": null,
+  "kind": "moment",
+  "description": "Projected crossing of 2 degrees Celsius above pre-industrial temperatures under mid-range emissions scenarios.",
+  "significance": "A threshold chosen by treaty rather than physics, but the one against which climate policy is measured.",
+  "region": "Global",
+  "confidence": "debated",
+  "dating_method": "climate model projection, strongly scenario-dependent",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Climate_change"
+ },
+ {
+  "name": "End of Earth's Habitability",
+  "category": "Cosmos & Earth",
+  "start": 1000000000,
+  "end": null,
+  "kind": "moment",
+  "description": "Rising solar luminosity, about 10% per billion years, is expected to break the carbon-silicate cycle and boil the oceans within 1 to 1.5 billion years — long before the Sun becomes a red giant.",
+  "significance": "Earth's habitable window closes from brightness, not from the Sun's death; complex life has less future than past.",
+  "region": "Earth",
+  "confidence": "debated",
+  "dating_method": "stellar evolution and climate modelling",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Future_of_Earth"
+ },
+ {
+  "name": "Milky Way-Andromeda Merger",
+  "category": "Cosmos & Earth",
+  "start": 4500000000,
+  "end": null,
+  "kind": "moment",
+  "description": "The two galaxies, closing at about 110 kilometres per second, will merge into a single elliptical galaxy; individual stellar collisions will be essentially nil given the distances between stars.",
+  "significance": "The night sky's last great rearrangement, and a reminder that galaxies are mostly empty space.",
+  "region": "Local Group",
+  "confidence": "approximate",
+  "dating_method": "proper-motion measurement, with billion-year timing uncertainty",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Andromeda%E2%80%93Milky_Way_collision"
+ },
+ {
+  "name": "The Sun Becomes a Red Giant",
+  "category": "Cosmos & Earth",
+  "start": 5000000000,
+  "end": null,
+  "kind": "moment",
+  "description": "With core hydrogen exhausted, the Sun swells to 100 to 200 times its present radius, engulfing Mercury and Venus.",
+  "significance": "The end of the Solar System as a place — whatever remains of Earth is scorched or swallowed.",
+  "region": "Solar System",
+  "confidence": "approximate",
+  "dating_method": "stellar evolution modelling",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Sun"
+ },
+ {
+  "name": "The Sun Becomes a White Dwarf",
+  "category": "Cosmos & Earth",
+  "start": 7800000000,
+  "end": null,
+  "kind": "moment",
+  "description": "After shedding a planetary nebula the Sun collapses to an Earth-sized cinder held up by electron degeneracy pressure, cooling slowly toward a black dwarf.",
+  "significance": "The Sun's actual end state, and the fate of some 97% of all stars.",
+  "region": "Solar System",
+  "confidence": "approximate",
+  "dating_method": "stellar evolution modelling",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/White_dwarf"
+ },
+ {
+  "name": "End of Star Formation",
+  "category": "Cosmos & Earth",
+  "start": 100000000000000,
+  "end": null,
+  "kind": "moment",
+  "description": "Galaxies exhaust the gas available to form new stars; the last to burn are dim, long-lived red dwarfs.",
+  "significance": "The universe stops making light — the end of the stelliferous era in which all of history has taken place.",
+  "region": "Universe",
+  "confidence": "debated",
+  "dating_method": "theoretical extrapolation",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Future_of_an_expanding_universe"
+ },
+ {
+  "name": "Degenerate Era and Proton Decay",
+  "category": "Cosmos & Earth",
+  "start": 1e+40,
+  "end": null,
+  "kind": "moment",
+  "description": "If protons decay at all, the remaining stellar remnants dissolve; experiment has so far only established a lower bound beyond 10^34 years.",
+  "significance": "Whether ordinary matter is finally stable is still an open question in physics, not a settled prediction.",
+  "region": "Universe",
+  "confidence": "debated",
+  "dating_method": "theoretical; proton decay remains unobserved",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Future_of_an_expanding_universe"
+ },
+ {
+  "name": "Black Hole Evaporation",
+  "category": "Cosmos & Earth",
+  "start": 1e+100,
+  "end": null,
+  "kind": "moment",
+  "description": "Hawking radiation evaporates black holes, taking around 10^64 years for a stellar-mass hole and up to 10^100 years for a supermassive one.",
+  "significance": "The last structures in the universe disappear — black holes outlast everything else by a margin beyond intuition.",
+  "region": "Universe",
+  "confidence": "approximate",
+  "dating_method": "theoretical; Hawking radiation is untested in this regime",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Hawking_radiation"
+ },
+ {
+  "name": "Heat Death of the Universe",
+  "category": "Cosmos & Earth",
+  "start": 1e+100,
+  "end": null,
+  "kind": "moment",
+  "description": "Maximum entropy: energy is uniformly distributed and no free energy remains anywhere to do work.",
+  "significance": "The end state implied by thermodynamics, and the reason the present era of stars and life is a brief anomaly.",
+  "region": "Universe",
+  "confidence": "debated",
+  "dating_method": "thermodynamic extrapolation",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Heat_death_of_the_universe"
  }
 ]
 };

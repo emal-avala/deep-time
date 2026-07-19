@@ -24,22 +24,58 @@ const CATEGORIES = [
 ];
 
 // ── Load ──────────────────────────────────────────────────────────────────
-const raw = JSON.parse(fs.readFileSync(path.join(SRC, 'raw-events.json'), 'utf8'));
-const { removals = [], corrections = [] } =
-  JSON.parse(fs.readFileSync(path.join(SRC, 'corrections.json'), 'utf8'));
+// `raw-events.json` is the original agent fan-out; any `*.events.json` is a
+// later research batch. Everything is concatenated and then de-duplicated, so
+// batches are free to restate events the earlier pass already covered.
+const readJson = f => JSON.parse(fs.readFileSync(path.join(SRC, f), 'utf8'));
+const srcFiles = fs.readdirSync(SRC).sort();
 
-const report = { rejected: [], merged: 0, removed: 0, corrected: 0, fuzzyMerges: [] };
+const raw = [];
+const sourceCounts = {};
+for (const f of ['raw-events.json', ...srcFiles.filter(f => f.endsWith('.events.json'))]) {
+  const batch = readJson(f);
+  sourceCounts[f] = batch.length;
+  raw.push(...batch);
+}
+
+// Events dated after the present are kept apart. Years-before-present goes
+// negative for them, and log(negative) is undefined — mixing them into the
+// main series would silently corrupt every log-scale position.
+const rawFuture = [];
+for (const f of srcFiles.filter(f => f.endsWith('.future.json'))) {
+  const batch = readJson(f);
+  sourceCounts[f] = batch.length;
+  rawFuture.push(...batch);
+}
+
+const { removals = [], corrections = [] } = readJson('corrections.json');
+
+const report = {
+  rejected: [], merged: 0, removed: 0, corrected: 0,
+  fuzzyMerges: [], crossCategory: [], nearMisses: []
+};
+
+// Optional enrichment carried straight through from the sources.
+const EXTRA = ['start_min', 'start_max', 't_since_bang', 't_since_bang_end',
+  'dating_method', 'note', 'wikipedia_url'];
 
 // ── Validate & normalise ──────────────────────────────────────────────────
-let events = raw.map(e => {
+function normalise(e, allowFuture) {
+  const name = String(e.name || '').trim();
+  if (!name) return null;
   const start = Number(e.start);
   let end = (e.end === null || e.end === undefined) ? null : Number(e.end);
-  if (!Number.isFinite(start)) { report.rejected.push(['non-numeric start', e.name]); return null; }
+  if (!Number.isFinite(start)) { report.rejected.push(['non-numeric start', name]); return null; }
   if (end !== null && !Number.isFinite(end)) end = null;
   // An end before a start is a transposition, not a fact — swap rather than drop.
   if (end !== null && end < start) { const t = end; end = start; start = t; }
-  if (start > NOW) { report.rejected.push(['starts in the future', e.name, start]); return null; }
-  if (start < -14.5e9) { report.rejected.push(['predates the Big Bang', e.name, start]); return null; }
+  if (!allowFuture && start > NOW) {
+    report.rejected.push(['starts in the future', name, start]); return null;
+  }
+  if (allowFuture && start <= NOW) {
+    report.rejected.push(['listed as future but already past', name, start]); return null;
+  }
+  if (start < -14.5e9) { report.rejected.push(['predates the Big Bang', name, start]); return null; }
 
   let kind = ['moment', 'period', 'age'].includes(e.kind) ? e.kind
     : (end === null ? 'moment' : 'period');
@@ -47,14 +83,11 @@ let events = raw.map(e => {
 
   let category = CATEGORIES.includes(e.category) ? e.category : null;
   if (!category) {
-    report.rejected.push(['unknown category → reassigned', e.name, e.category]);
+    report.rejected.push(['unknown category → reassigned', name, e.category]);
     category = kind === 'age' ? 'Age / Era' : 'Culture & Art';
   }
 
-  const name = String(e.name || '').trim();
-  if (!name) return null;
-
-  return {
+  const out = {
     name, category, start, end, kind,
     description: String(e.description || '').trim(),
     significance: String(e.significance || '').trim(),
@@ -62,7 +95,13 @@ let events = raw.map(e => {
     confidence: ['exact', 'approximate', 'debated'].includes(e.confidence)
       ? e.confidence : 'approximate'
   };
-}).filter(Boolean);
+  for (const k of EXTRA) if (e[k] !== undefined && e[k] !== null && e[k] !== '') out[k] = e[k];
+  return out;
+}
+
+let events = raw.map(e => normalise(e, false)).filter(Boolean);
+const future = rawFuture.map(e => normalise(e, true)).filter(Boolean)
+  .sort((a, b) => a.start - b.start);
 
 // ── Adjudicated removals ──────────────────────────────────────────────────
 const removeSet = new Set(removals.map(n => n.toLowerCase().trim()));
@@ -126,12 +165,32 @@ const richness = e => (e.description || '').length + (e.significance || '').leng
 // A containment test on its own is far too eager: "buddha" is a substring of
 // "enlightenment of the buddha at bodh gaya", but those are two events. Require
 // the shorter name to account for most of the longer one.
+// Words that mark an act of recording or completion rather than a distinct
+// phenomenon: "Structure of DNA" and "Structure of DNA Revealed" are one event.
+const QUALIFIERS = new Set(['revealed', 'written', 'completed', 'invented',
+  'discovered', 'published', 'launched', 'founded', 'founding', 'built',
+  'begins', 'begun', 'established', 'created', 'introduced', 'described',
+  'proposed', 'appear', 'appears']);
+
+const isSubset = (a, b) => [...a].every(t => b.has(t));
+
 function namesMatch(a, b) {
   const n1 = norm(a), n2 = norm(b);
   if (n1 === n2) return 1;
   const [short, long] = n1.length <= n2.length ? [n1, n2] : [n2, n1];
   if (long.includes(short) && short.length / long.length >= 0.6) return 0.95;
-  const j = jaccard(tokens(a), tokens(b));
+
+  const t1 = tokens(a), t2 = tokens(b);
+  // One name being the other plus a substantive word usually means a narrower
+  // event, not the same one: "Big Bang" vs "Big Bang Nucleosynthesis" are three
+  // minutes and one entire epoch apart. Only a qualifier may be the difference.
+  const [sub, sup] = t1.size <= t2.size ? [t1, t2] : [t2, t1];
+  if (sub.size && sub.size < sup.size && isSubset(sub, sup)) {
+    const extra = [...sup].filter(t => !sub.has(t));
+    if (extra.some(t => !QUALIFIERS.has(t))) return 0;
+  }
+
+  const j = jaccard(t1, t2);
   return j >= 0.6 ? j : 0;
 }
 
@@ -160,15 +219,24 @@ for (const e of events) {
     // Identical names are unremarkable; anything looser is a judgement call
     // this script made on its own, so surface it for review.
     if (dupScore < 1) report.fuzzyMerges.push(`${dup.name}  ←  ${e.name}  (${dup.start})`);
+    // Enrichment is additive rather than winner-take-all: a source link or an
+    // uncertainty bound survives even when the other record has the better
+    // prose, and the later batch wins where both carry the same field.
+    const extras = {};
+    for (const k of EXTRA) {
+      if (dup[k] !== undefined) extras[k] = dup[k];
+      if (e[k] !== undefined) extras[k] = e[k];
+    }
     // Keep the richer record but never lose a bounded span or a region.
     if (richness(e) > richness(dup)) {
-      const region = dup.region || e.region;
-      const end = dup.end !== null ? dup.end : e.end;
+      const region = e.region || dup.region;
+      const end = e.end !== null ? e.end : dup.end;
       Object.assign(dup, e, { region, end });
     } else {
       if (!dup.region && e.region) dup.region = e.region;
       if (dup.end === null && e.end !== null) dup.end = e.end;
     }
+    Object.assign(dup, extras);
     continue;
   }
   kept.push(e);
@@ -176,33 +244,81 @@ for (const e of events) {
 events = kept;
 events.sort((a, b) => a.start - b.start || a.name.localeCompare(b.name));
 
+// The de-duplicator never merges across categories, because doing so would
+// silently move an event into another lane. Same event, two lanes is still a
+// defect though, so report the collisions rather than acting on them.
+const byName = new Map();
+for (const e of events) {
+  const k = norm(e.name);
+  if (!byName.has(k)) byName.set(k, []);
+  byName.get(k).push(e);
+}
+for (const [, group] of byName) {
+  if (group.length < 2) continue;
+  report.crossCategory.push(
+    `${group[0].name} — ${group.map(g => `${g.category} (${g.start})`).join(' | ')}`);
+}
+
+// Tightening the merge rule trades false merges for missed ones, so look for
+// pairs that landed just under the threshold: same lane, dates close, names
+// overlapping. These are candidates for a human to judge, not to auto-merge.
+for (let i = 0; i < events.length; i++) {
+  for (let j = i + 1; j < events.length; j++) {
+    const a = events[i], b = events[j];
+    if (Math.abs(a.start - b.start) > tolFor(b)) break;
+    if (a.category !== b.category) continue;
+    const sim = jaccard(tokens(a.name), tokens(b.name));
+    if (sim >= 0.3 && sim < 0.6) {
+      report.nearMisses.push(`${a.name} (${a.start})  ~  ${b.name} (${b.start})  [${sim.toFixed(2)}]`);
+    }
+  }
+}
+
 // ── Emit ──────────────────────────────────────────────────────────────────
+const enriched = events.filter(e => e.wikipedia_url).length;
 const header = `/* Deep Time — event dataset. GENERATED FILE, do not edit by hand.
  * Rebuild with:  node tools/build-dataset.js
  *
  * ${events.length} entries compiled by a research fan-out of 12 domain
- * historians and 4 gap-fillers, then audited chunk-by-chunk and adversarially
- * adjudicated (see data/sources/corrections.json).
+ * historians and 4 gap-fillers, audited chunk-by-chunk and adversarially
+ * adjudicated (see data/sources/corrections.json), then extended by a sourced
+ * research batch (data/sources/*.events.json); ${enriched} carry a source link.
  *
  * Years are signed: negative = BCE, positive = CE, deep time in years
  * (66 million years ago = -66000000). \`end\` of ${NOW} means still ongoing.
- * Prehistoric dates are inherently approximate — see the \`confidence\` field.
+ * Prehistoric dates are inherently approximate — see the \`confidence\` field,
+ * and \`start_min\`/\`start_max\` where a record carries explicit bounds.
+ *
+ * \`future\` is a SEPARATE array. Those events postdate ${NOW}, so their
+ * years-before-present is negative and log-scale positioning is undefined for
+ * them; a renderer must opt in and handle them deliberately.
+ *
+ * \`t_since_bang\` (seconds) is present on pre-recombination events, which all
+ * round to the same age in years and would otherwise stack on one pixel. The
+ * values are order-of-magnitude epoch boundaries for log placement, not
+ * measurements.
  */
 window.HISTORY_DATA = {
   count: ${events.length},
+  futureCount: ${future.length},
   events: `;
 
-fs.writeFileSync(OUT, header + JSON.stringify(events, null, 1) + '\n};\n');
+fs.writeFileSync(OUT,
+  header + JSON.stringify(events, null, 1) +
+  ',\n  future: ' + JSON.stringify(future, null, 1) + '\n};\n');
 
 // ── Report ────────────────────────────────────────────────────────────────
 const counts = {};
 for (const e of events) counts[e.category] = (counts[e.category] || 0) + 1;
 
-console.log(`raw ${raw.length} → ${events.length} events`);
+console.log('sources:');
+for (const [f, n] of Object.entries(sourceCounts)) console.log(`  ${String(n).padStart(4)}  ${f}`);
+console.log(`\nraw ${raw.length} → ${events.length} events (+${future.length} future)`);
 console.log(`  removed (adjudicated duplicates): ${report.removed}`);
 console.log(`  merged (fuzzy duplicates):        ${report.merged}`);
 console.log(`  field corrections applied:        ${report.corrected}`);
 console.log(`  rejected as invalid:              ${report.rejected.length}`);
+console.log(`  carrying a source link:           ${enriched}`);
 console.log('\nby category:');
 for (const c of CATEGORIES) console.log(`  ${String(counts[c] || 0).padStart(4)}  ${c}`);
 
@@ -227,5 +343,13 @@ if (report.rejected.length) {
 if (report.fuzzyMerges.length) {
   console.log(`\nfuzzy merges — verify these are genuinely the same event (${report.fuzzyMerges.length}):`);
   for (const m of report.fuzzyMerges) console.log('  ', m);
+}
+if (report.nearMisses.length) {
+  console.log(`\npossible missed duplicates — same lane, close dates, similar names (${report.nearMisses.length}):`);
+  for (const m of report.nearMisses) console.log("  ", m);
+}
+if (report.crossCategory.length) {
+  console.log(`\nsame name in more than one lane — NOT merged, decide by hand (${report.crossCategory.length}):`);
+  for (const c of report.crossCategory) console.log('  ', c);
 }
 console.log(`\nwrote ${path.relative(ROOT, OUT)} (${(fs.statSync(OUT).size / 1024).toFixed(0)} KB)`);
