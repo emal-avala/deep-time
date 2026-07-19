@@ -9,9 +9,18 @@
 (function () {
   'use strict';
 
-  var NOW = 2026;
+  // The present is read from the clock, not hardcoded, so the axis does not
+  // start lying every January. Floored at the dataset's epoch so it can only
+  // ever move forward from the year the data was compiled against.
+  var DATA_EPOCH = 2026;
+  var NOW = Math.max(DATA_EPOCH, new Date().getFullYear());
+
   var BP_CEIL = 13.9e9;   // a little older than the Big Bang
-  var BP_FLOOR = 1;       // log space cannot reach zero; "1 year ago" is now
+  // Log space cannot reach zero, so the axis is pinned one year short of the
+  // present. That is a rendering limit, not a claim about the date: at every
+  // zoom level the last year is sub-pixel, and the right edge is labelled as
+  // the present rather than as the year before it.
+  var BP_FLOOR = 1;
 
   // Lane order runs from substrate to superstructure: the physical universe,
   // life, humans, what humans made and believed, and finally how they organised
@@ -123,7 +132,8 @@
     panelClose: document.getElementById('panel-close'),
     tableWrap: document.getElementById('table-wrap'),
     tableBody: document.getElementById('table-body'),
-    btnTable: document.getElementById('btn-table'),
+    viewTimeline: document.getElementById('view-timeline'),
+    viewTable: document.getElementById('view-table'),
     btnTheme: document.getElementById('btn-theme'),
     segLinear: document.getElementById('seg-linear'),
     segLog: document.getElementById('seg-log'),
@@ -717,15 +727,20 @@
         ctx.fillText(text, lx, cy);
       }
 
+      // The floor tick is the axis's stand-in for the present. Formatting it
+      // like any other value printed the year *before* now underneath the word
+      // "now" — so name it as the present in both lines.
+      var atNow = v <= BP_FLOOR;
+
       ctx.fillStyle = theme['--ink-2'];
-      tickLabel(fmtAgo(v, false), g.axisTop + 9);
+      tickLabel(atNow ? NOW + ' CE' : fmtAgo(v, false), g.axisTop + 9);
       // Below ~10 ka the primary label is already a calendar year, so the
       // useful second line is the elapsed time rather than the year again.
       if (v < 1e4) {
         var ago = Math.round(v);
         ctx.fillStyle = theme['--ink-4'];
         ctx.font = '400 9.5px ' + dataFont();
-        tickLabel(ago <= 1 ? 'now' : ago.toLocaleString() + ' yrs ago', g.axisTop + 22);
+        tickLabel(atNow ? 'now' : ago.toLocaleString() + ' yrs ago', g.axisTop + 22);
         ctx.font = '400 10.5px ' + dataFont();
       }
     });
@@ -1136,11 +1151,17 @@
     if (hit) { focusEvent(hit); openPanel(hit); }
   });
 
-  els.btnTable.addEventListener('click', function () {
-    var open = els.tableWrap.getAttribute('data-open') === '1';
-    els.tableWrap.setAttribute('data-open', open ? '0' : '1');
-    els.btnTable.setAttribute('aria-pressed', String(!open));
-  });
+  // Two labelled states rather than one button that keeps saying "Table" while
+  // the table is already open, leaving no visible way back to the timeline.
+  function setView(view) {
+    var isTable = view === 'table';
+    els.tableWrap.setAttribute('data-open', isTable ? '1' : '0');
+    els.viewTable.setAttribute('aria-pressed', String(isTable));
+    els.viewTimeline.setAttribute('aria-pressed', String(!isTable));
+  }
+
+  els.viewTable.addEventListener('click', function () { setView('table'); });
+  els.viewTimeline.addEventListener('click', function () { setView('timeline'); });
 
   els.btnTheme.addEventListener('click', function () {
     var next = isDark() ? 'light' : 'dark';
@@ -1155,7 +1176,7 @@
       if (ev.key === 'Escape') { els.search.value = ''; state.query = ''; els.search.blur(); draw(); }
       return;
     }
-    if (ev.key === 'Escape') { closePanel(); els.tableWrap.setAttribute('data-open', '0'); els.btnTable.setAttribute('aria-pressed', 'false'); return; }
+    if (ev.key === 'Escape') { closePanel(); setView('timeline'); return; }
     if (ev.key === 'l' || ev.key === 'L') { setMode(state.mode === 'log' ? 'linear' : 'log', true); return; }
     if (ev.key === '0') { state.ladderIdx = 0; updateLadderPressed(); gotoWindow(13.8e9, BP_FLOOR, true); return; }
     if (ev.key === 'ArrowLeft') { panBy(60); return; }
