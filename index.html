@@ -47,17 +47,24 @@
 </div>
 
 <main class="stage" id="stage">
-  <canvas id="plot"></canvas>
-
-  <div class="readout" id="readout"></div>
-  <div class="empty-note" id="empty-note">No events match the current filters.</div>
-
-  <div class="tip" id="tip" role="tooltip"></div>
-
+  <!-- The panel is a layout sibling of the plot, not an overlay: opening it
+       narrows the timeline instead of covering it. -->
   <aside class="panel" id="panel" data-open="0" aria-label="Event detail">
-    <button class="close" id="panel-close" aria-label="Close detail">&times;</button>
-    <div id="panel-body"></div>
+    <div class="panel-inner">
+      <button class="close" id="panel-close" aria-label="Close detail">&times;</button>
+      <div id="panel-body"></div>
+    </div>
   </aside>
+
+  <div class="plot-wrap" id="plot-wrap">
+    <canvas id="plot"></canvas>
+
+    <div class="readout" id="readout"></div>
+    <div class="empty-note" id="empty-note">No events match the current filters.</div>
+
+    <!-- Inside the plot wrapper so its coordinates match the canvas. -->
+    <div class="tip" id="tip" role="tooltip"></div>
+  </div>
 
   <div class="table-wrap" id="table-wrap" data-open="0">
     <table>
