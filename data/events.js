@@ -4,7 +4,7 @@
  * 606 entries compiled by a research fan-out of 12 domain
  * historians and 4 gap-fillers, audited chunk-by-chunk and adversarially
  * adjudicated (see data/sources/corrections.json), then extended by a sourced
- * research batch (data/sources/*.events.json); 74 carry a source link.
+ * research batch (data/sources/*.events.json); 572 carry a source link.
  *
  * Years are signed: negative = BCE, positive = CE, deep time in years
  * (66 million years ago = -66000000). `end` of 2026 means still ongoing.
@@ -33,7 +33,8 @@ window.HISTORY_DATA = {
   "description": "The origin of space, time, matter and energy in an extremely hot, dense state that began expanding.",
   "significance": "It sets the zero point of all subsequent history and fixes the age of everything that follows.",
   "region": "Universe",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Big_Bang"
  },
  {
   "name": "Baryogenesis",
@@ -259,7 +260,8 @@ window.HISTORY_DATA = {
   "description": "Generations of stars fused hydrogen into carbon, oxygen, and iron, while supernovae and neutron-star mergers forged elements heavier than iron.",
   "significance": "Every atom heavier than helium in planets and living things was manufactured inside stars, making chemistry and life possible.",
   "region": "Universe",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Stellar_nucleosynthesis"
  },
  {
   "name": "Birth of the Milky Way",
@@ -284,7 +286,8 @@ window.HISTORY_DATA = {
   "description": "The oldest components of our galaxy's halo and disk assembled from merging protogalactic fragments.",
   "significance": "It shows galaxies as slowly accreted structures rather than single-event creations, and gives our Sun its home.",
   "region": "Milky Way",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Milky_Way"
  },
  {
   "name": "End of Reionization",
@@ -320,7 +323,8 @@ window.HISTORY_DATA = {
   "description": "Earth's earliest eon, characterized by a molten surface, heavy bombardment and the first crust and oceans.",
   "significance": "A hellish beginning that nonetheless produced water, atmosphere and continents within a few hundred million years.",
   "region": "Earth",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Hadean"
  },
  {
   "name": "Formation of the Sun and Solar System",
@@ -372,7 +376,8 @@ window.HISTORY_DATA = {
   "description": "Zircon crystals indicate a cooled crust and stable liquid-water oceans very early in Earth's history.",
   "significance": "Habitable conditions appeared far sooner than once believed, shortening the window life had to originate.",
   "region": "Earth",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Extraterrestrial_liquid_water"
  },
  {
   "name": "Origin of Earth's Oceans and Early Atmosphere",
@@ -383,7 +388,8 @@ window.HISTORY_DATA = {
   "description": "Volcanic outgassing and delivery of water by impacts produced Earth's earliest oceans and a carbon-dioxide-rich, oxygen-poor atmosphere.",
   "significance": "Liquid water and a stable atmosphere established the chemical setting in which life could arise.",
   "region": "Earth",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Early_Earth"
  },
  {
   "name": "LUCA and the origin of the genetic code",
@@ -410,7 +416,8 @@ window.HISTORY_DATA = {
   "description": "A proposed spike in asteroid and comet impacts battered the inner planets, cratering the Moon and resurfacing the young Earth.",
   "significance": "The bombardment shaped early planetary surfaces and may have both threatened and delivered ingredients for nascent life.",
   "region": "Inner Solar System",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Late_Heavy_Bombardment"
  },
  {
   "name": "Archean Eon",
@@ -421,7 +428,8 @@ window.HISTORY_DATA = {
   "description": "An eon of stabilizing continental crust, an anoxic atmosphere and the earliest undisputed microbial life.",
   "significance": "Life and plate tectonics both established themselves, coupling biology to geology permanently.",
   "region": "Earth",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Archean"
  },
  {
   "name": "Origin of Life (First Life)",
@@ -432,7 +440,8 @@ window.HISTORY_DATA = {
   "description": "The earliest life on Earth appears as simple single-celled prokaryotes, evidenced by chemical signatures and stromatolite traces in ancient rocks.",
   "significance": "Marks the transition from chemistry to biology, seeding all subsequent life from a common ancestral lineage.",
   "region": "Global (early oceans)",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Abiogenesis"
  },
  {
   "name": "Banded Iron Formations",
@@ -443,7 +452,8 @@ window.HISTORY_DATA = {
   "description": "Alternating iron-rich and silica layers precipitated in the oceans as biologically produced oxygen reacted with dissolved iron.",
   "significance": "These formations record the gradual oxygenation of the seas and today supply most of the world's iron ore.",
   "region": "Earth",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Banded_iron_formation"
  },
  {
   "name": "Earliest prokaryotic cells",
@@ -454,7 +464,8 @@ window.HISTORY_DATA = {
   "description": "Single-celled bacteria and archaea, lacking nuclei, become the first cells preserved in the rock record.",
   "significance": "Prokaryotes were Earth's only life for over two billion years and still run most of the planet's chemical cycles.",
   "region": "Global",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Cell_(biology)"
  },
  {
   "name": "Oldest stromatolites",
@@ -465,7 +476,8 @@ window.HISTORY_DATA = {
   "description": "Layered microbial mounds built by mats of photosynthesising and sediment-trapping microbes appear in Australian and Greenland rocks.",
   "significance": "They are among the oldest visible signs of communal, sunlight-harvesting life and dominated shallow seas for billions of years.",
   "region": "Australia and Greenland",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Stromatolite"
  },
  {
   "name": "Onset of Plate Tectonics",
@@ -476,7 +488,8 @@ window.HISTORY_DATA = {
   "description": "Earth's lithosphere fragmented into moving plates driven by mantle convection, beginning sustained subduction and continental growth.",
   "significance": "Plate tectonics recycles crust, regulates long-term climate through the carbon cycle, and makes Earth geologically unique among known worlds.",
   "region": "Earth",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Plate_tectonics"
  },
  {
   "name": "Oxygenic Photosynthesis Evolves",
@@ -500,7 +513,8 @@ window.HISTORY_DATA = {
   "description": "Cyanobacteria evolve the ability to split water for photosynthesis, slowly flooding the atmosphere and oceans with free oxygen.",
   "significance": "This biological pollution poisoned much of existing life yet made complex, energy-hungry organisms possible, the greatest environmental transformation life ever caused.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Great_Oxidation_Event"
  },
  {
   "name": "Proterozoic Eon",
@@ -511,7 +525,8 @@ window.HISTORY_DATA = {
   "description": "The long eon of an oxygenating atmosphere, complex cells, supercontinent cycles and global glaciations.",
   "significance": "Nearly two billion years of slow biological and chemical preparation for animal life.",
   "region": "Earth",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Proterozoic"
  },
  {
   "name": "Great Oxidation Event",
@@ -535,7 +550,8 @@ window.HISTORY_DATA = {
   "description": "Accumulating oxygen from cyanobacteria permanently oxygenated Earth's atmosphere and oceans.",
   "significance": "Earth's first mass extinction, of anaerobic life, showing how organisms can drastically remake their own planet.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Great_Oxidation_Event"
  },
  {
   "name": "Huronian Glaciation (First Snowball Earth)",
@@ -546,7 +562,8 @@ window.HISTORY_DATA = {
   "description": "A prolonged series of global glaciations triggered as rising oxygen destroyed atmospheric methane.",
   "significance": "It links atmospheric chemistry directly to runaway climate, an early lesson in feedback loops.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Huronian_glaciation"
  },
  {
   "name": "Columbia (Nuna) Supercontinent",
@@ -557,7 +574,8 @@ window.HISTORY_DATA = {
   "description": "One of Earth's earliest supercontinents assembled and then slowly rifted apart during the Proterozoic.",
   "significance": "Columbia marks the beginning of the recognizable supercontinent cycle that has since reshaped continents and climate repeatedly.",
   "region": "Earth",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Columbia_(supercontinent)"
  },
  {
   "name": "Eukaryotes and the origin of mitochondria",
@@ -583,7 +601,8 @@ window.HISTORY_DATA = {
   "description": "Complex cells with a nucleus and organelles arise, with mitochondria originating through endosymbiosis of bacteria.",
   "significance": "A rare merger of lineages that unlocked the cellular complexity required for all plants, animals, and fungi.",
   "region": "Global (oceans)",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Cell_(biology)"
  },
  {
   "name": "Origin of chloroplasts",
@@ -594,7 +613,8 @@ window.HISTORY_DATA = {
   "description": "A eukaryote engulfs a cyanobacterium that becomes the chloroplast, giving rise to the algal and plant lineages.",
   "significance": "This second great endosymbiosis put photosynthesis inside eukaryotes and seeded the entire green world of algae and land plants.",
   "region": "Global",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Chloroplast"
  },
  {
   "name": "Rodinia Supercontinent",
@@ -605,7 +625,8 @@ window.HISTORY_DATA = {
   "description": "The supercontinent Rodinia assembled near the equator and then fragmented, opening new ocean basins in the late Precambrian.",
   "significance": "Rodinia's breakup is linked to weathering surges and the runaway cooling that triggered the Snowball Earth glaciations.",
   "region": "Earth",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Rodinia"
  },
  {
   "name": "Origin of sexual reproduction",
@@ -616,7 +637,8 @@ window.HISTORY_DATA = {
   "description": "The red alga Bangiomorpha preserves the oldest known evidence of sexual differentiation and complex multicellularity.",
   "significance": "Sex accelerated evolution by shuffling genes every generation, powering the diversity of nearly all later plants and animals.",
   "region": "Arctic Canada",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Sexual_reproduction"
  },
  {
   "name": "Rise of Multicellular Life",
@@ -627,7 +649,8 @@ window.HISTORY_DATA = {
   "description": "Eukaryotes begin forming cooperative multicellular bodies, seen first in algae and later in animals.",
   "significance": "Enabled division of labor among cells, the foundation of large, differentiated organisms.",
   "region": "Global (oceans)",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Life"
  },
  {
   "name": "Cryogenian Snowball Earth",
@@ -638,7 +661,8 @@ window.HISTORY_DATA = {
   "description": "Extreme global glaciations covered much of Earth in ice during the Cryogenian period.",
   "significance": "Severe climate stress immediately preceded, and may have triggered, the rise of complex animal life.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Snowball_Earth"
  },
  {
   "name": "Snowball Earth (Cryogenian Glaciations)",
@@ -662,7 +686,8 @@ window.HISTORY_DATA = {
   "description": "Soft-bodied, frond- and disc-shaped multicellular organisms form the first large-scale animal-grade ecosystems.",
   "significance": "They represent life's earliest experiments with big bodies, most of which vanished before the Cambrian, hinting at a possible early extinction.",
   "region": "Global (Australia, Russia, Namibia)",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Ediacaran_biota"
  },
  {
   "name": "Ediacaran Biota",
@@ -699,7 +724,8 @@ window.HISTORY_DATA = {
   "description": "The era spanning the Cambrian explosion, the colonization of land and the great Permian extinction.",
   "significance": "Complex ecosystems moved from sea to land, establishing the template for all later terrestrial life.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Paleozoic"
  },
  {
   "name": "Phanerozoic Eon",
@@ -710,7 +736,8 @@ window.HISTORY_DATA = {
   "description": "The eon of abundant, visibly fossilized life, spanning the Paleozoic, Mesozoic, and Cenozoic eras.",
   "significance": "It frames the entire history of complex life as a thin final sliver of Earth's 4.6-billion-year story.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Phanerozoic"
  },
  {
   "name": "Great Ordovician Biodiversification Event",
@@ -721,7 +748,8 @@ window.HISTORY_DATA = {
   "description": "Marine biodiversity surged dramatically, multiplying the number of families and ecological niches.",
   "significance": "Built the complex marine food webs and reef ecosystems that defined the Paleozoic seas.",
   "region": "Global (oceans)",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Great_Ordovician_Biodiversification_Event"
  },
  {
   "name": "Plants colonise the land",
@@ -745,7 +773,8 @@ window.HISTORY_DATA = {
   "description": "Early bryophyte-like plants established the first vegetation on continental surfaces.",
   "significance": "Greened the continents and began drawing down CO2, reshaping climate and enabling land animals.",
   "region": "Global (continents)",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Evolutionary_history_of_plants"
  },
  {
   "name": "Late Ordovician Mass Extinction",
@@ -756,7 +785,8 @@ window.HISTORY_DATA = {
   "description": "The first of the Big Five extinctions wiped out roughly 85% of species amid rapid glaciation and sea-level fall.",
   "significance": "Reveals how abrupt climate swings alone, without any impact, can devastate global biodiversity.",
   "region": "Global (oceans)",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Late_Ordovician_mass_extinction"
  },
  {
   "name": "Ordovician-Silurian mass extinction",
@@ -780,7 +810,8 @@ window.HISTORY_DATA = {
   "description": "Gnathostomes, fish with hinged jaws, emerge and begin to radiate, documented by exceptional Silurian fossils from China.",
   "significance": "Jaws turned vertebrates into active predators, launching the lineage that leads to all fish, amphibians, reptiles, birds and mammals.",
   "region": "South China",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Vertebrate"
  },
  {
   "name": "First Land Animals",
@@ -791,7 +822,8 @@ window.HISTORY_DATA = {
   "description": "Arthropods such as early millipedes and arachnids became the first animals to live on land.",
   "significance": "Opened the terrestrial realm to animal life, following plants onto the continents.",
   "region": "Global (continents)",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Animal_Land"
  },
  {
   "name": "Arthropods colonise the land",
@@ -802,7 +834,8 @@ window.HISTORY_DATA = {
   "description": "Millipedes and other arthropods such as Pneumodesmus become the first animals known to breathe air and live on land.",
   "significance": "Arthropods were the pioneering land animals, establishing terrestrial food webs long before vertebrates followed.",
   "region": "Scotland",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Arthropod"
  },
  {
   "name": "Origin of insects and the first flight",
@@ -813,7 +846,8 @@ window.HISTORY_DATA = {
   "description": "Insects diversify on land and, by the Carboniferous, evolve wings, achieving powered flight tens of millions of years before any vertebrate.",
   "significance": "Insects became and remain the most diverse animal group, and their flight opened an entirely new dimension of life.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Insect_flight"
  },
  {
   "name": "Rise of forests and the Carboniferous coal swamps",
@@ -824,7 +858,8 @@ window.HISTORY_DATA = {
   "description": "Tree-sized plants build the first forests and later vast tropical coal swamps dominated by giant lycopods and ferns.",
   "significance": "These forests buried so much carbon that they cooled the planet and formed the coal that would later fuel human industry.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Carboniferous"
  },
  {
   "name": "Tiktaalik and the Fish-to-Tetrapod Transition",
@@ -848,7 +883,8 @@ window.HISTORY_DATA = {
   "description": "Lobe-finned fish such as Tiktaalik and early tetrapods evolve weight-bearing limbs and begin crawling into shallows and onto shores.",
   "significance": "This transition founded the tetrapod lineage and ultimately every amphibian, reptile, bird and mammal, including humans.",
   "region": "Laurussia (Arctic Canada, Greenland)",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Vertebrate_land_invasion"
  },
  {
   "name": "Late Devonian mass extinction",
@@ -872,7 +908,8 @@ window.HISTORY_DATA = {
   "description": "All major landmasses fused into the single supercontinent Pangaea, which then began rifting apart in the Jurassic.",
   "significance": "Pangaea's formation and dispersal reorganized ocean currents, climate, and the distribution of terrestrial life.",
   "region": "Earth",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Pangaea"
  },
  {
   "name": "Supercontinent Pangaea",
@@ -883,7 +920,8 @@ window.HISTORY_DATA = {
   "description": "All major landmasses fused into a single supercontinent surrounded by the Panthalassic Ocean.",
   "significance": "Its assembly and breakup drove mass extinction, arid interiors and the modern arrangement of oceans.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Supercontinent"
  },
  {
   "name": "First Amniotes and Coal Forests",
@@ -894,7 +932,8 @@ window.HISTORY_DATA = {
   "description": "Vast Carboniferous swamp forests flourished while the first amniotes evolved the shelled egg.",
   "significance": "The amniotic egg freed vertebrates from water, enabling full colonization of dry land.",
   "region": "Global (continents)",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Amniote"
  },
  {
   "name": "Origin of amniotes",
@@ -905,7 +944,8 @@ window.HISTORY_DATA = {
   "description": "Early amniotes such as Hylonomus evolve the shelled egg, freeing reproduction from standing water.",
   "significance": "The amniotic egg let vertebrates colonise dry interiors and split the lineage into the reptile-bird and mammal branches.",
   "region": "Nova Scotia, Canada",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Amniote"
  },
  {
   "name": "Mesozoic Era (Age of Dinosaurs)",
@@ -916,7 +956,8 @@ window.HISTORY_DATA = {
   "description": "The era spanning the Triassic, Jurassic, and Cretaceous, when dinosaurs dominated terrestrial ecosystems.",
   "significance": "Defined nearly 190 million years of life on land, ending abruptly with the K-Pg impact.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Mesozoic"
  },
  {
   "name": "Permian-Triassic Extinction (The Great Dying)",
@@ -927,7 +968,8 @@ window.HISTORY_DATA = {
   "description": "The largest mass extinction in Earth's history killed roughly 90% of marine species, likely driven by Siberian Traps volcanism.",
   "significance": "The most catastrophic collapse of life ever recorded, resetting evolution and clearing the way for dinosaurs.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Permian%E2%80%93Triassic_extinction_event"
  },
  {
   "name": "Siberian Traps Volcanism",
@@ -951,7 +993,8 @@ window.HISTORY_DATA = {
   "description": "The first Mesozoic period, when life recovered from the Great Dying and both dinosaurs and mammals first appeared.",
   "significance": "A pivotal recovery interval that produced the lineages dominating the rest of the Mesozoic.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Triassic"
  },
  {
   "name": "Early Triassic biotic recovery",
@@ -962,7 +1005,8 @@ window.HISTORY_DATA = {
   "description": "Life slowly rebuilds ecosystems after the Great Dying amid repeated heat spikes and unstable environments.",
   "significance": "The delayed, halting recovery reveals how long complex ecosystems take to reassemble after a near-total collapse.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Early_Triassic"
  },
  {
   "name": "Permian-Triassic mass extinction",
@@ -986,7 +1030,8 @@ window.HISTORY_DATA = {
   "description": "The earliest dinosaurs evolved from archosaur ancestors in the mid-Triassic.",
   "significance": "Began the lineage that would dominate terrestrial life for over 160 million years.",
   "region": "South America / Pangaea",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Dinosaur"
  },
  {
   "name": "Rise of the dinosaurs",
@@ -997,7 +1042,8 @@ window.HISTORY_DATA = {
   "description": "The earliest dinosaurs such as Eoraptor and Herrerasaurus appear among the archosaurs of the Late Triassic.",
   "significance": "From modest beginnings dinosaurs would dominate terrestrial ecosystems for over 150 million years, the longest reign of any large land animals.",
   "region": "South America (Argentina)",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/The_Rise_and_Fall_of_the_Dinosaurs"
  },
  {
   "name": "First mammals",
@@ -1008,7 +1054,8 @@ window.HISTORY_DATA = {
   "description": "Tiny, shrew-like mammaliaforms such as Morganucodon evolve from cynodont ancestors in the shadow of the dinosaurs.",
   "significance": "These small nocturnal insectivores founded the lineage that, after the dinosaurs fell, would produce whales, bats, primates and humans.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Evolution_of_mammals"
  },
  {
   "name": "Jurassic Period",
@@ -1019,7 +1066,8 @@ window.HISTORY_DATA = {
   "description": "The middle Mesozoic period, marked by giant sauropods, the first birds, and lush conifer forests.",
   "significance": "The classic age of giant dinosaurs and the emergence of feathered flight.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Jurassic"
  },
  {
   "name": "Triassic-Jurassic Extinction",
@@ -1030,7 +1078,8 @@ window.HISTORY_DATA = {
   "description": "The fourth of the Big Five eliminated many large amphibians and crurotarsan reptiles amid massive volcanism.",
   "significance": "Removed dinosaurs' chief competitors, enabling their rise to total terrestrial dominance.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Triassic%E2%80%93Jurassic_extinction"
  },
  {
   "name": "Triassic-Jurassic mass extinction",
@@ -1054,7 +1103,8 @@ window.HISTORY_DATA = {
   "description": "Rifting between the Americas and Africa-Eurasia began seafloor spreading in the Atlantic basin.",
   "significance": "Ongoing continental drift that separated biotas and set the stage for divergent evolution on each side.",
   "region": "Atlantic",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_Ocean"
  },
  {
   "name": "Opening of the Atlantic Ocean",
@@ -1065,7 +1115,8 @@ window.HISTORY_DATA = {
   "description": "Seafloor spreading along the Mid-Atlantic Ridge split Pangaea and progressively widened the Atlantic, a process still ongoing.",
   "significance": "The growing Atlantic redrew continental geography and reshaped global ocean circulation and climate.",
   "region": "Atlantic",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Opening_of_the_North_Atlantic_Ocean"
  },
  {
   "name": "Origin of placental mammals",
@@ -1087,7 +1138,8 @@ window.HISTORY_DATA = {
   "description": "Feathered theropods such as Archaeopteryx bridged the transition from dinosaurs to birds.",
   "significance": "Documents the dinosaurian origin of birds, the only dinosaur lineage to survive to the present.",
   "region": "Europe",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Angry_Birds"
  },
  {
   "name": "Origin of birds",
@@ -1098,7 +1150,8 @@ window.HISTORY_DATA = {
   "description": "Feathered theropod dinosaurs such as Archaeopteryx evolve into the first birds, blending reptilian and avian traits.",
   "significance": "Birds are living dinosaurs, showing that one lineage survived the coming catastrophe and still fills the skies today.",
   "region": "Europe (Germany) and China",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Origin_of_birds"
  },
  {
   "name": "Cretaceous Period",
@@ -1109,7 +1162,8 @@ window.HISTORY_DATA = {
   "description": "The final Mesozoic period, when flowering plants spread worldwide and dinosaurs reached peak diversity.",
   "significance": "The last age of dinosaurs, ended by the asteroid impact that reshaped all life on Earth.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Cretaceous"
  },
  {
   "name": "Flowering plants and their pollinators",
@@ -1120,7 +1174,8 @@ window.HISTORY_DATA = {
   "description": "Angiosperms appear and rapidly diversify, co-evolving with insect pollinators such as bees and beetles.",
   "significance": "Flowering plants now dominate the land and underpin nearly all terrestrial food webs and human agriculture.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Pollinator"
  },
  {
   "name": "Rise of Flowering Plants",
@@ -1131,7 +1186,8 @@ window.HISTORY_DATA = {
   "description": "Angiosperms evolved and rapidly diversified, co-evolving with pollinating insects.",
   "significance": "Transformed terrestrial ecosystems and food webs, and still dominate plant life today.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Fossil_history_of_flowering_plants"
  },
  {
   "name": "Deccan Traps Volcanism",
@@ -1142,7 +1198,8 @@ window.HISTORY_DATA = {
   "description": "Massive flood-basalt eruptions in western India spewed lava and greenhouse gases around the Cretaceous-Paleogene boundary.",
   "significance": "The Deccan eruptions stressed global ecosystems in the run-up to the dinosaur extinction, acting alongside the Chicxulub impact.",
   "region": "India",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Deccan_Traps"
  },
  {
   "name": "Cenozoic Era",
@@ -1153,7 +1210,8 @@ window.HISTORY_DATA = {
   "description": "The current era, in which mammals, birds, flowering plants and eventually humans diversified.",
   "significance": "The era in which our own lineage arose, and the shortest of the three Phanerozoic eras.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Cenozoic"
  },
  {
   "name": "Chicxulub Impact",
@@ -1201,7 +1259,8 @@ window.HISTORY_DATA = {
   "description": "The earliest primate ancestors, small tree-dwelling mammals such as Purgatorius, appeared soon after the K-Pg extinction.",
   "significance": "Founded the lineage that would eventually give rise to monkeys, apes, and humans.",
   "region": "North America",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Primate"
  },
  {
   "name": "Origin and radiation of primates",
@@ -1225,7 +1284,8 @@ window.HISTORY_DATA = {
   "description": "With dinosaurs gone, surviving placental mammals rapidly diversify in body size and ecological role.",
   "significance": "This burst filled the vacant large-animal niches and set mammals on the path to dominating the age we live in.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Evolution_of_mammals"
  },
  {
   "name": "Rise of Mammals (Paleogene Radiation)",
@@ -1236,7 +1296,8 @@ window.HISTORY_DATA = {
   "description": "Surviving mammals rapidly diversified into the ecological niches vacated by the dinosaurs.",
   "significance": "A textbook case of adaptive radiation after catastrophe, launching the age of mammals.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/The_Rise_and_Reign_of_the_Mammals"
  },
  {
   "name": "Paleocene-Eocene Thermal Maximum",
@@ -1260,7 +1321,8 @@ window.HISTORY_DATA = {
   "description": "The collision of the Indian and Eurasian plates began raising the Himalaya and the Tibetan Plateau, which continue to rise today.",
   "significance": "This uplift built Earth's highest mountains, birthed the Asian monsoon, and drew down atmospheric carbon dioxide over millions of years.",
   "region": "Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Tibetan_Plateau"
  },
  {
   "name": "Uplift of the Himalayas",
@@ -1271,7 +1333,8 @@ window.HISTORY_DATA = {
   "description": "India collided with Asia, raising the Himalaya and Tibetan Plateau, a process still continuing.",
   "significance": "Mountain weathering drew down atmospheric carbon dioxide, cooling the planet toward the ice ages.",
   "region": "Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Himalayas"
  },
  {
   "name": "Whales return to the sea",
@@ -1282,7 +1345,8 @@ window.HISTORY_DATA = {
   "description": "Land-dwelling artiodactyl ancestors such as Pakicetus evolve through amphibious forms into the fully aquatic early whales.",
   "significance": "One of the best-documented major transitions in the fossil record, it shows evolution running a land mammal back into the ocean.",
   "region": "South Asia (Pakistan, India)",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Evolution_of_cetaceans"
  },
  {
   "name": "Rise of grasses and spread of grasslands",
@@ -1293,7 +1357,8 @@ window.HISTORY_DATA = {
   "description": "Grasses, which originated by the Late Cretaceous, expand into open savannas and prairies, culminating in the Miocene spread of C4 grasslands.",
   "significance": "Grasslands reshaped global climate and drove the evolution of grazing mammals and the open habitats where early humans arose.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Poaceae"
  },
  {
   "name": "Origin of the apes",
@@ -1304,7 +1369,8 @@ window.HISTORY_DATA = {
   "description": "Hominoids diverge from Old World monkeys, giving rise to the tailless apes such as Proconsul.",
   "significance": "This branch produced gibbons, great apes and eventually the human lineage, defining our deep evolutionary roots.",
   "region": "Africa",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Ape"
  },
  {
   "name": "Uplift of the Andes",
@@ -1315,7 +1381,8 @@ window.HISTORY_DATA = {
   "description": "Subduction of oceanic crust beneath South America accelerated the rise of the Andes, the world's longest mountain range.",
   "significance": "The Andes reshaped South American climate and rivers, redirecting the Amazon and creating vast new ecological zones.",
   "region": "South America",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Andes"
  },
  {
   "name": "Hominin-Chimpanzee Split",
@@ -1341,7 +1408,8 @@ window.HISTORY_DATA = {
   "description": "The lineages leading to humans and chimpanzees split, marked by early hominins such as Sahelanthropus.",
   "significance": "This divergence begins the specifically human evolutionary story that leads to upright walking and large brains.",
   "region": "Africa",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Chimpanzee%E2%80%93human_last_common_ancestor"
  },
  {
   "name": "Sahelanthropus tchadensis",
@@ -1352,7 +1420,8 @@ window.HISTORY_DATA = {
   "description": "One of the oldest known hominin candidates, whose skull suggests possible bipedalism near the time of the human-chimp split.",
   "significance": "It hints at how early and how close to the divergence upright-walking traits may have appeared.",
   "region": "Chad, Central Africa",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Sahelanthropus"
  },
  {
   "name": "Messinian Salinity Crisis",
@@ -1363,7 +1432,8 @@ window.HISTORY_DATA = {
   "description": "The Mediterranean Sea was cut off from the Atlantic and largely evaporated, leaving thick salt deposits before catastrophic reflooding.",
   "significance": "This event shows how tectonic gateways can drastically alter an entire sea and its climate within a geological instant.",
   "region": "Mediterranean",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Messinian_salinity_crisis"
  },
  {
   "name": "Ardipithecus ramidus (\"Ardi\")",
@@ -1374,7 +1444,8 @@ window.HISTORY_DATA = {
   "description": "An early hominin combining tree-climbing anatomy with signs of upright walking, known from a remarkably complete skeleton.",
   "significance": "It reveals that bipedalism evolved in a woodland setting before the open savanna, reshaping origins narratives.",
   "region": "Ethiopia, East Africa",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Ardipithecus_ramidus"
  },
  {
   "name": "Laetoli Footprints",
@@ -1385,7 +1456,8 @@ window.HISTORY_DATA = {
   "description": "Fossilized trackways preserving the footprints of bipedal hominins walking across volcanic ash.",
   "significance": "They provide direct behavioral evidence of habitual upright walking millions of years ago.",
   "region": "Tanzania, East Africa",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Laetoli"
  },
  {
   "name": "Closure of the Isthmus of Panama",
@@ -1396,7 +1468,8 @@ window.HISTORY_DATA = {
   "description": "The rising land bridge between North and South America severed the Atlantic from the Pacific and joined two continents.",
   "significance": "It rerouted ocean currents to strengthen the Gulf Stream and enabled the Great American Biotic Interchange of animals.",
   "region": "Central America",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Isthmus_of_Panama"
  },
  {
   "name": "Earliest Stone Tools (Lomekwian)",
@@ -1407,7 +1480,8 @@ window.HISTORY_DATA = {
   "description": "The oldest known stone artifacts, predating the genus Homo and attributed to australopithecines or Kenyanthropus.",
   "significance": "It pushes the origin of tool use back before our own genus, revealing technology as a pre-human innovation.",
   "region": "Kenya, East Africa",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Stone_tool"
  },
  {
   "name": "Paleolithic (Old Stone Age)",
@@ -1418,7 +1492,8 @@ window.HISTORY_DATA = {
   "description": "The vast prehistoric period defined by the use of chipped stone tools, spanning from the earliest known toolmaking to the end of the last Ice Age.",
   "significance": "It encompasses over 99 percent of human technological history and frames the entire arc of human biological and cultural evolution.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Paleolithic"
  },
  {
   "name": "Stone Age",
@@ -1429,7 +1504,8 @@ window.HISTORY_DATA = {
   "description": "The vast span in which humans and their ancestors made their principal tools from stone, bone, and wood.",
   "significance": "It occupies over 99% of the human technological record, showing how recent and abrupt metal-based civilization is.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Stone_Age"
  },
  {
   "name": "Australopithecus afarensis (\"Lucy\")",
@@ -1453,7 +1529,8 @@ window.HISTORY_DATA = {
   "description": "Cyclic changes in Earth's orbit and axial tilt paced repeated advances and retreats of continental ice sheets across the Quaternary.",
   "significance": "These astronomical rhythms are the pacemaker of Earth's ice ages and the climate backdrop to human evolution.",
   "region": "Earth",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Milankovitch_cycles"
  },
  {
   "name": "Oldowan Stone Tool Industry",
@@ -1464,7 +1541,8 @@ window.HISTORY_DATA = {
   "description": "The first widespread stone-tool tradition, consisting of simple flaked cores and sharp cutting flakes.",
   "significance": "It established systematic toolmaking and butchery, expanding hominin diets and cognitive demands.",
   "region": "East Africa",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Oldowan"
  },
  {
   "name": "Pleistocene Epoch (Ice Ages)",
@@ -1475,7 +1553,8 @@ window.HISTORY_DATA = {
   "description": "The epoch of repeated glacial and interglacial cycles during which the genus Homo evolved and spread.",
   "significance": "Climatic instability was the selective backdrop for human brain expansion, toolmaking, and global dispersal.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Pleistocene"
  },
  {
   "name": "Pleistocene glacial-interglacial cycles",
@@ -1486,7 +1565,8 @@ window.HISTORY_DATA = {
   "description": "The Pleistocene epoch was dominated by repeated ice ages and warm interglacials paced by cyclic changes in Earth's orbit.",
   "significance": "These swings in climate and sea level repeatedly opened and closed migration routes, driving human evolution and dispersal.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Interglacial"
  },
  {
   "name": "Quaternary Ice Ages",
@@ -1497,7 +1577,8 @@ window.HISTORY_DATA = {
   "description": "Cyclical glacial and interglacial periods driven by orbital variations, with the Holocene as the current warm phase.",
   "significance": "Repeated climate whiplash shaped human evolution, migration and ultimately agriculture.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Ice_age"
  },
  {
   "name": "Genus Homo Emerges (Homo habilis)",
@@ -1508,7 +1589,8 @@ window.HISTORY_DATA = {
   "description": "The appearance of early Homo, marked by a larger brain and close association with Oldowan tools.",
   "significance": "It signals the beginning of our own genus and the deepening link between brain size and technology.",
   "region": "East Africa",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Homo"
  },
  {
   "name": "Homo habilis",
@@ -1519,7 +1601,8 @@ window.HISTORY_DATA = {
   "description": "Homo habilis was a small-brained, small-bodied early hominin of East Africa long linked to Oldowan stone tools and among the first members of genus Homo.",
   "significance": "Its overlap in time with australopiths and later Homo shows that human evolution was a branching bush rather than a single ladder.",
   "region": "East Africa (Olduvai, Koobi Fora)",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Homo_habilis"
  },
  {
   "name": "Homo erectus and the first dispersal from Africa",
@@ -1530,7 +1613,8 @@ window.HISTORY_DATA = {
   "description": "Homo erectus (African ergaster form) emerged with a taller body and larger brain and spread out of Africa, reaching Dmanisi in Georgia by about 1.8 million years ago and Java soon after.",
   "significance": "It was the first hominin to leave Africa and colonize Eurasia, marking the deep origin of humanity as a wide-ranging, adaptable species.",
   "region": "Africa to Caucasus and Southeast Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Homo"
  },
  {
   "name": "Homo erectus Appears",
@@ -1541,7 +1625,8 @@ window.HISTORY_DATA = {
   "description": "A tall, long-legged hominin with modern body proportions and the first to spread widely beyond Africa.",
   "significance": "It represents a major leap in body form, mobility, and range, becoming humanity's longest-lived species.",
   "region": "Africa and Eurasia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Homo"
  },
  {
   "name": "First Human Dispersal from Africa (Homo erectus)",
@@ -1563,7 +1648,8 @@ window.HISTORY_DATA = {
   "description": "A long-lasting stone tool tradition defined by symmetrical, teardrop-shaped bifacial handaxes.",
   "significance": "Its standardized design persisted over a million years, revealing deep behavioral continuity and planning.",
   "region": "Africa, Europe, and Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Acheulean"
  },
  {
   "name": "Acheulean tool industry",
@@ -1574,7 +1660,8 @@ window.HISTORY_DATA = {
   "description": "The Acheulean industry is defined by large teardrop-shaped handaxes and cleavers made by Homo erectus and later hominins across Africa and Eurasia.",
   "significance": "Its remarkable stability over more than 1.5 million years shows a durable shared mental template, the longest-lived technology in human history.",
   "region": "Africa and Eurasia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Acheulean"
  },
  {
   "name": "Homo antecessor",
@@ -1585,7 +1672,8 @@ window.HISTORY_DATA = {
   "description": "Homo antecessor is a hominin known mainly from the Gran Dolina site at Atapuerca in Spain, representing the earliest well-dated humans in Western Europe.",
   "significance": "It pushes confirmed human presence in Europe back beyond a million years and preserves some of the oldest evidence of cannibalism.",
   "region": "Western Europe (Atapuerca, Spain)",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Homo_antecessor"
  },
  {
   "name": "Control of Fire",
@@ -1607,7 +1695,8 @@ window.HISTORY_DATA = {
   "description": "Strong evidence of controlled fire appears by about one million years ago at Wonderwerk Cave, with habitual hearths widespread by roughly 400,000 years ago.",
   "significance": "Cooking unlocked more calories from food and may have driven brain expansion, while hearths created the first social focal points.",
   "region": "Africa and Eurasia",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Fire"
  },
  {
   "name": "Homo heidelbergensis",
@@ -1618,7 +1707,8 @@ window.HISTORY_DATA = {
   "description": "Homo heidelbergensis was a large-brained hominin of Africa and Europe often regarded as a common ancestor of Neanderthals and modern humans.",
   "significance": "It sits at the branching point that produced both Neanderthals and Homo sapiens, and left the earliest wooden hunting spears at Schoeningen.",
   "region": "Africa and Europe",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Homo_heidelbergensis"
  },
  {
   "name": "Hafting and composite tools",
@@ -1629,7 +1719,8 @@ window.HISTORY_DATA = {
   "description": "Stone points from Kathu Pan in South Africa, dated to about 500,000 years ago, carry wear consistent with being hafted onto spear shafts.",
   "significance": "Joining a stone tip to a wooden handle is an early sign of multi-part planning and design, a cognitive leap toward modern technology.",
   "region": "Southern Africa",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Hafting"
  },
  {
   "name": "Neanderthal lineage",
@@ -1640,7 +1731,8 @@ window.HISTORY_DATA = {
   "description": "Homo neanderthalensis was a robust, large-brained human adapted to cold Eurasia, with its lineage traceable at Sima de los Huesos by around 430,000 years ago and its disappearance about 40,000 years ago.",
   "significance": "Neanderthals were a successful sister species whose behavior and eventual extinction frame questions about what made modern humans distinctive.",
   "region": "Europe and West Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Neanderthal"
  },
  {
   "name": "Control of Fire",
@@ -1651,7 +1743,8 @@ window.HISTORY_DATA = {
   "description": "Hominins achieve habitual, controlled use of fire for cooking, warmth, and protection.",
   "significance": "Cooking unlocked more energy from food, enabling brain growth and reshaping social life around the hearth.",
   "region": "Africa & Eurasia",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Control_of_fire_by_early_humans"
  },
  {
   "name": "Denisovans",
@@ -1673,7 +1766,8 @@ window.HISTORY_DATA = {
   "description": "A robust, cold-adapted human species that inhabited Europe and western Asia during the Ice Age.",
   "significance": "As our closest extinct relatives, they made complex tools, buried their dead, and interbred with modern humans.",
   "region": "Europe and West Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Neanderthal"
  },
  {
   "name": "Homo naledi",
@@ -1684,7 +1778,8 @@ window.HISTORY_DATA = {
   "description": "Homo naledi is a small-brained hominin known from hundreds of bones in the deep Rising Star cave system of South Africa, dated surprisingly late.",
   "significance": "Its recent survival alongside large-brained humans, and its possible deliberate deposition of bodies, challenge assumptions linking big brains to complex behavior.",
   "region": "Southern Africa",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Homo_naledi"
  },
  {
   "name": "Emergence of Homo sapiens (Jebel Irhoud)",
@@ -1722,7 +1817,8 @@ window.HISTORY_DATA = {
   "description": "Systematic collection and grinding of ochre appears in East Africa by about 285,000 years ago, culminating in deliberately engraved ochre pieces at Blombos Cave around 75,000 years ago.",
   "significance": "Pigment use is among the earliest evidence for symbolic thought and abstract expression, a hallmark of the modern human mind.",
   "region": "Africa",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Ochre"
  },
  {
   "name": "Denisovans",
@@ -1733,7 +1829,8 @@ window.HISTORY_DATA = {
   "description": "The Denisovans were an Asian human population first identified from DNA in a finger bone from Denisova Cave in Siberia, known mostly through genetics rather than fossils.",
   "significance": "They were an entire human population discovered by ancient DNA alone, revealing how much of the human family tree fossils had missed.",
   "region": "Asia and Siberia",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Denisovan"
  },
  {
   "name": "Clothing and the eyed sewing needle",
@@ -1744,7 +1841,8 @@ window.HISTORY_DATA = {
   "description": "Genetic dating of body lice suggests regular clothing by around 170,000 years ago, while the earliest eyed bone needles appear around 50,000 to 40,000 years ago in Siberia.",
   "significance": "Tailored clothing let humans survive Ice Age cold and expand into high latitudes, a technological key to global colonization.",
   "region": "Africa and Eurasia",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Sewing_needle"
  },
  {
   "name": "Mousterian tool industry",
@@ -1755,7 +1853,8 @@ window.HISTORY_DATA = {
   "description": "The Mousterian industry is characterized by flakes struck from prepared Levallois cores, associated mainly with Neanderthals across Europe, West Asia, and North Africa.",
   "significance": "Its efficient prepared-core method shows sophisticated planning and represents the technological world of the Neanderthals.",
   "region": "Europe, West Asia, North Africa",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Mousterian"
  },
  {
   "name": "Shell beads and personal ornament",
@@ -1777,7 +1876,8 @@ window.HISTORY_DATA = {
   "description": "Caves at Skhul and Qafzeh in the Levant preserve some of the earliest widely accepted intentional human burials, some accompanied by ochre and grave goods.",
   "significance": "Deliberate burial signals emerging beliefs about death and the self, an early root of ritual and religion.",
   "region": "West Asia (Levant)",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Skhul_and_Qafzeh_hominins"
  },
  {
   "name": "Last Glacial Period (Wuerm / Weichselian / Devensian)",
@@ -1788,7 +1888,8 @@ window.HISTORY_DATA = {
   "description": "The most recent ice age, known regionally as the Wuerm, Weichselian, Devensian, and Wisconsinan glaciations, locked much of the Northern Hemisphere under ice sheets.",
   "significance": "Its low sea levels exposed land bridges like Beringia and Doggerland that made the final peopling of the world possible.",
   "region": "Northern Hemisphere",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Last_Glacial_Period"
  },
  {
   "name": "Homo floresiensis (the hobbit)",
@@ -1799,7 +1900,8 @@ window.HISTORY_DATA = {
   "description": "Homo floresiensis was a roughly one-metre-tall hominin with a small brain found on the Indonesian island of Flores, with remains dated to about 100,000 to 50,000 years ago.",
   "significance": "Its tiny size illustrates island dwarfing in the human lineage and its late survival reshaped views of human diversity.",
   "region": "Flores, Indonesia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Homo_floresiensis"
  },
  {
   "name": "Middle Stone Age / Behavioral Modernity",
@@ -1810,7 +1912,8 @@ window.HISTORY_DATA = {
   "description": "The appearance of symbolic behavior such as pigment use, personal ornaments, and engraved patterns.",
   "significance": "It reveals the dawn of abstract thought, symbolism, and likely complex language among early humans.",
   "region": "Africa",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Behavioral_modernity"
  },
  {
   "name": "Toba supereruption",
@@ -1849,7 +1952,8 @@ window.HISTORY_DATA = {
   "description": "The main dispersal of Homo sapiens out of Africa that founded most non-African populations occurred roughly 70,000 to 60,000 years ago.",
   "significance": "This migration seeded the peopling of all of Eurasia, Australia, and eventually the Americas by our species.",
   "region": "Africa to Eurasia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Early_modern_human"
  },
  {
   "name": "Out of Africa Migration",
@@ -1871,7 +1975,8 @@ window.HISTORY_DATA = {
   "description": "Homo luzonensis is a small hominin known from bones and teeth in Callao Cave on Luzon in the Philippines, dated to at least 67,000 years ago.",
   "significance": "Together with the Flores hobbit it shows that isolated island Southeast Asia harbored multiple small, distinct human species into recent times.",
   "region": "Philippines (Luzon)",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Homo_luzonensis"
  },
  {
   "name": "Peopling of Australia",
@@ -1907,7 +2012,8 @@ window.HISTORY_DATA = {
   "description": "Earliest evidence of bow-and-arrow projectile technology appears at sites such as Sibudu Cave in South Africa.",
   "significance": "Stored-energy weapons extended human reach and killing power, an early example of harnessing mechanical energy.",
   "region": "Southern Africa",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Bow_and_arrow"
  },
  {
   "name": "Neanderthal-Human Interbreeding",
@@ -1918,7 +2024,8 @@ window.HISTORY_DATA = {
   "description": "Interbreeding between dispersing Homo sapiens and Neanderthals in western Asia.",
   "significance": "It left Neanderthal DNA in all non-African people today, showing human evolution was a network, not a simple tree.",
   "region": "West Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Interbreeding_between_archaic_and_modern_humans"
  },
  {
   "name": "Denisovan admixture with modern humans",
@@ -1929,7 +2036,8 @@ window.HISTORY_DATA = {
   "description": "Modern humans dispersing through Asia interbred with Denisovans, leaving significant Denisovan ancestry in present-day peoples of Oceania and parts of Asia.",
   "significance": "Inherited Denisovan genes, such as a high-altitude adaptation in Tibetans, show archaic admixture gave modern humans useful biology.",
   "region": "Asia and Oceania",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Denisovan"
  },
  {
   "name": "Late Pleistocene megafauna extinctions",
@@ -1940,7 +2048,8 @@ window.HISTORY_DATA = {
   "description": "Across Australia, Eurasia, and the Americas most large animals such as mammoths, giant ground sloths, and diprotodons died out between roughly 50,000 and 10,000 years ago.",
   "significance": "The timing tracks human arrival more closely than climate alone, marking humanity's first continent-scale ecological impact.",
   "region": "Global (esp. Americas and Australia)",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Late_Pleistocene_extinctions"
  },
  {
   "name": "Late Quaternary Megafauna Extinctions",
@@ -1951,7 +2060,8 @@ window.HISTORY_DATA = {
   "description": "The worldwide die-off of large animals such as mammoths, giant ground sloths, and woolly rhinos.",
   "significance": "Coinciding with human expansion and climate change, it marks humanity's first large-scale ecological impact.",
   "region": "Global",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Megafauna"
  },
  {
   "name": "The proposed sixth mass extinction",
@@ -1962,7 +2072,8 @@ window.HISTORY_DATA = {
   "description": "From Late Pleistocene megafaunal losses through modern habitat destruction, hunting and climate change, species vanish far above background rates.",
   "significance": "For the first time a single species, humanity, is driving a global extinction, placing us within Earth's deep-time pattern of biotic crises.",
   "region": "Global",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Holocene_extinction"
  },
  {
   "name": "Upper Paleolithic Revolution",
@@ -1973,7 +2084,8 @@ window.HISTORY_DATA = {
   "description": "A florescence of blade tools, art, ornaments, and complex culture among modern humans in Eurasia.",
   "significance": "It marks an acceleration in cultural complexity and symbolic expression that defines fully modern behavior.",
   "region": "Eurasia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Upper_Paleolithic"
  },
  {
   "name": "Earliest Known Figurative Art (Sulawesi Cave Paintings)",
@@ -1984,7 +2096,8 @@ window.HISTORY_DATA = {
   "description": "A painted hunting scene featuring a warty pig and human-like figures in the limestone caves of Sulawesi, Indonesia, dated to roughly 51,200 years ago, is the oldest known narrative figurative art.",
   "significance": "It shows that symbolic storytelling through images arose very early in Homo sapiens and outside Europe, overturning Eurocentric accounts of art's origins.",
   "region": "Sulawesi, Indonesia",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Cave_painting"
  },
  {
   "name": "Neanderthal admixture with modern humans",
@@ -2009,7 +2122,8 @@ window.HISTORY_DATA = {
   "description": "A painting of a warty pig in Leang Tedongnge cave on Sulawesi, dated to about 45,500 years ago, is among the oldest known figurative artworks.",
   "significance": "It shows sophisticated representational art emerging in Southeast Asia as early as in Europe, decentering the story of human creativity.",
   "region": "Sulawesi, Indonesia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Cave_painting"
  },
  {
   "name": "Sewn Clothing and the Eyed Needle",
@@ -2020,7 +2134,8 @@ window.HISTORY_DATA = {
   "description": "Bone eyed needles enable tailored, fitted clothing among Upper Paleolithic peoples.",
   "significance": "Portable insulation let humans colonize cold latitudes, showing technology substituting for biological adaptation.",
   "region": "Eurasia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Sewing_needle"
  },
  {
   "name": "Earliest musical instruments",
@@ -2031,7 +2146,8 @@ window.HISTORY_DATA = {
   "description": "Flutes carved from bird bone and mammoth ivory at Hohle Fels and Geissenkloesterle in southern Germany date to around 42,000 years ago.",
   "significance": "They are the oldest known musical instruments, showing that music and shared performance were part of early modern human life.",
   "region": "Swabian Jura, Germany",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Musical_instrument"
  },
  {
   "name": "Extinction of the Neanderthals",
@@ -2056,7 +2172,8 @@ window.HISTORY_DATA = {
   "description": "Small carved female figures such as the Venus of Hohle Fels and the Venus of Willendorf were made across Ice Age Europe from about 40,000 to 25,000 years ago.",
   "significance": "These portable sculptures are among the earliest three-dimensional depictions of the human body and hint at shared symbolic traditions.",
   "region": "Europe",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Venus_figurine"
  },
  {
   "name": "Venus Figurines and Ice Age Portable Art",
@@ -2067,7 +2184,8 @@ window.HISTORY_DATA = {
   "description": "Small carved female figurines such as the Venus of Hohle Fels and Venus of Willendorf, along with ivory animal carvings, were produced across Ice Age Eurasia.",
   "significance": "These are the first widespread tradition of three-dimensional representational sculpture, revealing shared symbolic conventions across vast hunter-gatherer networks.",
   "region": "Europe and Eurasia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Venus_figurine"
  },
  {
   "name": "Chauvet Cave Paintings",
@@ -2091,7 +2209,8 @@ window.HISTORY_DATA = {
   "description": "Small carved statuettes of female figures made across Ice Age Europe.",
   "significance": "They are among the earliest portable art and reveal shared symbolic traditions across vast distances.",
   "region": "Europe",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Venus_figurine"
  },
  {
   "name": "Last Glacial Maximum",
@@ -2102,7 +2221,8 @@ window.HISTORY_DATA = {
   "description": "The Last Glacial Maximum was the peak of the recent ice age, when global ice volume was greatest and sea level roughly 120 metres below today's.",
   "significance": "It squeezed human populations into refugia and set the low-sea-level stage for humans to walk into the Americas.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Last_Glacial_Maximum"
  },
  {
   "name": "Beringia and the peopling of the Americas",
@@ -2113,7 +2233,8 @@ window.HISTORY_DATA = {
   "description": "During the ice age a broad land bridge called Beringia connected Siberia and Alaska, where an isolated population lingered before dispersing into the Americas.",
   "significance": "This crossing was the last major expansion of humans onto a new continent, completing the peopling of the habitable world.",
   "region": "Beringia (Siberia to Alaska)",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Peopling_of_the_Americas"
  },
  {
   "name": "Doggerland and its drowning",
@@ -2124,7 +2245,8 @@ window.HISTORY_DATA = {
   "description": "Doggerland was a low-lying inhabited plain connecting Britain to continental Europe across what is now the North Sea, progressively flooded and finally submerged by about 8,200 years ago.",
   "significance": "Its loss to rising postglacial seas is a vivid record of how climate warming can erase entire inhabited landscapes.",
   "region": "North Sea, Northwest Europe",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Doggerland"
  },
  {
   "name": "White Sands Footprints",
@@ -2166,7 +2288,8 @@ window.HISTORY_DATA = {
   "description": "A vivid gallery of Upper Paleolithic cave paintings dominated by large animals such as aurochs and horses.",
   "significance": "It stands as an iconic peak of Ice Age art and human symbolic imagination.",
   "region": "France, Western Europe",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Lascaux"
  },
  {
   "name": "Invention of Pottery",
@@ -2177,7 +2300,8 @@ window.HISTORY_DATA = {
   "description": "Foragers in East Asia (Xianrendong in China and early Jōmon Japan) fired the world's first ceramic vessels, millennia before farming reached the region.",
   "significance": "Pottery — invented by hunter-gatherers, not farmers — became the universal container technology for cooking, storage, and brewing, and its styles serve archaeologists as the fingerprint of ancient cultures.",
   "region": "East Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Pottery"
  },
  {
   "name": "Peopling of the Americas",
@@ -2188,7 +2312,8 @@ window.HISTORY_DATA = {
   "description": "The colonization of North and South America by humans crossing from Asia via Beringia.",
   "significance": "It completed humanity's spread to the last major habitable continents, the final frontier of the Paleolithic world.",
   "region": "Americas",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Peopling_of_the_Americas"
  },
  {
   "name": "Lascaux and Altamira Cave Paintings",
@@ -2199,7 +2324,8 @@ window.HISTORY_DATA = {
   "description": "Painters of the Magdalenian culture covered cave walls at Lascaux and Altamira with polychrome bison, horses, and deer of extraordinary naturalism.",
   "significance": "The technical mastery of these works demonstrates that fully modern artistic capacity long predates farming, writing, and cities.",
   "region": "France and Spain",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Lascaux"
  },
  {
   "name": "Mesolithic (Middle Stone Age)",
@@ -2210,7 +2336,8 @@ window.HISTORY_DATA = {
   "description": "The transitional post-glacial era of microlith toolkits, broad-spectrum foraging, and semi-settled camps.",
   "significance": "It shows the gradual, experimental slide from foraging into farming rather than a sudden leap.",
   "region": "Eurasia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Mesolithic"
  },
  {
   "name": "End of the Last Ice Age",
@@ -2221,7 +2348,8 @@ window.HISTORY_DATA = {
   "description": "The close of the Pleistocene glacial period and the beginning of the warm, stable Holocene epoch.",
   "significance": "The warming climate set the stage for agriculture and the end of the Paleolithic way of life.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Little_Ice_Age"
  },
  {
   "name": "Holocene Epoch",
@@ -2232,7 +2360,8 @@ window.HISTORY_DATA = {
   "description": "The current warm interglacial epoch that began with the retreat of the last ice sheets.",
   "significance": "A rare span of stable climate that made agriculture, cities, and civilization possible.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Holocene"
  },
  {
   "name": "Younger Dryas Cold Reversal",
@@ -2256,7 +2385,8 @@ window.HISTORY_DATA = {
   "description": "Humans in the Fertile Crescent and, independently, in several other world regions began cultivating plants and herding animals instead of relying solely on hunting and gathering.",
   "significance": "Farming arose independently at least seven times worldwide — a striking convergence showing that post-Ice Age conditions pushed dispersed human societies toward the same solution.",
   "region": "Fertile Crescent & worldwide",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Agricultural_revolution"
  },
  {
   "name": "Neolithic Age",
@@ -2267,7 +2397,8 @@ window.HISTORY_DATA = {
   "description": "The 'New Stone Age' in which humans shifted from foraging to farming, settled in permanent villages, and developed polished stone tools, pottery, and weaving.",
   "significance": "Marks the single greatest transformation in human lifeways, converting mobile bands into sedentary societies whose food surpluses made cities, states, and specialists possible.",
   "region": "Global (beginning in the Near East)",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Neolithic"
  },
  {
   "name": "Holocene Interglacial",
@@ -2278,7 +2409,8 @@ window.HISTORY_DATA = {
   "description": "The current warm interglacial began as the last ice age ended, bringing an unusually stable and hospitable climate.",
   "significance": "Holocene warmth and stability enabled agriculture, cities, and the whole span of recorded civilization.",
   "region": "Earth",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Interglacial"
  },
  {
   "name": "Göbekli Tepe: First Monumental Architecture",
@@ -2289,7 +2421,8 @@ window.HISTORY_DATA = {
   "description": "Hunter-gatherers in southeastern Anatolia erected circles of massive carved T-shaped pillars decorated with animal reliefs, millennia before pottery or cities.",
   "significance": "It shows monumental communal construction and shared ritual imagery preceded agriculture, inverting the assumed order of civilization's building blocks.",
   "region": "Anatolia (Turkey)",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/G%C3%B6bekli_Tepe"
  },
  {
   "name": "Agriculture (Neolithic Revolution)",
@@ -2300,7 +2433,8 @@ window.HISTORY_DATA = {
   "description": "Communities in the Fertile Crescent begin systematically cultivating wheat, barley, and legumes and herding animals.",
   "significance": "Farming created food surpluses that made villages, cities, states, and specialized labor possible.",
   "region": "Fertile Crescent",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Neolithic_Revolution"
  },
  {
   "name": "Domestication of Wheat and Barley",
@@ -2311,7 +2445,8 @@ window.HISTORY_DATA = {
   "description": "Cultivators in the Fertile Crescent selectively propagated wild emmer, einkorn, and barley until the plants became dependent on human harvesting and sowing.",
   "significance": "The founder crops of Western Eurasia created the storable surplus on which every later Near Eastern city and state was fed.",
   "region": "Fertile Crescent",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Domestication"
  },
  {
   "name": "Göbekli Tepe",
@@ -2322,7 +2457,8 @@ window.HISTORY_DATA = {
   "description": "Hunter-gatherers in southeastern Anatolia erected monumental circular enclosures of carved T-shaped megaliths, the world's oldest known monumental ritual site.",
   "significance": "Upends the assumption that farming preceded organized religion, suggesting large-scale ritual cooperation may itself have helped pull people toward settlement and agriculture.",
   "region": "Anatolia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/G%C3%B6bekli_Tepe"
  },
  {
   "name": "Founding of Jericho",
@@ -2333,7 +2469,8 @@ window.HISTORY_DATA = {
   "description": "A permanent settlement arose at the spring of Jericho in the Jordan Valley, soon fortified with a massive stone wall and tower, making it among the world's oldest continuously inhabited towns.",
   "significance": "Its early walls and tower reveal that dense sedentary life immediately generated new needs — communal labor, defense or flood control, and social organization beyond the band.",
   "region": "Levant",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Jericho"
  },
  {
   "name": "Domestication of Sheep, Goats, and Cattle",
@@ -2344,7 +2481,8 @@ window.HISTORY_DATA = {
   "description": "Herders in the Fertile Crescent and Anatolia brought sheep, goats, and wild aurochs under human control, creating the first livestock economies.",
   "significance": "Animal domestication added meat, milk, wool, and traction to the farming package — and began the long cohabitation with animals that also transferred new diseases to humans.",
   "region": "Fertile Crescent / Anatolia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Sheep"
  },
  {
   "name": "Çatalhöyük",
@@ -2355,7 +2493,8 @@ window.HISTORY_DATA = {
   "description": "A vast honeycomb-like proto-town in central Anatolia housed thousands of people in adjoining mudbrick houses entered through the roofs, decorated with murals and bull-horn shrines.",
   "significance": "Shows a large, dense community thriving for over a millennium with little evidence of rulers or public buildings — a challenge to the idea that urban scale requires hierarchy.",
   "region": "Anatolia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/%C3%87atalh%C3%B6y%C3%BCk"
  },
  {
   "name": "Maize Domestication in Mesoamerica",
@@ -2366,7 +2505,8 @@ window.HISTORY_DATA = {
   "description": "Farmers in southern Mexico gradually transformed the wild grass teosinte into maize, the staple of all later Mesoamerican civilizations.",
   "significance": "The Americas' independent path to agriculture — achieved without Old World crops, animals, or contact — set the foundation for the Olmec, Maya, and Aztec worlds.",
   "region": "Mesoamerica",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Mesoamerica"
  },
  {
   "name": "Rice Domestication in the Yangtze Valley",
@@ -2377,7 +2517,8 @@ window.HISTORY_DATA = {
   "description": "Communities along the Yangtze River domesticated wild rice, establishing the crop that would feed the majority of humanity.",
   "significance": "An independent East Asian agricultural revolution, proving the Neolithic transition was a parallel global process rather than a diffusion from a single center.",
   "region": "East Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Rice"
  },
  {
   "name": "8.2-Kiloyear Climate Event",
@@ -2401,7 +2542,8 @@ window.HISTORY_DATA = {
   "description": "Farmers on the dry southern Mesopotamian plain began digging canals to bring Tigris and Euphrates water to their fields.",
   "significance": "Irrigation multiplied yields but demanded coordinated labor and water management, a pressure many scholars link to the rise of centralized authority and the first states.",
   "region": "Mesopotamia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Agriculture_in_Mesopotamia"
  },
  {
   "name": "Copper Smelting and the Chalcolithic",
@@ -2412,7 +2554,8 @@ window.HISTORY_DATA = {
   "description": "Metalworkers in the Balkans and Near East learned to smelt copper from ore, inaugurating the Copper Age transition between stone and bronze.",
   "significance": "The first extractive metallurgy created a prestige economy in metal goods and the pyrotechnic know-how that led directly to bronze, and later iron.",
   "region": "Southeast Europe / Near East",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Chalcolithic"
  },
  {
   "name": "Uruk, the First City",
@@ -2423,7 +2566,8 @@ window.HISTORY_DATA = {
   "description": "Uruk in southern Mesopotamia grew into the world's first true city, with tens of thousands of inhabitants, monumental temples, mass-produced goods, and an administrative elite.",
   "significance": "The 'Uruk phenomenon' bundled together cities, bureaucracy, social stratification, and ultimately writing — the template of civilization that later states repeated.",
   "region": "Mesopotamia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Uruk"
  },
  {
   "name": "Domestication of the Horse",
@@ -2434,7 +2578,8 @@ window.HISTORY_DATA = {
   "description": "Peoples of the Pontic-Caspian steppe tamed and bred horses for milk, meat, and eventually riding and traction.",
   "significance": "The horse revolutionized transport, warfare, and steppe mobility, powering the later spread of Indo-European languages and linking the ends of Eurasia.",
   "region": "Pontic-Caspian Steppe",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Domestication_of_the_horse"
  },
  {
   "name": "Invention of the Wheel",
@@ -2445,7 +2590,8 @@ window.HISTORY_DATA = {
   "description": "Wheeled vehicles and the potter's wheel appeared nearly simultaneously in Mesopotamia and Eastern Europe, transforming transport and craft production.",
   "significance": "One of history's most consequential mechanical inventions, the wheel-and-axle multiplied what humans and animals could move and remains foundational to all machinery.",
   "region": "Mesopotamia / Eastern Europe",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Wheel"
  },
  {
   "name": "Sumerian City-States",
@@ -2456,7 +2602,8 @@ window.HISTORY_DATA = {
   "description": "Independent walled cities such as Uruk, Ur, Lagash, and Kish emerge in southern Mesopotamia, each ruled by kings and temple institutions.",
   "significance": "The world's first urban civilization, establishing the template of kingship, taxation, temple economy, and organized warfare that later empires scaled up.",
   "region": "Mesopotamia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Sumer"
  },
  {
   "name": "The Wheel",
@@ -2467,7 +2614,8 @@ window.HISTORY_DATA = {
   "description": "Wheeled vehicles and the potter's wheel appear in Mesopotamia and the Eurasian steppe.",
   "significance": "Rotary motion transformed transport, pottery, and later machinery, becoming a foundational mechanical principle.",
   "region": "Mesopotamia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Wheel"
  },
  {
   "name": "Bronze Age",
@@ -2478,7 +2626,8 @@ window.HISTORY_DATA = {
   "description": "The era defined by bronze metallurgy, the first writing systems, urban states, and long-distance trade networks across Eurasia and North Africa.",
   "significance": "Shows how a single material technology bound distant regions into interdependent trade systems — a connectivity so tight that its breakdown produced the Late Bronze Age collapse.",
   "region": "Eurasia & North Africa",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Bronze_Age"
  },
  {
   "name": "Bronze Metallurgy",
@@ -2489,7 +2638,8 @@ window.HISTORY_DATA = {
   "description": "Smiths in the Near East began alloying copper with tin to produce bronze, a metal far harder than copper for tools and weapons.",
   "significance": "Because tin was rare, bronze forced cities to build long-distance trade networks, entangling elites across Eurasia in the first truly international economy.",
   "region": "Near East",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Bronze"
  },
  {
   "name": "Indus Valley Civilization",
@@ -2524,7 +2674,8 @@ window.HISTORY_DATA = {
   "description": "Sumerian administrators in Uruk developed cuneiform, pressing wedge-shaped signs into clay tablets, evolving from accounting tokens into full writing.",
   "significance": "Writing began as bookkeeping, not literature — showing that record-keeping for taxes and temple stores drove humanity's most transformative information technology and the start of recorded history.",
   "region": "Mesopotamia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Cuneiform"
  },
  {
   "name": "Egyptian Hieroglyphs Invented",
@@ -2535,7 +2686,8 @@ window.HISTORY_DATA = {
   "description": "Egyptians developed hieroglyphic writing, used on labels, monuments, and royal records from the late Predynastic period at Abydos onward.",
   "significance": "Emerging almost simultaneously with cuneiform, hieroglyphs show writing arising in parallel where states needed to record power and property — and bound script to royal ideology for three millennia.",
   "region": "Egypt",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Egyptian_hieroglyphs"
  },
  {
   "name": "Writing (Cuneiform)",
@@ -2546,7 +2698,8 @@ window.HISTORY_DATA = {
   "description": "Sumerian scribes develop cuneiform, evolving from accounting tokens into a full writing system.",
   "significance": "Writing externalized memory, enabling law, administration, and knowledge transmission across generations.",
   "region": "Mesopotamia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Writing"
  },
  {
   "name": "Unification of Egypt under Narmer",
@@ -2557,7 +2710,8 @@ window.HISTORY_DATA = {
   "description": "King Narmer (Menes) united Upper and Lower Egypt, founding the First Dynasty and the pharaonic state.",
   "significance": "Created the world's first large territorial state, whose remarkable three-thousand-year continuity contrasts with the fractious city-state politics of Mesopotamia.",
   "region": "Egypt",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Narmer"
  },
  {
   "name": "Austronesian Expansion",
@@ -2579,7 +2733,8 @@ window.HISTORY_DATA = {
   "description": "Bronze Age palace civilization on Crete, centered on Knossos, with vibrant frescoes, maritime trade, and the undeciphered Linear A script.",
   "significance": "Europe's first literate urban civilization shows complex society arising from sea trade rather than conquest, and its collapse fed later Greek myth.",
   "region": "Crete / Aegean",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Minoan_civilization"
  },
  {
   "name": "Norte Chico (Caral) Civilization",
@@ -2590,7 +2745,8 @@ window.HISTORY_DATA = {
   "description": "Monumental platform mounds and planned centers such as Caral arose on the Peruvian coast, the oldest known urban complex in the Americas.",
   "significance": "Urban monumentality emerged in the Americas contemporaneously with Egypt's pyramids — and apparently without pottery or staple cereal agriculture — widening our picture of how civilizations can begin.",
   "region": "Andes (Peru)",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Norte_Chico"
  },
  {
   "name": "Egyptian Old Kingdom",
@@ -2601,7 +2757,8 @@ window.HISTORY_DATA = {
   "description": "The 'Age of the Pyramids,' when powerful pharaohs of Dynasties 3-6 commanded vast labor and resources from a centralized state.",
   "significance": "Demonstrates the mobilizing power of early divine kingship, and its collapse into the First Intermediate Period shows the fragility of centralized states under climate stress.",
   "region": "Egypt",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Old_Kingdom_of_Egypt"
  },
  {
   "name": "Indus Valley Civilization",
@@ -2612,7 +2769,8 @@ window.HISTORY_DATA = {
   "description": "A Bronze Age urban civilization of planned cities such as Harappa and Mohenjo-daro, with standardized weights, drainage systems, and an undeciphered script.",
   "significance": "Shows that large-scale urbanism arose independently in South Asia, and its still-unread script marks the limits of what archaeology alone can recover.",
   "region": "South Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Indus_Valley_Civilisation"
  },
  {
   "name": "Great Pyramid of Giza",
@@ -2623,7 +2781,8 @@ window.HISTORY_DATA = {
   "description": "Pharaoh Khufu's pyramid, the largest ever built, was completed at Giza as the centerpiece of a vast royal funerary complex.",
   "significance": "A demonstration of the logistical power of the early state — mobilizing tens of thousands of workers — it remained the tallest human-made structure for nearly 4,000 years.",
   "region": "Egypt",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza"
  },
  {
   "name": "Kingdom of Kush (Kerma, Napata, Meroe)",
@@ -2634,7 +2793,8 @@ window.HISTORY_DATA = {
   "description": "A powerful Nubian civilization on the middle Nile that traded with, rivaled, and at times ruled Egypt, later flourishing at Meroe with its own script and ironworking.",
   "significance": "Shows that complex urban statecraft in Africa long predates and extends far beyond Egypt, with Nubia as a two-way conduit between the Mediterranean and inner Africa.",
   "region": "Nubia (Sudan)",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Kingdom_of_Kush"
  },
  {
   "name": "Stonehenge (Main Sarsen Phase)",
@@ -2645,7 +2805,8 @@ window.HISTORY_DATA = {
   "description": "Neolithic Britons erected the great sarsen trilithons of Stonehenge, aligned on the solstices, at a monument complex begun centuries earlier.",
   "significance": "Evidence that non-urban, non-literate farming societies could also mobilize labor at enormous scale for astronomy-linked ritual, far from the river-valley civilizations.",
   "region": "Britain",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Stonehenge"
  },
  {
   "name": "Akkadian Empire of Sargon",
@@ -2656,7 +2817,8 @@ window.HISTORY_DATA = {
   "description": "Sargon of Akkad conquered the Sumerian city-states and Upper Mesopotamia, creating history's first multi-ethnic empire ruled from a central capital.",
   "significance": "Invented the imperial template — conquest, provincial governors, a standardized administrative language — and its fall became antiquity's archetypal lesson in imperial collapse.",
   "region": "Mesopotamia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Akkadian_Empire"
  },
  {
   "name": "4.2-Kiloyear Aridification Event",
@@ -2680,7 +2842,8 @@ window.HISTORY_DATA = {
   "description": "A Sumerian renaissance under Ur-Nammu and Shulgi, featuring the Great Ziggurat of Ur and the earliest surviving law code.",
   "significance": "Its meticulous bureaucratic records and early legal code show how deeply administration and standardized justice had penetrated ancient statecraft.",
   "region": "Mesopotamia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Third_Dynasty_of_Ur"
  },
  {
   "name": "Epic of Gilgamesh (Earliest Poems)",
@@ -2691,7 +2854,8 @@ window.HISTORY_DATA = {
   "description": "Sumerian scribes wrote down the first poems about Gilgamesh, legendary king of Uruk, later woven into the Babylonian epic of mortality and friendship.",
   "significance": "The oldest great work of world literature shows writing leaping from accounting to storytelling, preserving humanity's earliest surviving meditation on death and the limits of power.",
   "region": "Mesopotamia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Epic_of_Gilgamesh"
  },
  {
   "name": "Epic of Gilgamesh and the Earliest Literature",
@@ -2702,7 +2866,8 @@ window.HISTORY_DATA = {
   "description": "Sumerian poems about the legendary king Gilgamesh, first written down around 2100 BCE and later woven into a standard Akkadian epic, constitute humanity's oldest surviving literary masterpiece.",
   "significance": "Its themes of friendship, mortality, and the search for meaning show that literature's core concerns were present from writing's very beginnings.",
   "region": "Mesopotamia (Iraq)",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Epic_of_Gilgamesh"
  },
  {
   "name": "Egyptian Middle Kingdom",
@@ -2713,7 +2878,8 @@ window.HISTORY_DATA = {
   "description": "Egypt is reunified under Theban rulers, ushering in an era of stability, expansion into Nubia, and classical Egyptian literature.",
   "significance": "Shows a civilization's capacity for renewal after collapse, and its literature became the classical canon Egyptians studied for a thousand years.",
   "region": "Egypt",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Middle_Kingdom_of_Egypt"
  },
  {
   "name": "The Alphabet",
@@ -2724,7 +2890,8 @@ window.HISTORY_DATA = {
   "description": "Semitic workers in Egypt and the Sinai adapt hieroglyphic signs into the first alphabetic script (Proto-Sinaitic).",
   "significance": "Reducing writing to a few dozen letters democratized literacy and seeded nearly all later alphabets via the Phoenicians.",
   "region": "Egypt / Levant",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Alphabet"
  },
  {
   "name": "Reign of Hammurabi of Babylon",
@@ -2735,7 +2902,8 @@ window.HISTORY_DATA = {
   "description": "Hammurabi transforms Babylon from a minor city-state into the dominant power of Mesopotamia through conquest and diplomacy.",
   "significance": "Established Babylon as the political and cultural center of Mesopotamia, a status it retained for over a millennium.",
   "region": "Mesopotamia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Hammurabi"
  },
  {
   "name": "Code of Hammurabi",
@@ -2746,7 +2914,8 @@ window.HISTORY_DATA = {
   "description": "Hammurabi of Babylon inscribed a comprehensive law code on a diorite stele, prescribing justice with penalties graded by social class.",
   "significance": "The most complete early law code makes visible the Bronze Age state's claim to divinely sanctioned justice — and its codified inequality — influencing legal tradition across the Near East.",
   "region": "Mesopotamia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Code_of_Hammurabi"
  },
  {
   "name": "Hittite Empire",
@@ -2757,7 +2926,8 @@ window.HISTORY_DATA = {
   "description": "An Anatolian empire centered on Hattusa that rivaled Egypt and Assyria, famed for chariot warfare and early iron-working.",
   "significance": "A great-power rival to Egypt whose archives reveal the first known international diplomacy, treaties, and balance-of-power politics.",
   "region": "Anatolia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Hittites"
  },
  {
   "name": "Eruption of Thera (Santorini)",
@@ -2790,7 +2960,8 @@ window.HISTORY_DATA = {
   "description": "The earliest archaeologically confirmed Chinese dynasty, centered on the Yellow River with bronze ritual vessels and divination by oracle bones.",
   "significance": "Anchors Chinese state formation in verifiable history and begins a continuous political-cultural tradition lasting to the present.",
   "region": "East Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Shang_dynasty"
  },
  {
   "name": "Egyptian New Kingdom",
@@ -2801,7 +2972,8 @@ window.HISTORY_DATA = {
   "description": "Egypt's imperial age under pharaohs such as Hatshepsut, Thutmose III, Akhenaten, Tutankhamun, and Ramesses II, ruling from Nubia to Syria.",
   "significance": "Egypt at maximum reach, projecting power abroad and leaving monuments like Karnak and the Valley of the Kings; its decline tracked the wider Bronze Age collapse.",
   "region": "Egypt",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/New_Kingdom_of_Egypt"
  },
  {
   "name": "Bantu Expansion",
@@ -2812,7 +2984,8 @@ window.HISTORY_DATA = {
   "description": "Bantu-speaking farming and iron-using peoples spread from the Nigeria-Cameroon borderlands across central, eastern, and southern Africa.",
   "significance": "One of history's greatest demographic and linguistic diffusions, reshaping the languages, agriculture, and metallurgy of half a continent.",
   "region": "Sub-Saharan Africa",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Bantu_expansion"
  },
  {
   "name": "Composition of the Rigveda",
@@ -2823,7 +2996,8 @@ window.HISTORY_DATA = {
   "description": "Oral composition of the oldest Vedic Sanskrit hymns, the foundational scriptures of what becomes Hinduism.",
   "significance": "Shows how oral transmission could preserve a religious canon for millennia before writing, seeding one of the world's oldest living traditions.",
   "region": "South Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Rigveda"
  },
  {
   "name": "Vedic Period",
@@ -2834,7 +3008,8 @@ window.HISTORY_DATA = {
   "description": "The era in which Indo-Aryan speakers composed the Vedas and associated ritual literature, transmitted orally with extraordinary fidelity across northern India.",
   "significance": "Lays the religious, linguistic, and social foundations (including Sanskrit and the varna order) from which Hinduism, Buddhism, and Jainism later grew.",
   "region": "South Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Vedic_period"
  },
  {
   "name": "Akhenaten's Atenism",
@@ -2845,7 +3020,8 @@ window.HISTORY_DATA = {
   "description": "Pharaoh Akhenaten elevates the sun disk Aten above all other gods, builds a new capital at Amarna, and suppresses traditional cults.",
   "significance": "Often cited as history's first experiment in exclusive near-monotheism, showing how radically religion could be reshaped by state power, and how quickly it could be reversed.",
   "region": "Egypt",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Atenism"
  },
  {
   "name": "Lapita Settlement of Remote Oceania",
@@ -2856,7 +3032,8 @@ window.HISTORY_DATA = {
   "description": "Lapita voyagers with distinctive pottery crossed open ocean to settle Vanuatu, Fiji, Tonga, and Samoa.",
   "significance": "The first humans ever to reach Remote Oceania, ancestral to all Polynesian peoples.",
   "region": "Pacific",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Near_Oceania_and_Remote_Oceania"
  },
  {
   "name": "Battle of Kadesh & First Peace Treaty",
@@ -2867,7 +3044,8 @@ window.HISTORY_DATA = {
   "description": "Ramesses II of Egypt and the Hittites under Muwatalli II fight history's best-documented chariot battle, later concluding the earliest surviving peace treaty (c. 1259 BCE).",
   "significance": "Shows great-power stalemate resolved by diplomacy rather than conquest, producing the oldest known international peace agreement.",
   "region": "Syria",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Battle_of_Kadesh"
  },
  {
   "name": "Bronze Age Collapse",
@@ -2878,7 +3056,8 @@ window.HISTORY_DATA = {
   "description": "Within decades the Hittite Empire falls, Mycenaean palaces burn, Egypt is battered by the 'Sea Peoples,' and eastern Mediterranean trade networks disintegrate.",
   "significance": "A striking example of systemic collapse: interconnected civilizations failing together under compounding stresses of drought, migration, and war.",
   "region": "Eastern Mediterranean",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Late_Bronze_Age_collapse"
  },
  {
   "name": "Iron Age (Near East)",
@@ -2889,7 +3068,8 @@ window.HISTORY_DATA = {
   "description": "The era following the Bronze Age collapse in which iron replaces bronze as the dominant metal for tools and weapons across the Near East.",
   "significance": "Cheap, abundant iron democratized metal use and armed larger armies, reshaping agriculture and warfare and enabling bigger empires.",
   "region": "Near East",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Iron_Age"
  },
  {
   "name": "Iron Smelting",
@@ -2900,7 +3080,8 @@ window.HISTORY_DATA = {
   "description": "Ironworking spreads widely across the Near East as the Bronze Age collapses, with Anatolia an early center.",
   "significance": "Abundant iron ore cheapened tools and weapons, diffusing metal technology beyond elites to farmers and soldiers.",
   "region": "Anatolia / Near East",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Smelting"
  },
  {
   "name": "Olmec Civilization",
@@ -2911,7 +3092,8 @@ window.HISTORY_DATA = {
   "description": "Mesoamerica's first major civilization, at San Lorenzo and La Venta, carved colossal stone heads and shaped later religious iconography.",
   "significance": "The 'mother culture' whose calendar, ballgame, and gods diffused to the Maya, Zapotec, and Aztec worlds.",
   "region": "Mesoamerica",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Olmecs"
  },
  {
   "name": "Olmec Colossal Heads and Mesoamerican Sculpture",
@@ -2922,7 +3104,8 @@ window.HISTORY_DATA = {
   "description": "The Olmec of the Gulf Coast lowlands carved multi-ton basalt portrait heads of their rulers and produced refined jade figurines.",
   "significance": "As Mesoamerica's first great art style, Olmec sculpture established iconographic conventions inherited by the Maya and Aztec.",
   "region": "Mesoamerica (Mexico)",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Olmec_colossal_heads"
  },
  {
   "name": "Oracle Bone Script",
@@ -2933,7 +3116,8 @@ window.HISTORY_DATA = {
   "description": "Divinatory inscriptions carved on turtle shells and ox bones at Anyang, the earliest known form of Chinese writing.",
   "significance": "Chinese characters emerge fully formed in the record here and evolve unbroken into the modern script, a unique case of continuity in world writing systems.",
   "region": "East Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Oracle_bone_script"
  },
  {
   "name": "Zoroaster & the rise of Zoroastrianism",
@@ -2944,7 +3128,8 @@ window.HISTORY_DATA = {
   "description": "The Iranian prophet Zarathustra teaches a cosmology of one supreme god Ahura Mazda locked in struggle with evil.",
   "significance": "Introduces ethical dualism, judgment, and eschatology — ideas that later diffuse into Judaism, Christianity, and Islam.",
   "region": "Iranian Plateau",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Zoroastrianism"
  },
  {
   "name": "Phoenician Alphabet",
@@ -2955,7 +3140,8 @@ window.HISTORY_DATA = {
   "description": "Phoenician traders of the Levant standardize a 22-letter consonantal alphabet, far simpler than cuneiform or hieroglyphs.",
   "significance": "Spread by merchants across the Mediterranean, it became the ancestor of Hebrew, Aramaic, Greek, Latin, and most alphabets used today, radically democratizing literacy.",
   "region": "Levant",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Phoenician_alphabet"
  },
  {
   "name": "Zhou Dynasty",
@@ -2966,7 +3152,8 @@ window.HISTORY_DATA = {
   "description": "China's longest dynasty, which overthrew the Shang and articulated the Mandate of Heaven before fragmenting into competing states.",
   "significance": "Its doctrine that rulers govern by revocable heavenly mandate became the enduring Chinese theory of legitimate power and dynastic change.",
   "region": "East Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Zhou_dynasty"
  },
  {
   "name": "Chinese Classic of Poetry (Shijing) Compiled",
@@ -2977,7 +3164,8 @@ window.HISTORY_DATA = {
   "description": "The 305 folk songs, court odes, and hymns of the Shijing were composed and gathered during the Zhou dynasty, forming China's earliest poetry anthology.",
   "significance": "It founded a three-thousand-year continuous poetic tradition and became a canonical text shaping Confucian education and Chinese literary aesthetics.",
   "region": "China",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Classic_of_Poetry"
  },
  {
   "name": "Emergence of Israelite monotheism",
@@ -2988,7 +3176,8 @@ window.HISTORY_DATA = {
   "description": "Israelite religion evolves from worship of a national god toward exclusive monotheism, crystallized in the Hebrew Bible.",
   "significance": "Establishes the monotheistic template later inherited by Christianity and Islam, making it one of history's most consequential religious ideas.",
   "region": "Levant",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Monotheism"
  },
  {
   "name": "Nok Culture",
@@ -2999,7 +3188,8 @@ window.HISTORY_DATA = {
   "description": "A West African culture on the Jos Plateau famed for its expressive terracotta sculptures and early iron smelting.",
   "significance": "Provides some of the earliest evidence of iron technology and monumental figurative art in Sub-Saharan Africa.",
   "region": "West Africa (Nigeria)",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Nok_culture"
  },
  {
   "name": "Neo-Assyrian Empire",
@@ -3010,7 +3200,8 @@ window.HISTORY_DATA = {
   "description": "From Nimrud and Nineveh, Assyria builds the largest empire yet seen, spanning Mesopotamia, the Levant, Anatolia, and briefly Egypt.",
   "significance": "Pioneered mass deportation, provincial administration, standing armies, and royal roads, the machinery of imperial control inherited by Babylon and Persia.",
   "region": "Mesopotamia & Near East",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Neo-Assyrian_Empire"
  },
  {
   "name": "Chavín Culture",
@@ -3021,7 +3212,8 @@ window.HISTORY_DATA = {
   "description": "An Andean religious and artistic tradition centered on the temple complex of Chavín de Huántar in highland Peru.",
   "significance": "Its shared cult unified diverse Andean peoples, laying cultural foundations for later Andean states up to the Inca.",
   "region": "Andes",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Chav%C3%ADn_culture"
  },
  {
   "name": "Nok Terracotta Sculpture",
@@ -3032,7 +3224,8 @@ window.HISTORY_DATA = {
   "description": "The Nok culture of central Nigeria produced near-life-size terracotta figures with elaborate coiffures and expressive faces, among sub-Saharan Africa's earliest known sculpture.",
   "significance": "Nok art attests to sophisticated artistic traditions in Iron Age West Africa and stands at the head of a long lineage of West African figurative sculpture.",
   "region": "Nigeria, West Africa",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Nok_culture"
  },
  {
   "name": "Axial Age",
@@ -3043,7 +3236,8 @@ window.HISTORY_DATA = {
   "description": "Karl Jaspers' term for the era when transformative thinkers arose independently in Greece, Israel, Iran, India, and China.",
   "significance": "Reveals a striking convergence: separate civilizations simultaneously turned toward ethics, transcendence, and universal claims about the human condition.",
   "region": "Eurasia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Axial_Age"
  },
  {
   "name": "Classical Antiquity",
@@ -3054,7 +3248,8 @@ window.HISTORY_DATA = {
   "description": "The era of interlocking Greek and Roman civilization around the Mediterranean, from the Archaic Greek revival to the fall of the Western Roman Empire.",
   "significance": "It forged the political vocabulary, philosophy, art, and law that later Mediterranean, Islamic, and European civilizations repeatedly rediscovered and reworked.",
   "region": "Mediterranean",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Classical_antiquity"
  },
  {
   "name": "Composition of the Principal Upanishads",
@@ -3065,7 +3260,8 @@ window.HISTORY_DATA = {
   "description": "Philosophical dialogues appended to the Vedas that turn inward, exploring the self (atman), ultimate reality (brahman), karma, and rebirth.",
   "significance": "Marks the pivot from ritual sacrifice to introspective philosophy, setting the conceptual agenda for nearly all later Indian thought.",
   "region": "South Asia",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Upanishads"
  },
  {
   "name": "The Upanishads",
@@ -3076,7 +3272,8 @@ window.HISTORY_DATA = {
   "description": "Indian philosophical texts that reframe Vedic ritual into speculation on the self (atman), ultimate reality (brahman), karma, and rebirth.",
   "significance": "Marks a turn from sacrifice to introspection, shaping Hindu, Buddhist, and Jain thought for the next two and a half millennia.",
   "region": "South Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Upanishads"
  },
  {
   "name": "First Olympic Games",
@@ -3087,7 +3284,8 @@ window.HISTORY_DATA = {
   "description": "The traditional first athletic festival held at Olympia in honor of Zeus, later used by Greeks as a chronological anchor.",
   "significance": "Panhellenic games created a shared Greek identity across rival city-states and gave antiquity its own dating system.",
   "region": "Greece",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/List_of_Olympic_Games_host_cities"
  },
  {
   "name": "Legendary Founding of Rome",
@@ -3098,7 +3296,8 @@ window.HISTORY_DATA = {
   "description": "The traditional date on which Romulus founded the city of Rome on the Palatine Hill.",
   "significance": "Whatever its historicity, the date anchored Rome's own calendar (ab urbe condita) and its self-mythology of destined greatness.",
   "region": "Italy",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Founding_of_Rome"
  },
  {
   "name": "Homer's Iliad and Odyssey",
@@ -3109,7 +3308,8 @@ window.HISTORY_DATA = {
   "description": "The two monumental oral epics about the Trojan War and Odysseus's homecoming were composed and set down in the newly adopted Greek alphabet.",
   "significance": "Foundational texts of Western literature that fused myth, ethics, and identity, showing how writing can crystallize centuries of oral tradition.",
   "region": "Aegean / Ionia",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Iliad"
  },
  {
   "name": "Homeric Epics Composed",
@@ -3120,7 +3320,8 @@ window.HISTORY_DATA = {
   "description": "The Iliad and Odyssey, products of a long oral tradition, were given their monumental form around the eighth century BCE.",
   "significance": "They became the foundational texts of Greek and later Western literature, showing how oral performance traditions crystallize into enduring written canons.",
   "region": "Greece and Aegean",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Homer"
  },
  {
   "name": "Kushite (25th) Dynasty Rules Egypt",
@@ -3142,7 +3343,8 @@ window.HISTORY_DATA = {
   "description": "Nomadic horse-riding Scythians dominated the Pontic-Caspian steppe, famed for mounted archery and gold animal-style art.",
   "significance": "Archetype of the steppe nomad powers that would pressure and connect sedentary Eurasian civilizations for two millennia.",
   "region": "Eurasian Steppe",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Scythians"
  },
  {
   "name": "Library of Ashurbanipal",
@@ -3153,7 +3355,8 @@ window.HISTORY_DATA = {
   "description": "Assyrian king Ashurbanipal assembles tens of thousands of cuneiform tablets at Nineveh, including the Epic of Gilgamesh.",
   "significance": "The first systematically collected royal library, whose buried tablets preserved Mesopotamian literature and science for modern rediscovery.",
   "region": "Mesopotamia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Library_of_Ashurbanipal"
  },
  {
   "name": "Neo-Babylonian Empire",
@@ -3164,7 +3367,8 @@ window.HISTORY_DATA = {
   "description": "Under Nabopolassar and Nebuchadnezzar II, Babylon inherits Assyria's empire and adorns itself with the Ishtar Gate and fabled gardens.",
   "significance": "Babylon's final flowering as the Near East's political and astronomical-scientific capital before Persian conquest.",
   "region": "Mesopotamia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Neo-Babylonian_Empire"
  },
  {
   "name": "Fall of Nineveh",
@@ -3175,7 +3379,8 @@ window.HISTORY_DATA = {
   "description": "A coalition of Babylonians and Medes sacks the Assyrian capital Nineveh, destroying the Neo-Assyrian Empire.",
   "significance": "The sudden fall of the era's superpower shows how quickly overextended empires can collapse when subject peoples combine against them.",
   "region": "Mesopotamia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Fall_of_Nineveh"
  },
  {
   "name": "Coined Money",
@@ -3186,7 +3391,8 @@ window.HISTORY_DATA = {
   "description": "The kingdom of Lydia mints the first standardized electrum coins.",
   "significance": "Portable, state-guaranteed value accelerated trade and markets, abstracting wealth into a universal medium.",
   "region": "Anatolia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Coin"
  },
  {
   "name": "Laozi & the Daodejing",
@@ -3197,7 +3403,8 @@ window.HISTORY_DATA = {
   "description": "The semi-legendary sage Laozi and the terse classic attributed to him, teaching effortless action (wu wei) and harmony with the Dao.",
   "significance": "Founded Daoism, the great counter-current to Confucian order in Chinese civilization, shaping art, medicine, statecraft, and later religion.",
   "region": "East Asia",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Tao_Te_Ching"
  },
  {
   "name": "Mahavira & the Rise of Jainism",
@@ -3208,7 +3415,8 @@ window.HISTORY_DATA = {
   "description": "The life of Mahavira, the 24th Jain tirthankara, who systematized a path of radical nonviolence (ahimsa), asceticism, and non-attachment.",
   "significance": "Jainism's absolute ethic of nonviolence influenced Indian culture for millennia and, through Gandhi, modern movements of nonviolent resistance.",
   "region": "South Asia",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Mahavira"
  },
  {
   "name": "Babylonian Exile of the Judeans",
@@ -3219,7 +3427,8 @@ window.HISTORY_DATA = {
   "description": "Babylon destroys the First Temple in Jerusalem and deports the Judean elite, who later return under Persian rule.",
   "significance": "Trauma of exile catalyzes scripture-centered, portable monotheism — a religion that can survive without land or temple.",
   "region": "Mesopotamia / Levant",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Babylonian_captivity"
  },
  {
   "name": "Destruction of Jerusalem & Babylonian Exile",
@@ -3241,7 +3450,8 @@ window.HISTORY_DATA = {
   "description": "The life of Siddhartha Gautama, a prince of the Shakya clan who renounced his household to seek the end of suffering and taught the Middle Way across the Ganges plain.",
   "significance": "His teaching of the Four Noble Truths founded a portable, missionary religion that became the first pan-Asian spiritual tradition.",
   "region": "South Asia",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/The_Buddha"
  },
  {
   "name": "Confucius (Kong Fuzi)",
@@ -3252,7 +3462,8 @@ window.HISTORY_DATA = {
   "description": "The life of China's most influential teacher, whose sayings on virtue, ritual propriety, filial piety, and good government were collected in the Analects.",
   "significance": "Confucian ethics became the operating system of East Asian states and families for over two millennia, spread through education and the examination system.",
   "region": "East Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Confucius"
  },
  {
   "name": "Achaemenid Persian Empire",
@@ -3263,7 +3474,8 @@ window.HISTORY_DATA = {
   "description": "Founded by Cyrus the Great, the Persian Empire stretches from the Indus to Egypt and the Aegean, the largest empire the world had yet seen.",
   "significance": "Governed diverse peoples through tolerant satrapal administration, standardized coinage, and roads, setting the model of the multi-ethnic universal empire.",
   "region": "Iran & Near East",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Achaemenid_Empire"
  },
  {
   "name": "Hundred Schools of Thought",
@@ -3274,7 +3486,8 @@ window.HISTORY_DATA = {
   "description": "An era of intense philosophical competition in China producing Confucianism, Daoism, Mohism, Legalism, and other rival schools.",
   "significance": "Political fragmentation drove intellectual flowering, a convergence with the simultaneous Axial Age ferment in India and Greece.",
   "region": "East Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Hundred_Schools_of_Thought"
  },
  {
   "name": "Cyrus Conquers Babylon & the Cyrus Cylinder",
@@ -3285,7 +3498,8 @@ window.HISTORY_DATA = {
   "description": "Cyrus the Great takes Babylon without a major battle, issues the Cyrus Cylinder proclaiming restoration of temples, and permits exiled peoples including the Jews to return home.",
   "significance": "A landmark of imperial tolerance as statecraft, often cited as an early charter of religious freedom, and the end of Mesopotamian political independence.",
   "region": "Mesopotamia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Cyrus_Cylinder"
  },
  {
   "name": "Birth of Greek Theatre",
@@ -3296,7 +3510,8 @@ window.HISTORY_DATA = {
   "description": "From Thespis's legendary first tragic performance at Athens's Dionysia festival through the masterpieces of Aeschylus, Sophocles, Euripides, and Aristophanes, drama emerged as an art form.",
   "significance": "Greek theatre invented tragedy and comedy as vehicles for public moral and political reflection, establishing dramatic forms still used worldwide.",
   "region": "Athens, Greece",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Theatre_of_ancient_Greece"
  },
  {
   "name": "Enlightenment of the Buddha at Bodh Gaya",
@@ -3307,7 +3522,8 @@ window.HISTORY_DATA = {
   "description": "Siddhartha Gautama's awakening beneath the Bodhi tree, after which he delivered his first sermon at Sarnath and set the Dharma in motion.",
   "significance": "The founding moment of Buddhism, exemplifying the Axial Age pattern of individual insight challenging inherited ritual authority.",
   "region": "South Asia",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Bodh_Gaya"
  },
  {
   "name": "Darius I: Persepolis and the Royal Road",
@@ -3318,7 +3534,8 @@ window.HISTORY_DATA = {
   "description": "Darius I begins the ceremonial capital of Persepolis and completes the 2,700 km Royal Road with relay couriers linking Susa to Sardis.",
   "significance": "Imperial infrastructure at unprecedented scale: fast communication and standardized administration bound a vast empire together and prefigured later postal and road systems.",
   "region": "Iran & Anatolia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Royal_Road"
  },
  {
   "name": "Founding of the Roman Republic",
@@ -3329,7 +3546,8 @@ window.HISTORY_DATA = {
   "description": "Romans expelled their last king, Tarquin the Proud, and replaced monarchy with elected consuls, a Senate, and assemblies.",
   "significance": "A durable experiment in mixed constitutional government whose checks, offices, and vocabulary still shape modern republics.",
   "region": "Italy",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Roman_Republic"
  },
  {
   "name": "Athenian Democracy (Reforms of Cleisthenes)",
@@ -3340,7 +3558,8 @@ window.HISTORY_DATA = {
   "description": "Cleisthenes reorganized Athens's citizenry into new tribes and demes, founding government by the assembled citizen body.",
   "significance": "The first large-scale direct democracy, proving ordinary citizens could govern a state and setting a template debated ever since.",
   "region": "Greece",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Athenian_democracy"
  },
  {
   "name": "Greco-Persian Wars",
@@ -3351,7 +3570,8 @@ window.HISTORY_DATA = {
   "description": "Conflicts in which Greek city-states, notably at Marathon, Thermopylae, and Salamis, repelled invasions by the vast Achaemenid Persian Empire.",
   "significance": "The improbable Greek victory preserved the independent polis world and unleashed the confidence behind the Classical golden age.",
   "region": "Aegean / Anatolia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Greco-Persian_Wars"
  },
  {
   "name": "Battle of Salamis",
@@ -3362,7 +3582,8 @@ window.HISTORY_DATA = {
   "description": "The Greek allied fleet under Themistocles destroyed the Persian navy in the narrow straits off Salamis.",
   "significance": "A turning point showing how naval power and strategy could offset overwhelming numbers, securing Greece's survival.",
   "region": "Greece",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Battle_of_Salamis"
  },
  {
   "name": "Golden Age of Periclean Athens",
@@ -3384,7 +3605,8 @@ window.HISTORY_DATA = {
   "description": "Seven major Chinese states waged escalating wars of conquest as Zhou royal authority collapsed, driving innovations in iron weaponry, mass armies, and bureaucracy.",
   "significance": "Ruthless interstate competition forged the administrative and military tools that made unified imperial China possible.",
   "region": "East Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Warring_States_period"
  },
  {
   "name": "Classical Greek philosophy (Socrates to Aristotle)",
@@ -3395,7 +3617,8 @@ window.HISTORY_DATA = {
   "description": "Socrates, Plato, and Aristotle develop systematic ethics, metaphysics, logic, and political theory in Athens.",
   "significance": "Creates the rationalist toolkit later fused with Christian, Islamic, and Jewish theology and foundational to Western science.",
   "region": "Greece",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Ancient_Greek_philosophy"
  },
  {
   "name": "Socrates",
@@ -3406,7 +3629,8 @@ window.HISTORY_DATA = {
   "description": "Athenian philosopher who questioned fellow citizens about virtue and knowledge, was tried for impiety, and was executed by hemlock.",
   "significance": "His relentless method of questioning made ethics a subject of rational inquiry and made the examined life a Western ideal.",
   "region": "Greece",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Socrates"
  },
  {
   "name": "Hippocrates of Kos",
@@ -3417,7 +3641,8 @@ window.HISTORY_DATA = {
   "description": "Greek physician associated with a medical school and corpus that explained disease through natural causes rather than divine punishment.",
   "significance": "By separating medicine from magic he founded clinical observation and professional ethics, echoed in the Hippocratic Oath.",
   "region": "Greece / Aegean",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Hippocrates"
  },
  {
   "name": "Construction of the Parthenon",
@@ -3428,7 +3653,8 @@ window.HISTORY_DATA = {
   "description": "Athens built the marble temple of Athena on the Acropolis under Pericles, designed by Ictinus and Callicrates with sculpture by Phidias.",
   "significance": "The enduring icon of classical proportion and civic religion, and a statement of imperial wealth turned into art.",
   "region": "Greece",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Parthenon"
  },
  {
   "name": "Peloponnesian War",
@@ -3439,7 +3665,8 @@ window.HISTORY_DATA = {
   "description": "A ruinous war between Athens and Sparta and their alliances, ending with Athens's defeat and the loss of its empire.",
   "significance": "Chronicled by Thucydides as a timeless study of power politics, it showed how rivalry between leading states can exhaust a whole civilization.",
   "region": "Greece",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Peloponnesian_War"
  },
  {
   "name": "Plato",
@@ -3450,7 +3677,8 @@ window.HISTORY_DATA = {
   "description": "Athenian philosopher, student of Socrates, who wrote dialogues on justice, knowledge, and the soul and founded the Academy.",
   "significance": "His theory of ideal Forms and his Academy made philosophy a systematic, institutional pursuit that shaped Christian, Islamic, and modern thought.",
   "region": "Greece",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Plato"
  },
  {
   "name": "Mahabharata & Bhagavad Gita Take Final Form",
@@ -3461,7 +3689,8 @@ window.HISTORY_DATA = {
   "description": "The vast Sanskrit epic of the Bharata war, containing the Bhagavad Gita's dialogue on duty and devotion, reached its received form over centuries of composition.",
   "significance": "Became Hinduism's central narrative and ethical touchstone, showing how oral epic traditions consolidate into scripture.",
   "region": "South Asia",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Bhagavad_Gita"
  },
  {
   "name": "Aristotle",
@@ -3472,7 +3701,8 @@ window.HISTORY_DATA = {
   "description": "Philosopher and polymath who systematized logic, biology, ethics, politics, and poetics, and tutored the young Alexander.",
   "significance": "His empirical, encyclopedic method dominated learned thought for nearly two millennia across three civilizations.",
   "region": "Greece / Macedonia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Aristotle"
  },
  {
   "name": "Reign of Alexander the Great",
@@ -3483,7 +3713,8 @@ window.HISTORY_DATA = {
   "description": "The Macedonian king conquered the Persian Empire from Egypt to the Indus in a decade before dying at Babylon aged 32.",
   "significance": "His conquests fused Greek and Near Eastern worlds, seeding Greek-speaking cities from Egypt to Central Asia and redrawing the map of civilization.",
   "region": "Mediterranean to Indus",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Death_of_Alexander_the_Great"
  },
  {
   "name": "Hellenistic Age",
@@ -3505,7 +3736,8 @@ window.HISTORY_DATA = {
   "description": "The first empire to unite most of the Indian subcontinent, founded by Chandragupta Maurya with the counsel of Kautilya, author of the Arthashastra.",
   "significance": "Demonstrated that subcontinental-scale rule was possible in India and provided the template later Indian states aspired to.",
   "region": "South Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Maurya_Empire"
  },
  {
   "name": "Euclid's Elements",
@@ -3516,7 +3748,8 @@ window.HISTORY_DATA = {
   "description": "Euclid of Alexandria compiled the foundational treatise systematizing geometry and number theory from axioms and proofs.",
   "significance": "It established the axiomatic-deductive method that defines mathematical rigor to this day.",
   "region": "Hellenistic Egypt",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Euclid's_Elements"
  },
  {
   "name": "The Water Wheel",
@@ -3527,7 +3760,8 @@ window.HISTORY_DATA = {
   "description": "Water-driven wheels for milling grain appear in the Hellenistic Mediterranean and Han China.",
   "significance": "The first major non-muscle power source began humanity's long shift from biological to mechanical energy.",
   "region": "Mediterranean & China",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Water_wheel"
  },
  {
   "name": "Library and Museum of Alexandria",
@@ -3538,7 +3772,8 @@ window.HISTORY_DATA = {
   "description": "The Ptolemies founded a royal research institution at Alexandria that aimed to collect all Greek learning and hosted scholars like Euclid and Eratosthenes.",
   "significance": "The ancient world's greatest knowledge hub, proving that state-funded concentration of texts and scholars accelerates science.",
   "region": "Egypt",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Library_of_Alexandria"
  },
  {
   "name": "Archimedes of Syracuse",
@@ -3549,7 +3784,8 @@ window.HISTORY_DATA = {
   "description": "Greek mathematician and engineer who pioneered geometry of curved figures, hydrostatics, and war machines, killed in the Roman sack of Syracuse.",
   "significance": "Antiquity's greatest mathematical mind, whose methods anticipated calculus and showed the power of applying mathematics to the physical world.",
   "region": "Sicily",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Archimedes"
  },
  {
   "name": "Library of Alexandria Founded",
@@ -3560,7 +3796,8 @@ window.HISTORY_DATA = {
   "description": "The Ptolemies established the Museum and Great Library at Alexandria, aiming to collect and edit the entire corpus of Greek and foreign learning.",
   "significance": "It created the model of the research institution and systematic textual scholarship, and its later decline became the enduring symbol of cultural loss.",
   "region": "Alexandria, Egypt",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Library_of_Alexandria"
  },
  {
   "name": "Ashoka spreads Buddhism",
@@ -3571,7 +3808,8 @@ window.HISTORY_DATA = {
   "description": "The Mauryan emperor Ashoka, after the bloody Kalinga war, patronizes Buddhism and sends missions across Asia.",
   "significance": "First great case of imperial sponsorship turning a regional teaching into a transcontinental religion.",
   "region": "South Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Ashoka"
  },
  {
   "name": "Reign of Ashoka the Great",
@@ -3582,7 +3820,8 @@ window.HISTORY_DATA = {
   "description": "The Mauryan emperor who ruled nearly all of South Asia and proclaimed an ethic of dhamma through rock and pillar edicts across his realm.",
   "significance": "A rare case of an emperor publicly renouncing conquest, and the decisive patron who turned Buddhism from a regional sect into a world religion.",
   "region": "South Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Ashoka"
  },
  {
   "name": "Punic Wars",
@@ -3593,7 +3832,8 @@ window.HISTORY_DATA = {
   "description": "Three wars between Rome and Carthage for control of the western Mediterranean, including Hannibal's crossing of the Alps.",
   "significance": "Rome's victory over its only peer rival converted an Italian city-state into a Mediterranean superpower, a classic study in great-power rivalry.",
   "region": "Western Mediterranean",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Punic_Wars"
  },
  {
   "name": "Kalinga War & Ashoka's Embrace of Buddhism",
@@ -3626,7 +3866,8 @@ window.HISTORY_DATA = {
   "description": "King Zheng of Qin conquered the last rival states and proclaimed himself Qin Shi Huang, First Emperor, standardizing script, currency, weights, and axle widths.",
   "significance": "Created the unified imperial model — and the very name 'China' — that has defined East Asian politics ever since.",
   "region": "East Asia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Qin_(state)"
  },
  {
   "name": "Great Wall: Early Qin Construction",
@@ -3637,7 +3878,8 @@ window.HISTORY_DATA = {
   "description": "Qin Shi Huang linked and extended earlier state walls into a continuous northern frontier barrier against steppe nomads, later rebuilt in stone under the Ming.",
   "significance": "A monumental statement of the agrarian empire's boundary with the steppe, revealing the mobilizing power of the new centralized state.",
   "region": "East Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Great_Wall_of_China"
  },
  {
   "name": "Xiongnu Confederation",
@@ -3648,7 +3890,8 @@ window.HISTORY_DATA = {
   "description": "Under Modu Chanyu, the Xiongnu forged the first great steppe empire, extracting tribute from Han China.",
   "significance": "Its rivalry with the Han drove the Great Wall, the Silk Road missions, and the recurring steppe-versus-China dynamic.",
   "region": "Central Asia / Mongolia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Xiongnu"
  },
  {
   "name": "Han Dynasty",
@@ -3659,7 +3902,8 @@ window.HISTORY_DATA = {
   "description": "Four centuries of imperial rule that made Confucianism state orthodoxy, expanded China into Central Asia, and gave the Han Chinese their name.",
   "significance": "Fused Qin centralization with Confucian legitimacy into a durable imperial synthesis, contemporaneous and comparable with Rome.",
   "region": "East Asia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Han_dynasty"
  },
  {
   "name": "Ajanta and the Buddhist Cave Temples",
@@ -3670,7 +3914,8 @@ window.HISTORY_DATA = {
   "description": "Monks and patrons carved monasteries and prayer halls into the rock at Ajanta, adorning them with sculpted facades and luminous murals of the Buddha's lives.",
   "significance": "The cave-temple tradition, later extended at Ellora and along the Silk Road to Dunhuang, carried Indian religious art across Asia.",
   "region": "India",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Ajanta_Caves"
  },
  {
   "name": "The Arch and Roman Concrete",
@@ -3681,7 +3926,8 @@ window.HISTORY_DATA = {
   "description": "Roman engineers perfect the true arch and pozzolana-based concrete for aqueducts, domes, and harbors.",
   "significance": "Durable large-span construction enabled infrastructure at imperial scale, some of it still standing today.",
   "region": "Mediterranean",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Roman_concrete"
  },
  {
   "name": "Destruction of Carthage",
@@ -3692,7 +3938,8 @@ window.HISTORY_DATA = {
   "description": "Roman forces razed Carthage at the end of the Third Punic War, the same year they sacked Corinth in Greece.",
   "significance": "The annihilation of a rival civilization marked Rome's unchallenged dominance and the dark logic of total war.",
   "region": "North Africa",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Carthage"
  },
  {
   "name": "Zhang Qian Opens the Silk Road",
@@ -3703,7 +3950,8 @@ window.HISTORY_DATA = {
   "description": "Han envoy Zhang Qian's missions to Central Asia opened regular routes linking China with India, Persia, and eventually Rome.",
   "significance": "Began sustained Eurasian exchange of silk, horses, religions, and diseases — the ancient world's great artery of diffusion.",
   "region": "Central Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Zhang_Qian"
  },
  {
   "name": "Nazca Lines Created",
@@ -3714,7 +3962,8 @@ window.HISTORY_DATA = {
   "description": "The Nazca people of coastal Peru etched hundreds of enormous geoglyphs — hummingbirds, monkeys, spiders, and geometric lines — into the desert floor.",
   "significance": "These works, legible only from above, show Andean societies using landscape itself as a ritual artistic medium on a monumental scale.",
   "region": "Peru, Andes",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Nazca_lines"
  },
  {
   "name": "Assassination of Julius Caesar",
@@ -3725,7 +3974,8 @@ window.HISTORY_DATA = {
   "description": "Senators led by Brutus and Cassius stabbed the dictator Caesar to death on the Ides of March in Rome.",
   "significance": "Meant to save the Republic, the murder instead triggered civil wars that killed it, showing how eliminating a strongman rarely restores an eroded constitution.",
   "region": "Italy",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Assassination_of_Julius_Caesar"
  },
  {
   "name": "Battle of Actium",
@@ -3736,7 +3986,8 @@ window.HISTORY_DATA = {
   "description": "Octavian's fleet defeated Antony and Cleopatra off western Greece, ending the last civil war of the Republic.",
   "significance": "The victory unified the Mediterranean under one ruler and sealed the fate of Ptolemaic Egypt, the final Hellenistic kingdom.",
   "region": "Greece / Mediterranean",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Battle_of_Actium"
  },
  {
   "name": "Augustus Founds the Roman Empire",
@@ -3747,7 +3998,8 @@ window.HISTORY_DATA = {
   "description": "Octavian accepted the title Augustus and settled a constitutional arrangement making him first emperor while preserving republican forms.",
   "significance": "A masterclass in cloaking autocracy in tradition, it created a stable imperial system that governed the Mediterranean for centuries.",
   "region": "Mediterranean",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Roman_Empire"
  },
  {
   "name": "Pax Romana",
@@ -3758,7 +4010,8 @@ window.HISTORY_DATA = {
   "description": "Two centuries of relative peace, prosperity, and integration across the Roman Empire from Augustus to Marcus Aurelius.",
   "significance": "Unified law, roads, currency, and trade across three continents show how imperial peace can drive economic and cultural convergence.",
   "region": "Mediterranean / Europe",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Pax_Romana"
  },
  {
   "name": "Jesus of Nazareth",
@@ -3769,7 +4022,8 @@ window.HISTORY_DATA = {
   "description": "Jewish preacher in Roman Galilee and Judea whose ministry, crucifixion, and proclaimed resurrection launch Christianity.",
   "significance": "A provincial execution becomes the pivot of world history, generating the largest religious movement on Earth.",
   "region": "Levant",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Jesus"
  },
  {
   "name": "Han Census of 2 CE",
@@ -3793,7 +4047,8 @@ window.HISTORY_DATA = {
   "description": "Through Paul's missions and urban networks, Christianity spreads across the Roman Empire despite intermittent persecution.",
   "significance": "Demonstrates viral diffusion of a voluntary, trans-ethnic faith through trade routes and cities rather than conquest.",
   "region": "Mediterranean",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/The_Rise_of_Christianity"
  },
  {
   "name": "Buddhism Reaches China",
@@ -3804,7 +4059,8 @@ window.HISTORY_DATA = {
   "description": "Buddhist monks and texts arrived in Han China along the Silk Road, traditionally commemorated by the founding of the White Horse Temple at Luoyang.",
   "significance": "The transplant of an Indian religion into Chinese civilization — and onward to Korea, Japan, and Vietnam — is antiquity's greatest example of peaceful cultural diffusion.",
   "region": "East Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Buddhism_in_China"
  },
  {
   "name": "Destruction of the Second Temple",
@@ -3815,7 +4071,8 @@ window.HISTORY_DATA = {
   "description": "Roman forces destroy the Jerusalem Temple while crushing the Jewish revolt.",
   "significance": "Forces Judaism's reinvention as a rabbinic, text-and-synagogue religion of the diaspora.",
   "region": "Levant",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/The_Destruction_of_the_Temple_of_Jerusalem"
  },
  {
   "name": "Colosseum Completed",
@@ -3826,7 +4083,8 @@ window.HISTORY_DATA = {
   "description": "Emperor Titus inaugurated the Flavian Amphitheatre in Rome, a 50,000-seat arena for gladiatorial games and spectacles.",
   "significance": "A triumph of concrete engineering and mass entertainment that embodies both Roman technical genius and the politics of spectacle.",
   "region": "Italy",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Colosseum"
  },
  {
   "name": "Kingdom of Aksum",
@@ -3837,7 +4095,8 @@ window.HISTORY_DATA = {
   "description": "A powerful trading kingdom in the Ethiopian highlands that minted its own coinage, raised monumental stelae, and adopted Christianity around 330 CE.",
   "significance": "One of the first states to officially embrace Christianity, Aksum linked Rome, Arabia, and India through Red Sea trade — evidence of Africa's deep integration in ancient globalization.",
   "region": "Horn of Africa",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Kingdom_of_Aksum"
  },
  {
   "name": "Moche Civilization",
@@ -3859,7 +4118,8 @@ window.HISTORY_DATA = {
   "description": "The immense planned city of Teotihuacan in central Mexico, home to perhaps 100,000-150,000 people and the Pyramids of the Sun and Moon.",
   "significance": "One of the largest cities on Earth in its day, it shows urbanism and state power arising entirely independently in the Americas.",
   "region": "Mesoamerica",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Teotihuacan"
  },
  {
   "name": "Cai Lun Perfects Papermaking",
@@ -3870,7 +4130,8 @@ window.HISTORY_DATA = {
   "description": "Han court official Cai Lun presented a refined process for making paper from bark, hemp, and rags, replacing costly silk and cumbersome bamboo slips.",
   "significance": "Cheap writing material transformed record-keeping and learning, and its slow westward spread eventually enabled Europe's print revolution.",
   "region": "East Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Cai_Lun"
  },
  {
   "name": "Paper",
@@ -3881,7 +4142,8 @@ window.HISTORY_DATA = {
   "description": "Cai Lun standardizes papermaking from plant fibers at the Han court in China.",
   "significance": "Cheap writing material made bureaucracy, scholarship, and eventually printing scalable, diffusing westward over a millennium.",
   "region": "East Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Paper"
  },
  {
   "name": "Roman Empire at its Greatest Extent",
@@ -3905,7 +4167,8 @@ window.HISTORY_DATA = {
   "description": "Hadrian's rebuilt Pantheon in Rome, crowned by a 43-meter unreinforced concrete dome with a central oculus, was completed around 126 CE.",
   "significance": "Roman mastery of concrete, arch, and dome transformed architecture from post-and-lintel construction to shaped interior space, influencing builders for two millennia.",
   "region": "Rome, Italy",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Doors_of_the_Roman_Pantheon"
  },
  {
   "name": "Ptolemy's Almagest",
@@ -3916,7 +4179,8 @@ window.HISTORY_DATA = {
   "description": "Claudius Ptolemy compiled a comprehensive geocentric model of the cosmos with mathematical tables predicting planetary motion.",
   "significance": "It became the authoritative astronomical model for over 1,400 years across the Islamic and European worlds.",
   "region": "Roman Egypt",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Almagest"
  },
  {
   "name": "Antonine Plague",
@@ -3940,7 +4204,8 @@ window.HISTORY_DATA = {
   "description": "The florescence of Maya city-states such as Tikal, Calakmul, Palenque, and Copan, with full writing, astronomy, and monumental architecture, ending in the southern lowland collapse around 900 CE.",
   "significance": "The Maya developed the Americas' only fully-fledged writing system and precise calendrics; their collapse is a canonical case study of drought, war, and ecological overreach.",
   "region": "Mesoamerica",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Maya_civilization"
  },
  {
   "name": "Late Antiquity",
@@ -3951,7 +4216,8 @@ window.HISTORY_DATA = {
   "description": "The era from Diocletian's reforms to the early Arab conquests, spanning Rome's transformation, Christianization, and the rise of Islam.",
   "significance": "It reframes Rome's 'fall' as a slow reconfiguration in which religion replaced empire as the organizing force of the Mediterranean.",
   "region": "Mediterranean & Near East",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Late_antiquity"
  },
  {
   "name": "Ghana Empire (Wagadu)",
@@ -3962,7 +4228,8 @@ window.HISTORY_DATA = {
   "description": "The first great West African trading empire, growing rich by taxing the trans-Saharan gold and salt trade.",
   "significance": "Established the trans-Saharan commercial template that Mali and Songhai would inherit, linking West African gold to the Mediterranean and Islamic worlds.",
   "region": "West Africa",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Ghana_Empire"
  },
  {
   "name": "Edict of Milan",
@@ -3973,7 +4240,8 @@ window.HISTORY_DATA = {
   "description": "Emperors Constantine and Licinius granted legal toleration to Christianity throughout the Roman Empire.",
   "significance": "The pivot by which a persecuted sect became the empire's dominant faith, redirecting the religious history of Europe and the Mediterranean.",
   "region": "Roman Empire",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Edict_of_Milan"
  },
  {
   "name": "Gupta Empire (Golden Age of India)",
@@ -3984,7 +4252,8 @@ window.HISTORY_DATA = {
   "description": "A north Indian empire under rulers like Chandragupta II that presided over a classical flowering of Sanskrit literature, temple art, mathematics, and astronomy.",
   "significance": "Its scholars developed the decimal place-value system with zero, arguably India's most consequential export to world science.",
   "region": "South Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Gupta_Empire"
  },
  {
   "name": "Council of Nicaea",
@@ -3995,7 +4264,8 @@ window.HISTORY_DATA = {
   "description": "The first ecumenical council, convened by Constantine, defines Christian orthodoxy against Arianism in the Nicene Creed.",
   "significance": "Inaugurates the pattern of empire-backed councils fixing doctrine — and of heresy as a political category.",
   "region": "Anatolia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/First_Council_of_Nicaea"
  },
  {
   "name": "Aksum Adopts Christianity (King Ezana)",
@@ -4017,7 +4287,8 @@ window.HISTORY_DATA = {
   "description": "The Greek-speaking eastern continuation of the Roman Empire, ruled from Constantinople for over a millennium.",
   "significance": "It preserved Roman law and Greek learning, transmitted Orthodox Christianity to the Slavic world, and buffered Europe for centuries — a pattern of continuity amid collapse.",
   "region": "Eastern Mediterranean",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Byzantine_Empire"
  },
  {
   "name": "Kalidasa and Classical Sanskrit Literature",
@@ -4028,7 +4299,8 @@ window.HISTORY_DATA = {
   "description": "Under Gupta patronage around 400 CE, Kalidasa composed the drama Shakuntala and the poem Meghaduta, the summit of classical Sanskrit court literature.",
   "significance": "His works define a golden age of Indian letters and, upon translation in the 1780s, profoundly impressed European Romantic writers.",
   "region": "India",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Kalidasa"
  },
  {
   "name": "Fall of the Western Roman Empire",
@@ -4039,7 +4311,8 @@ window.HISTORY_DATA = {
   "description": "The Germanic general Odoacer deposed the last western emperor, Romulus Augustulus, ending imperial rule in the West.",
   "significance": "The canonical endpoint of antiquity in the West, illustrating how empires dissolve gradually into successor states rather than fall in a day, while the East endured as Byzantium.",
   "region": "Western Europe",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Fall_of_the_Western_Roman_Empire"
  },
  {
   "name": "The Middle Ages",
@@ -4050,7 +4323,8 @@ window.HISTORY_DATA = {
   "description": "The roughly thousand-year span between the fall of the Western Roman Empire and the fall of Constantinople, during which regional civilizations across Eurasia, Africa, and the Americas flourished along interconnected trade and faith networks.",
   "significance": "Far from a 'dark age', it was an era of parallel golden ages and slow global convergence via Silk Road, Indian Ocean, and trans-Saharan exchange.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Middle_Ages"
  },
  {
   "name": "Aryabhata Writes the Aryabhatiya",
@@ -4061,7 +4335,8 @@ window.HISTORY_DATA = {
   "description": "The Gupta-era astronomer-mathematician's treatise using place-value arithmetic, an accurate pi, trigonometry, and a rotating-Earth explanation of the heavens.",
   "significance": "Crystallized Indian mathematical astronomy, which flowed through the Islamic world to reshape science across Eurasia.",
   "region": "South Asia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Aryabhata"
  },
  {
   "name": "Hagia Sophia Completed",
@@ -4072,7 +4347,8 @@ window.HISTORY_DATA = {
   "description": "Emperor Justinian I dedicated the vast domed cathedral of Hagia Sophia in Constantinople, the largest enclosed space in the world for nearly a thousand years.",
   "significance": "It set the architectural and liturgical template for Orthodox Christendom and later Ottoman mosques, showing how monuments outlive the empires that build them.",
   "region": "Eastern Mediterranean",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Hagia_Sophia"
  },
  {
   "name": "Plague of Justinian",
@@ -4083,7 +4359,8 @@ window.HISTORY_DATA = {
   "description": "The first recorded pandemic of bubonic plague, striking the Byzantine Empire and the Mediterranean world.",
   "significance": "It gutted Justinian's attempt to restore the Roman Mediterranean, showing how disease can end imperial projects.",
   "region": "Mediterranean",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Plague_of_Justinian"
  },
  {
   "name": "First Türk Khaganate",
@@ -4094,7 +4371,8 @@ window.HISTORY_DATA = {
   "description": "The Göktürks built a steppe empire stretching from Manchuria to the Black Sea and left the earliest known Turkic inscriptions.",
   "significance": "Launched the Turkic peoples onto the world stage, beginning migrations that would reshape Central Asia, Iran, India, and Anatolia.",
   "region": "Central Asia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/First_Turkic_Khaganate"
  },
  {
   "name": "Life of Muhammad",
@@ -4105,7 +4383,8 @@ window.HISTORY_DATA = {
   "description": "The prophet of Islam receives revelations in Mecca and Medina and unites Arabia under the new faith before his death.",
   "significance": "Within a single lifetime a new monotheism, polity, and legal order emerge that will reshape three continents.",
   "region": "Arabia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/The_Life_of_Muhammad"
  },
  {
   "name": "Tiwanaku and Wari Empires",
@@ -4116,7 +4395,8 @@ window.HISTORY_DATA = {
   "description": "Twin highland Andean states that spread roads, terracing, and administrative colonies across Peru and Bolivia.",
   "significance": "Pioneered the imperial infrastructure and statecraft the Inca would later scale up.",
   "region": "Andes",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Wari_Empire"
  },
  {
   "name": "Tang Dynasty",
@@ -4127,7 +4407,8 @@ window.HISTORY_DATA = {
   "description": "A cosmopolitan Chinese dynasty whose capital Chang'an was the world's largest city, anchoring the Silk Road and radiating culture to Japan, Korea, and Vietnam.",
   "significance": "Tang openness to foreign religions, peoples, and goods made it the era's greatest engine of cultural diffusion across Eurasia.",
   "region": "East Asia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Tang_dynasty"
  },
  {
   "name": "Tang Dynasty Golden Age of Poetry",
@@ -4138,7 +4419,8 @@ window.HISTORY_DATA = {
   "description": "Tang China produced its greatest poets, including Li Bai, Du Fu, and Wang Wei, whose regulated verse fused personal feeling with landscape and history.",
   "significance": "Tang poetry became the touchstone of East Asian literary culture, memorized by schoolchildren and echoed by poets across China, Korea, Japan, and Vietnam for centuries.",
   "region": "China",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Tang_poetry"
  },
  {
   "name": "The Hijra",
@@ -4149,7 +4431,8 @@ window.HISTORY_DATA = {
   "description": "Muhammad and his followers migrate from Mecca to Medina, founding the first Muslim community.",
   "significance": "So foundational that it marks year one of the Islamic calendar — faith becoming a self-governing society.",
   "region": "Arabia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Hijra_(South_Asia)"
  },
  {
   "name": "The Hijra and the Rise of Islam",
@@ -4160,7 +4443,8 @@ window.HISTORY_DATA = {
   "description": "The Prophet Muhammad's migration from Mecca to Medina, year one of the Islamic calendar and the founding of the first Muslim community.",
   "significance": "Within a century Islam united Arabia and spread from Spain to Central Asia — one of history's fastest religious and political expansions.",
   "region": "Arabia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Islam"
  },
  {
   "name": "Zero and the Decimal Place-Value System",
@@ -4171,7 +4455,8 @@ window.HISTORY_DATA = {
   "description": "Brahmagupta gave the first formal rules for arithmetic with zero and negative numbers in India.",
   "significance": "The Hindu decimal system enabled modern computation and later spread worldwide as Arabic numerals.",
   "region": "India",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Decimal"
  },
  {
   "name": "Rapid expansion of Islam",
@@ -4193,7 +4478,8 @@ window.HISTORY_DATA = {
   "description": "Under Caliph Uthman a standardized written text of the Quran is compiled and distributed.",
   "significance": "Fixes a single scriptural canon early, anchoring Islamic unity of text and Arabic language across a vast, diverse empire.",
   "region": "Arabia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Quran"
  },
  {
   "name": "Srivijaya Maritime Empire",
@@ -4204,7 +4490,8 @@ window.HISTORY_DATA = {
   "description": "A Sumatra-based thalassocracy that controlled the Strait of Malacca and served as a great center of Mahayana Buddhist learning.",
   "significance": "It shows how command of a chokepoint, not territory, could build an empire, and how Indian Ocean trade carried religion alongside goods.",
   "region": "Southeast Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Srivijaya"
  },
  {
   "name": "Silla Unifies Korea",
@@ -4215,7 +4502,8 @@ window.HISTORY_DATA = {
   "description": "The kingdom of Silla, allied with Tang China, defeated Goguryeo and Baekje to unify the Korean peninsula.",
   "significance": "Created the first unified Korean state, setting the peninsula's enduring political and cultural identity.",
   "region": "Korea",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Silla"
  },
  {
   "name": "Islamic Calligraphy and Geometric Art",
@@ -4226,7 +4514,8 @@ window.HISTORY_DATA = {
   "description": "From the mosaic inscriptions of the Dome of the Rock through Quranic calligraphy, arabesque, and the tile geometries of the Alhambra and Isfahan, Islamic civilization perfected an art of script and pattern.",
   "significance": "By elevating writing and mathematical ornament over figural imagery, Islamic art created one of the world's great alternative aesthetic systems.",
   "region": "Middle East, North Africa, Spain, Central Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Islamic_calligraphy"
  },
  {
   "name": "Abbasid Caliphate and Islamic Golden Age",
@@ -4237,7 +4526,8 @@ window.HISTORY_DATA = {
   "description": "The Baghdad-centered caliphate under which Islamic science, philosophy, medicine, and mathematics flourished, ending with the Mongol sack of Baghdad in 1258.",
   "significance": "Muslim scholars preserved and extended Greek, Persian, and Indian knowledge — including 'Arabic' numerals and algebra — forming the bridge to the European Renaissance.",
   "region": "Middle East",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Abbasid_Caliphate"
  },
  {
   "name": "An Lushan Rebellion",
@@ -4248,7 +4538,8 @@ window.HISTORY_DATA = {
   "description": "A catastrophic revolt that shattered the Tang dynasty's central authority in China.",
   "significance": "One of history's deadliest conflicts, it marks the collapse of a peak of medieval prosperity and cosmopolitanism.",
   "region": "East Asia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/An_Lushan_rebellion"
  },
  {
   "name": "Heian Period Japan",
@@ -4259,7 +4550,8 @@ window.HISTORY_DATA = {
   "description": "The classical age of Japanese court culture at Kyoto, producing Murasaki Shikibu's Tale of Genji (c. 1010), often called the world's first novel.",
   "significance": "It shows a civilization absorbing foreign (Chinese) models and transforming them into a distinct native aesthetic and literature.",
   "region": "Japan",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Heian_period"
  },
  {
   "name": "Charlemagne Crowned Emperor",
@@ -4270,7 +4562,8 @@ window.HISTORY_DATA = {
   "description": "Pope Leo III crowned the Frankish king Charlemagne 'Emperor of the Romans' in Rome on Christmas Day 800.",
   "significance": "It fused Roman imperial memory, Germanic kingship, and papal authority — the template for medieval European politics and the Holy Roman Empire.",
   "region": "Western Europe",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Charlemagne"
  },
  {
   "name": "Classic Maya Collapse",
@@ -4281,7 +4574,8 @@ window.HISTORY_DATA = {
   "description": "The great southern lowland Maya cities were progressively abandoned amid drought, warfare, and political breakdown.",
   "significance": "A canonical case study in how environmental stress and elite competition can unravel a sophisticated civilization.",
   "region": "Mesoamerica",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Classic_Maya_collapse"
  },
  {
   "name": "Swahili Coast City-States",
@@ -4292,7 +4586,8 @@ window.HISTORY_DATA = {
   "description": "Mercantile city-states such as Kilwa, Mombasa, and Zanzibar blended African, Arab, and Persian influences while trading across the Indian Ocean.",
   "significance": "Demonstrates a cosmopolitan African maritime civilization fully integrated into the medieval Indian Ocean trade network.",
   "region": "East Africa",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Swahili_coast"
  },
  {
   "name": "Khmer Empire",
@@ -4303,7 +4598,8 @@ window.HISTORY_DATA = {
   "description": "The Cambodian empire centered on Angkor, whose vast hydraulic network supported one of the largest preindustrial urban complexes on Earth.",
   "significance": "Its rise on engineered water management and decline amid drought and shifting trade illustrate the ecological foundations of state power.",
   "region": "Southeast Asia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Khmer_Empire"
  },
  {
   "name": "Al-Khwarizmi and the Birth of Algebra",
@@ -4314,7 +4610,8 @@ window.HISTORY_DATA = {
   "description": "Al-Khwarizmi's treatise systematized the solving of equations, giving algebra and the word algorithm their names.",
   "significance": "It founded algebra as an independent discipline and transmitted Indian numerals into the wider world.",
   "region": "Abbasid Caliphate",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Al-Khwarizmi"
  },
  {
   "name": "Borobudur Completed",
@@ -4325,7 +4622,8 @@ window.HISTORY_DATA = {
   "description": "The Sailendra dynasty of Java completed Borobudur, the world's largest Buddhist monument.",
   "significance": "Testifies to the depth of Indian religious diffusion into Southeast Asia and Java's wealth from maritime trade.",
   "region": "Southeast Asia (Java)",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Borobudur"
  },
  {
   "name": "House of Wisdom, Baghdad",
@@ -4336,7 +4634,8 @@ window.HISTORY_DATA = {
   "description": "Caliph al-Ma'mun's patronage made Baghdad's Bayt al-Hikma the hub of a massive movement translating Greek, Persian, and Sanskrit works into Arabic.",
   "significance": "State-funded translation and research concentrated the world's knowledge in one city — an early model of the research institution.",
   "region": "Middle East",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/House_of_Wisdom"
  },
  {
   "name": "Ancestral Puebloans at Chaco Canyon",
@@ -4347,7 +4646,8 @@ window.HISTORY_DATA = {
   "description": "Ancestral Puebloans built monumental great houses like Pueblo Bonito, aligned to astronomical events and linked by a road network.",
   "significance": "Reveals dense social organization, long-distance exchange, and archaeoastronomy in pre-contact North America.",
   "region": "North America (Southwest)",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Ancestral_Puebloans"
  },
  {
   "name": "Chola Maritime Empire",
@@ -4358,7 +4658,8 @@ window.HISTORY_DATA = {
   "description": "A south Indian Tamil dynasty that dominated the Bay of Bengal, launched naval expeditions as far as Srivijaya, and built the great temple at Thanjavur.",
   "significance": "Chola trade and temple networks spread Indian culture across Southeast Asia, showing empire projected by sea power and commerce.",
   "region": "South Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Chola_Empire"
  },
  {
   "name": "Gunpowder",
@@ -4369,7 +4670,8 @@ window.HISTORY_DATA = {
   "description": "Tang-dynasty alchemists searching for elixirs record the formula for gunpowder.",
   "significance": "Chemical energy weaponized would eventually dissolve castle walls, feudal orders, and reshape global power.",
   "region": "East Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Gunpowder"
  },
  {
   "name": "Gunpowder Invented in Tang China",
@@ -4380,7 +4682,8 @@ window.HISTORY_DATA = {
   "description": "Daoist alchemists seeking elixirs of immortality recorded formulas mixing saltpeter, sulfur, and charcoal that burned explosively.",
   "significance": "An accidental byproduct of alchemy that would ultimately overturn fortifications, armies, and political orders worldwide.",
   "region": "East Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Gunpowder"
  },
  {
   "name": "Diamond Sutra: Earliest Dated Printed Book",
@@ -4391,7 +4694,8 @@ window.HISTORY_DATA = {
   "description": "A woodblock-printed scroll of the Buddhist Diamond Sutra, made in Tang China and dated by its colophon to 868 CE, the world's oldest dated printed book.",
   "significance": "Shows mature woodblock printing driven by Buddhist demand for scripture — religion and technology reinforcing each other's spread.",
   "region": "East Asia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Diamond_Sutra"
  },
  {
   "name": "European Feudalism",
@@ -4402,7 +4706,8 @@ window.HISTORY_DATA = {
   "description": "The decentralized order of lords, vassals, fiefs, and manorial peasant labor that organized western European society after Carolingian collapse.",
   "significance": "It shows how societies reorganize around local protection when central states fail, and it shaped European law, land, and class for centuries.",
   "region": "Western Europe",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Feudalism"
  },
  {
   "name": "Toltec Civilization",
@@ -4413,7 +4718,8 @@ window.HISTORY_DATA = {
   "description": "A militaristic central Mexican state centered at Tula, later revered by the Aztecs as a golden age of craftsmanship.",
   "significance": "Bridged Teotihuacan and the Aztecs, showing how imperial legitimacy in Mesoamerica was built on invoking predecessors.",
   "region": "Mesoamerica",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Toltec"
  },
  {
   "name": "Medieval Warm Period",
@@ -4424,7 +4730,8 @@ window.HISTORY_DATA = {
   "description": "A regionally warm interval, strongest in the North Atlantic, coincided with Norse expansion into Greenland and favorable European harvests.",
   "significance": "It illustrates natural climate variability yet was cooler and far less globally synchronized than modern human-driven warming.",
   "region": "North Atlantic",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Medieval_Warm_Period"
  },
  {
   "name": "Song Dynasty",
@@ -4435,7 +4742,8 @@ window.HISTORY_DATA = {
   "description": "A Chinese dynasty of extraordinary economic and technological dynamism — paper money, gunpowder weapons, the magnetic compass, mass iron production, and meritocratic examinations.",
   "significance": "Song China came closer to an industrial takeoff than any premodern society, revealing that modernity's ingredients existed centuries before Europe assembled them.",
   "region": "East Asia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Song_dynasty"
  },
  {
   "name": "Song Dynasty Landscape Painting",
@@ -4446,7 +4754,8 @@ window.HISTORY_DATA = {
   "description": "Painters such as Fan Kuan, Guo Xi, and the Southern Song masters made monumental ink landscapes the supreme genre of Chinese art.",
   "significance": "Song landscape painting established an aesthetic of nature, emptiness, and brushwork that governed East Asian art for centuries and anticipated later Western ideas of expressive painting.",
   "region": "China",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Landscape_painting"
  },
  {
   "name": "Polynesians Settle Hawai'i and Eastern Polynesia",
@@ -4457,7 +4766,8 @@ window.HISTORY_DATA = {
   "description": "Long-distance double-hulled canoe voyages, navigated by stars, swells, and birds, brought settlers to Hawai'i, the Marquesas, and the Society Islands.",
   "significance": "Wayfinding across thousands of kilometers of open Pacific stands among humanity's greatest feats of navigation without instruments.",
   "region": "Pacific (Polynesia)",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Polynesia"
  },
  {
   "name": "The Tale of Genji Written",
@@ -4468,7 +4778,8 @@ window.HISTORY_DATA = {
   "description": "Murasaki Shikibu, a lady-in-waiting at the Heian court, completed The Tale of Genji, a vast psychological narrative of court life and love.",
   "significance": "Often called the world's first novel, it shows sustained psychological fiction emerging in Japan centuries before the European novel — and written by a woman.",
   "region": "Japan",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/The_Tale_of_Genji"
  },
  {
   "name": "Ibn al-Haytham's Book of Optics",
@@ -4479,7 +4790,8 @@ window.HISTORY_DATA = {
   "description": "Alhazen explained vision through light entering the eye and insisted claims be tested by controlled experiment.",
   "significance": "It pioneered the experimental scientific method centuries before the European Scientific Revolution.",
   "region": "Cairo",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Book_of_Optics"
  },
  {
   "name": "Avicenna's Canon of Medicine",
@@ -4490,7 +4802,8 @@ window.HISTORY_DATA = {
   "description": "Ibn Sina compiled a five-volume medical encyclopedia synthesizing Greek, Persian, and Indian medicine.",
   "significance": "It served as the standard medical textbook in Europe and the Islamic world for six centuries.",
   "region": "Persia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/The_Canon_of_Medicine"
  },
  {
   "name": "The Magnetic Compass",
@@ -4501,7 +4814,8 @@ window.HISTORY_DATA = {
   "description": "Song-dynasty Chinese texts describe magnetized needles for orientation, soon applied to maritime navigation.",
   "significance": "Reliable direction-finding at sea enabled long-range voyaging and the eventual linking of all world regions.",
   "region": "East Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Compass"
  },
  {
   "name": "Bi Sheng Invents Movable Type",
@@ -4512,7 +4826,8 @@ window.HISTORY_DATA = {
   "description": "Song dynasty artisan Bi Sheng created reusable ceramic type for printing, described by Shen Kuo, four centuries before Gutenberg.",
   "significance": "Establishes East Asian priority in movable-type printing and illustrates how script systems shape which technologies take hold where.",
   "region": "East Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Movable_type"
  },
  {
   "name": "Cahokia and Mississippian Culture",
@@ -4523,7 +4838,8 @@ window.HISTORY_DATA = {
   "description": "Cahokia, near modern St. Louis, grew into the largest pre-Columbian city north of Mexico, with earthen mounds rivaling Old World monuments.",
   "significance": "Proof of urban-scale society in ancient North America, overturning assumptions that cities required Old World influence.",
   "region": "North America (Mississippi Valley)",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Cahokia"
  },
  {
   "name": "East-West Schism",
@@ -4534,7 +4850,8 @@ window.HISTORY_DATA = {
   "description": "Mutual excommunications between Rome and Constantinople formalized the split of Christianity into Catholic and Orthodox churches.",
   "significance": "It hardened a cultural fault line between Latin and Greek Christendom that still shapes Europe's religious and political map.",
   "region": "Europe",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/East%E2%80%93West_Schism"
  },
  {
   "name": "University of Bologna Founded",
@@ -4545,7 +4862,8 @@ window.HISTORY_DATA = {
   "description": "Students and masters in Bologna organized what is conventionally counted as Europe's first university, followed by Paris and Oxford.",
   "significance": "The university — a self-governing corporation for learning — became one of Europe's most durable institutional inventions.",
   "region": "Western Europe",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/University_of_Bologna"
  },
  {
   "name": "Magnetic Compass Applied to Navigation",
@@ -4567,7 +4885,8 @@ window.HISTORY_DATA = {
   "description": "A series of papally sanctioned wars, launched by Urban II's call at Clermont, aimed at seizing and holding the Holy Land, ending with the fall of Acre in 1291.",
   "significance": "They intensified Christian-Muslim conflict but also opened Europe to eastern trade, ideas, and appetites that helped end its isolation.",
   "region": "Mediterranean & Levant",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Crusades"
  },
  {
   "name": "Great Zimbabwe",
@@ -4578,7 +4897,8 @@ window.HISTORY_DATA = {
   "description": "A stone-walled royal city in southern Africa that grew rich controlling gold and ivory flowing to Swahili coast ports like Kilwa.",
   "significance": "Its massive mortarless architecture refutes colonial myths and ties interior Africa into Indian Ocean commerce reaching China.",
   "region": "Southern Africa",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Great_Zimbabwe"
  },
  {
   "name": "Great Zimbabwe Built",
@@ -4589,7 +4909,8 @@ window.HISTORY_DATA = {
   "description": "The Shona built Great Zimbabwe's massive mortarless granite walls and conical tower as the capital of a gold-trading kingdom linked to the Swahili coast.",
   "significance": "Its sophistication refuted colonial denials of African achievement and stands as southern Africa's premier monument of indigenous urban architecture.",
   "region": "Zimbabwe, Southern Africa",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Great_Zimbabwe"
  },
  {
   "name": "Age of the Gothic Cathedrals",
@@ -4600,7 +4921,8 @@ window.HISTORY_DATA = {
   "description": "Beginning with Abbot Suger's choir at Saint-Denis, builders combined pointed arches, rib vaults, and flying buttresses to raise light-filled cathedrals at Chartres, Amiens, and Cologne.",
   "significance": "The Gothic cathedral fused engineering daring with theology of light, mobilizing whole towns across generations in Europe's greatest collective art projects.",
   "region": "Western Europe",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Construction_of_Gothic_cathedrals"
  },
  {
   "name": "Angkor Wat Completed",
@@ -4611,7 +4933,8 @@ window.HISTORY_DATA = {
   "description": "King Suryavarman II's vast temple-mountain at Angkor, dedicated to Vishnu and later converted to Buddhist use, was completed as the world's largest religious monument.",
   "significance": "It embodies the fusion of Indian cosmology with Khmer statecraft and remains the supreme monument of Southeast Asian civilization.",
   "region": "Southeast Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Angkor_Wat"
  },
  {
   "name": "Kingdom of Benin",
@@ -4622,7 +4945,8 @@ window.HISTORY_DATA = {
   "description": "A powerful Edo kingdom in the West African forest zone, famed for its walled capital and the celebrated Benin Bronzes.",
   "significance": "Its brass-casting artistry and long-lived urban polity refute colonial myths of a stateless pre-colonial Africa; its 1897 sack made its looted art a symbol of restitution debates.",
   "region": "West Africa (Nigeria)",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Kingdom_of_Benin"
  },
  {
   "name": "Kamakura Shogunate (Rise of the Samurai)",
@@ -4633,7 +4957,8 @@ window.HISTORY_DATA = {
   "description": "Minamoto no Yoritomo established Japan's first shogunate, shifting real power from the imperial court to warrior government.",
   "significance": "Began seven centuries of samurai rule and a distinctive feudal order that shaped Japanese society until 1868.",
   "region": "Japan",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Kamakura_shogunate"
  },
  {
   "name": "Rapa Nui Settlement and the Moai",
@@ -4644,7 +4969,8 @@ window.HISTORY_DATA = {
   "description": "Polynesian settlers of Easter Island carved and raised nearly a thousand monumental moai ancestor statues.",
   "significance": "A dramatic study in isolated cultural achievement and contested lessons about ecological limits on a closed island world.",
   "region": "Pacific (Rapa Nui)",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Rapa_Nui_people"
  },
  {
   "name": "Rock-Hewn Churches of Lalibela",
@@ -4655,7 +4981,8 @@ window.HISTORY_DATA = {
   "description": "Eleven monolithic churches were carved directly down into volcanic rock at Lalibela as a 'New Jerusalem' for Ethiopian Christians.",
   "significance": "A masterpiece of African monumental architecture and testament to Ethiopia's independent Christian civilization.",
   "region": "Ethiopia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Rock-Hewn_Churches%2C_Lalibela"
  },
  {
   "name": "Fibonacci Introduces Arabic Numerals to Europe",
@@ -4666,7 +4993,8 @@ window.HISTORY_DATA = {
   "description": "Leonardo of Pisa's Liber Abaci promoted the Hindu-Arabic decimal system for European commerce and mathematics.",
   "significance": "It displaced Roman numerals and enabled the accounting and calculation that underpinned commerce.",
   "region": "Italy",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Fibonacci"
  },
  {
   "name": "Delhi Sultanate",
@@ -4677,7 +5005,8 @@ window.HISTORY_DATA = {
   "description": "A succession of five Turkic and Afghan Muslim dynasties ruled northern India from Delhi.",
   "significance": "Entrenched Islam in South Asia and created the Indo-Islamic cultural synthesis the Mughals inherited.",
   "region": "South Asia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Delhi_Sultanate"
  },
  {
   "name": "Genghis Khan Unites the Mongols",
@@ -4688,7 +5017,8 @@ window.HISTORY_DATA = {
   "description": "Temujin was proclaimed Genghis Khan, universal ruler, at a kurultai on the Mongolian steppe, launching the Mongol conquests.",
   "significance": "A single act of steppe unification unleashed campaigns that redrew Eurasia within two generations.",
   "region": "Central Asia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Genghis_Khan"
  },
  {
   "name": "Mongol Empire",
@@ -4699,7 +5029,8 @@ window.HISTORY_DATA = {
   "description": "The largest contiguous land empire in history, stretching from Korea to Hungary, whose Pax Mongolica secured trans-Eurasian routes.",
   "significance": "Mongol peace moved merchants, missionaries, technologies — and ultimately plague — across Eurasia, a violent accelerant of globalization.",
   "region": "Eurasia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Mongol_Empire"
  },
  {
   "name": "Magna Carta",
@@ -4710,7 +5041,8 @@ window.HISTORY_DATA = {
   "description": "English barons forced King John to seal a charter subjecting the crown to written law at Runnymede.",
   "significance": "Though a feudal bargain, it became the enduring symbol that rulers are bound by law — a seed of constitutional government.",
   "region": "Western Europe",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Magna_Carta"
  },
  {
   "name": "Mali Empire",
@@ -4721,7 +5053,8 @@ window.HISTORY_DATA = {
   "description": "The West African empire founded by Sundiata Keita after the Battle of Kirina, controlling the gold and salt trade of the trans-Saharan routes.",
   "significance": "Mali's wealth showed that the Sahara was a sea of exchange, not a barrier, binding West Africa into the Islamic world economy.",
   "region": "West Africa",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Mali_Empire"
  },
  {
   "name": "Maori Settlement of Aotearoa (New Zealand)",
@@ -4732,7 +5065,8 @@ window.HISTORY_DATA = {
   "description": "Polynesian voyagers reached and settled New Zealand, the last major habitable landmass colonized by humans.",
   "significance": "Completed humanity's ten-thousand-year global expansion, closing the map of permanent human settlement.",
   "region": "Pacific (New Zealand)",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Aotearoa"
  },
  {
   "name": "Mongol Sack of Baghdad",
@@ -4754,7 +5088,8 @@ window.HISTORY_DATA = {
   "description": "Aquinas writes the Summa Theologiae, synthesizing Aristotelian philosophy — transmitted via Islamic scholars — with Christian doctrine.",
   "significance": "Exemplifies cross-civilizational convergence: Greek reason, Arabic commentary, and Latin theology fused into one system.",
   "region": "Western Europe",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Scholasticism"
  },
  {
   "name": "Majapahit Empire",
@@ -4765,7 +5100,8 @@ window.HISTORY_DATA = {
   "description": "A Javanese Hindu-Buddhist thalassocracy that claimed influence over much of the Indonesian archipelago.",
   "significance": "The high-water mark of indigenous Southeast Asian maritime empire, later invoked as a precedent for modern Indonesia.",
   "region": "Southeast Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Majapahit"
  },
  {
   "name": "Ottoman Empire",
@@ -4776,7 +5112,8 @@ window.HISTORY_DATA = {
   "description": "A Turkish dynasty founded by Osman grew into a six-century empire spanning Anatolia, the Balkans, the Middle East, and North Africa.",
   "significance": "For centuries the dominant power of the eastern Mediterranean, bridging and shaping Europe, Asia, and Africa until World War I.",
   "region": "Anatolia & Mediterranean",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Ottoman_Empire"
  },
  {
   "name": "Little Ice Age",
@@ -4787,7 +5124,8 @@ window.HISTORY_DATA = {
   "description": "Centuries of cooler temperatures, driven by volcanic eruptions and low solar activity, advanced glaciers and froze European rivers.",
   "significance": "The chill brought famines and social upheaval and marks the last major natural climate swing before industrial warming.",
   "region": "Northern Hemisphere",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Little_Ice_Age"
  },
  {
   "name": "Mechanical Clocks",
@@ -4798,7 +5136,8 @@ window.HISTORY_DATA = {
   "description": "Weight-driven escapement clocks appear in European towers, following Su Song's earlier astronomical clockwork in China.",
   "significance": "Machine-kept time disciplined labor and daily life, and clockwork became the paradigm for precision engineering.",
   "region": "Europe",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Clock"
  },
  {
   "name": "Timbuktu as a Center of Learning",
@@ -4809,7 +5148,8 @@ window.HISTORY_DATA = {
   "description": "Under Mali and later Songhai, Timbuktu's Sankore mosque-university and book trade made it a renowned hub of Islamic scholarship holding hundreds of thousands of manuscripts.",
   "significance": "Its libraries are standing proof of a deep African written intellectual tradition, countering myths of a continent without letters.",
   "region": "West Africa",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Timbuktu"
  },
  {
   "name": "Mansa Musa's Hajj",
@@ -4820,7 +5160,8 @@ window.HISTORY_DATA = {
   "description": "The emperor of Mali crossed the Sahara to Mecca with a caravan so laden with gold that his spending reportedly depressed prices in Cairo.",
   "significance": "The journey advertised West African wealth across the Islamic world and put Mali on European maps — literally, in the 1375 Catalan Atlas.",
   "region": "West Africa & Egypt",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Mansa_Musa"
  },
  {
   "name": "Founding of Tenochtitlan",
@@ -4831,7 +5172,8 @@ window.HISTORY_DATA = {
   "description": "The Mexica (Aztecs) founded their island capital on Lake Texcoco, which grew into one of the world's largest cities with perhaps 200,000 people by 1500.",
   "significance": "From a marginal refuge the Aztecs built an imperial metropolis in under two centuries — a study in rapid state formation.",
   "region": "Mesoamerica",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Tenochtitlan"
  },
  {
   "name": "Vijayanagara Empire",
@@ -4842,7 +5184,8 @@ window.HISTORY_DATA = {
   "description": "A South Indian Hindu empire whose capital, Hampi, ranked among the largest and richest cities of its age.",
   "significance": "Preserved and patronized South Indian Hindu culture, temple architecture, and trade during the Sultanate era.",
   "region": "South Asia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Vijayanagara_Empire"
  },
  {
   "name": "The Black Death",
@@ -4853,7 +5196,8 @@ window.HISTORY_DATA = {
   "description": "Bubonic plague, carried along Mongol-era trade routes from Central Asia, killed roughly a third to half of Europe's population and devastated the Middle East and North Africa.",
   "significance": "The deadliest pandemic in recorded history showed the lethal underside of connectivity and reshaped labor, wages, and faith across the Old World.",
   "region": "Eurasia & North Africa",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Black_Death"
  },
  {
   "name": "Ming Dynasty",
@@ -4864,7 +5208,8 @@ window.HISTORY_DATA = {
   "description": "The native Chinese dynasty that expelled the Mongols, rebuilt the Great Wall, and briefly launched ocean fleets.",
   "significance": "Its inward turn after Zheng He shows how policy, not capability, decided who explored the world.",
   "region": "East Asia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Ming_dynasty"
  },
  {
   "name": "Timur and the Timurid Empire",
@@ -4875,7 +5220,8 @@ window.HISTORY_DATA = {
   "description": "Timur (Tamerlane) conquered a vast Central Asian and Middle Eastern empire from Samarkand, and his heirs presided over a cultural renaissance.",
   "significance": "The last great steppe conquest empire, whose devastation and later Timurid patronage seeded both the Mughal dynasty and a Persianate golden age.",
   "region": "Central Asia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Timurid_Empire"
  },
  {
   "name": "Jikji: Oldest Extant Metal Movable-Type Book",
@@ -4886,7 +5232,8 @@ window.HISTORY_DATA = {
   "description": "Korean monks printed the Buddhist anthology Jikji with cast-metal movable type, decades before Gutenberg.",
   "significance": "Documents Korea's priority in metal movable-type printing, complicating Eurocentric narratives of the print revolution.",
   "region": "Korea",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Movable_type"
  },
  {
   "name": "Joseon Dynasty",
@@ -4897,7 +5244,8 @@ window.HISTORY_DATA = {
   "description": "Korea's longest-ruling dynasty governed through a Neo-Confucian bureaucratic state for five centuries.",
   "significance": "One of the world's most durable dynasties, embedding Confucian institutions that still shape Korean culture.",
   "region": "Korea",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Joseon"
  },
  {
   "name": "Benin Bronzes and West African Court Art",
@@ -4908,7 +5256,8 @@ window.HISTORY_DATA = {
   "description": "Guild casters of the Kingdom of Benin produced thousands of brass plaques and commemorative heads for the royal palace using lost-wax casting, until British forces looted the city in 1897.",
   "significance": "Their technical brilliance forced European reassessment of African art, and their looting made them the central case in modern debates over cultural restitution.",
   "region": "Benin Kingdom, Nigeria",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Benin_Bronzes"
  },
  {
   "name": "Italian Renaissance Masters",
@@ -4919,7 +5268,8 @@ window.HISTORY_DATA = {
   "description": "From Brunelleschi's dome and Donatello's sculpture to Leonardo, Michelangelo, Raphael, and Titian, Italian artists revived classical forms and perfected perspective, anatomy, and oil technique.",
   "significance": "The Renaissance redefined the artist as creative genius rather than craftsman and set the standards against which European art measured itself for four centuries.",
   "region": "Italy",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Italian_Renaissance"
  },
  {
   "name": "The Renaissance",
@@ -4930,7 +5280,8 @@ window.HISTORY_DATA = {
   "description": "A European cultural movement centered in Italy that revived classical learning and transformed art, architecture, and scholarship through humanism.",
   "significance": "Shows how recovered ancient knowledge, merchant wealth, and new media can converge to reorient an entire civilization toward human-centered inquiry.",
   "region": "Europe",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Renaissance"
  },
  {
   "name": "Zheng He's Treasure Voyages",
@@ -4952,7 +5303,8 @@ window.HISTORY_DATA = {
   "description": "Ming admiral Zheng He led seven expeditions with enormous fleets across the Indian Ocean to India, Arabia, and East Africa.",
   "significance": "China possessed the world's greatest navy decades before Columbus, then chose to withdraw — a pivotal road-not-taken in global history.",
   "region": "Indian Ocean",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Zheng_He"
  },
  {
   "name": "Age of Exploration",
@@ -4963,7 +5315,8 @@ window.HISTORY_DATA = {
   "description": "Portuguese and Spanish, then Dutch, English, and French mariners charted ocean routes linking Europe to Africa, Asia, and the Americas.",
   "significance": "Reveals how navigation technology plus state and merchant backing produced the first sustained global connections, along with conquest and colonization.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Age_of_Exploration_(disambiguation)"
  },
  {
   "name": "Aztec Triple Alliance Founded",
@@ -4985,7 +5338,8 @@ window.HISTORY_DATA = {
   "description": "From Pachacuti's reign, the Inca built the largest empire of the pre-Columbian Americas along the Andes, administered by roads, storehouses, and quipu records without writing or the wheel.",
   "significance": "It demonstrates that vast, well-run states can be organized on entirely different technological foundations than Eurasia's.",
   "region": "Andes",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Inca_Empire"
  },
  {
   "name": "Gutenberg's Printing Press",
@@ -5009,7 +5363,8 @@ window.HISTORY_DATA = {
   "description": "Johannes Gutenberg combines movable metal type, press, and oil-based ink, building on earlier Chinese and Korean movable type.",
   "significance": "Mass-produced text collapsed the cost of ideas, fueling the Reformation, science, and mass literacy.",
   "region": "Europe",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Printing_press"
  },
  {
   "name": "Hangul Alphabet Created",
@@ -5020,7 +5375,8 @@ window.HISTORY_DATA = {
   "description": "King Sejong the Great promulgated Hangul, a scientifically designed phonetic alphabet for the Korean language.",
   "significance": "A rare case of a deliberately invented writing system, engineered for mass literacy centuries before universal education.",
   "region": "Korea",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Hangul"
  },
  {
   "name": "Early Modern Period",
@@ -5031,7 +5387,8 @@ window.HISTORY_DATA = {
   "description": "The era between the medieval world and industrial modernity, marked by print, global sea routes, gunpowder empires, and the rise of modern science and states.",
   "significance": "The first era in which all inhabited continents were knitted into a single web of exchange, setting the template for globalization.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Early_modern_period"
  },
  {
   "name": "Machu Picchu Built",
@@ -5042,7 +5399,8 @@ window.HISTORY_DATA = {
   "description": "The Inca constructed the mountaintop royal estate of Machu Picchu under emperor Pachacuti.",
   "significance": "An icon of Inca engineering—earthquake-resistant masonry and terracing achieved without iron tools, wheels, or writing.",
   "region": "Andes (Peru)",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Machu_Picchu"
  },
  {
   "name": "Leonardo da Vinci",
@@ -5053,7 +5411,8 @@ window.HISTORY_DATA = {
   "description": "Florentine polymath whose paintings (Mona Lisa, The Last Supper) and notebooks spanned art, anatomy, engineering, and natural observation.",
   "significance": "Embodies the Renaissance ideal of uniting art and empirical study, prefiguring the observational method of modern science.",
   "region": "Italy",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Leonardo_da_Vinci"
  },
  {
   "name": "Fall of Constantinople",
@@ -5064,7 +5423,8 @@ window.HISTORY_DATA = {
   "description": "Ottoman sultan Mehmed II captured Constantinople with massive siege cannon, ending the Byzantine Empire after eleven centuries.",
   "significance": "The conventional close of the Middle Ages: gunpowder ended an ancient empire, Greek scholars fled west, and Europeans sought sea routes around the new Ottoman power.",
   "region": "Eastern Mediterranean",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Fall_of_Constantinople"
  },
  {
   "name": "Gutenberg's Press and Vernacular Print Culture",
@@ -5075,7 +5435,8 @@ window.HISTORY_DATA = {
   "description": "Gutenberg's movable-type Bible of about 1455 launched an explosion of printing that soon spread vernacular works — Luther's German Bible, chivalric romances, broadsides — across Europe.",
   "significance": "Cheap print in living languages created mass reading publics, standardized national tongues, and made possible the Reformation, popular literature, and public opinion.",
   "region": "Europe",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Print_culture"
  },
  {
   "name": "Songhai Empire",
@@ -5086,7 +5447,8 @@ window.HISTORY_DATA = {
   "description": "Under Sunni Ali and Askia Muhammad, Songhai became the largest empire in West African history, centered on Gao and Timbuktu.",
   "significance": "Marked the peak of trans-Saharan imperial power before Moroccan muskets ended it at Tondibi, showing gunpowder's global reach.",
   "region": "West Africa",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Songhai_Empire"
  },
  {
   "name": "Guru Nanak founds Sikhism",
@@ -5097,7 +5459,8 @@ window.HISTORY_DATA = {
   "description": "In Punjab, Guru Nanak teaches devotion to one formless God, equality of all people, and rejection of caste and empty ritual.",
   "significance": "A creative synthesis born at the Hindu-Muslim frontier, showing new world religions could still emerge in the early modern era.",
   "region": "South Asia",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Guru_Nanak"
  },
  {
   "name": "Michelangelo Buonarroti",
@@ -5108,7 +5471,8 @@ window.HISTORY_DATA = {
   "description": "Italian sculptor, painter, and architect who created David, the Pietà, and the dome of St. Peter's Basilica.",
   "significance": "His works set an enduring standard for human-centered monumental art and show how papal and civic patronage powered High Renaissance achievement.",
   "region": "Italy",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Michelangelo"
  },
  {
   "name": "Columbian Exchange",
@@ -5119,7 +5483,8 @@ window.HISTORY_DATA = {
   "description": "The transfer of crops, animals, people, and pathogens between the Americas and Afro-Eurasia, including maize, potatoes, horses, and smallpox.",
   "significance": "The largest biological diffusion event in human history — it reshaped diets worldwide while epidemics killed most of the Indigenous American population.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Columbian_exchange"
  },
  {
   "name": "Columbus Reaches the Americas",
@@ -5130,7 +5495,8 @@ window.HISTORY_DATA = {
   "description": "Sailing for Castile, Christopher Columbus crossed the Atlantic and landed in the Caribbean, opening sustained contact between Afro-Eurasia and the Americas.",
   "significance": "A convergence point of world history: two long-separated human worlds were permanently joined, with transformative and catastrophic consequences.",
   "region": "Atlantic / Caribbean",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Voyages_of_Christopher_Columbus"
  },
  {
   "name": "Great Dying of the Indigenous Americas",
@@ -5141,7 +5507,8 @@ window.HISTORY_DATA = {
   "description": "Epidemics of smallpox, measles, and other Old World diseases killed an estimated 80-95% of Indigenous Americans.",
   "significance": "The largest demographic collapse in recorded history, it enabled colonization and even cooled the global climate.",
   "region": "Americas",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Great_Dying_(disambiguation)"
  },
  {
   "name": "Treaty of Tordesillas",
@@ -5152,7 +5519,8 @@ window.HISTORY_DATA = {
   "description": "Spain and Portugal, with papal sanction, divided newly discovered lands outside Europe along a meridian in the Atlantic.",
   "significance": "An early act of global partition by European powers, foreshadowing centuries of colonial border-drawing without regard to inhabitants.",
   "region": "Iberia / Atlantic",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Treaty_of_Tordesillas"
  },
  {
   "name": "Vasco da Gama Reaches India",
@@ -5163,7 +5531,8 @@ window.HISTORY_DATA = {
   "description": "The Portuguese navigator rounded the Cape of Good Hope and reached Calicut, opening a direct sea route from Europe to Asia.",
   "significance": "Broke the overland spice-trade monopoly and began European armed commerce in the Indian Ocean, a pattern of trade backed by naval force.",
   "region": "Indian Ocean",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Vasco_da_Gama%2C_Goa"
  },
  {
   "name": "Safavid Empire",
@@ -5185,7 +5554,8 @@ window.HISTORY_DATA = {
   "description": "European powers forcibly transported roughly 12.5 million enslaved Africans to the Americas to labor on plantations and in mines.",
   "significance": "The largest forced migration in history, it financed Atlantic empires and left demographic, economic, and racial legacies that persist today.",
   "region": "Atlantic World",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Atlantic_slave_trade"
  },
  {
   "name": "Sistine Chapel Ceiling",
@@ -5196,7 +5566,8 @@ window.HISTORY_DATA = {
   "description": "Michelangelo frescoed the ceiling of the Sistine Chapel in Rome with scenes from Genesis, including the Creation of Adam.",
   "significance": "A summit of High Renaissance art demonstrating how religious patronage channeled humanist ideals into monumental public imagery.",
   "region": "Italy",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Sistine_Chapel_ceiling"
  },
  {
   "name": "Protestant Reformation Begins",
@@ -5207,7 +5578,8 @@ window.HISTORY_DATA = {
   "description": "Martin Luther circulated his Ninety-five Theses challenging indulgences, igniting a movement that split Western Christianity.",
   "significance": "Shows print-driven idea diffusion fracturing a unified religious order and empowering vernacular literacy, national churches, and religious wars.",
   "region": "Europe",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Reformation"
  },
  {
   "name": "Conquest of the Aztec Empire",
@@ -5218,7 +5590,8 @@ window.HISTORY_DATA = {
   "description": "Hernán Cortés, allied with Indigenous rivals of the Mexica and aided by epidemic disease, captured Tenochtitlan and toppled the Aztec Empire.",
   "significance": "Illustrates how steel, disease, and exploited local rivalries let small European forces collapse major American states, opening Spanish rule in Mesoamerica.",
   "region": "Mesoamerica",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Spanish_conquest_of_the_Aztec_Empire"
  },
  {
   "name": "Magellan–Elcano Circumnavigation",
@@ -5240,7 +5613,8 @@ window.HISTORY_DATA = {
   "description": "Babur's victory at Panipat founded a Persianate Muslim dynasty that came to rule most of the Indian subcontinent.",
   "significance": "One of the wealthiest empires in world history, producing a lasting Indo-Persian cultural synthesis before falling to British colonialism.",
   "region": "South Asia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Mughal_Empire"
  },
  {
   "name": "Conquest of the Inca Empire",
@@ -5251,7 +5625,8 @@ window.HISTORY_DATA = {
   "description": "Francisco Pizarro captured Emperor Atahualpa at Cajamarca and seized Cusco, bringing the Andean Inca Empire under Spanish control.",
   "significance": "With Mexico, it channeled vast American silver into the world economy, fueling Spanish power and the first truly global trade circuits.",
   "region": "Andes",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Spanish_conquest_of_the_Inca_Empire"
  },
  {
   "name": "Copernicus Publishes De Revolutionibus",
@@ -5262,7 +5637,8 @@ window.HISTORY_DATA = {
   "description": "Nicolaus Copernicus published his heliocentric model placing the Sun, not the Earth, at the center of the planetary system.",
   "significance": "The symbolic start of the Scientific Revolution: it displaced humanity from the cosmic center and licensed the mathematical remodeling of nature.",
   "region": "Europe",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Autograph_of_Nicolaus_Copernicus'_De_revolutionibus"
  },
  {
   "name": "Scientific Revolution",
@@ -5273,7 +5649,8 @@ window.HISTORY_DATA = {
   "description": "From Copernicus to Newton, European thinkers replaced ancient authority with mathematics, experiment, and instruments as the basis for knowledge of nature.",
   "significance": "Established the self-correcting method that made knowledge cumulative and accelerating, the engine behind all later technological change.",
   "region": "Europe",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Scientific_Revolution"
  },
  {
   "name": "Vesalius Founds Modern Anatomy",
@@ -5306,7 +5683,8 @@ window.HISTORY_DATA = {
   "description": "William Shakespeare wrote some 38 plays for the London public stage, from the history cycles through Hamlet, King Lear, and The Tempest.",
   "significance": "His work became the most translated and performed secular literature in history, demonstrating how commercial popular entertainment can attain the highest art.",
   "region": "England",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Shakespeare's_plays"
  },
  {
   "name": "Baroque and Classical Music",
@@ -5317,7 +5695,8 @@ window.HISTORY_DATA = {
   "description": "From Monteverdi's first operas through Bach and Handel to Haydn, Mozart, and Beethoven, European composers developed opera, the orchestra, tonal harmony, and the symphony.",
   "significance": "This era built the core institutions and forms of Western art music and culminated in Beethoven's transformation of the composer into an autonomous artistic voice.",
   "region": "Europe",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Baroque_music"
  },
  {
   "name": "Dutch East India Company Founded",
@@ -5328,7 +5707,8 @@ window.HISTORY_DATA = {
   "description": "The Netherlands chartered the VOC, a joint-stock company with quasi-sovereign powers to trade, wage war, and colonize in Asia.",
   "significance": "The prototype of the modern corporation and of corporate empire, fusing finance capital with state power to dominate long-distance trade.",
   "region": "Netherlands / Asia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Dutch_East_India_Company"
  },
  {
   "name": "Tokugawa Shogunate (Edo Period)",
@@ -5339,7 +5719,8 @@ window.HISTORY_DATA = {
   "description": "Tokugawa Ieyasu's shogunate imposed 250 years of internal peace, controlled foreign contact, and vibrant urban culture on Japan.",
   "significance": "Shows a major society choosing managed isolation, incubating the stability and urbanization that enabled Japan's later rapid modernization.",
   "region": "Japan",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Tokugawa_shogunate"
  },
  {
   "name": "Rise of the Modern Novel",
@@ -5350,7 +5731,8 @@ window.HISTORY_DATA = {
   "description": "From Cervantes's Don Quixote through Defoe, Richardson, and Fielding, extended realistic prose fiction about ordinary individuals became a dominant literary form in Europe.",
   "significance": "The novel became modernity's signature art form for exploring interior life and social change, though Murasaki's Genji shows the form's deeper, non-European roots.",
   "region": "Spain and Western Europe",
-  "confidence": "debated"
+  "confidence": "debated",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/The_Rise_of_the_Novel"
  },
  {
   "name": "Telescope and Microscope",
@@ -5361,7 +5743,8 @@ window.HISTORY_DATA = {
   "description": "Dutch spectacle-makers invent the telescope, with compound microscopes emerging from the same optical workshops.",
   "significance": "Instruments that extended human senses opened the very large and very small to empirical science.",
   "region": "Europe",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Microscope"
  },
  {
   "name": "Kepler's Laws of Planetary Motion",
@@ -5372,7 +5755,8 @@ window.HISTORY_DATA = {
   "description": "Johannes Kepler published his three laws showing planets move in ellipses at mathematically defined speeds around the Sun.",
   "significance": "Replaced perfect circles with precise empirical mathematics, giving Newton the raw laws his theory of gravity would later explain.",
   "region": "Central Europe",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Kepler's_laws_of_planetary_motion"
  },
  {
   "name": "Galileo's Telescopic Discoveries",
@@ -5394,7 +5778,8 @@ window.HISTORY_DATA = {
   "description": "Francis Bacon published a manifesto for a new inductive, experimental method of investigating nature to replace Aristotelian logic.",
   "significance": "Articulated the ideology of organized empirical research for human benefit, inspiring scientific societies and the idea of progress.",
   "region": "England",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Novum_Organum"
  },
  {
   "name": "Harvey Describes Blood Circulation",
@@ -5416,7 +5801,8 @@ window.HISTORY_DATA = {
   "description": "Mughal emperor Shah Jahan built a white-marble mausoleum for his wife Mumtaz Mahal at Agra.",
   "significance": "The apex of Indo-Islamic architecture and a global symbol of imperial patronage of the arts.",
   "region": "South Asia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Taj_Mahal"
  },
  {
   "name": "Trial of Galileo",
@@ -5427,7 +5813,8 @@ window.HISTORY_DATA = {
   "description": "The Roman Inquisition condemned Galileo for defending heliocentrism, forcing him to recant and placing him under house arrest.",
   "significance": "The emblematic collision between institutional religious authority and empirical science, shaping debates over free inquiry ever since.",
   "region": "Italy",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/The_Trials_of_Galileo"
  },
  {
   "name": "Descartes' Discourse on the Method",
@@ -5438,7 +5825,8 @@ window.HISTORY_DATA = {
   "description": "René Descartes published his method of systematic doubt and rational analysis, including the famous 'I think, therefore I am.'",
   "significance": "Grounded knowledge in individual reason rather than authority, founding modern philosophy and the rationalist strand of the new science.",
   "region": "France / Netherlands",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Discourse_on_the_Method"
  },
  {
   "name": "Qing Dynasty",
@@ -5449,7 +5837,8 @@ window.HISTORY_DATA = {
   "description": "China's last imperial dynasty, founded by the Manchus, which roughly doubled the empire's territory.",
   "significance": "Its fall ended over two millennia of dynastic rule and opened China's turbulent modern century.",
   "region": "East Asia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Qing_dynasty"
  },
  {
   "name": "Peace of Westphalia",
@@ -5460,7 +5849,8 @@ window.HISTORY_DATA = {
   "description": "The treaties ending the Thirty Years' War, recognizing state sovereignty over religious authority.",
   "significance": "Conventionally taken as the birth of the modern international system of sovereign states.",
   "region": "Europe",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Peace_of_Westphalia"
  },
  {
   "name": "Royal Society Founded",
@@ -5471,7 +5861,8 @@ window.HISTORY_DATA = {
   "description": "Natural philosophers in London founded the Royal Society, an enduring institution for experiment, peer communication, and scientific publishing.",
   "significance": "Institutionalized science as a collective, self-correcting enterprise with journals and replication, making discovery cumulative across generations.",
   "region": "England",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Royal_Society"
  },
  {
   "name": "Invention of Calculus",
@@ -5482,7 +5873,8 @@ window.HISTORY_DATA = {
   "description": "Isaac Newton and Gottfried Leibniz independently developed the mathematics of continuous change and accumulation.",
   "significance": "Calculus became the essential language of physics, engineering, and modern science.",
   "region": "Europe",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/History_of_calculus"
  },
  {
   "name": "Age of Enlightenment",
@@ -5493,7 +5885,8 @@ window.HISTORY_DATA = {
   "description": "The European intellectual movement elevating reason, empirical inquiry, natural rights, and religious tolerance.",
   "significance": "Its ideas supplied the vocabulary of nearly every modern revolution and constitution worldwide.",
   "region": "Europe & Americas",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Age_of_Enlightenment"
  },
  {
   "name": "The Enlightenment",
@@ -5504,7 +5897,8 @@ window.HISTORY_DATA = {
   "description": "An intellectual movement applying reason and scientific method to society, championing liberty, tolerance, rights, and constitutional government.",
   "significance": "Translated the Scientific Revolution's confidence in reason into politics, seeding democratic revolutions and modern secular thought.",
   "region": "Europe / Atlantic World",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Age_of_Enlightenment"
  },
  {
   "name": "Newton's Principia Mathematica",
@@ -5528,7 +5922,8 @@ window.HISTORY_DATA = {
   "description": "Thomas Newcomen builds the first practical steam engine, later transformed by James Watt's separate condenser (1769).",
   "significance": "Fossil-fueled power broke the energy ceiling of muscle, wind, and water, igniting the Industrial Revolution.",
   "region": "Britain",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Steam_engine"
  },
  {
   "name": "The Encyclopédie",
@@ -5539,7 +5934,8 @@ window.HISTORY_DATA = {
   "description": "Diderot and d'Alembert edited a vast French encyclopedia compiling scientific, technical, and philosophical knowledge from over a hundred contributors.",
   "significance": "The Enlightenment's flagship project of knowledge diffusion, aiming to change common ways of thinking by making all learning publicly accessible.",
   "region": "France",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Encyclop%C3%A9die"
  },
  {
   "name": "Industrial Age",
@@ -5550,7 +5946,8 @@ window.HISTORY_DATA = {
   "description": "The era in which fossil-fueled machinery, factories, railways, and mass production reorganized economies and societies.",
   "significance": "It broke the ancient ceiling on energy per person, launching exponential growth in population, output, and emissions.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Industrial_Revolution"
  },
  {
   "name": "Age of Revolutions",
@@ -5561,7 +5958,8 @@ window.HISTORY_DATA = {
   "description": "The connected wave of American, French, Haitian, Latin American, and European revolutions against monarchy and empire.",
   "significance": "Popular sovereignty spread as a contagious template, showing how political ideas diffuse across oceans.",
   "region": "Atlantic World",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Age_of_Revolution"
  },
  {
   "name": "American Declaration of Independence",
@@ -5572,7 +5970,8 @@ window.HISTORY_DATA = {
   "description": "Thirteen British colonies declared independence, asserting government by consent of the governed.",
   "significance": "The first successful anti-colonial revolution, it turned Enlightenment theory into a working republic.",
   "region": "North America",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/United_States_Declaration_of_Independence"
  },
  {
   "name": "French Revolution",
@@ -5583,7 +5982,8 @@ window.HISTORY_DATA = {
   "description": "The overthrow of the French monarchy and proclamation of the Rights of Man, followed by terror and Napoleon.",
   "significance": "It made nationalism, citizenship, and mass politics the default grammar of the modern state.",
   "region": "Europe",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/French_Revolution"
  },
  {
   "name": "Haitian Revolution",
@@ -5594,7 +5994,8 @@ window.HISTORY_DATA = {
   "description": "Enslaved Africans in Saint-Domingue overthrew slavery and French rule, founding the independent republic of Haiti.",
   "significance": "The only successful slave revolution in history, proving Enlightenment liberty could be claimed by the enslaved themselves and shaking the Atlantic slave system.",
   "region": "Caribbean",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Haitian_Revolution"
  },
  {
   "name": "Vaccination",
@@ -5605,7 +6006,8 @@ window.HISTORY_DATA = {
   "description": "Edward Jenner demonstrates that cowpox inoculation protects against smallpox, building on older variolation practices.",
   "significance": "Deliberately training the immune system began medicine's shift from treatment to prevention, ultimately eradicating smallpox.",
   "region": "Britain",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Vaccination"
  },
  {
   "name": "The Electric Battery",
@@ -5616,7 +6018,8 @@ window.HISTORY_DATA = {
   "description": "Alessandro Volta stacks zinc and copper discs to create the voltaic pile, the first source of continuous current.",
   "significance": "Steady electric current made electrochemistry, telegraphy, and all subsequent electrical technology possible.",
   "region": "Italy",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Electric_battery"
  },
  {
   "name": "Abolition of the Atlantic Slave Trade and Slavery",
@@ -5627,7 +6030,8 @@ window.HISTORY_DATA = {
   "description": "Britain and the United States banned the slave trade, beginning a century of emancipation that ended with Brazil in 1888.",
   "significance": "A rare case of an entrenched global economic institution dismantled by sustained moral and political campaigning.",
   "region": "Atlantic World",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Abolitionism"
  },
  {
   "name": "Dalton's Atomic Theory",
@@ -5638,7 +6042,8 @@ window.HISTORY_DATA = {
   "description": "John Dalton proposed that matter is composed of indivisible atoms combining in fixed whole-number ratios.",
   "significance": "It gave chemistry a quantitative atomic foundation for understanding matter.",
   "region": "England",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/History_of_atomic_theory"
  },
  {
   "name": "Mount Tambora Eruption",
@@ -5662,7 +6067,8 @@ window.HISTORY_DATA = {
   "description": "Michael Faraday showed that a changing magnetic field generates electric current, the basis of the generator.",
   "significance": "It made large-scale electricity generation possible, powering the modern world.",
   "region": "England",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Electromagnetic_induction"
  },
  {
   "name": "Hokusai's Great Wave and Ukiyo-e Prints",
@@ -5673,7 +6079,8 @@ window.HISTORY_DATA = {
   "description": "Hokusai published Under the Wave off Kanagawa in his Thirty-six Views of Mount Fuji, the most famous of Japan's mass-produced ukiyo-e woodblock prints.",
   "significance": "Ukiyo-e prints, cheap art for urban commoners, later reached Europe and catalyzed Impressionism and Japonisme, an early case of globalized visual culture.",
   "region": "Japan",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Ukiyo-e"
  },
  {
   "name": "Babbage and the Analytical Engine",
@@ -5684,7 +6091,8 @@ window.HISTORY_DATA = {
   "description": "Charles Babbage designed a programmable mechanical computer, for which Ada Lovelace wrote the first algorithm.",
   "significance": "It conceived general-purpose computation a century before electronic computers existed.",
   "region": "England",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Analytical_engine"
  },
  {
   "name": "The Electric Telegraph",
@@ -5695,7 +6103,8 @@ window.HISTORY_DATA = {
   "description": "Cooke, Wheatstone, and Morse independently patent practical electric telegraphs.",
   "significance": "Information first traveled faster than any physical messenger, beginning the annihilation of distance.",
   "region": "Britain & USA",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Electric_Telegraph_Company"
  },
  {
   "name": "Invention of Photography",
@@ -5706,7 +6115,8 @@ window.HISTORY_DATA = {
   "description": "The daguerreotype process was publicly announced in Paris in 1839, alongside Talbot's rival negative-positive process in England.",
   "significance": "Mechanical image-making ended painting's monopoly on visual record, democratized portraiture, and opened the path to cinema and all modern visual media.",
   "region": "France and England",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Photography"
  },
  {
   "name": "Photography",
@@ -5717,7 +6127,8 @@ window.HISTORY_DATA = {
   "description": "Daguerre's process is publicly announced in Paris, following Niépce's earliest experiments.",
   "significance": "Mechanically captured images changed memory, evidence, art, and later science and mass media.",
   "region": "France",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Photography"
  },
  {
   "name": "Discovery of Surgical Anesthesia",
@@ -5739,7 +6150,8 @@ window.HISTORY_DATA = {
   "description": "A millenarian civil war in Qing China led by a man claiming to be Jesus's brother, killing perhaps 20 million.",
   "significance": "The deadliest civil war in history, it crippled Qing China just as Western powers pressed in.",
   "region": "East Asia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Taiping_Rebellion"
  },
  {
   "name": "John Snow and the Birth of Epidemiology",
@@ -5750,7 +6162,8 @@ window.HISTORY_DATA = {
   "description": "John Snow traced a London cholera outbreak to a contaminated water pump, mapping disease to its source.",
   "significance": "It launched modern epidemiology and the sanitation movement that slashed urban mortality.",
   "region": "London",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/John_Snow"
  },
  {
   "name": "Bessemer Process and Cheap Steel",
@@ -5761,7 +6174,8 @@ window.HISTORY_DATA = {
   "description": "Henry Bessemer patented a process to mass-produce steel by blowing air through molten iron.",
   "significance": "Abundant cheap steel enabled railroads, skyscrapers, and heavy industry.",
   "region": "England",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Bessemer_process"
  },
  {
   "name": "Birth of the Petroleum Industry",
@@ -5772,7 +6186,8 @@ window.HISTORY_DATA = {
   "description": "Edwin Drake drilled the first commercially successful oil well in Pennsylvania.",
   "significance": "It launched the fossil-fuel age that would power transport, plastics, and the modern economy.",
   "region": "United States",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Petroleum_industry_in_Nigeria"
  },
  {
   "name": "Carrington Event",
@@ -5809,7 +6224,8 @@ window.HISTORY_DATA = {
   "description": "Pasteur and later Koch established that microorganisms cause infectious disease.",
   "significance": "Sanitation, antisepsis, and vaccination followed, driving the steepest rise in human life expectancy ever recorded.",
   "region": "Europe",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Germ_theory_of_disease"
  },
  {
   "name": "Antiseptic Surgery",
@@ -5820,7 +6236,8 @@ window.HISTORY_DATA = {
   "description": "Joseph Lister introduced antiseptic techniques to prevent infection during surgery.",
   "significance": "It dramatically reduced post-surgical deaths and made complex operations viable.",
   "region": "Scotland",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Antiseptic"
  },
  {
   "name": "Meiji Restoration",
@@ -5831,7 +6248,8 @@ window.HISTORY_DATA = {
   "description": "Reformers overthrew the shogunate and restored imperial rule, launching Japan's crash program of industrialization and modernization.",
   "significance": "The first non-Western nation to industrialize on Western terms, proving modernization was not a European monopoly.",
   "region": "Japan",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Meiji_Restoration"
  },
  {
   "name": "Mendeleev's Periodic Table",
@@ -5842,7 +6260,8 @@ window.HISTORY_DATA = {
   "description": "Dmitri Mendeleev arranged the elements by properties, predicting undiscovered ones from the gaps.",
   "significance": "It revealed a deep order in matter and became the organizing map of chemistry.",
   "region": "Russia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Periodic_table"
  },
  {
   "name": "The Internal Combustion Engine",
@@ -5853,7 +6272,8 @@ window.HISTORY_DATA = {
   "description": "Nikolaus Otto builds the first practical four-stroke engine, which Benz and Daimler soon put on wheels.",
   "significance": "Compact portable power created the automobile and aircraft, reorganizing cities and geopolitics around oil.",
   "region": "Germany",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Internal_combustion_engine"
  },
  {
   "name": "The Telephone",
@@ -5864,7 +6284,8 @@ window.HISTORY_DATA = {
   "description": "Alexander Graham Bell patents a device transmitting the human voice over electric wires.",
   "significance": "Real-time voice at a distance personalized telecommunication and wired society together person-to-person.",
   "region": "USA",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Telephone"
  },
  {
   "name": "The Practical Light Bulb",
@@ -5875,7 +6296,8 @@ window.HISTORY_DATA = {
   "description": "Edison and Swan independently produce long-lasting carbon-filament incandescent lamps.",
   "significance": "Electric light decoupled human activity from the sun and pulled electrification into every home and street.",
   "region": "USA & Britain",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Incandescent_light_bulb"
  },
  {
   "name": "The Electric Power Grid",
@@ -5886,7 +6308,8 @@ window.HISTORY_DATA = {
   "description": "Edison, Tesla, and Westinghouse built the first electrical distribution systems, with alternating current prevailing.",
   "significance": "Networked electricity became the backbone infrastructure of modern civilization.",
   "region": "United States",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/North_American_power_transmission_grid"
  },
  {
   "name": "Berlin Conference and the Scramble for Africa",
@@ -5897,7 +6320,8 @@ window.HISTORY_DATA = {
   "description": "European powers meeting in Berlin set rules for partitioning Africa, triggering the rapid colonization of nearly the entire continent.",
   "significance": "Drew arbitrary borders that ignored African polities and peoples, with consequences that still structure the continent's politics.",
   "region": "Africa / Europe",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Berlin_Conference"
  },
  {
   "name": "Scramble for Africa",
@@ -5908,7 +6332,8 @@ window.HISTORY_DATA = {
   "description": "European powers partitioned nearly the entire African continent at and after the Berlin Conference.",
   "significance": "Borders drawn in a few decades still structure African politics more than a century later.",
   "region": "Africa",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Scramble_for_Africa"
  },
  {
   "name": "Birth of Cinema",
@@ -5919,7 +6344,8 @@ window.HISTORY_DATA = {
   "description": "The Lumière brothers held the first commercial public film screening in Paris in December 1895 using their Cinématographe.",
   "significance": "Cinema became the twentieth century's dominant narrative art, the first truly mass global medium of moving images.",
   "region": "Paris, France",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Kuxa_Kanema%3A_The_Birth_of_Cinema"
  },
  {
   "name": "Discovery of X-Rays",
@@ -5930,7 +6356,8 @@ window.HISTORY_DATA = {
   "description": "Wilhelm Roentgen discovered penetrating radiation that could image the inside of the body.",
   "significance": "It gave medicine its first non-invasive window into living anatomy.",
   "region": "Germany",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/X-ray"
  },
  {
   "name": "Wireless Radio Communication",
@@ -5941,7 +6368,8 @@ window.HISTORY_DATA = {
   "description": "Guglielmo Marconi transmitted information via electromagnetic waves without wires.",
   "significance": "It began instantaneous long-distance broadcasting, shrinking the world.",
   "region": "Italy",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Wireless"
  },
  {
   "name": "Battle of Adwa",
@@ -5952,7 +6380,8 @@ window.HISTORY_DATA = {
   "description": "Ethiopian forces under Menelik II decisively defeated an invading Italian army.",
   "significance": "The only comprehensive African defeat of a European colonial power in the Scramble for Africa, preserving Ethiopian sovereignty and inspiring pan-Africanism.",
   "region": "Ethiopia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Battle_of_Adwa"
  },
  {
   "name": "Discovery of Radioactivity",
@@ -5963,7 +6392,8 @@ window.HISTORY_DATA = {
   "description": "Henri Becquerel and Marie and Pierre Curie discovered that some elements spontaneously emit radiation.",
   "significance": "It opened nuclear physics and revealed that atoms are not immutable.",
   "region": "France",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Radioactive_decay"
  },
  {
   "name": "Discovery of the Electron",
@@ -5974,7 +6404,8 @@ window.HISTORY_DATA = {
   "description": "J.J. Thomson identified the electron as a subatomic particle, revealing atoms have internal structure.",
   "significance": "It launched particle physics and the electronics that followed.",
   "region": "England",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Electron"
  },
  {
   "name": "Modernism in the Arts",
@@ -5985,7 +6416,8 @@ window.HISTORY_DATA = {
   "description": "Movements from Cubism and abstraction to Stravinsky's Rite of Spring, Joyce's Ulysses, and Bauhaus design deliberately broke with inherited forms of representation and narrative.",
   "significance": "Modernism redefined art as experiment rather than imitation, a rupture whose consequences still shape every art form.",
   "region": "Europe and the Americas",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Modernism_(music)"
  },
  {
   "name": "Powered Flight",
@@ -5996,7 +6428,8 @@ window.HISTORY_DATA = {
   "description": "The Wright brothers achieve controlled, sustained, powered heavier-than-air flight at Kitty Hawk.",
   "significance": "Within one lifetime flight went from twelve seconds to the Moon, the starkest example of technological acceleration.",
   "region": "USA",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Wright_brothers"
  },
  {
   "name": "Einstein's Special Relativity",
@@ -6007,7 +6440,8 @@ window.HISTORY_DATA = {
   "description": "Einstein's 'miracle year' papers redefined space, time, energy, and the nature of light.",
   "significance": "Physics was rebuilt from its foundations, opening the road to nuclear energy and modern cosmology.",
   "region": "Europe",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Special_relativity"
  },
  {
   "name": "Einstein's Theory of Relativity",
@@ -6018,7 +6452,8 @@ window.HISTORY_DATA = {
   "description": "Albert Einstein reconceived space, time, and gravity through special and then general relativity.",
   "significance": "It reshaped physics and cosmology and underpins technologies from GPS to nuclear energy.",
   "region": "Germany/Switzerland",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Theory_of_relativity"
  },
  {
   "name": "Bakelite and the Age of Plastics",
@@ -6029,7 +6464,8 @@ window.HISTORY_DATA = {
   "description": "Leo Baekeland created the first fully synthetic plastic, an entirely human-made material.",
   "significance": "It began the synthetic materials revolution that reshaped manufacturing and waste alike.",
   "region": "United States",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Bakelite"
  },
  {
   "name": "The Haber-Bosch Process",
@@ -6040,7 +6476,8 @@ window.HISTORY_DATA = {
   "description": "Fritz Haber and Carl Bosch developed industrial synthesis of ammonia from atmospheric nitrogen.",
   "significance": "Synthetic fertilizer now feeds roughly half of humanity, driving population growth.",
   "region": "Germany",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Haber_process"
  },
  {
   "name": "The Moving Assembly Line",
@@ -6051,7 +6488,8 @@ window.HISTORY_DATA = {
   "description": "Henry Ford introduced the moving assembly line for automobile mass production.",
   "significance": "It slashed manufacturing costs and defined the era of mass consumer production.",
   "region": "United States",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Assembly_line"
  },
  {
   "name": "World War I",
@@ -6062,7 +6500,8 @@ window.HISTORY_DATA = {
   "description": "A global industrial war among the great powers killed some 17 million people and toppled the Ottoman, Habsburg, Russian, and German empires.",
   "significance": "Shattered the nineteenth-century imperial order and set in motion communism, fascism, and Middle Eastern partition.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/World_War_I"
  },
  {
   "name": "Jazz and the Age of Recorded Music",
@@ -6073,7 +6512,8 @@ window.HISTORY_DATA = {
   "description": "From the first jazz records of 1917 through Armstrong, Ellington, swing, bebop, and the global spread of the phonograph and radio, African American music transformed world culture.",
   "significance": "Jazz was the first art form born from the African diaspora to attain global prestige, and recording severed music from live performance, creating the modern music industry.",
   "region": "United States, global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Jazz_Age"
  },
  {
   "name": "Russian Revolution",
@@ -6084,7 +6524,8 @@ window.HISTORY_DATA = {
   "description": "The Bolsheviks seized power in Russia and founded the world's first communist state.",
   "significance": "It split the twentieth century into two rival models of modernity for the next seventy years.",
   "region": "Eurasia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Russian_Revolution"
  },
  {
   "name": "1918 Influenza Pandemic",
@@ -6095,7 +6536,8 @@ window.HISTORY_DATA = {
   "description": "A global flu pandemic that infected a third of humanity and killed an estimated 50 million people.",
   "significance": "Modern transport turned a local outbreak global within months, a template for every pandemic since.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Influenza_pandemic"
  },
  {
   "name": "Discovery of Insulin",
@@ -6106,7 +6548,8 @@ window.HISTORY_DATA = {
   "description": "Banting and Best isolated insulin, turning diabetes from a death sentence into a manageable condition.",
   "significance": "It pioneered hormone therapy and saved millions of lives.",
   "region": "Canada",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Insulin"
  },
  {
   "name": "Quantum Mechanics Formulated",
@@ -6117,7 +6560,8 @@ window.HISTORY_DATA = {
   "description": "Heisenberg, Schroedinger, and others formalized the physics of atoms and subatomic particles.",
   "significance": "It underlies modern chemistry, electronics, lasers, and computing.",
   "region": "Europe",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Introduction_to_quantum_mechanics"
  },
  {
   "name": "Television",
@@ -6128,7 +6572,8 @@ window.HISTORY_DATA = {
   "description": "Philo Farnsworth demonstrated the first fully electronic television transmission.",
   "significance": "It became the dominant mass medium of the twentieth century, reshaping politics and culture.",
   "region": "United States",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Television"
  },
  {
   "name": "Penicillin (Antibiotics)",
@@ -6139,7 +6584,8 @@ window.HISTORY_DATA = {
   "description": "Alexander Fleming discovers that Penicillium mold kills bacteria, mass-produced as a drug by the early 1940s.",
   "significance": "Antibiotics turned lethal infections into curable illnesses, adding decades to average human lifespans.",
   "region": "Britain",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Penicillin"
  },
  {
   "name": "Great Depression",
@@ -6150,7 +6596,8 @@ window.HISTORY_DATA = {
   "description": "A worldwide economic collapse following the 1929 crash, with mass unemployment across industrial nations.",
   "significance": "Economic ruin fed political extremism, linking financial fragility directly to the coming war.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Great_Depression"
  },
  {
   "name": "Hubble Discovers the Expanding Universe",
@@ -6161,7 +6608,8 @@ window.HISTORY_DATA = {
   "description": "Edwin Hubble showed that distant galaxies recede faster with distance, implying an expanding cosmos.",
   "significance": "It provided the observational foundation for the Big Bang theory.",
   "region": "United States",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Hubble's_law"
  },
  {
   "name": "Turing's Theory of Computation",
@@ -6172,7 +6620,8 @@ window.HISTORY_DATA = {
   "description": "Alan Turing defined the universal computing machine and the limits of what is computable.",
   "significance": "It laid the theoretical foundation for all digital computers.",
   "region": "England",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Theory_of_computation"
  },
  {
   "name": "Discovery of Nuclear Fission",
@@ -6183,7 +6632,8 @@ window.HISTORY_DATA = {
   "description": "Hahn, Strassmann, Meitner, and Frisch showed that splitting uranium nuclei releases enormous energy.",
   "significance": "It opened the nuclear age of both weapons and power generation.",
   "region": "Germany/Sweden",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Discovery_of_nuclear_fission"
  },
  {
   "name": "Second World War",
@@ -6194,7 +6644,8 @@ window.HISTORY_DATA = {
   "description": "The deadliest conflict in history, killing 70-85 million people and ending with the defeat of the Axis powers.",
   "significance": "It ended European global dominance and produced the UN, decolonization, and the nuclear order.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/World_War_II"
  },
  {
   "name": "The Holocaust",
@@ -6205,7 +6656,8 @@ window.HISTORY_DATA = {
   "description": "Nazi Germany's industrialized genocide of six million Jews along with Roma, disabled people, and others.",
   "significance": "It demonstrated that bureaucratic modernity can be turned to extermination, reshaping law and ethics after 1945.",
   "region": "Europe",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/The_Holocaust"
  },
  {
   "name": "First Controlled Nuclear Chain Reaction",
@@ -6216,7 +6668,8 @@ window.HISTORY_DATA = {
   "description": "Enrico Fermi's team achieved the first self-sustaining nuclear reaction at Chicago Pile-1.",
   "significance": "It proved nuclear energy could be harnessed, enabling both reactors and weapons.",
   "region": "United States",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Nuclear_chain_reaction"
  },
  {
   "name": "Atomic Bombing of Hiroshima and Nagasaki",
@@ -6227,7 +6680,8 @@ window.HISTORY_DATA = {
   "description": "The United States dropped two nuclear weapons on Japanese cities, killing over 100,000 people.",
   "significance": "Humanity acquired the means of its own extinction, making deterrence the organizing fact of world politics.",
   "region": "East Asia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Atomic_bombings_of_Hiroshima_and_Nagasaki"
  },
  {
   "name": "ENIAC, First General-Purpose Electronic Computer",
@@ -6238,7 +6692,8 @@ window.HISTORY_DATA = {
   "description": "ENIAC demonstrated large-scale programmable electronic computation using vacuum tubes.",
   "significance": "It began the electronic computing era that transformed every field of human activity.",
   "region": "United States",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/ENIAC"
  },
  {
   "name": "Founding of the United Nations",
@@ -6249,7 +6704,8 @@ window.HISTORY_DATA = {
   "description": "Fifty-one states signed the UN Charter to prevent another world war through collective security.",
   "significance": "The first durable attempt at permanent global governance, followed in 1948 by the Universal Declaration of Human Rights.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/United_Nations"
  },
  {
   "name": "Cold War",
@@ -6260,7 +6716,8 @@ window.HISTORY_DATA = {
   "description": "The global standoff between the United States and Soviet Union, fought through proxy wars, arms races, and ideology.",
   "significance": "Nuclear deterrence made great-power war unthinkable while pushing conflict into the decolonizing world.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Cold_War"
  },
  {
   "name": "Indian Independence and Partition",
@@ -6271,7 +6728,8 @@ window.HISTORY_DATA = {
   "description": "British India gained independence and was partitioned into India and Pakistan amid mass displacement and communal violence.",
   "significance": "Freed a fifth of humanity from colonial rule and fired the starting gun of global decolonization, at the cost of one of history's largest forced migrations.",
   "region": "South Asia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Indian_Independence_Act_1947"
  },
  {
   "name": "Information / Digital Age",
@@ -6282,7 +6740,8 @@ window.HISTORY_DATA = {
   "description": "The era in which computing, networks, and digitized data became the primary infrastructure of economy and culture.",
   "significance": "It compresses the transmission of knowledge from months to milliseconds, accelerating every other domain of change.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Information_Age"
  },
  {
   "name": "The Transistor",
@@ -6293,7 +6752,8 @@ window.HISTORY_DATA = {
   "description": "Bardeen, Brattain, and Shockley demonstrate the first transistor at Bell Labs.",
   "significance": "The solid-state switch is the atom of the digital age, its relentless miniaturization driving Moore's Law.",
   "region": "USA",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Transistor"
  },
  {
   "name": "Shannon's Information Theory",
@@ -6304,7 +6764,8 @@ window.HISTORY_DATA = {
   "description": "Claude Shannon defined information mathematically in bits and set fundamental limits on communication.",
   "significance": "It is the theoretical foundation of all digital communication, compression, and storage.",
   "region": "United States",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Information_theory"
  },
  {
   "name": "Founding of the People's Republic of China",
@@ -6315,7 +6776,8 @@ window.HISTORY_DATA = {
   "description": "Mao Zedong's Communists won the Chinese Civil War and proclaimed the People's Republic in Beijing.",
   "significance": "Brought the world's most populous nation under communist rule and set the stage for China's later re-emergence as a superpower.",
   "region": "East Asia",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Proclamation_of_the_People's_Republic_of_China"
  },
  {
   "name": "Anthropocene: Human-Driven Climate Change",
@@ -6326,7 +6788,8 @@ window.HISTORY_DATA = {
   "description": "Fossil fuel combustion and land-use change have pushed atmospheric CO2 and global temperatures beyond Holocene bounds.",
   "significance": "For the first time a single species has become a dominant geological and climatic force.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Anthropocene"
  },
  {
   "name": "Turing's \"Computing Machinery and Intelligence\"",
@@ -6350,7 +6813,8 @@ window.HISTORY_DATA = {
   "description": "Watson and Crick, using Rosalind Franklin's X-ray data, described the double helix that encodes heredity.",
   "significance": "Life became readable and eventually writable, converging biology with information science.",
   "region": "Europe",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/DNA"
  },
  {
   "name": "First Nuclear Power Plant",
@@ -6361,7 +6825,8 @@ window.HISTORY_DATA = {
   "description": "The Obninsk reactor in the USSR became the first to supply electricity to a public grid.",
   "significance": "It began civilian nuclear energy as a large-scale, low-carbon power source.",
   "region": "Soviet Union",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Obninsk_Nuclear_Power_Plant"
  },
  {
   "name": "The Photovoltaic Solar Cell",
@@ -6372,7 +6837,8 @@ window.HISTORY_DATA = {
   "description": "Bell Labs produced the first practical silicon solar cell converting sunlight directly to electricity.",
   "significance": "It launched solar power, now among the cheapest sources of electricity on Earth.",
   "region": "United States",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Solar_cell"
  },
  {
   "name": "Polio Vaccine",
@@ -6383,7 +6849,8 @@ window.HISTORY_DATA = {
   "description": "Jonas Salk's inactivated vaccine was proven effective against paralytic polio.",
   "significance": "It nearly eliminated a feared childhood disease and modeled mass immunization campaigns.",
   "region": "United States",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Polio_vaccine"
  },
  {
   "name": "Dartmouth Workshop",
@@ -6407,7 +6874,8 @@ window.HISTORY_DATA = {
   "description": "Beginning with Ghana in 1957, dozens of African nations won independence from European colonial empires.",
   "significance": "Dismantled the colonial world order within a single generation, tripling the membership of the United Nations.",
   "region": "Africa",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Decolonization"
  },
  {
   "name": "Sputnik and the Dawn of the Space Age",
@@ -6418,7 +6886,8 @@ window.HISTORY_DATA = {
   "description": "The Soviet Union launched the first artificial satellite into Earth orbit.",
   "significance": "It opened the space age and the satellite infrastructure now underlying navigation, weather, and communication.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Sputnik_1"
  },
  {
   "name": "The Integrated Circuit",
@@ -6429,7 +6898,8 @@ window.HISTORY_DATA = {
   "description": "Jack Kilby and Robert Noyce independently invent circuits with many components on a single chip.",
   "significance": "Putting whole circuits on silicon made computing exponentially cheaper, embedding it in everything.",
   "region": "USA",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Integrated_circuit"
  },
  {
   "name": "The Keeling Curve and 400 ppm Carbon Dioxide",
@@ -6440,7 +6910,8 @@ window.HISTORY_DATA = {
   "description": "Continuous measurements begun at Mauna Loa in 1958 tracked atmospheric carbon dioxide rising past the symbolic 400 parts-per-million threshold in 2013.",
   "significance": "The Keeling Curve is the definitive record of human-driven greenhouse warming, marking a planetary shift into the Anthropocene.",
   "region": "Earth",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Keeling_Curve"
  },
  {
   "name": "Invention of the Laser",
@@ -6451,7 +6922,8 @@ window.HISTORY_DATA = {
   "description": "Theodore Maiman built the first working laser, producing coherent amplified light.",
   "significance": "Lasers now underpin fiber optics, surgery, manufacturing, and data storage.",
   "region": "United States",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Laser"
  },
  {
   "name": "The Green Revolution",
@@ -6462,7 +6934,8 @@ window.HISTORY_DATA = {
   "description": "High-yield crop varieties, fertilizers, and irrigation dramatically raised food output in Asia and Latin America.",
   "significance": "It averted predicted mass famine and let world population double without a proportional increase in farmland.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Green_Revolution"
  },
  {
   "name": "First Human in Space",
@@ -6473,7 +6946,8 @@ window.HISTORY_DATA = {
   "description": "Yuri Gagarin orbited Earth aboard Vostok 1, becoming the first human to travel into space.",
   "significance": "It proved humans could survive and function beyond the atmosphere.",
   "region": "Soviet Union",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Human_presence_in_space"
  },
  {
   "name": "Communications Satellite (Telstar)",
@@ -6484,7 +6958,8 @@ window.HISTORY_DATA = {
   "description": "Telstar 1 relayed the first live transatlantic television and telephone signals via space.",
   "significance": "It began the global satellite network enabling instant worldwide communication.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Communications_satellite"
  },
  {
   "name": "Discovery of the Cosmic Microwave Background",
@@ -6495,7 +6970,8 @@ window.HISTORY_DATA = {
   "description": "Penzias and Wilson detected the faint afterglow radiation predicted by Big Bang cosmology.",
   "significance": "It provided decisive evidence that the universe began in a hot, dense state.",
   "region": "United States",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Discovery_of_cosmic_microwave_background_radiation"
  },
  {
   "name": "Apollo 11 Moon Landing",
@@ -6506,7 +6982,8 @@ window.HISTORY_DATA = {
   "description": "Neil Armstrong and Buzz Aldrin became the first humans to walk on the Moon.",
   "significance": "The first time life from Earth deliberately set foot on another world, marking the species' leap beyond its home planet.",
   "region": "Global / Space",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Apollo_11"
  },
  {
   "name": "The Internet (ARPANET)",
@@ -6517,7 +6994,8 @@ window.HISTORY_DATA = {
   "description": "The first ARPANET message is sent between UCLA and Stanford, seeding the packet-switched network that TCP/IP and the Web later opened to the world.",
   "significance": "A single global network for information dissolved barriers of geography, remaking commerce, culture, and politics.",
   "region": "USA",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Internet"
  },
  {
   "name": "Recombinant DNA and Genetic Engineering",
@@ -6528,7 +7006,8 @@ window.HISTORY_DATA = {
   "description": "Cohen and Boyer spliced genes from one organism into another, creating recombinant DNA.",
   "significance": "It founded the biotechnology industry, from synthetic insulin to engineered crops.",
   "region": "United States",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Recombinant_DNA"
  },
  {
   "name": "The Personal Computer",
@@ -6539,7 +7018,8 @@ window.HISTORY_DATA = {
   "description": "The Altair 8800 launches hobbyist computing, followed by the 1977 Apple II, PET, and TRS-80 mass-market machines.",
   "significance": "Computing shifted from institutions to individuals, turning a corporate tool into a personal creative medium.",
   "region": "USA",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Personal_computer"
  },
  {
   "name": "Voyager Interstellar Missions",
@@ -6550,7 +7030,8 @@ window.HISTORY_DATA = {
   "description": "NASA launched the Voyager probes to survey the outer planets and eventually exit the solar system.",
   "significance": "They gave humanity its first close views of the giant planets and became our farthest emissaries.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Voyager_2"
  },
  {
   "name": "Eradication of Smallpox",
@@ -6561,7 +7042,8 @@ window.HISTORY_DATA = {
   "description": "The World Health Organization declared smallpox eradicated after a global vaccination campaign.",
   "significance": "It was the first disease deliberately wiped out, proving coordinated public health can conquer pandemics.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Smallpox"
  },
  {
   "name": "Polymerase Chain Reaction (PCR)",
@@ -6572,7 +7054,8 @@ window.HISTORY_DATA = {
   "description": "Kary Mullis invented a method to rapidly amplify specific DNA sequences from minute samples.",
   "significance": "It became indispensable to genetics, forensics, diagnostics, and modern medicine.",
   "region": "United States",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Polymerase_chain_reaction"
  },
  {
   "name": "Backpropagation Popularized",
@@ -6596,7 +7079,8 @@ window.HISTORY_DATA = {
   "description": "East Germany opened its border, and within two years the Soviet Union dissolved.",
   "significance": "A superpower ended without a war, closing the Cold War and unleashing a wave of globalization.",
   "region": "Europe",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Fall_of_the_Berlin_Wall"
  },
  {
   "name": "Hubble Space Telescope",
@@ -6607,7 +7091,8 @@ window.HISTORY_DATA = {
   "description": "NASA and ESA launched an optical telescope above the atmosphere for unprecedented deep-sky imaging.",
   "significance": "It revolutionized cosmology and pinned down the age and expansion rate of the universe.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Hubble_Space_Telescope"
  },
  {
   "name": "The Internet Transforms Culture",
@@ -6618,7 +7103,8 @@ window.HISTORY_DATA = {
   "description": "From the public World Wide Web through streaming, social media, memes, fan cultures, and AI-generated media, digital networks reshaped how art is made, distributed, and remixed.",
   "significance": "The internet collapsed barriers between creators and audiences worldwide, making cultural production participatory and instantaneous on a scale with no historical precedent.",
   "region": "Global",
-  "confidence": "approximate"
+  "confidence": "approximate",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Internet_culture"
  },
  {
   "name": "The World Wide Web",
@@ -6629,7 +7115,8 @@ window.HISTORY_DATA = {
   "description": "Tim Berners-Lee released the web publicly, layering hyperlinked documents over the internet.",
   "significance": "It converted a research network into universal infrastructure for commerce, culture, and knowledge.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/World_Wide_Web"
  },
  {
   "name": "End of Apartheid in South Africa",
@@ -6640,7 +7127,8 @@ window.HISTORY_DATA = {
   "description": "South Africa held its first fully democratic elections, electing Nelson Mandela president.",
   "significance": "A negotiated end to institutionalized racism became a global model for transitional justice.",
   "region": "Africa",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Apartheid"
  },
  {
   "name": "First Exoplanet Around a Sun-like Star",
@@ -6651,7 +7139,8 @@ window.HISTORY_DATA = {
   "description": "Mayor and Queloz discovered 51 Pegasi b, a planet orbiting another Sun-like star.",
   "significance": "It launched exoplanet science and the systematic search for habitable worlds.",
   "region": "Switzerland",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Exoplanet"
  },
  {
   "name": "Cloning of Dolly the Sheep",
@@ -6662,7 +7151,8 @@ window.HISTORY_DATA = {
   "description": "Scientists cloned Dolly the sheep from an adult somatic cell nucleus.",
   "significance": "It proved mammalian cloning possible and reframed global debates on biotechnology ethics.",
   "region": "Scotland",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Dolly_(sheep)"
  },
  {
   "name": "Deep Blue Defeats Kasparov",
@@ -6686,7 +7176,8 @@ window.HISTORY_DATA = {
   "description": "Assembly began on a permanently crewed, multinational orbital laboratory.",
   "significance": "It established continuous human presence in space and a model of scientific cooperation.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/International_Space_Station"
  },
  {
   "name": "Human Genome Project Completed",
@@ -6697,7 +7188,8 @@ window.HISTORY_DATA = {
   "description": "An international consortium published an essentially complete sequence of the human genome.",
   "significance": "Sequencing costs then fell faster than computing power, making genomics an everyday tool.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Human_Genome_Project"
  },
  {
   "name": "The Smartphone",
@@ -6708,7 +7200,8 @@ window.HISTORY_DATA = {
   "description": "Apple's iPhone fuses phone, computer, camera, and internet into a multitouch pocket device.",
   "significance": "Putting a networked computer in most human hands made connectivity constant and reshaped daily behavior worldwide.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Smartphone"
  },
  {
   "name": "AlexNet and the ImageNet Breakthrough",
@@ -6732,7 +7225,8 @@ window.HISTORY_DATA = {
   "description": "Doudna and Charpentier show the bacterial CRISPR-Cas9 system can be programmed to cut DNA at chosen sites.",
   "significance": "Cheap, precise genome editing gives humanity direct write-access to the code of life, including its own.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/CRISPR_gene_editing"
  },
  {
   "name": "Detection of Gravitational Waves",
@@ -6743,7 +7237,8 @@ window.HISTORY_DATA = {
   "description": "LIGO directly detected ripples in spacetime produced by two merging black holes.",
   "significance": "It confirmed a century-old prediction of relativity and opened a new astronomy of spacetime.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Gravitational_wave"
  },
  {
   "name": "Falcon 9 First Booster Landing",
@@ -6806,7 +7301,8 @@ window.HISTORY_DATA = {
   "description": "A coronavirus pandemic that killed millions worldwide and shut down global economies.",
   "significance": "mRNA vaccines were designed within days of the genome's release, compressing a decade of development into a year.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/COVID-19_pandemic"
  },
  {
   "name": "GPT-3 and the Scaling Era",
@@ -6830,7 +7326,8 @@ window.HISTORY_DATA = {
   "description": "The first mRNA vaccines were developed and deployed at global scale against COVID-19.",
   "significance": "They proved a fast, programmable vaccine platform, compressing development from years to months.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/MRNA_vaccine"
  },
  {
   "name": "Waymo Driverless Ride-Hailing",
@@ -6867,7 +7364,8 @@ window.HISTORY_DATA = {
   "description": "ChatGPT's release brings large language models, built on the 2017 transformer architecture, to hundreds of millions of users.",
   "significance": "Machines that generate language, images, and code mark technology beginning to automate cognition itself.",
   "region": "Global",
-  "confidence": "exact"
+  "confidence": "exact",
+  "wikipedia_url": "https://en.wikipedia.org/wiki/Generative_AI"
  },
  {
   "name": "AlphaFold 3",
