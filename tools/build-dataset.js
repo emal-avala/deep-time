@@ -244,6 +244,26 @@ for (const e of events) {
 events = kept;
 events.sort((a, b) => a.start - b.start || a.name.localeCompare(b.name));
 
+// ── Wikipedia links ───────────────────────────────────────────────────────
+// Applied after de-duplication, so the names being matched are the final ones.
+// Only the `accepted` block is used: `review` holds matches too weak to trust,
+// and a link to the wrong article is worse than no link at all.
+const LINKS = path.join(SRC, 'wikipedia-backfill.json');
+if (fs.existsSync(LINKS)) {
+  const { accepted = {} } = JSON.parse(fs.readFileSync(LINKS, 'utf8'));
+  const byEventName = new Map(events.map(e => [e.name, e]));
+  let applied = 0, orphaned = 0;
+  for (const [name, rec] of Object.entries(accepted)) {
+    const target = byEventName.get(name);
+    // A name that no longer exists usually means it was merged away since the
+    // links were fetched — worth counting, not worth failing over.
+    if (!target) { orphaned++; continue; }
+    if (!target.wikipedia_url) { target.wikipedia_url = rec.url; applied++; }
+  }
+  report.linksApplied = applied;
+  report.linksOrphaned = orphaned;
+}
+
 // The de-duplicator never merges across categories, because doing so would
 // silently move an event into another lane. Same event, two lanes is still a
 // defect though, so report the collisions rather than acting on them.
@@ -318,6 +338,7 @@ console.log(`  removed (adjudicated duplicates): ${report.removed}`);
 console.log(`  merged (fuzzy duplicates):        ${report.merged}`);
 console.log(`  field corrections applied:        ${report.corrected}`);
 console.log(`  rejected as invalid:              ${report.rejected.length}`);
+console.log(`  wikipedia links applied:          ${report.linksApplied || 0}${report.linksOrphaned ? " (" + report.linksOrphaned + " orphaned)" : ""}`);
 console.log(`  carrying a source link:           ${enriched}`);
 console.log('\nby category:');
 for (const c of CATEGORIES) console.log(`  ${String(counts[c] || 0).padStart(4)}  ${c}`);
