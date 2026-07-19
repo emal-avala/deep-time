@@ -101,6 +101,7 @@
 
   var els = {
     stage: document.getElementById('stage'),
+    plotWrap: document.getElementById('plot-wrap'),
     canvas: document.getElementById('plot'),
     tip: document.getElementById('tip'),
     readout: document.getElementById('readout'),
@@ -359,7 +360,9 @@
 
   // ── Rendering ──────────────────────────────────────────────────────────
   function resize() {
-    var r = els.stage.getBoundingClientRect();
+    // Measure the plot wrapper, not the stage: the stage now also contains the
+    // detail panel, so its width is no longer the width available to the plot.
+    var r = els.plotWrap.getBoundingClientRect();
     dpr = Math.min(2.5, window.devicePixelRatio || 1);
     W = Math.max(360, Math.floor(r.width));
     H = Math.max(320, Math.floor(r.height));
@@ -571,15 +574,19 @@
 
         // Near the right edge a trailing label would be clipped by the plot
         // boundary, so flip it to the left of the mark instead.
-        var placeLeft = !insideLabel &&
-          markR + 6 + lw > x1 - 2 &&
-          markL - 6 - lw > x0 + 2;
+        // A label is only worth placing if it lands wholly inside the plot.
+        // Checking both ends matters: a mark can sit just beyond the right
+        // edge, where flipping the label leftwards still leaves it off-screen.
+        var canRight = markR + 6 >= x0 + 2 && markR + 6 + lw <= x1 - 2;
+        var canLeft = markL - 6 - lw >= x0 + 2 && markL - 6 <= x1 - 2;
+        var placeLeft = !insideLabel && !canRight && canLeft;
+        var canLabel = insideLabel || canRight || canLeft;
 
         var extL = placeLeft ? markL - 6 - lw : markL;
         var extR = (insideLabel || placeLeft) ? markR : markR + 6 + lw;
 
-        var row = -1, labelled = true;
-        if (!dim) {
+        var row = -1, labelled = canLabel;
+        if (!dim && canLabel) {
           for (var q = 0; q < SUBROWS; q++) {
             if (rows[q] <= extL - 5) { row = q; break; }
           }
@@ -640,9 +647,7 @@
             ctx.textAlign = 'right';
             ctx.fillText(e.name, markL - 6, y + 0.5);
             ctx.textAlign = 'left';
-          } else if (markR + 6 >= x0 + 2) {
-            // A mark scrolled off the left edge would otherwise leave its
-            // label behind, sheared mid-word against the gutter.
+          } else if (canRight) {
             ctx.fillStyle = theme['--ink-2'];
             ctx.fillText(e.name, markR + 6, y + 0.5);
           }
@@ -1150,6 +1155,14 @@
   });
 
   window.addEventListener('resize', function () { resize(); draw(); });
+
+  // Opening the panel changes the plot's width over 280ms of CSS transition,
+  // which fires no resize event. Observing the wrapper redraws on every frame
+  // of that animation, so the timeline reflows with the panel rather than
+  // snapping once it has finished.
+  if (window.ResizeObserver) {
+    new ResizeObserver(function () { resize(); paint(); }).observe(els.plotWrap);
+  }
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
     if (!document.documentElement.getAttribute('data-theme')) {
       refreshTheme(); buildLegend(); draw();
@@ -1157,8 +1170,11 @@
   });
 
   // ── Deep links ─────────────────────────────────────────────────────────
-  // ?scale=linear|log · ?window=<preset> · ?from=<yr>&to=<yr> · ?q=… · ?theme=…
+  // ?scale=linear|log · ?window=<preset> · ?from=<yr>&to=<yr> · ?q=… ·
+  // ?event=<name> · ?theme=…
   // Any of these skips the opening animation and restores a specific view.
+  var pendingOpen = null;
+
   function applyUrlState() {
     var p;
     try { p = new URLSearchParams(location.search); } catch (err) { return false; }
@@ -1192,6 +1208,16 @@
 
     var q = p.get('q');
     if (q) { els.search.value = q; state.query = q.trim().toLowerCase(); used = true; }
+
+    // ?event=<name fragment> opens that event's panel on load, so a specific
+    // event can be linked to directly rather than hunted for.
+    var wanted = (p.get('event') || '').trim().toLowerCase();
+    if (wanted) {
+      var hit = ALL.concat(AGES).filter(function (e) {
+        return e.name.toLowerCase().indexOf(wanted) >= 0;
+      })[0];
+      if (hit) { pendingOpen = hit; used = true; }
+    }
 
     var sc = p.get('scale');
     if (sc === 'linear' || sc === 'log') {
@@ -1235,6 +1261,8 @@
       state.m = 0; els.blend.value = '0'; paint();
       setTimeout(function () { setMode('log', true); }, 520);
     }
+
+    if (pendingOpen) { focusEvent(pendingOpen); openPanel(pendingOpen); }
   }
 
   if (document.readyState === 'loading') {

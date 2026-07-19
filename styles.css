@@ -340,11 +340,20 @@ body {
 
 .stage {
   position: relative;
+  display: flex;
   flex: 1 1 auto;
   min-height: 0;
   background: var(--surface);
   margin: 0;
   overflow: hidden;
+}
+
+/* The plot claims whatever width the panel leaves it. min-width:0 is what
+   actually lets a flex child shrink below its content size. */
+.plot-wrap {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 #plot {
@@ -439,23 +448,29 @@ body {
 
 /* ── Detail panel ─────────────────────────────────────────────────────── */
 
+/* Animating width rather than sliding over the plot: the timeline keeps all
+   its content, just narrower. The fixed-width inner wrapper stops the text
+   from reflowing on every frame of the transition. */
 .panel {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 340px;
+  flex: 0 0 auto;
+  width: 0;
   background: var(--surface);
-  border-left: 1px solid var(--rule);
-  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: width .28s cubic-bezier(.22, .61, .36, 1);
+}
+
+.panel[data-open="1"] {
+  width: 340px;
+  border-right: 1px solid var(--rule);
+}
+
+.panel-inner {
+  position: relative;
+  width: 340px;
+  height: 100%;
   padding: 18px 20px;
   overflow-y: auto;
-  transform: translateX(100%);
-  transition: transform .28s cubic-bezier(.22, .61, .36, 1);
-  z-index: 30;
 }
-.panel[data-open="1"] { transform: translateX(0); }
-
 .panel .close {
   position: absolute;
   top: 12px;
@@ -640,6 +655,21 @@ td.t-cat i {
 
 @media (max-width: 860px) {
   .masthead .lede { display: none; }
-  .panel { width: 100%; }
   .search { width: 140px; }
+
+  /* Below this width there isn't enough room to split: taking 340px from the
+     plot would leave nothing worth looking at, so the panel goes back to
+     overlaying — the behaviour the wide layout exists to avoid. */
+  .panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 30;
+    width: 0;
+    border-right: 1px solid var(--rule);
+    box-shadow: var(--shadow);
+  }
+  .panel[data-open="1"] { width: min(340px, 86vw); }
+  .panel-inner { width: min(340px, 86vw); }
 }
