@@ -236,6 +236,8 @@ body {
   border: 2px solid var(--surface);
 }
 
+.field-window { flex: 1 1 320px; min-width: 240px; }
+
 /* Zoom ladder */
 .ladder {
   display: flex;
@@ -927,4 +929,199 @@ td.t-cat i {
   }
   .panel[data-open="1"] { width: min(340px, 86vw); }
   .panel-inner { width: min(340px, 86vw); }
+}
+
+/* ── Icon buttons (mobile header) ─────────────────────────────────────── */
+
+.icon-btn {
+  display: none;              /* desktop has room for labelled controls */
+  appearance: none;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex: none;
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 9px;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+.icon-btn:active { background: var(--surface-3); }
+
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
+  display: block;
+  width: 15px;
+  height: 1.5px;
+  background: currentColor;
+  border-radius: 1px;
+}
+.menu-icon { position: relative; }
+.menu-icon::before,
+.menu-icon::after { content: ""; position: absolute; left: 0; }
+.menu-icon::before { top: -5px; }
+.menu-icon::after { top: 5px; }
+
+/* ── Mobile ───────────────────────────────────────────────────────────── */
+/* The desktop layout assumes horizontal room it does not have on a phone: a
+   150px lane gutter is 38% of a 390px screen, and two control rails plus a
+   masthead eat a third of the height. Below 720px the chrome collapses to one
+   compact row plus a sheet, and the canvas reclaims the rest. */
+
+@media (max-width: 720px) {
+  html, body { height: 100svh; }
+
+  .icon-btn { display: inline-flex; }
+
+  .masthead {
+    gap: 10px;
+    padding: 10px 12px;
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
+    align-items: center;
+  }
+  .masthead h1 { font-size: 16px; }
+  .masthead .lede { display: none; }
+  #stat-count { font-size: 9px; letter-spacing: .1em; text-align: right; line-height: 1.25; }
+
+  /* Relocated into the sheet by JS on mobile, so they are not lost. */
+  .masthead .view-switch,
+  .masthead #btn-theme { display: none; }
+
+  .rail-primary {
+    gap: 12px;
+    padding: 8px 12px;
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .rail-primary::-webkit-scrollbar { display: none; }
+  /* The scale field must not shrink: it was collapsing to 51px while its
+     176px segmented control overflowed on top of the ladder. Fields keep
+     their intrinsic width; only the ladder flexes, and it scrolls. */
+  .rail-primary > .field { flex: none; gap: 0; }
+  .rail-primary > .field-window { flex: 1 1 auto; min-width: 0; }
+  .rail-primary .segmented { flex: none; }
+  .rail-primary .eyebrow,
+  .rail-primary .blend,
+  .rail-primary .search-trigger { display: none; }
+  .rail-primary .segmented button { padding: 7px 14px; font-size: 12.5px; }
+  .ladder button { padding: 7px 11px; font-size: 11.5px; }
+
+  /* Layers become a sheet under the header rather than a permanent row. */
+  .rail-layers {
+    position: absolute;
+    z-index: 60;
+    top: 0;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 14px;
+    padding-left: max(14px, env(safe-area-inset-left));
+    padding-right: max(14px, env(safe-area-inset-right));
+    background: var(--surface);
+    border-bottom: 1px solid var(--rule-strong);
+    box-shadow: var(--shadow);
+    transform: translateY(-101%);
+    transition: transform .24s cubic-bezier(.22, .61, .36, 1);
+  }
+  .rail-layers[data-open="1"] { transform: none; }
+  .rail-layers .field { flex-direction: column; align-items: stretch; gap: 9px; }
+  .rail-layers .legend button { padding: 8px 13px 8px 10px; font-size: 12.5px; }
+
+  .sheet-extras {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding-top: 12px;
+    border-top: 1px solid var(--rule);
+  }
+  .sheet-extras .segmented button { padding: 7px 14px; }
+
+  .stage { position: relative; }
+
+  /* Detail becomes a bottom sheet — the phone convention, and it leaves the
+     timeline visible above it rather than covering the whole screen. */
+  .panel {
+    position: absolute;
+    z-index: 40;
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-height: 66%;
+    border-right: 0;
+    border-top: 1px solid var(--rule-strong);
+    border-radius: 14px 14px 0 0;
+    box-shadow: var(--shadow);
+    transform: translateY(101%);
+    transition: transform .26s cubic-bezier(.22, .61, .36, 1);
+  }
+  .panel[data-open="1"] { width: 100%; transform: none; }
+  .panel-inner {
+    width: 100%;
+    padding: 16px 16px calc(20px + env(safe-area-inset-bottom));
+    -webkit-overflow-scrolling: touch;
+  }
+  /* A grab handle, so the sheet reads as a sheet. */
+  .panel::before {
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    width: 34px;
+    height: 4px;
+    margin-left: -17px;
+    border-radius: 2px;
+    background: var(--rule-strong);
+  }
+  .panel .close { top: 14px; right: 12px; font-size: 24px; }
+  .panel h2 { margin-top: 12px; font-size: 17px; }
+
+  /* Bottom-left collides with the density rail once the gutter is gone. */
+  .readout { left: auto; right: 8px; top: 6px; bottom: auto; font-size: 10px; padding: 4px 8px; }
+
+  .palette { padding: 0; }
+  .palette-box {
+    width: 100%;
+    max-height: 100svh;
+    height: 100svh;
+    border: 0;
+    border-radius: 0;
+  }
+  .palette-field { padding: calc(12px + env(safe-area-inset-top)) 14px 12px; }
+  .palette-list { flex: 1 1 auto; }
+  .palette-list li { padding: 11px 10px; }
+  .palette-foot {
+    padding-bottom: calc(8px + env(safe-area-inset-bottom));
+    justify-content: flex-end;
+  }
+  /* Keyboard hints mean nothing on a touch device; keep only the count. */
+  .palette-foot > span:not(#palette-count) { display: none; }
+
+  .table-wrap { padding: 14px 12px 40px; }
+  table { font-size: 12px; }
+  thead th:nth-child(3), tbody td:nth-child(3),
+  thead th:nth-child(4), tbody td:nth-child(4) { display: none; }
+
+  .footnote {
+    padding: 7px 12px calc(7px + env(safe-area-inset-bottom));
+    font-size: 10.5px;
+  }
+  .footnote > span:first-child { display: none; }   /* keyboard hints */
+  #foot-note { font-size: 10px; line-height: 1.35; }
+}
+
+/* Very narrow: drop the count to buy back header room. */
+@media (max-width: 400px) {
+  #stat-count { display: none; }
+  .masthead h1 { font-size: 15px; }
 }

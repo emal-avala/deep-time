@@ -60,11 +60,28 @@
   ];
 
   // ── Layout constants (CSS px) ──────────────────────────────────────────
+  // Re-derived on every resize: a 150px lane gutter is fine on a desktop and
+  // is 38% of a phone, so the whole geometry shifts at narrow widths.
+  var MOBILE = false;
   var GUTTER = 150, PAD_R = 22, PAD_T = 12;
   var STRATA_ROWS = 3, STRATA_ROW_H = 17, STRATA_HEAD = 15;
   var AXIS_H = 38, DENSITY_H = 34, PAD_B = 6;
   var SUBROWS = 3;
   var MIN_TICK_GAP = 62;
+
+  function applyLayout() {
+    MOBILE = W < 720;
+    GUTTER       = MOBILE ? 11 : 150;   // labels move inside the plot
+    PAD_R        = MOBILE ? 10 : 22;
+    PAD_T        = MOBILE ? 8  : 12;
+    SUBROWS      = MOBILE ? 2  : 3;
+    STRATA_ROWS  = MOBILE ? 2  : 3;
+    STRATA_ROW_H = MOBILE ? 15 : 17;
+    STRATA_HEAD  = MOBILE ? 0  : 15;    // no room for the band's own caption
+    AXIS_H       = MOBILE ? 34 : 38;
+    DENSITY_H    = MOBILE ? 24 : 34;
+    MIN_TICK_GAP = MOBILE ? 82 : 62;   // two-line date labels are wide
+  }
 
   // ── Data ───────────────────────────────────────────────────────────────
   var RAW = (window.HISTORY_DATA && window.HISTORY_DATA.events) || [];
@@ -152,6 +169,11 @@
     segLog: document.getElementById('seg-log'),
     blend: document.getElementById('blend'),
     statCount: document.getElementById('stat-count'),
+    masthead: document.querySelector('.masthead'),
+    railLayers: document.getElementById('rail-layers'),
+    viewSwitch: document.querySelector('.view-switch'),
+    mMenu: document.getElementById('m-menu'),
+    mSearch: document.getElementById('m-search'),
     emptyNote: document.getElementById('empty-note')
   };
 
@@ -397,8 +419,11 @@
     // detail panel, so its width is no longer the width available to the plot.
     var r = els.plotWrap.getBoundingClientRect();
     dpr = Math.min(2.5, window.devicePixelRatio || 1);
-    W = Math.max(360, Math.floor(r.width));
-    H = Math.max(320, Math.floor(r.height));
+    // No 360px floor any more: on a phone that would make the canvas wider
+    // than its box and push the right-hand edge off screen.
+    W = Math.max(240, Math.floor(r.width));
+    H = Math.max(260, Math.floor(r.height));
+    applyLayout();
     els.canvas.width = Math.floor(W * dpr);
     els.canvas.height = Math.floor(H * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -450,14 +475,16 @@
   function drawStrata(g) {
     var x0 = plotLeft(), x1 = W - PAD_R;
 
-    ctx.save();
-    ctx.font = '500 9.5px ' + dataFont();
-    ctx.fillStyle = theme['--ink-3'];
-    ctx.textBaseline = 'alphabetic';
-    ctx.letterSpacing = '0.12em';
-    ctx.fillText('AGES & ERAS', 12, PAD_T + 10);
-    ctx.letterSpacing = '0px';
-    ctx.restore();
+    if (!MOBILE) {
+      ctx.save();
+      ctx.font = '500 9.5px ' + dataFont();
+      ctx.fillStyle = theme['--ink-3'];
+      ctx.textBaseline = 'alphabetic';
+      ctx.letterSpacing = '0.12em';
+      ctx.fillText('AGES & ERAS', 12, PAD_T + 10);
+      ctx.letterSpacing = '0px';
+      ctx.restore();
+    }
 
     var rows = [];
     for (var i = 0; i < STRATA_ROWS; i++) rows.push(-1e9);
@@ -506,40 +533,57 @@
     ctx.restore();
   }
 
-  function drawLanes(g) {
+  function drawLanes(g, labelsOnly) {
     ctx.save();
     for (var i = 0; i < CATEGORIES.length; i++) {
       var c = CATEGORIES[i];
       var top = g.lanesTop + i * g.laneH;
 
-      if (i % 2 === 1) {
-        ctx.fillStyle = alpha(theme['--ink'], theme.dark ? 0.022 : 0.016);
-        ctx.fillRect(plotLeft(), top, W - PAD_R - plotLeft(), g.laneH);
+      if (!labelsOnly) {
+        if (i % 2 === 1) {
+          ctx.fillStyle = alpha(theme['--ink'], theme.dark ? 0.022 : 0.016);
+          ctx.fillRect(plotLeft(), top, W - PAD_R - plotLeft(), g.laneH);
+        }
+        ctx.strokeStyle = theme['--rule'];
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(plotLeft(), Math.round(top) + 0.5);
+        ctx.lineTo(W - PAD_R, Math.round(top) + 0.5);
+        ctx.stroke();
       }
-
-      ctx.strokeStyle = theme['--rule'];
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.moveTo(plotLeft(), Math.round(top) + 0.5);
-      ctx.lineTo(W - PAD_R, Math.round(top) + 0.5);
-      ctx.stroke();
+      if (MOBILE && !labelsOnly) { ctx.globalAlpha = 1; continue; }
 
       var off = state.hidden[c.key];
       ctx.globalAlpha = off ? 0.32 : 1;
 
-      ctx.fillStyle = catColor(c.key);
-      roundRect(12, top + g.laneH / 2 - 5, 3, 10, 1.5);
-      ctx.fill();
+      if (MOBILE) {
+        ctx.font = '620 9.5px ' + uiFont();
+        ctx.textBaseline = 'middle';
+        var lw = ctx.measureText(c.label).width;
+        var ly = top + 9;
+        ctx.fillStyle = alpha(theme['--surface'], 0.82);
+        roundRect(plotLeft() + 3, ly - 7, lw + 16, 14, 4);
+        ctx.fill();
+        ctx.fillStyle = catColor(c.key);
+        roundRect(plotLeft() + 7, ly - 3, 3, 6, 1.5);
+        ctx.fill();
+        ctx.fillStyle = off ? theme['--ink-4'] : theme['--ink-2'];
+        ctx.fillText(c.label, plotLeft() + 14, ly);
+      } else {
+        ctx.fillStyle = catColor(c.key);
+        roundRect(12, top + g.laneH / 2 - 5, 3, 10, 1.5);
+        ctx.fill();
 
-      ctx.font = '560 11.5px ' + uiFont();
-      ctx.fillStyle = off ? theme['--ink-4'] : theme['--ink-2'];
-      ctx.textBaseline = 'middle';
-      ctx.fillText(c.label, 22, top + g.laneH / 2);
+        ctx.font = '560 11.5px ' + uiFont();
+        ctx.fillStyle = off ? theme['--ink-4'] : theme['--ink-2'];
+        ctx.textBaseline = 'middle';
+        ctx.fillText(c.label, 22, top + g.laneH / 2);
 
-      var n = byCat[c.key].length;
-      ctx.font = '400 9.5px ' + dataFont();
-      ctx.fillStyle = theme['--ink-4'];
-      ctx.fillText(String(n), 22, top + g.laneH / 2 + 13);
+        var n = byCat[c.key].length;
+        ctx.font = '400 9.5px ' + dataFont();
+        ctx.fillStyle = theme['--ink-4'];
+        ctx.fillText(String(n), 22, top + g.laneH / 2 + 13);
+      }
 
       ctx.globalAlpha = 1;
     }
@@ -759,11 +803,15 @@
     });
 
     ctx.textAlign = 'left';
-    ctx.font = '500 9.5px ' + dataFont();
-    ctx.fillStyle = theme['--ink-3'];
-    ctx.letterSpacing = '0.12em';
-    ctx.fillText(state.m >= 0.5 ? 'LOGARITHMIC' : 'LINEAR', 12, g.axisTop + 9);
-    ctx.letterSpacing = '0px';
+    // The scale is already named by the selected control on mobile, and there
+    // is no gutter left to print it in.
+    if (!MOBILE) {
+      ctx.font = '500 9.5px ' + dataFont();
+      ctx.fillStyle = theme['--ink-3'];
+      ctx.letterSpacing = '0.12em';
+      ctx.fillText(state.m >= 0.5 ? 'LOGARITHMIC' : 'LINEAR', 12, g.axisTop + 9);
+      ctx.letterSpacing = '0px';
+    }
     ctx.restore();
   }
 
@@ -790,9 +838,11 @@
     ctx.font = '500 9.5px ' + dataFont();
     ctx.fillStyle = theme['--ink-3'];
     ctx.textBaseline = 'middle';
-    ctx.letterSpacing = '0.12em';
-    ctx.fillText('DENSITY', 12, base - maxH / 2);
-    ctx.letterSpacing = '0px';
+    if (!MOBILE) {
+      ctx.letterSpacing = '0.12em';
+      ctx.fillText('DENSITY', 12, base - maxH / 2);
+      ctx.letterSpacing = '0px';
+    }
 
     if (max > 0) {
       var bw = pw / nb;
@@ -814,7 +864,9 @@
     ctx.font = '400 9.5px ' + uiFont();
     ctx.fillStyle = theme['--ink-4'];
     ctx.textBaseline = 'top';
-    ctx.fillText('events beginning per interval — reflects what this dataset records, not all of history', x0, base + 5);
+    ctx.fillText(MOBILE ? 'events beginning per interval'
+      : 'events beginning per interval — reflects what this dataset records, not all of history',
+      x0, base + 5);
     ctx.restore();
   }
 
@@ -852,7 +904,7 @@
     ctx.stroke();
     ctx.restore();
     // Lane labels sit in the gutter and must survive the mask.
-    drawLanes(g);
+    drawLanes(g, true);
   }
 
   function roundRect(x, y, w, h, r) {
@@ -872,6 +924,12 @@
       : span >= 1e6 ? trim(span / 1e6, 2) + ' Myr'
       : span >= 1e4 ? trim(span / 1e3, 1) + ' kyr'
       : Math.round(span) + ' yr';
+    if (MOBILE) {
+      els.readout.innerHTML = '<b>' + esc(spanTxt) + '</b>' +
+        '<span style="color:var(--ink-4)">·</span>' +
+        '<span>' + (state.m >= 0.5 ? 'log' : 'linear') + '</span>';
+      return;
+    }
     els.readout.innerHTML =
       '<span>' + esc(fmtAgo(state.bpMax, false)) + ' → ' +
       (state.bpMin <= 2 ? 'now' : esc(fmtAgo(state.bpMin, false))) + '</span>' +
@@ -954,12 +1012,48 @@
   }
 
   var drag = null;
+  var pointers = new Map();
+  var pinch = null;
+
+  function pinchDistance() {
+    var pts = Array.from(pointers.values());
+    return Math.abs(pts[0].x - pts[1].x) || 1;
+  }
+  function pinchCentre() {
+    var pts = Array.from(pointers.values());
+    return (pts[0].x + pts[1].x) / 2;
+  }
+
   els.canvas.addEventListener('pointerdown', function (ev) {
     els.canvas.setPointerCapture(ev.pointerId);
+    pointers.set(ev.pointerId, { x: ev.offsetX });
+    if (pointers.size === 2) {
+      // Second finger down: stop panning and start scaling.
+      drag = null;
+      pinch = { dist: pinchDistance(), moved: 0 };
+      els.canvas.classList.remove('dragging');
+      return;
+    }
     drag = { x: ev.offsetX, moved: 0 };
     els.canvas.classList.add('dragging');
   });
   els.canvas.addEventListener('pointermove', function (ev) {
+    if (pointers.has(ev.pointerId)) pointers.get(ev.pointerId).x = ev.offsetX;
+
+    if (pinch && pointers.size >= 2) {
+      var d = pinchDistance();
+      var ratio = d / pinch.dist;
+      if (ratio > 0 && Math.abs(d - pinch.dist) > 0.5) {
+        pinch.moved += Math.abs(d - pinch.dist);
+        // Fingers apart means a shorter span, so the zoom factor is inverted.
+        zoomBy(1 / ratio, pinchCentre());
+        pinch.dist = d;
+        updateLadderPressed();
+      }
+      hideTip();
+      return;
+    }
+
     if (drag) {
       var dx = ev.offsetX - drag.x;
       drag.x = ev.offsetX;
@@ -973,6 +1067,13 @@
     if (h) showTip(h.ev, ev.offsetX, ev.offsetY); else hideTip();
   });
   function endDrag(ev) {
+    pointers.delete(ev.pointerId);
+    if (pointers.size < 2 && pinch) {
+      // A pinch that barely moved is not a tap either — swallow it.
+      var wasPinch = pinch.moved > 2;
+      pinch = null;
+      if (wasPinch) return;
+    }
     if (!drag) return;
     var wasClick = drag.moved < 4;
     drag = null;
@@ -983,8 +1084,10 @@
     }
   }
   els.canvas.addEventListener('pointerup', endDrag);
-  els.canvas.addEventListener('pointercancel', function () {
-    drag = null; els.canvas.classList.remove('dragging');
+  els.canvas.addEventListener('pointercancel', function (ev) {
+    pointers.delete(ev.pointerId);
+    drag = null; pinch = null;
+    els.canvas.classList.remove('dragging');
   });
   els.canvas.addEventListener('pointerleave', function () {
     state.hover = null; hideTip(); draw();
@@ -1285,6 +1388,41 @@
   }
 
   els.searchTrigger.addEventListener('click', palOpen);
+  els.mSearch.addEventListener('click', palOpen);
+
+  // The header has no room for the view switch and theme button on a phone, so
+  // they move into the sheet. Moving rather than duplicating keeps one DOM node
+  // per control, so every listener bound elsewhere still works.
+  var sheetExtras = null;
+  function placeMobileControls() {
+    if (MOBILE) {
+      if (!sheetExtras) {
+        sheetExtras = document.createElement('div');
+        sheetExtras.className = 'sheet-extras';
+        els.railLayers.appendChild(sheetExtras);
+      }
+      if (els.viewSwitch.parentNode !== sheetExtras) sheetExtras.appendChild(els.viewSwitch);
+      if (els.btnTheme.parentNode !== sheetExtras) sheetExtras.appendChild(els.btnTheme);
+    } else if (sheetExtras && els.viewSwitch.parentNode === sheetExtras) {
+      els.masthead.appendChild(els.viewSwitch);
+      els.masthead.appendChild(els.btnTheme);
+      setSheet(false);
+    }
+  }
+
+  function setSheet(open) {
+    els.railLayers.setAttribute('data-open', open ? '1' : '0');
+    els.mMenu.setAttribute('aria-expanded', String(!!open));
+    els.mMenu.setAttribute('aria-label', open ? 'Hide controls' : 'Show controls');
+  }
+
+  els.mMenu.addEventListener('click', function () {
+    setSheet(els.railLayers.getAttribute('data-open') !== '1');
+  });
+  // Tapping the timeline dismisses the sheet, the way a phone menu should.
+  els.canvas.addEventListener('pointerdown', function () {
+    if (MOBILE && els.railLayers.getAttribute('data-open') === '1') setSheet(false);
+  });
   els.palScrim.addEventListener('click', palClose);
   els.palClear.addEventListener('click', function () {
     els.palInput.value = '';
@@ -1354,7 +1492,7 @@
     if (pal.open) return;
     // A bare "/" is the other conventional way in, but not while typing.
     if (ev.key === '/' && !ev.metaKey && !ev.ctrlKey) { ev.preventDefault(); palOpen(); return; }
-    if (ev.key === 'Escape') { closePanel(); setView('timeline'); return; }
+    if (ev.key === 'Escape') { closePanel(); setSheet(false); setView('timeline'); return; }
     if (ev.key === 'l' || ev.key === 'L') { setMode(state.mode === 'log' ? 'linear' : 'log', true); return; }
     if (ev.key === '0') { state.ladderIdx = 0; updateLadderPressed(); gotoWindow(13.8e9, BP_FLOOR, true); return; }
     if (ev.key === 'ArrowLeft') { panBy(60); return; }
@@ -1363,7 +1501,11 @@
     if (ev.key === '-' || ev.key === '_') { zoomBy(1.4, plotLeft() + plotWidth() / 2); return; }
   });
 
-  window.addEventListener('resize', function () { resize(); draw(); });
+  window.addEventListener('resize', function () {
+    resize();
+    placeMobileControls();
+    draw();
+  });
 
   // Opening the panel changes the plot's width over 280ms of CSS transition,
   // which fires no resize event. Observing the wrapper redraws on every frame
@@ -1464,6 +1606,7 @@
       els.emptyNote.setAttribute('data-show', '1');
     }
 
+    placeMobileControls();
     var deepLinked = applyUrlState();
     updateLadderPressed();
 

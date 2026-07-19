@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Deep Time — 13.8 billion years on one axis</title>
 <meta name="description" content="An interactive timeline of everything, readable on both a linear and a logarithmic time scale.">
 <link rel="stylesheet" href="styles.css">
@@ -14,14 +14,20 @@
   <p class="lede">Everything that happened, on one axis — read it linearly, then logarithmically, and watch the shape of history change.</p>
   <span class="spacer"></span>
   <span class="eyebrow" id="stat-count">—</span>
-  <div class="segmented" role="group" aria-label="View">
+  <button class="icon-btn" id="m-search" aria-label="Search events">
+    <span class="search-icon" aria-hidden="true"></span>
+  </button>
+  <div class="segmented view-switch" role="group" aria-label="View">
     <button id="view-timeline" aria-pressed="true">Timeline</button>
     <button id="view-table" aria-pressed="false">Table</button>
   </div>
   <button class="ghost-btn" id="btn-theme">Theme</button>
+  <button class="icon-btn" id="m-menu" aria-label="Show controls" aria-expanded="false">
+    <span class="menu-icon" aria-hidden="true"></span>
+  </button>
 </header>
 
-<div class="rail">
+<div class="rail rail-primary">
   <div class="field">
     <span class="eyebrow">Scale</span>
     <div class="segmented" role="group" aria-label="Time scale">
@@ -32,7 +38,7 @@
            aria-label="Blend between linear and logarithmic scale">
   </div>
 
-  <div class="field" style="flex:1 1 320px; min-width:240px;">
+  <div class="field field-window">
     <span class="eyebrow">Window</span>
     <div class="ladder" id="ladder"></div>
   </div>
@@ -46,7 +52,7 @@
   </div>
 </div>
 
-<div class="rail" style="padding-top:8px; padding-bottom:9px;">
+<div class="rail rail-layers" id="rail-layers" data-open="0">
   <div class="field" style="flex:1 1 auto;">
     <span class="eyebrow">Layers</span>
     <div class="legend" id="legend"></div>
