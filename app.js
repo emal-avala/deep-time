@@ -13,14 +13,24 @@
   var BP_CEIL = 13.9e9;   // a little older than the Big Bang
   var BP_FLOOR = 1;       // log space cannot reach zero; "1 year ago" is now
 
+  // Lane order runs from substrate to superstructure: the physical universe,
+  // life, humans, what humans made and believed, and finally how they organised
+  // into states.
+  //
+  // Reordering lanes changes which colours end up adjacent, and adjacency is
+  // what the palette was validated on — so re-run the validator before changing
+  // this. `v` stays bound to the category, never to its position: colour
+  // follows the entity, so a lane keeps its hue wherever it moves. Putting
+  // Human Origins (magenta) next to Science & Tech (orange) fails the
+  // normal-vision floor at dE 12.9, which is why Culture sits between them.
   var CATEGORIES = [
     { key: 'Cosmos & Earth',       label: 'Cosmos & Earth',   v: '--c1' },
     { key: 'Life & Extinctions',   label: 'Life',             v: '--c2' },
     { key: 'Human Origins',        label: 'Human Origins',    v: '--c3' },
-    { key: 'Empires & Politics',   label: 'Empires',          v: '--c4' },
-    { key: 'Religion & Thought',   label: 'Religion & Ideas', v: '--c5' },
+    { key: 'Culture & Art',        label: 'Culture & Art',    v: '--c7' },
     { key: 'Science & Technology', label: 'Science & Tech',   v: '--c6' },
-    { key: 'Culture & Art',        label: 'Culture & Art',    v: '--c7' }
+    { key: 'Religion & Thought',   label: 'Religion & Ideas', v: '--c5' },
+    { key: 'Empires & Politics',   label: 'Empires',          v: '--c4' }
   ];
   var AGE_KEY = 'Age / Era';
 

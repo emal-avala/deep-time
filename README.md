@@ -26,10 +26,13 @@ No server, no build, no dependencies.
 
 ## Reading it
 
-**Lanes** run in the order things first appeared in the universe: Cosmos &
-Earth → Life → Human Origins → Empires → Religion & Ideas → Science & Tech →
-Culture & Art. The order isn't decorative; the diagonal of first-appearances
-down the left side is itself the story.
+**Lanes** run from substrate to superstructure: Cosmos & Earth → Life → Human
+Origins → Culture & Art → Science & Tech → Religion & Ideas → Empires. The
+physical world first, then life, then humans, then what humans made and
+believed, and last how they organised themselves into states. The order isn't
+decorative — the staircase of first appearances down the left side is itself
+the story, and the things that depend on everything above them sit at the
+bottom.
 
 **The strata band** at the top carries the named ages and eras — geological
 eons through the Bronze Age, the Middle Ages, the Information Age — stacked so
