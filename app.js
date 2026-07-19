@@ -126,7 +126,14 @@
     readout: document.getElementById('readout'),
     ladder: document.getElementById('ladder'),
     legend: document.getElementById('legend'),
-    search: document.getElementById('search'),
+    searchTrigger: document.getElementById('search-trigger'),
+    searchHint: document.getElementById('search-hint'),
+    palette: document.getElementById('palette'),
+    palScrim: document.getElementById('palette-scrim'),
+    palInput: document.getElementById('palette-input'),
+    palList: document.getElementById('palette-list'),
+    palClear: document.getElementById('palette-clear'),
+    palCount: document.getElementById('palette-count'),
     panel: document.getElementById('panel'),
     panelBody: document.getElementById('panel-body'),
     panelClose: document.getElementById('panel-close'),
@@ -1133,22 +1140,168 @@
     draw();
   });
 
-  var searchTimer = null;
-  els.search.addEventListener('input', function () {
-    clearTimeout(searchTimer);
-    searchTimer = setTimeout(function () {
-      state.query = els.search.value.trim().toLowerCase();
-      draw();
-    }, 110);
+  // ── Command palette ────────────────────────────────────────────────────
+  // Haystacks are built once at load rather than lowercased on every
+  // keystroke, which is what made the old search feel sluggish: 606 events
+  // times a fresh toLowerCase per input event, on every character.
+  var INDEX = ALL.concat(AGES).map(function (e) {
+    return {
+      e: e,
+      name: e.name.toLowerCase(),
+      extra: ((e.region || '') + ' ' + (e.desc || '')).toLowerCase()
+    };
   });
-  els.search.addEventListener('keydown', function (ev) {
-    if (ev.key !== 'Enter') return;
-    var q = els.search.value.trim().toLowerCase();
-    if (!q) return;
-    var hit = ALL.concat(AGES).filter(function (e) {
-      return e.name.toLowerCase().indexOf(q) >= 0;
-    })[0];
-    if (hit) { focusEvent(hit); openPanel(hit); }
+
+  // Ranked rather than first-match: a query is far likelier to mean the event
+  // whose name starts with it than one that merely mentions it in prose.
+  function runSearch(q) {
+    var out = [];
+    for (var i = 0; i < INDEX.length; i++) {
+      var r = INDEX[i];
+      var at = r.name.indexOf(q);
+      var score = 0;
+      if (at === 0) score = 1000;                                   // name starts with it
+      else if (at > 0) score = r.name.charAt(at - 1) === ' ' ? 800  // starts a word
+                             : 500;                                 // mid-word
+      else if (r.extra.indexOf(q) >= 0) score = 200;                // region or description
+      if (!score) continue;
+      // Among equals prefer the tighter name — "Fire" over "Control of fire
+      // and the origins of cooking".
+      score -= Math.min(90, r.name.length);
+      out.push({ e: r.e, at: at, score: score });
+    }
+    out.sort(function (a, b) { return b.score - a.score || b.e.bpStart - a.e.bpStart; });
+    return out;
+  }
+
+  var pal = { open: false, results: [], sel: 0, restore: null };
+  var PAL_MAX = 50;   // rendered rows; the count in the footer reports the rest
+
+  function palRender() {
+    var q = els.palInput.value.trim();
+    els.palClear.hidden = !q;
+
+    if (!q) {
+      pal.results = [];
+      els.palList.innerHTML = '<li class="palette-empty" role="presentation">' +
+        'Search <b>' + INDEX.length + '</b> events by name, region or description.</li>';
+      els.palCount.textContent = '';
+      return;
+    }
+
+    pal.results = runSearch(q.toLowerCase());
+    pal.sel = 0;
+
+    if (!pal.results.length) {
+      els.palList.innerHTML = '<li class="palette-empty" role="presentation">' +
+        'No events match <b>' + esc(q) + '</b></li>';
+      els.palCount.textContent = '0 results';
+      return;
+    }
+
+    var shown = pal.results.slice(0, PAL_MAX);
+    els.palList.innerHTML = shown.map(function (r, i) {
+      var e = r.e;
+      var isAge = (e.cat === AGE_KEY || e.kind === 'age');
+      var col = isAge ? 'var(--ink-3)' : 'var(' + catVar(e.cat) + ')';
+      // Highlight the matched run in the name, when the match is in the name.
+      var label = esc(e.name);
+      if (r.at >= 0) {
+        label = esc(e.name.slice(0, r.at)) + '<mark>' +
+                esc(e.name.slice(r.at, r.at + q.length)) + '</mark>' +
+                esc(e.name.slice(r.at + q.length));
+      }
+      return '<li role="option" data-i="' + i + '" aria-selected="' + (i === 0) + '"' +
+        ' style="--sw:' + col + '">' +
+        '<span class="p-chip"></span>' +
+        '<span class="p-name">' + label + '</span>' +
+        '<span class="p-cat">' + esc(isAge ? 'AGE' : e.cat.split(' ')[0].toUpperCase()) + '</span>' +
+        '<span class="p-when">' + esc(fmtAgo(e.bpStart, false)) + '</span>' +
+        '</li>';
+    }).join('');
+
+    els.palCount.textContent = pal.results.length > PAL_MAX
+      ? PAL_MAX + ' of ' + pal.results.length
+      : pal.results.length + (pal.results.length === 1 ? ' result' : ' results');
+  }
+
+  function palMove(delta) {
+    var n = Math.min(pal.results.length, PAL_MAX);
+    if (!n) return;
+    pal.sel = (pal.sel + delta + n) % n;
+    var rows = els.palList.children;
+    for (var i = 0; i < rows.length; i++) {
+      rows[i].setAttribute('aria-selected', String(i === pal.sel));
+    }
+    if (rows[pal.sel]) rows[pal.sel].scrollIntoView({ block: 'nearest' });
+  }
+
+  function palChoose(i) {
+    var r = pal.results[i];
+    if (!r) return;
+    palClose();
+    focusEvent(r.e);
+    openPanel(r.e);
+  }
+
+  function palOpen() {
+    if (pal.open) return;
+    pal.open = true;
+    pal.restore = document.activeElement;
+    els.palette.setAttribute('data-open', '1');
+    els.palette.setAttribute('aria-hidden', 'false');
+    els.palInput.value = '';
+    palRender();
+    els.palInput.focus();
+  }
+
+  function palClose() {
+    if (!pal.open) return;
+    pal.open = false;
+    els.palette.setAttribute('data-open', '0');
+    els.palette.setAttribute('aria-hidden', 'true');
+    // The timeline dims live while typing; restore it on the way out.
+    if (state.query) { state.query = ''; draw(); }
+    if (pal.restore && pal.restore.focus) pal.restore.focus();
+  }
+
+  els.searchTrigger.addEventListener('click', palOpen);
+  els.palScrim.addEventListener('click', palClose);
+  els.palClear.addEventListener('click', function () {
+    els.palInput.value = '';
+    palRender();
+    if (state.query) { state.query = ''; draw(); }
+    els.palInput.focus();
+  });
+
+  els.palInput.addEventListener('input', function () {
+    palRender();
+    // Dim non-matches on the canvas behind the scrim, so the timeline shows
+    // where the matches actually are while you are still typing.
+    var q = els.palInput.value.trim().toLowerCase();
+    if (q !== state.query) { state.query = q; draw(); }
+  });
+
+  els.palInput.addEventListener('keydown', function (ev) {
+    if (ev.key === 'ArrowDown') { ev.preventDefault(); palMove(1); }
+    else if (ev.key === 'ArrowUp') { ev.preventDefault(); palMove(-1); }
+    else if (ev.key === 'Enter') { ev.preventDefault(); palChoose(pal.sel); }
+    else if (ev.key === 'Escape') { ev.preventDefault(); palClose(); }
+    else if (ev.key === 'Tab') { ev.preventDefault(); palMove(ev.shiftKey ? -1 : 1); }
+  });
+
+  els.palList.addEventListener('click', function (ev) {
+    var li = ev.target.closest('li[data-i]');
+    if (li) palChoose(Number(li.getAttribute('data-i')));
+  });
+  els.palList.addEventListener('mousemove', function (ev) {
+    var li = ev.target.closest('li[data-i]');
+    if (!li) return;
+    var i = Number(li.getAttribute('data-i'));
+    if (i === pal.sel) return;
+    pal.sel = i;
+    var rows = els.palList.children;
+    for (var k = 0; k < rows.length; k++) rows[k].setAttribute('aria-selected', String(k === i));
   });
 
   // Two labelled states rather than one button that keeps saying "Table" while
@@ -1172,10 +1325,16 @@
   });
 
   document.addEventListener('keydown', function (ev) {
-    if (ev.target === els.search) {
-      if (ev.key === 'Escape') { els.search.value = ''; state.query = ''; els.search.blur(); draw(); }
+    // Cmd/Ctrl+K opens the palette from anywhere, including from inside it.
+    if ((ev.metaKey || ev.ctrlKey) && (ev.key === 'k' || ev.key === 'K')) {
+      ev.preventDefault();
+      if (pal.open) palClose(); else palOpen();
       return;
     }
+    // While the palette owns the keyboard, let it handle its own keys.
+    if (pal.open) return;
+    // A bare "/" is the other conventional way in, but not while typing.
+    if (ev.key === '/' && !ev.metaKey && !ev.ctrlKey) { ev.preventDefault(); palOpen(); return; }
     if (ev.key === 'Escape') { closePanel(); setView('timeline'); return; }
     if (ev.key === 'l' || ev.key === 'L') { setMode(state.mode === 'log' ? 'linear' : 'log', true); return; }
     if (ev.key === '0') { state.ladderIdx = 0; updateLadderPressed(); gotoWindow(13.8e9, BP_FLOOR, true); return; }
@@ -1205,6 +1364,7 @@
   // ?event=<name> · ?theme=…
   // Any of these skips the opening animation and restores a specific view.
   var pendingOpen = null;
+  var pendingSearch = null;
 
   function applyUrlState() {
     var p;
@@ -1238,7 +1398,8 @@
     }
 
     var q = p.get('q');
-    if (q) { els.search.value = q; state.query = q.trim().toLowerCase(); used = true; }
+    // ?q= opens the palette already searching, so a search can be linked to.
+    if (q) { pendingSearch = q.trim(); used = true; }
 
     // ?event=<name fragment> opens that event's panel on load, so a specific
     // event can be linked to directly rather than hunted for.
@@ -1273,6 +1434,12 @@
     buildTable();
     els.statCount.textContent = (ALL.length + AGES.length) + ' events · ' + AGES.length + ' ages';
 
+    // Show the shortcut the reader's own keyboard actually has.
+    var isMac = /Mac|iPhone|iPad|iPod/.test(navigator.platform || navigator.userAgent || '');
+    els.searchHint.textContent = isMac ? '\u2318K' : 'Ctrl K';
+    var footKey = document.getElementById('foot-search-key');
+    if (footKey) footKey.textContent = isMac ? '\u2318K' : 'Ctrl K';
+
     if (!RAW.length) {
       els.emptyNote.textContent = 'No data loaded — check data/events.js';
       els.emptyNote.setAttribute('data-show', '1');
@@ -1294,6 +1461,13 @@
     }
 
     if (pendingOpen) { focusEvent(pendingOpen); openPanel(pendingOpen); }
+    if (pendingSearch) {
+      palOpen();
+      els.palInput.value = pendingSearch;
+      palRender();
+      state.query = pendingSearch.toLowerCase();
+      draw();
+    }
   }
 
   if (document.readyState === 'loading') {

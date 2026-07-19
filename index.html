@@ -38,7 +38,11 @@
   </div>
 
   <div class="field">
-    <input class="search" id="search" type="search" placeholder="Find an event…" aria-label="Search events">
+    <button class="search-trigger" id="search-trigger" aria-haspopup="dialog">
+      <span class="search-icon" aria-hidden="true"></span>
+      <span>Find an event…</span>
+      <kbd id="search-hint">⌘K</kbd>
+    </button>
   </div>
 </div>
 
@@ -84,8 +88,32 @@
   </div>
 </main>
 
+<!-- Command palette. The scrim is deliberately light: typing filters the
+     timeline behind it, so you watch matches light up as you search. -->
+<div class="palette" id="palette" data-open="0" aria-hidden="true">
+  <div class="palette-scrim" id="palette-scrim"></div>
+  <div class="palette-box" role="dialog" aria-modal="true" aria-label="Search events">
+    <div class="palette-field">
+      <span class="search-icon" aria-hidden="true"></span>
+      <input id="palette-input" type="text" autocomplete="off" spellcheck="false"
+             placeholder="Search events, regions, descriptions…"
+             role="combobox" aria-expanded="true" aria-controls="palette-list"
+             aria-autocomplete="list" aria-label="Search events">
+      <button class="palette-clear" id="palette-clear" aria-label="Clear search" hidden>&times;</button>
+    </div>
+    <ul class="palette-list" id="palette-list" role="listbox" aria-label="Search results"></ul>
+    <div class="palette-foot">
+      <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+      <span><kbd>↵</kbd> open</span>
+      <span><kbd>esc</kbd> close</span>
+      <span class="spacer" style="flex:1"></span>
+      <span id="palette-count"></span>
+    </div>
+  </div>
+</div>
+
 <footer class="footnote">
-  <span><kbd>drag</kbd> pan · <kbd>scroll</kbd> zoom · <kbd>L</kbd> toggle scale · <kbd>0</kbd> reset · <kbd>Esc</kbd> close</span>
+  <span><kbd id="foot-search-key">&#8984;K</kbd> search · <kbd>drag</kbd> pan · <kbd>scroll</kbd> zoom · <kbd>L</kbd> toggle scale · <kbd>0</kbd> reset · <kbd>Esc</kbd> close</span>
   <span class="spacer" style="flex:1"></span>
   <span id="foot-note">Dates are scholarly consensus estimates; deep-time and prehistoric figures are approximate by nature.</span>
 </footer>
