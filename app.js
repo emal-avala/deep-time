@@ -78,6 +78,12 @@
       sig: e.significance || '',
       region: e.region || '',
       conf: e.confidence || 'approximate',
+      // Only https links are carried through: the dataset is generated, and a
+      // URL from a data file ends up in an href, so the scheme is checked here
+      // rather than trusted.
+      url: /^https:\/\//.test(e.wikipedia_url || '') ? e.wikipedia_url : '',
+      method: e.dating_method || '',
+      note: e.note || '',
       bpStart: NOW - start,
       bpEnd: NOW - (end === null ? start : end)
     };
@@ -1015,9 +1021,16 @@
         (dur ? '<span>lasted ' + esc(dur) + '</span>' : '') +
         (e.region ? '<span>' + esc(e.region) + '</span>' : '') +
         '<span>' + esc(e.conf) + ' date</span>' +
+        (e.method ? '<span>' + esc(e.method) + '</span>' : '') +
       '</div>' +
       (e.desc ? '<p>' + esc(e.desc) + '</p>' : '') +
+      (e.note ? '<p class="caveat">' + esc(e.note) + '</p>' : '') +
       (e.sig ? '<h4>Why it matters</h4><p>' + esc(e.sig) + '</p>' : '') +
+      (e.url
+        ? '<a class="source" href="' + esc(e.url) + '" target="_blank" rel="noopener noreferrer">' +
+          'Read on Wikipedia<span aria-hidden="true"> &#8599;</span>' +
+          '<span class="sr-only"> (opens in a new tab)</span></a>'
+        : '') +
       '<h4>Nearest in time</h4>' +
       '<ul class="neighbours">' + near.map(function (n) {
         return '<li><button data-id="' + n.id + '" data-age="' + (AGES.indexOf(n) >= 0 ? 1 : 0) + '">' +
@@ -1095,7 +1108,13 @@
     var rows = ALL.concat(AGES).slice().sort(function (a, b) { return b.bpStart - a.bpStart; });
     els.tableBody.innerHTML = rows.map(function (e) {
       var col = (e.cat === AGE_KEY || e.kind === 'age') ? 'var(--ink-3)' : 'var(' + catVar(e.cat) + ')';
-      return '<tr><td class="t-name">' + esc(e.name) + '</td>' +
+      // The table is the accessible path to the data, so the links belong here
+      // too — not only in the panel, which needs a click on a canvas to reach.
+      var name = e.url
+        ? '<a href="' + esc(e.url) + '" target="_blank" rel="noopener noreferrer">' +
+          esc(e.name) + '</a>'
+        : esc(e.name);
+      return '<tr><td class="t-name">' + name + '</td>' +
         '<td class="t-when">' + esc(fmtWhen(e, false)) + '</td>' +
         '<td class="t-cat" style="--sw:' + col + '"><i></i>' + esc(e.cat) + '</td>' +
         '<td>' + esc(e.desc) + '</td></tr>';
