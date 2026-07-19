@@ -14,7 +14,10 @@
   <p class="lede">Everything that happened, on one axis — read it linearly, then logarithmically, and watch the shape of history change.</p>
   <span class="spacer"></span>
   <span class="eyebrow" id="stat-count">—</span>
-  <button class="ghost-btn" id="btn-table" aria-pressed="false">Table</button>
+  <div class="segmented" role="group" aria-label="View">
+    <button id="view-timeline" aria-pressed="true">Timeline</button>
+    <button id="view-table" aria-pressed="false">Table</button>
+  </div>
   <button class="ghost-btn" id="btn-theme">Theme</button>
 </header>
 
