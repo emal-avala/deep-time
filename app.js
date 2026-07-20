@@ -193,8 +193,8 @@
   // at least one; everything else is a drop-in file.
   var REGISTRY = [{
     id: 'physical',
-    label: 'Deep Time',
-    tradition: 'Modern science',
+    label: 'Modern',
+    tradition: 'Modern science — the physical record',
     thesis: 'Everything that happened, on one axis.',
     unit: 'years',
     nowLabel: NOW + ' CE',
@@ -290,7 +290,6 @@
     tableWrap: document.getElementById('table-wrap'),
     tableBody: document.getElementById('table-body'),
     lede: document.querySelector('.masthead .lede'),
-    wheel: document.getElementById('wheel'),
     atlasSwitch: document.getElementById('atlas-switch'),
     viewTimeline: document.getElementById('view-timeline'),
     viewTable: document.getElementById('view-table'),
@@ -451,6 +450,9 @@
   }
 
   function fmtYearsAgo(bp, long) {
+    // Hindu cosmology reaches 311 trillion years — four decades past anything
+    // the physical record needs, so the ladder starts higher than 'Ga'.
+    if (bp >= 1e12) return trim(bp / 1e12, 2) + (long ? ' trillion years ago' : ' Tyr');
     if (bp >= 1e9) return trim(bp / 1e9, 2) + (long ? ' billion years ago' : ' Ga');
     if (bp >= 1e6) return trim(bp / 1e6, 2) + (long ? ' million years ago' : ' Ma');
     if (bp >= 1e4) return trim(bp / 1e3, 1) + (long ? ' thousand years ago' : ' ka');
@@ -1071,7 +1073,8 @@
 
   function updateReadout() {
     var span = state.bpMax - state.bpMin;
-    var spanTxt = span >= 1e9 ? trim(span / 1e9, 2) + ' Gyr'
+    var spanTxt = span >= 1e12 ? trim(span / 1e12, 2) + ' Tyr'
+      : span >= 1e9 ? trim(span / 1e9, 2) + ' Gyr'
       : span >= 1e6 ? trim(span / 1e6, 2) + ' Myr'
       : span >= 1e4 ? trim(span / 1e3, 1) + ' kyr'
       : Math.round(span) + ' yr';
@@ -1571,16 +1574,11 @@
   }
 
   // ── Reckonings of time ─────────────────────────────────────────────────
-  var FOUND_KEY = 'deep-time.found-the-wheel';
-  function hasFound() {
-    try { return localStorage.getItem(FOUND_KEY) === '1'; } catch (err) { return false; }
-  }
-  function markFound() {
-    try { localStorage.setItem(FOUND_KEY, '1'); } catch (err) { /* private mode */ }
-  }
-
+  // A plain switch, always visible: each button names the tradition whose
+  // reckoning of time you are looking at.
   function buildAtlasSwitch() {
-    if (ATLAS_ORDER.length < 2) return;
+    if (ATLAS_ORDER.length < 2) { els.atlasSwitch.hidden = true; return; }
+    els.atlasSwitch.hidden = false;
     els.atlasSwitch.innerHTML = '';
     ATLAS_ORDER.forEach(function (id) {
       var def = ATLASES[id];
@@ -1591,24 +1589,13 @@
       b.addEventListener('click', function () { switchAtlas(id); });
       els.atlasSwitch.appendChild(b);
     });
-    els.atlasSwitch.hidden = !hasFound();
   }
 
   function switchAtlas(id) {
     if (ATLAS && ATLAS.id === id) return;
     loadAtlas(id);
     buildAtlasSwitch();
-    els.atlasSwitch.hidden = false;
   }
-
-  els.wheel.addEventListener('click', function () {
-    markFound();
-    els.wheel.setAttribute('data-found', '1');
-    // The wheel walks through the reckonings rather than only opening one, so
-    // it stays useful after it has been discovered.
-    var i = ATLAS_ORDER.indexOf(ATLAS.id);
-    switchAtlas(ATLAS_ORDER[(i + 1) % ATLAS_ORDER.length]);
-  });
 
   els.mMenu.addEventListener('click', function () {
     setSheet(els.railLayers.getAttribute('data-open') !== '1');
@@ -1800,8 +1787,6 @@
       if (qp && ATLASES[qp]) wanted = qp;
     } catch (err) { /* no URLSearchParams */ }
     loadAtlas(wanted || ATLAS_ORDER[0]);
-    if (wanted && wanted !== ATLAS_ORDER[0]) markFound();
-    if (hasFound()) els.wheel.setAttribute('data-found', '1');
     buildAtlasSwitch();
 
     if (!ALL.length && !AGES.length) {

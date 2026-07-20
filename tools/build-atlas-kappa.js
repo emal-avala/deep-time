@@ -121,7 +121,7 @@ const file = `/* Buddhist cosmology — a Deep Time atlas. GENERATED, do not edi
   window.DEEP_TIME_ATLASES = window.DEEP_TIME_ATLASES || [];
   window.DEEP_TIME_ATLASES.push({
     id: 'kappa',
-    label: 'Kappa',
+    label: 'Buddhist',
     tradition: 'Buddhist cosmology',
     thesis: 'Deep time as the Buddhavaṃsa counts it — where the age of the universe is a rounding error inside one aeon.',
     mark: 'dharmachakra',
