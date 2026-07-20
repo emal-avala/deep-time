@@ -52,7 +52,25 @@ const { removals = [], corrections = [] } = readJson('corrections.json');
 
 const report = {
   rejected: [], merged: 0, removed: 0, corrected: 0,
-  fuzzyMerges: [], crossCategory: [], nearMisses: []
+  fuzzyMerges: [], crossCategory: [], nearMisses: [], overridden: []
+};
+
+// Unfinished records must never reach the page. One shipped for months: an
+// "Industrial Age" band described as PLACEHOLDER-WILL-FIX, starting in 240 BCE
+// and bracketing the whole of recorded history.
+const PLACEHOLDER = /placeholder|will[- ]fix|^todo\b|^fixme\b|^tbd\b|^x+$/i;
+function unfinished(e) {
+  const d = String(e.description || '').trim();
+  const g = String(e.significance || '').trim();
+  return PLACEHOLDER.test(d) || PLACEHOLDER.test(g) || d.length < 12 || g.length < 8;
+}
+
+// Text corrections that are not date corrections.
+const OVERRIDES = {
+  'Mesolithic (Middle Stone Age)': {
+    name: 'Mesolithic (European Middle Stone Age)',
+    note: 'Distinct from the African Middle Stone Age, which begins some 268,000 years earlier.'
+  }
 };
 
 // Optional enrichment carried straight through from the sources.
@@ -61,8 +79,11 @@ const EXTRA = ['start_min', 'start_max', 't_since_bang', 't_since_bang_end',
 
 // ── Validate & normalise ──────────────────────────────────────────────────
 function normalise(e, allowFuture) {
-  const name = String(e.name || '').trim();
+  let name = String(e.name || '').trim();
   if (!name) return null;
+  if (unfinished(e)) { report.rejected.push(['unfinished record', name]); return null; }
+  const ov = OVERRIDES[name];
+  if (ov) { report.overridden.push(name + ' → ' + (ov.name || name)); if (ov.name) name = ov.name; }
   const start = Number(e.start);
   let end = (e.end === null || e.end === undefined) ? null : Number(e.end);
   if (!Number.isFinite(start)) { report.rejected.push(['non-numeric start', name]); return null; }
@@ -95,6 +116,7 @@ function normalise(e, allowFuture) {
     confidence: ['exact', 'approximate', 'debated'].includes(e.confidence)
       ? e.confidence : 'approximate'
   };
+  if (ov && ov.note) out.note = ov.note;
   for (const k of EXTRA) if (e[k] !== undefined && e[k] !== null && e[k] !== '') out[k] = e[k];
   return out;
 }
@@ -338,6 +360,7 @@ console.log(`  removed (adjudicated duplicates): ${report.removed}`);
 console.log(`  merged (fuzzy duplicates):        ${report.merged}`);
 console.log(`  field corrections applied:        ${report.corrected}`);
 console.log(`  rejected as invalid:              ${report.rejected.length}`);
+console.log(`  text overrides applied:           ${report.overridden.length}`);
 console.log(`  wikipedia links applied:          ${report.linksApplied || 0}${report.linksOrphaned ? " (" + report.linksOrphaned + " orphaned)" : ""}`);
 console.log(`  carrying a source link:           ${enriched}`);
 console.log('\nby category:');

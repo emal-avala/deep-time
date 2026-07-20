@@ -1,10 +1,10 @@
 /* Deep Time — event dataset. GENERATED FILE, do not edit by hand.
  * Rebuild with:  node tools/build-dataset.js
  *
- * 617 entries compiled by a research fan-out of 12 domain
+ * 616 entries compiled by a research fan-out of 12 domain
  * historians and 4 gap-fillers, audited chunk-by-chunk and adversarially
  * adjudicated (see data/sources/corrections.json), then extended by a sourced
- * research batch (data/sources/*.events.json); 583 carry a source link.
+ * research batch (data/sources/*.events.json); 582 carry a source link.
  *
  * Years are signed: negative = BCE, positive = CE, deep time in years
  * (66 million years ago = -66000000). `end` of 2026 means still ongoing.
@@ -21,7 +21,7 @@
  * measurements.
  */
 window.HISTORY_DATA = {
-  count: 617,
+  count: 616,
   futureCount: 10,
   events: [
  {
@@ -2479,7 +2479,7 @@ window.HISTORY_DATA = {
   "wikipedia_url": "https://en.wikipedia.org/wiki/Lascaux"
  },
  {
-  "name": "Mesolithic (Middle Stone Age)",
+  "name": "Mesolithic (European Middle Stone Age)",
   "category": "Age / Era",
   "start": -12000,
   "end": -8000,
@@ -2488,7 +2488,7 @@ window.HISTORY_DATA = {
   "significance": "It shows the gradual, experimental slide from foraging into farming rather than a sudden leap.",
   "region": "Eurasia",
   "confidence": "approximate",
-  "wikipedia_url": "https://en.wikipedia.org/wiki/Mesolithic"
+  "note": "Distinct from the African Middle Stone Age, which begins some 268,000 years earlier."
  },
  {
   "name": "End of the Last Ice Age",
@@ -3995,17 +3995,6 @@ window.HISTORY_DATA = {
   "description": "Ashoka's bloody conquest of Kalinga, whose carnage moved him to remorse, conversion to Buddhist values, and the dispatch of missionaries as far as Sri Lanka and the Hellenistic world.",
   "significance": "State sponsorship launched Buddhism's diffusion along trade routes, the first deliberate transcontinental spread of a universal religion.",
   "region": "South Asia",
-  "confidence": "approximate"
- },
- {
-  "name": "Industrial Age",
-  "category": "Age / Era",
-  "start": -240,
-  "end": 1970,
-  "kind": "age",
-  "description": "PLACEHOLDER-WILL-FIX",
-  "significance": "x",
-  "region": "Global",
   "confidence": "approximate"
  },
  {

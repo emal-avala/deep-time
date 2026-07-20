@@ -22,6 +22,7 @@
     <button id="view-timeline" aria-pressed="true">Timeline</button>
     <button id="view-table" aria-pressed="false">Table</button>
   </div>
+  <button class="ghost-btn" id="btn-units">Units</button>
   <button class="ghost-btn" id="btn-theme">Theme</button>
   <button class="icon-btn" id="m-menu" aria-label="Show controls" aria-expanded="false">
     <span class="menu-icon" aria-hidden="true"></span>
@@ -37,6 +38,14 @@
     </div>
     <input class="blend" id="blend" type="range" min="0" max="1" step="0.01" value="1"
            aria-label="Blend between linear and logarithmic scale">
+  </div>
+
+  <div class="field" id="dir-field" hidden>
+    <span class="eyebrow">Facing</span>
+    <div class="segmented" role="group" aria-label="Direction in time">
+      <button id="dir-past" aria-pressed="true">Past</button>
+      <button id="dir-future" aria-pressed="false">Future</button>
+    </div>
   </div>
 
   <div class="field field-window">
@@ -120,6 +129,23 @@
   </div>
 </div>
 
+<!-- What the axis is counting in, and where the number comes from. Each
+     reckoning supplies its own; for some traditions the derivation is the
+     most interesting thing about the unit. -->
+<div class="units-sheet" id="units-sheet" data-open="0" aria-hidden="true">
+  <div class="units-scrim" id="units-scrim"></div>
+  <div class="units-box" role="dialog" aria-modal="true" aria-labelledby="units-title">
+    <header class="units-head">
+      <div>
+        <p class="units-eyebrow" id="units-eyebrow">UNITS</p>
+        <h2 id="units-title">How this reckoning counts</h2>
+      </div>
+      <button class="units-close" id="units-close" aria-label="Close">&times;</button>
+    </header>
+    <div class="units-body" id="units-body"></div>
+  </div>
+</div>
+
 <footer class="footnote">
   <span><kbd id="foot-search-key">&#8984;K</kbd> search · <kbd>drag</kbd> pan · <kbd>scroll</kbd> zoom · <kbd>L</kbd> toggle scale · <kbd>0</kbd> reset · <kbd>Esc</kbd> close</span>
   <span class="spacer" style="flex:1"></span>
@@ -129,6 +155,7 @@
 <script src="data/events.js"></script>
 <!-- Traditions register themselves before the app reads the registry. Adding
      one is a matter of dropping a file in here — see README. -->
+<script src="data/units.js"></script>
 <script src="data/atlases/kappa.js"></script>
 <script src="data/atlases/yuga.js"></script>
 <script src="app.js"></script>

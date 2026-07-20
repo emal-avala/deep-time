@@ -76,9 +76,22 @@ const REMAINDER_FIX = {
   'Remainder of the Vaivasvata Manvantara': -(MANVANTARA - 120533127)
 };
 
+// ── Audit corrections ─────────────────────────────────────────────────────
+// Two prose claims that contradicted their own coordinates.
+const PROSE = {
+  'The Buddha': {
+    match: /more than half/i,
+    significance: 'Gotama lived 2,589 years before the present, which falls 2,538 years after Kali Yuga opened — 0.59 per cent into an age of 432,000 years, not the halfway point.'
+  },
+  'Matsya, the Fish': {
+    match: /manvantara/i,
+    significance: 'Placed here in Satya Yuga of the present mahāyuga; the accounts that tie the flood to a manvantara boundary put it elsewhere, and this atlas does not follow them.'
+  }
+};
+
 // ── Load & validate ───────────────────────────────────────────────────────
 const raw = JSON.parse(fs.readFileSync(SRC, 'utf8'));
-const report = { rejected: [], future: 0, spans: 0, shifted: 0, retimed: [], dropped: [] };
+const report = { rejected: [], future: 0, spans: 0, shifted: 0, retimed: [], dropped: [], reprosed: [] };
 
 let events = raw.map(e => {
   const name = String(e.name || '').trim();
@@ -108,6 +121,13 @@ let events = raw.map(e => {
   if (year < 0) report.future++;
   if (yearEnd !== null) report.spans++;
 
+  const prose = PROSE[name];
+  let significance = String(e.significance || '').trim();
+  if (prose && prose.match.test(significance)) {
+    report.reprosed.push(name);
+    significance = prose.significance;
+  }
+
   return {
     name,
     sanskrit: String(e.sanskrit || '').trim(),
@@ -116,7 +136,7 @@ let events = raw.map(e => {
     kind: ['moment', 'period', 'age'].includes(e.kind) ? e.kind
       : (yearEnd === null ? 'moment' : 'period'),
     description: String(e.description || '').trim(),
-    significance: String(e.significance || '').trim(),
+    significance,
     source: String(e.source || '').trim(),
     confidence: ['canonical', 'traditional', 'derived'].includes(e.confidence)
       ? e.confidence : 'traditional'
@@ -230,6 +250,7 @@ console.log(`\nstill to come: ${report.future} · spans: ${report.spans}`);
 console.log(`reconciliation: ${report.shifted} records shifted onto the 5,127 grid`);
 console.log(`  retimed: ${report.retimed.join(', ') || 'none'}`);
 console.log(`  dropped as alias: ${report.dropped.join(', ') || 'none'}`);
+console.log(`  prose corrected: ${report.reprosed.join(', ') || 'none'}`);
 console.log(`  Kali Yuga start agrees across all threads at ${KALI_ELAPSED}`);
 if (report.rejected.length) {
   console.log(`\nrejected (${report.rejected.length}):`);

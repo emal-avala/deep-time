@@ -37,6 +37,25 @@ const CATEGORIES = [
 const LIFESPAN_AT = { 'Kakusandha': 40000, 'Koṇāgamana': 30000, 'Kassapa': 20000 };
 const GOTAMA_YEARS_AGO = 2600;
 
+// Metteyya is the FIFTH Buddha of this same aeon, not a later one: he arises
+// after Gotama's dispensation has disappeared entirely and the human lifespan
+// has fallen to ten years and climbed back to eighty thousand. By the same
+// one-year-per-century scheme that is roughly 8 million years ahead — a
+// fraction of one kappa, not the -1 kappa the source assigned him.
+const METTEYYA_YEARS_AHEAD = (100 - 10) * 100 + (80000 - 10) * 100;
+
+// The Anāgatavaṃsa and the Dasabodhisatta texts give these ten in ORDER and
+// fix no intervals between them. The draft invented a geometric ladder out to
+// 30,000 kappas, which reads as precision the tradition does not claim. They
+// are placed at successive future aeons instead, and every record says the
+// spacing is a placement convention rather than scripture.
+// Taken from the source's own FUTURE list rather than hardcoded — the lists
+// differ between textual traditions, and guessing one produced collisions.
+const LINEAGE = JSON.parse(fs.readFileSync(
+  '/private/tmp/claude-501/-Users-emal-Code-sandbox/facafd9e-ee0e-484d-b971-6179ebb4bdee/scratchpad/buddha/lineage-source.json', 'utf8'));
+const TEN_TO_COME = LINEAGE.FUTURE
+  .slice().sort((a, b) => a.order - b.order).map(f => f.name);
+
 function presentAeonKappa(name) {
   if (/^Gotama/.test(name)) return GOTAMA_YEARS_AGO / YEARS_PER_KAPPA;
   for (const key of Object.keys(LIFESPAN_AT)) {
@@ -48,9 +67,42 @@ function presentAeonKappa(name) {
   return null;
 }
 
+// ── Audit corrections ─────────────────────────────────────────────────────
+// From an adversarial placement audit against the canonical sources.
+//
+// The lifespan swing is the important one. It was drawn a third of a mahākappa
+// wide, which put Metteyya at the instant the world-system is destroyed — the
+// opposite of the tradition. The traditional arithmetic is the same scheme used
+// to place the present-aeon Buddhas: the lifespan falls from a hundred to ten
+// at a year a century (9,000 years), then climbs to eighty thousand
+// (7,999,000), and Metteyya arises at the top of that climb.
+const FALL_YEARS = (100 - 10) * 100;
+const RISE_YEARS = (80000 - 10) * 100;
+
+const PLACEMENT = {
+  'The Fall to Ten Years': { kappa: -(FALL_YEARS / YEARS_PER_KAPPA), kappaEnd: -1e-13 },
+  'The Rise to Eighty Thousand Years': {
+    kappa: -((FALL_YEARS + RISE_YEARS) / YEARS_PER_KAPPA),
+    kappaEnd: -(FALL_YEARS / YEARS_PER_KAPPA)
+  },
+  // An asaṅkhyeyya-kappa is a QUARTER of a mahākappa — one of its four phases.
+  // It was plotted at a million kappas, as though it were a datable epoch, and
+  // so contradicted the atlas's own entries at maximum scale.
+  'The Incalculable Aeon': { kappa: 0.25, kappaEnd: null },
+  // Twenty-nine aeons must be twenty-nine wide: it ran 30 to 5 and left an
+  // unexplained gap before Kakusandha.
+  'The Twenty-Nine Empty Aeons': { kappa: 30, kappaEnd: 1 }
+};
+
+// The sensuous heavens are given in celestial years, and converting them to
+// kappas silently assumes a year-length for a kappa that this atlas explicitly
+// declines to supply. Disclose the assumption rather than hide it.
+const SENSUOUS = /Cātumahārājika|Tāvatiṃsa|Yāma|Tusita|Nimmānarati|Paranimmita/i;
+const SENSUOUS_NOTE = 'Given in the texts as celestial years. Placing it on a kappa axis assumes a year-length for a kappa that the canon does not supply, so read its width as indicative only.';
+
 // ── Load & correct ────────────────────────────────────────────────────────
 const raw = JSON.parse(fs.readFileSync(SRC, 'utf8'));
-const report = { corrected: [], rejected: [], clamped: 0 };
+const report = { corrected: [], rejected: [], clamped: 0, reordered: [], tenSeen: 0 };
 
 let events = raw.map(e => {
   const name = String(e.name || '').trim();
@@ -67,6 +119,43 @@ let events = raw.map(e => {
 
   // Always override these four: the source's value for Gotama (0.0001 kappas)
   // is 10^11 years, which is still wrong by eight orders of magnitude.
+  // Gotama's Dispensation sat in 'This Aeon' and so escaped the correction,
+  // keeping 0.0001 kappas — a hundred billion years for something 2,600 years
+  // old and roughly five thousand years long.
+  if (/^Gotama's Dispensation/.test(name)) {
+    report.corrected.push(`${name}: ${kappa} → dispensation of Gotama, from his life`);
+    kappa = GOTAMA_YEARS_AGO / YEARS_PER_KAPPA;
+    kappaEnd = -(5000 - GOTAMA_YEARS_AGO) / YEARS_PER_KAPPA;   // traditionally 5,000 years
+  }
+
+  // Re-place the ten to come. Metteyya inside this aeon; the rest at
+  // successive future aeons, spacing declared as convention.
+  if (e.category === 'The Ten to Come') {
+    // Match on significant words, not prefixes: the source writes
+    // "Pasenadi Kosala" where the record says "Pasenadi of Kosala".
+    const key = t => t.toLowerCase().replace(/[^a-z\u00C0-\u024F ]+/gi, ' ')
+      .split(/\s+/).filter(w => w.length > 2 && w !== 'the' && w !== 'buddha' && w !== 'come');
+    const words = key(name);
+    const idx = TEN_TO_COME.findIndex(n => key(n).some(w => words.includes(w)));
+    if (idx < 0) {
+      report.rejected.push(['not in the source ten-to-come list', name]);
+      return null;
+    }
+    const order = idx;
+    const before = kappa;
+    kappa = order === 0
+      ? -(METTEYYA_YEARS_AHEAD / YEARS_PER_KAPPA)
+      : -order;                                   // successive future aeons
+    kappaEnd = null;
+    if (before !== kappa) report.reordered.push(`${name}: ${before} → ${kappa}`);
+  }
+
+  const place = PLACEMENT[name];
+  if (place) {
+    report.corrected.push(`${name}: ${kappa}..${kappaEnd} → ${place.kappa}..${place.kappaEnd}`);
+    kappa = place.kappa; kappaEnd = place.kappaEnd;
+  }
+
   const fixed = presentAeonKappa(name);
   if (fixed !== null && e.category === 'The Buddhas') {
     report.corrected.push(`${name}: ${kappa} → ${fixed.toExponential(2)} kappas`);
@@ -85,7 +174,8 @@ let events = raw.map(e => {
     significance: String(e.significance || '').trim(),
     source: String(e.source || '').trim(),
     confidence: ['canonical', 'traditional', 'derived'].includes(e.confidence)
-      ? e.confidence : 'traditional'
+      ? e.confidence : 'traditional',
+    note: SENSUOUS.test(name) && e.category === 'Planes & Lifespans' ? SENSUOUS_NOTE : undefined
   };
 }).filter(Boolean);
 
@@ -169,6 +259,8 @@ for (const e of events) conf[e.confidence] = (conf[e.confidence] || 0) + 1;
 for (const [k, v] of Object.entries(conf)) console.log(`  ${String(v).padStart(3)}  ${k}`);
 console.log(`\npresent-aeon corrections (${report.corrected.length}):`);
 for (const c of report.corrected) console.log('  ', c);
+console.log(`\nten-to-come re-placed (${report.reordered.length}):`);
+for (const c of report.reordered) console.log('  ', c);
 if (report.rejected.length) {
   console.log(`\nrejected (${report.rejected.length}):`);
   for (const r of report.rejected) console.log('  ', r.join(' · '));
