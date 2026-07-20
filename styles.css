@@ -1137,3 +1137,49 @@ td.t-cat i {
   #stat-count { display: none; }
   .masthead h1 { font-size: 15px; }
 }
+
+/* ── The wheel ────────────────────────────────────────────────────────── */
+/* An easter egg: barely there until you go looking, then unmistakable.
+   It turns once on discovery and never again. */
+
+.wheel {
+  position: absolute;
+  right: 14px;
+  bottom: 52px;
+  z-index: 12;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  color: var(--ink-3);
+  opacity: .18;
+  cursor: pointer;
+  transition: opacity .3s ease, color .3s ease, transform .6s cubic-bezier(.22,.61,.36,1);
+}
+.wheel svg { width: 100%; height: 100%; display: block; }
+.wheel:hover,
+.wheel:focus-visible { opacity: 1; color: var(--ink); }
+.wheel:hover { transform: rotate(45deg); }
+.wheel[data-found="1"] { opacity: .5; }
+
+:root[data-atlas="kappa"] .wheel { opacity: .62; color: var(--ink-2); }
+
+@media (prefers-reduced-motion: reduce) {
+  .wheel { transition: opacity .3s ease, color .3s ease; }
+  .wheel:hover { transform: none; }
+}
+
+/* The switcher only exists once the wheel has been found. */
+.atlas-switch[hidden] { display: none; }
+.atlas-switch button { font-size: 11.5px; padding: 5px 11px; }
+
+/* A landmark line: where another tradition's whole timeline would sit. */
+.readout .landmark { color: var(--ink-4); }
+
+@media (max-width: 720px) {
+  .wheel { right: 10px; bottom: 44px; width: 26px; height: 26px; opacity: .3; }
+  .masthead .atlas-switch { display: none; }   /* lives in the sheet on mobile */
+}
