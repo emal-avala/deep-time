@@ -2,7 +2,7 @@
 
 **→ [emal-avala.github.io/deep-time](https://emal-avala.github.io/deep-time/)**
 
-An interactive timeline of 562 events spanning 13.8 billion years — from the
+An interactive timeline of 617 events spanning 13.8 billion years — from the
 Big Bang through the dinosaurs, the ice ages, the Buddha and the ancient
 empires, to generative AI — readable on **both a linear and a logarithmic time
 scale**.
@@ -27,7 +27,7 @@ No server, no build, no dependencies.
 ## Reading it
 
 **Lanes** run from substrate to superstructure: Cosmos & Earth → Life → Human
-Origins → Culture & Art → Science & Tech → Religion & Ideas → Empires. The
+Origins → Science & Tech → Culture & Art → Religion & Ideas → Empires. The
 physical world first, then life, then humans, then what humans made and
 believed, and last how they organised themselves into states. The order isn't
 decorative — the staircase of first appearances down the left side is itself
@@ -113,7 +113,7 @@ what makes the morph between them legible rather than disorienting.
 **Logarithms can't reach zero**, so "now" is clamped to 1 year ago. The right
 edge is the present, and events in the last year pile onto it.
 
-**Canvas, not SVG or DOM.** 562 events with labels re-laid-out on every frame
+**Canvas, not SVG or DOM.** 617 events with labels re-laid-out on every frame
 of a pan, zoom, or scale morph; canvas holds 60fps where a few thousand DOM
 nodes would not. The cost is that hit-testing and the accessible view had to be
 built by hand — hence the table view.
