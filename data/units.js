@@ -76,14 +76,14 @@ window.DEEP_TIME_UNITS = {
     "native": "antara-kappa",
     "value": "one full rise and fall of the human lifespan",
     "derivation": "The smallest unit the commentaries name in this ladder; it is not built up from anything below it.",
-    "note": "In the commentarial account the human lifespan falls to ten years and climbs again to a great length. This unit belongs to the commentaries rather than to the suttas."
+    "note": "In the commentarial account the human lifespan falls to ten years and climbs again to an incalculable length, then falls once more — one such swing is an intermediate aeon. This is the unit the timeline uses to place the Buddhas of this aeon: the Chronicles count one intermediate aeon between Kakusandha, Koṇāgamana and Kassapa, not a span of years."
    },
    {
     "term": "Incalculable aeon",
     "native": "asaṅkhyeyya-kappa",
     "value": "one of the four great phases of a world-system",
-    "derivation": "A run of intermediate aeons. Commentarial sources differ on the count — twenty per phase is the figure most often given, and other reckonings circulate.",
-    "note": "The disagreement between sources is not treated as a defect. The name says what matters: the number is past counting."
+    "derivation": "A run of sixty-four intermediate aeons, in the human reckoning (Great Chronicle of Buddhas, Miscellaneous Topics). The often-quoted \"twenty\" is the Avīci-hell reckoning, whose intermediate aeons run 3.2× longer; 64 ÷ 20 = 3.2, and the texts give both figures side by side.",
+    "note": "So a great aeon is four of these — 4 × 64 = 256 intermediate aeons in all. The structure is firm even though its length in years is not; the timeline uses it to place events within the present aeon."
    },
    {
     "term": "Great aeon",
@@ -101,13 +101,13 @@ window.DEEP_TIME_UNITS = {
    }
   ],
   "conversion": {
-   "toYears": "The canon gives no figure in years, and this panel does not supply one. The timeline places events inside the present aeon using an arbitrary display scale, chosen so that the span is legible on a screen; nothing in the tradition licenses that number.",
-   "basis": "The similes can be worked into arithmetic — a cube one yojana on a side, emptied one mustard seed a century, comes out somewhere in the region of 10^22 years — but that is our sum, resting on our guesses at seed size and packing, not a reading of the text.",
-   "caveat": "Both similes state that the mountain is worn away and the city emptied before the aeon ends. Any figure they yield is therefore a floor, not a measure. The point of the images is that the span defeats counting, and a number placed under them works against what they were told to convey."
+   "toYears": "The canon gives no figure in years. What it does give is enough to bound one. Three independent readings hem the aeon in from about 10^10 years to about 10^22 — twelve orders of magnitude apart, yet all far above the 13.8-billion-year age of the universe. The timeline uses 10^15 years per aeon, the middle reading, purely to keep events inside the present aeon legible on a screen.",
+   "basis": "The three readings: (1) The plane hierarchy sets a floor. The longest-lived sensuous heaven, Paranimmitavasavattī, lasts 9.216 billion human years, and the Brahmā world just above it lasts a third of an aeon — so an aeon must exceed ~2.8 × 10^10 years, or the ladder of heavens would invert. (2) The mountain simile (SN 15.5), worked with a realistic abrasion rate, gives ~10^15 years — the figure the timeline adopts. (3) The mustard-seed simile (SN 15.6), taken literally at ~11 km and ~1 mm seeds, gives ~10^22 years.",
+   "caveat": "Both similes state the mountain is worn away and the city emptied BEFORE the aeon ends, so their figures are floors, not measures — the point of the images is that the span defeats counting. And the structure will not borrow its number from elsewhere: the Hindu kalpa (4.32 billion years) is too short even to satisfy the plane hierarchy, and dividing it into the tradition's own 256 intermediate aeons fails the arithmetic. The scale is left open at the top by design."
   },
   "headline": "Asked how long an aeon is, the Buddha said it was not easy to count, and told two stories instead.",
   "intro": "Buddhist cosmology counts time in kappas — aeons — and stacks them: intermediate aeons within incalculable aeons within a great aeon, the mahākappa, the full span of a world-system from contraction through expansion and back. Above that, counting continues not by building a larger unit but by multiplying aeons with a word for an immense number, the asaṅkhyeyya. The scale is open at the top by design. Sources differ on the sub-counts, and the tradition treats that as beside the point.",
-  "landmark": "The tradition supplies no years, so the aeon cannot be laid against the 13.8-billion-year age of the universe without our first inventing a figure for it. Worked from the mustard-seed simile, our own arithmetic puts an aeon on the order of 10^22 years, which would swallow the age of the universe something like a trillion times. That is a statement about our sum, not about the text: nothing in the suttas anticipates modern cosmology, and the resemblance in scale is our arithmetic meeting a simile chosen for its immensity.",
+  "landmark": "Against the 13.8-billion-year age of the universe, even the tradition's floor figure is staggering. At the 10^15 years the timeline uses, the entire physical universe is about one seventy-thousandth of a single aeon — a rounding error inside it, exactly as the atlas's subtitle says. At the mustard-seed reading of 10^22 years the universe shrinks to a trillionth of an aeon. Either way the resemblance in scale is our arithmetic meeting a simile chosen for its immensity; nothing in the suttas anticipates modern cosmology.",
   "stories": [
    {
     "ref": "SN 15.5 (Pabbata Sutta)",
