@@ -17,6 +17,7 @@
   <button class="icon-btn" id="m-search" aria-label="Search events">
     <span class="search-icon" aria-hidden="true"></span>
   </button>
+  <div class="segmented atlas-switch" id="atlas-switch" role="group" aria-label="Reckoning of time" hidden></div>
   <div class="segmented view-switch" role="group" aria-label="View">
     <button id="view-timeline" aria-pressed="true">Timeline</button>
     <button id="view-table" aria-pressed="false">Table</button>
@@ -77,6 +78,21 @@
 
     <!-- Inside the plot wrapper so its coordinates match the canvas. -->
     <div class="tip" id="tip" role="tooltip"></div>
+
+    <!-- A quiet way in to the other reckonings of time. Deliberately
+         under-advertised: it is meant to be found. -->
+    <button class="wheel" id="wheel" aria-label="Other reckonings of time" title="Other reckonings of time">
+      <svg viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+        <circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <circle cx="20" cy="20" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <g stroke="currentColor" stroke-width="1.4">
+          <line x1="20" y1="3" x2="20" y2="37"/>
+          <line x1="3" y1="20" x2="37" y2="20"/>
+          <line x1="8" y1="8" x2="32" y2="32"/>
+          <line x1="32" y1="8" x2="8" y2="32"/>
+        </g>
+      </svg>
+    </button>
   </div>
 
   <div class="table-wrap" id="table-wrap" data-open="0">
@@ -125,6 +141,9 @@
 </footer>
 
 <script src="data/events.js"></script>
+<!-- Traditions register themselves before the app reads the registry. Adding
+     one is a matter of dropping a file in here — see README. -->
+<script src="data/atlases/kappa.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

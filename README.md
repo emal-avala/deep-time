@@ -129,3 +129,85 @@ dark surfaces. Text drawn on a coloured bar picks black or white by computing
 both contrast ratios — a lightness threshold picks white on mid-tone pink,
 which measures 2.7:1. There is deliberately no UI accent colour: the data owns
 all the colour on the page.
+
+## Reckonings of time
+
+The timeline is not tied to one cosmology. The renderer knows nothing about
+years, kappas or baktuns - it only knows *distance from now on a log axis*.
+Each tradition supplies its own units, threads and data as a **drop-in atlas**.
+
+Two ship today:
+
+| Atlas | Tradition | Unit | Span |
+|---|---|---|---|
+| `physical` | Modern science | years | 13.8 Ga to now |
+| `kappa` | Buddhist cosmology | mahakappas | 10^6 to 10^-13 kappas |
+
+The Buddhist atlas is reached through the **wheel** - a small dharmachakra in
+the corner of the plot. It is deliberately under-advertised; once found, a
+switcher appears in the header and stays. `?atlas=kappa` also works.
+
+### Adding a tradition
+
+Create `data/atlases/<id>.js` and add a `<script>` tag for it in `index.html`.
+Nothing else in the app changes.
+
+```js
+window.DEEP_TIME_ATLASES = window.DEEP_TIME_ATLASES || [];
+window.DEEP_TIME_ATLASES.push({
+  id: 'yuga',
+  label: 'Yuga',
+  tradition: 'Hindu cosmology',
+  thesis: 'One sentence shown as the page subtitle.',
+  unit: 'years',
+  nowLabel: 'now',
+
+  scale: 'unitsBeforePresent',   // or 'signedYears'
+  field: 'year',                 // record field holding the position
+  format: 'years',               // which formatter labels the axis
+
+  ceil: 3.11e14, floor: 1,       // outer bounds of the axis
+  home: [3.11e14, 1],            // the view it opens on
+  ageKey: 'Ages',                // category routed to the strata band
+  tickGap: 96,                   // px between axis labels
+
+  categories: [ { key: 'Yugas', label: 'Yugas', v: '--c1' } /* up to 7 */ ],
+  ladder:     [ { label: 'All of it', max: 3.11e14, min: 1 } ],
+  events:     [ /* records */ ]
+});
+```
+
+**Scale strategies** turn a tradition's own units into distance from now:
+
+- `signedYears` - records carry `start`/`end` as signed calendar years
+  (negative BCE). Used by `physical`.
+- `unitsBeforePresent` - records already count backwards from now in the
+  tradition's unit, named by `field` (`kappa`/`kappaEnd`, `baktun`/`baktunEnd`).
+  A negative value means *still to come*: it is plotted by how far ahead it lies
+  and flagged, because a logarithm has no negative side.
+
+**Formatters** live in `FORMATS` in `app.js`. `years` and `kappas` exist; a new
+unit adds one function. Below one unit the kappa formatter switches to
+exponents (`10^-6 kappa`), since the whole point of these axes is that the
+numbers stop being readable in decimal.
+
+Each record needs `name`, `category`, the position field, `kind`
+(`moment`/`period`/`age`), `description`, `significance` and `confidence`.
+Everything else - search, the table, the detail panel, mobile, linear/log - is
+inherited.
+
+### On honesty across traditions
+
+These cosmologies do not agree, and the app must not pretend they do. Each
+atlas keeps its own confidence vocabulary: the scientific one uses
+`exact`/`approximate`/`debated`; the Buddhist one uses
+`canonical`/`traditional`/`derived`, because the distinction that matters there
+is whether a claim is *in the suttas*, in the commentaries, or a modern
+calculation.
+
+That last category earns its keep. The Pali canon **refuses** to put a number
+of years on a kappa - asked directly, the Buddha answered with two similes
+instead (SN 15.5, a mountain worn away by a passing silk cloth; SN 15.6, a city
+of mustard seeds emptied one seed a century). Every year-figure in the kappa
+atlas is therefore a modern derivation and is marked as one. Placing a
+tradition on an axis should not quietly convert its refusals into numbers.

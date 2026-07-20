@@ -15,6 +15,12 @@
   var DATA_EPOCH = 2026;
   var NOW = Math.max(DATA_EPOCH, new Date().getFullYear());
 
+  // Two atlases share this engine. `physical` is the 13.8-billion-year record
+  // of the observable universe; `kappa` is Buddhist cosmic time, whose unit —
+  // the mahākappa — the canon deliberately refuses to put a number of years to.
+  // Everything below that a mode can differ on is reassigned by loadAtlas().
+  var ATLAS = null;
+
   var BP_CEIL = 13.9e9;   // a little older than the Big Bang
   // Log space cannot reach zero, so the axis is pinned one year short of the
   // present. That is a rendering limit, not a claim about the date: at every
@@ -33,7 +39,7 @@
   // to orange fails the normal-vision floor at dE 12.9, so with Science & Tech
   // in position 4 the two swap hues: Science wears violet, Culture wears
   // orange. The colour SEQUENCE down the lanes is unchanged and still passes.
-  var CATEGORIES = [
+  var PHYSICAL_CATEGORIES = [
     { key: 'Cosmos & Earth',       label: 'Cosmos & Earth',   v: '--c1' },
     { key: 'Life & Extinctions',   label: 'Life',             v: '--c2' },
     { key: 'Human Origins',        label: 'Human Origins',    v: '--c3' },
@@ -43,8 +49,9 @@
     { key: 'Empires & Politics',   label: 'Empires',          v: '--c4' }
   ];
   var AGE_KEY = 'Age / Era';
+  var CATEGORIES = PHYSICAL_CATEGORIES;
 
-  var LADDER = [
+  var PHYSICAL_LADDER = [
     { label: 'All time',   max: 13.8e9, min: BP_FLOOR },
     { label: 'Earth',      max: 4.6e9,  min: BP_FLOOR },
     { label: 'Life',       max: 3.9e9,  min: BP_FLOOR },
@@ -59,6 +66,7 @@
     { label: 'Modern',     max: 550,    min: BP_FLOOR },
     { label: 'Century',    max: 130,    min: BP_FLOOR }
   ];
+  var LADDER = PHYSICAL_LADDER;
 
   // ── Layout constants (CSS px) ──────────────────────────────────────────
   // Re-derived on every resize: a 150px lane gutter is fine on a desktop and
@@ -81,53 +89,171 @@
     STRATA_HEAD  = MOBILE ? 0  : 15;    // no room for the band's own caption
     AXIS_H       = MOBILE ? 34 : 38;
     DENSITY_H    = MOBILE ? 24 : 34;
-    MIN_TICK_GAP = MOBILE ? 82 : 62;   // two-line date labels are wide
+    var gap = (ATLAS && ATLAS.tickGap) || 62;
+    MIN_TICK_GAP = MOBILE ? Math.max(82, gap) : gap;
   }
 
   // ── Data ───────────────────────────────────────────────────────────────
-  var RAW = (window.HISTORY_DATA && window.HISTORY_DATA.events) || [];
-  var ALL = [], AGES = [];
+  var ALL = [], AGES = [], byCat = {};
 
-  RAW.forEach(function (e, i) {
-    var start = Number(e.start);
-    if (!isFinite(start)) return;
-    var end = (e.end === null || e.end === undefined || !isFinite(Number(e.end)))
-      ? null : Number(e.end);
-    if (end !== null && end < start) { var t = end; end = start; start = t; }
-    var ev = {
-      id: i,
-      name: String(e.name || 'Untitled'),
-      cat: e.category,
-      start: start,
-      end: end,
-      kind: e.kind || (end === null ? 'moment' : 'period'),
-      desc: e.description || '',
-      sig: e.significance || '',
-      region: e.region || '',
-      conf: e.confidence || 'approximate',
-      // Only https links are carried through: the dataset is generated, and a
-      // URL from a data file ends up in an href, so the scheme is checked here
-      // rather than trusted.
-      url: /^https:\/\//.test(e.wikipedia_url || '') ? e.wikipedia_url : '',
-      method: e.dating_method || '',
-      note: e.note || '',
-      bpStart: NOW - start,
-      bpEnd: NOW - (end === null ? start : end)
-    };
-    if (ev.cat === AGE_KEY || ev.kind === 'age') AGES.push(ev); else ALL.push(ev);
+  // Both atlases share this normaliser; they differ only in how a record's
+  // position on the axis is derived from its own units.
+  function buildAtlas(def) {
+    var all = [], ages = [];
+    (def.raw || []).forEach(function (e, i) {
+      var pos = def.position(e);
+      if (!pos) return;
+      var ev = {
+        id: i,
+        name: String(e.name || 'Untitled'),
+        cat: e.category,
+        kind: e.kind || (pos.end === null ? 'moment' : 'period'),
+        desc: e.description || '',
+        sig: e.significance || '',
+        region: e.region || e.pali || '',
+        conf: e.confidence || 'approximate',
+        // Only https links are carried through: the dataset is generated, and a
+        // URL from a data file ends up in an href, so the scheme is checked
+        // here rather than trusted.
+        url: /^https:\/\//.test(e.wikipedia_url || '') ? e.wikipedia_url : '',
+        method: e.dating_method || e.source || '',
+        note: e.note || '',
+        start: pos.start, end: pos.end,
+        bpStart: pos.bpStart, bpEnd: pos.bpEnd,
+        future: !!pos.future
+      };
+      if (ev.cat === def.ageKey || ev.kind === 'age') ages.push(ev); else all.push(ev);
+    });
+
+    all.sort(function (a, b) { return a.bpStart - b.bpStart; });
+    ages.sort(function (a, b) { return (b.bpStart - b.bpEnd) - (a.bpStart - a.bpEnd); });
+
+    var idx = {}, fallback = def.categories[def.categories.length - 1].key;
+    def.categories.forEach(function (c) { idx[c.key] = []; });
+    all.forEach(function (e) {
+      if (!idx[e.cat]) e.cat = fallback;      // an unknown lane still gets a home
+      idx[e.cat].push(e);
+    });
+    def.categories.forEach(function (c) {
+      idx[c.key].sort(function (a, b) { return b.bpStart - a.bpStart; });
+    });
+
+    def.all = all; def.ages = ages; def.byCat = idx;
+    return def;
+  }
+
+  // ── Scale strategies ───────────────────────────────────────────────────
+  // A tradition supplies data and a little configuration; these turn its own
+  // units into a distance from the present, which is all the renderer needs.
+  var SCALES = {
+    // Records carry signed calendar years (negative BCE), as physical history
+    // does. Distance from now is NOW minus the year.
+    signedYears: function (def) {
+      return function (e) {
+        var start = Number(e.start);
+        if (!isFinite(start)) return null;
+        var end = (e.end === null || e.end === undefined || !isFinite(Number(e.end)))
+          ? null : Number(e.end);
+        if (end !== null && end < start) { var t = end; end = start; start = t; }
+        return {
+          start: start, end: end,
+          bpStart: NOW - start,
+          bpEnd: NOW - (end === null ? start : end)
+        };
+      };
+    },
+    // Records already count backwards from now in the tradition's own unit —
+    // kappas, baktuns, generations. Anything still to come is plotted by how
+    // far ahead it lies and flagged, since a logarithm has no negative side.
+    unitsBeforePresent: function (def) {
+      var f = def.field || 'value', fEnd = f + 'End', floor = def.floor;
+      return function (e) {
+        var k = Number(e[f]);
+        if (!isFinite(k)) return null;
+        var raw = e[fEnd];
+        var ke = (raw === null || raw === undefined || !isFinite(Number(raw)))
+          ? null : Number(raw);
+        var future = k < 0 || (ke !== null && ke < 0);
+        var a = Math.abs(k), b = ke === null ? Math.abs(k) : Math.abs(ke);
+        if (b > a) { var t = a; a = b; b = t; }
+        return {
+          start: a, end: ke === null ? null : b,
+          bpStart: Math.max(a, floor), bpEnd: Math.max(b, floor),
+          future: future
+        };
+      };
+    }
+  };
+
+  var FORMATS = { years: fmtYearsAgo, kappas: fmtKappas };
+
+  // ── Atlas registry ─────────────────────────────────────────────────────
+  // Traditions register themselves from data/atlases/*.js before this runs.
+  // The built-in scientific atlas is registered here so the core always has
+  // at least one; everything else is a drop-in file.
+  var REGISTRY = [{
+    id: 'physical',
+    label: 'Deep Time',
+    tradition: 'Modern science',
+    thesis: 'Everything that happened, on one axis.',
+    unit: 'years',
+    nowLabel: NOW + ' CE',
+    scale: 'signedYears',
+    format: 'years',
+    ceil: 13.9e9, floor: 1, home: [13.8e9, 1],
+    ageKey: 'Age / Era',
+    categories: PHYSICAL_CATEGORIES,
+    ladder: PHYSICAL_LADDER,
+    events: (window.HISTORY_DATA && window.HISTORY_DATA.events) || []
+  }].concat(window.DEEP_TIME_ATLASES || []);
+
+  var ATLASES = {};
+  var ATLAS_ORDER = [];
+  REGISTRY.forEach(function (def) {
+    if (!def || !def.id || !Array.isArray(def.events) || !def.events.length) return;
+    if (!def.categories || !def.categories.length) return;
+    var scale = SCALES[def.scale || 'signedYears'];
+    if (!scale) return;
+    def.raw = def.events;
+    def.position = scale(def);
+    def.fmt = FORMATS[def.format] || fmtYearsAgo;
+    def.home = def.home || [def.ceil, def.floor];
+    ATLASES[def.id] = buildAtlas(def);
+    ATLAS_ORDER.push(def.id);
   });
 
-  ALL.sort(function (a, b) { return a.bpStart - b.bpStart; });
-  AGES.sort(function (a, b) { return (b.bpStart - b.bpEnd) - (a.bpStart - a.bpEnd); });
+  function loadAtlas(key) {
+    ATLAS = ATLASES[key] || ATLASES[ATLAS_ORDER[0]];
+    CATEGORIES = ATLAS.categories;
+    AGE_KEY = ATLAS.ageKey;
+    LADDER = ATLAS.ladder;
+    BP_CEIL = ATLAS.ceil;
+    BP_FLOOR = ATLAS.floor;
+    ALL = ATLAS.all;
+    AGES = ATLAS.ages;
+    byCat = ATLAS.byCat;
 
-  var byCat = {};
-  CATEGORIES.forEach(function (c) { byCat[c.key] = []; });
-  ALL.forEach(function (e) { if (byCat[e.cat]) byCat[e.cat].push(e); });
-  // Anything with an unrecognised category still deserves a home.
-  ALL.forEach(function (e) { if (!byCat[e.cat]) { e.cat = 'Culture & Art'; byCat[e.cat].push(e); } });
-  CATEGORIES.forEach(function (c) {
-    byCat[c.key].sort(function (a, b) { return b.bpStart - a.bpStart; });
-  });
+    state.bpMax = ATLAS.home[0];
+    state.bpMin = ATLAS.home[1];
+    state.hidden = {};
+    state.query = '';
+    state.ladderIdx = 0;
+    state.hover = null;
+    closePanel();
+
+    document.documentElement.setAttribute('data-atlas', ATLAS.id);
+    els.statCount.textContent = (ALL.length + AGES.length) + ' entries · ' +
+      CATEGORIES.length + ' threads';
+    if (els.lede) els.lede.textContent = ATLAS.thesis || '';
+    document.title = ATLAS.label + ' — ' + (ATLAS.tradition || '');
+
+    buildLadder();
+    buildLegend();
+    buildTable();
+    buildSearchIndex();
+    resize();
+    draw();
+  }
 
   // ── State ──────────────────────────────────────────────────────────────
   var state = {
@@ -163,6 +289,9 @@
     panelClose: document.getElementById('panel-close'),
     tableWrap: document.getElementById('table-wrap'),
     tableBody: document.getElementById('table-body'),
+    lede: document.querySelector('.masthead .lede'),
+    wheel: document.getElementById('wheel'),
+    atlasSwitch: document.getElementById('atlas-switch'),
     viewTimeline: document.getElementById('view-timeline'),
     viewTable: document.getElementById('view-table'),
     btnTheme: document.getElementById('btn-theme'),
@@ -301,7 +430,27 @@
     if (s.indexOf('.') >= 0) s = s.replace(/0+$/, '').replace(/\.$/, '');
     return s;
   }
-  function fmtAgo(bp, long) {
+  function fmtAgo(bp, long) { return ATLAS.fmt(bp, long); }
+
+  // Superscript digits, so a fraction of a kappa reads as 10⁻⁶ rather than
+  // 0.000001 — the whole point of this axis is that the numbers are unreadable
+  // in decimal.
+  var SUPS = { '-': '\u207B', '0': '\u2070', '1': '\u00B9', '2': '\u00B2',
+    '3': '\u00B3', '4': '\u2074', '5': '\u2075', '6': '\u2076',
+    '7': '\u2077', '8': '\u2078', '9': '\u2079' };
+  function sup(n) {
+    return String(n).split('').map(function (c) { return SUPS[c] || c; }).join('');
+  }
+
+  function fmtKappas(bp, long) {
+    if (bp >= 1e5) return trim(bp / 1e3, 0) + (long ? ' thousand kappas ago' : 'k kappas');
+    if (bp >= 1) return trim(bp, 2) + (long ? ' kappas ago' : (bp === 1 ? ' kappa' : ' kappas'));
+    if (bp >= 0.01) return trim(bp, 3) + (long ? ' of a kappa ago' : ' kappa');
+    var e = Math.round(Math.log10(bp));
+    return '10' + sup(e) + (long ? ' of a kappa ago' : ' kappa');
+  }
+
+  function fmtYearsAgo(bp, long) {
     if (bp >= 1e9) return trim(bp / 1e9, 2) + (long ? ' billion years ago' : ' Ga');
     if (bp >= 1e6) return trim(bp / 1e6, 2) + (long ? ' million years ago' : ' Ma');
     if (bp >= 1e4) return trim(bp / 1e3, 1) + (long ? ' thousand years ago' : ' ka');
@@ -439,6 +588,7 @@
   }
 
   function paint() {
+    if (!ATLAS) return;          // nothing to draw until an atlas is loaded
     var g = geometry();
     hits = [];
 
@@ -791,10 +941,10 @@
       var atNow = v <= BP_FLOOR;
 
       ctx.fillStyle = theme['--ink-2'];
-      tickLabel(atNow ? NOW + ' CE' : fmtAgo(v, false), g.axisTop + 9);
+      tickLabel(atNow ? ATLAS.nowLabel : fmtAgo(v, false), g.axisTop + 9);
       // Below ~10 ka the primary label is already a calendar year, so the
       // useful second line is the elapsed time rather than the year again.
-      if (v < 1e4) {
+      if (ATLAS.format === 'years' && v < 1e4) {
         var ago = Math.round(v);
         ctx.fillStyle = theme['--ink-4'];
         ctx.font = '400 9.5px ' + dataFont();
@@ -1267,13 +1417,16 @@
   // Haystacks are built once at load rather than lowercased on every
   // keystroke, which is what made the old search feel sluggish: 606 events
   // times a fresh toLowerCase per input event, on every character.
-  var INDEX = ALL.concat(AGES).map(function (e) {
-    return {
-      e: e,
-      name: e.name.toLowerCase(),
-      extra: ((e.region || '') + ' ' + (e.desc || '')).toLowerCase()
-    };
-  });
+  var INDEX = [];
+  function buildSearchIndex() {
+    INDEX = ALL.concat(AGES).map(function (e) {
+      return {
+        e: e,
+        name: e.name.toLowerCase(),
+        extra: ((e.region || '') + ' ' + (e.desc || '')).toLowerCase()
+      };
+    });
+  }
 
   // Ranked rather than first-match: a query is far likelier to mean the event
   // whose name starts with it than one that merely mentions it in prose.
@@ -1416,6 +1569,46 @@
     els.mMenu.setAttribute('aria-expanded', String(!!open));
     els.mMenu.setAttribute('aria-label', open ? 'Hide controls' : 'Show controls');
   }
+
+  // ── Reckonings of time ─────────────────────────────────────────────────
+  var FOUND_KEY = 'deep-time.found-the-wheel';
+  function hasFound() {
+    try { return localStorage.getItem(FOUND_KEY) === '1'; } catch (err) { return false; }
+  }
+  function markFound() {
+    try { localStorage.setItem(FOUND_KEY, '1'); } catch (err) { /* private mode */ }
+  }
+
+  function buildAtlasSwitch() {
+    if (ATLAS_ORDER.length < 2) return;
+    els.atlasSwitch.innerHTML = '';
+    ATLAS_ORDER.forEach(function (id) {
+      var def = ATLASES[id];
+      var b = document.createElement('button');
+      b.textContent = def.label;
+      b.title = def.tradition || def.label;
+      b.setAttribute('aria-pressed', String(ATLAS && ATLAS.id === id));
+      b.addEventListener('click', function () { switchAtlas(id); });
+      els.atlasSwitch.appendChild(b);
+    });
+    els.atlasSwitch.hidden = !hasFound();
+  }
+
+  function switchAtlas(id) {
+    if (ATLAS && ATLAS.id === id) return;
+    loadAtlas(id);
+    buildAtlasSwitch();
+    els.atlasSwitch.hidden = false;
+  }
+
+  els.wheel.addEventListener('click', function () {
+    markFound();
+    els.wheel.setAttribute('data-found', '1');
+    // The wheel walks through the reckonings rather than only opening one, so
+    // it stays useful after it has been discovered.
+    var i = ATLAS_ORDER.indexOf(ATLAS.id);
+    switchAtlas(ATLAS_ORDER[(i + 1) % ATLAS_ORDER.length]);
+  });
 
   els.mMenu.addEventListener('click', function () {
     setSheet(els.railLayers.getAttribute('data-open') !== '1');
@@ -1591,10 +1784,6 @@
   function init() {
     refreshTheme();
     resize();
-    buildLadder();
-    buildLegend();
-    buildTable();
-    els.statCount.textContent = (ALL.length + AGES.length) + ' events · ' + AGES.length + ' ages';
 
     // Show the shortcut the reader's own keyboard actually has.
     var isMac = /Mac|iPhone|iPad|iPod/.test(navigator.platform || navigator.userAgent || '');
@@ -1602,12 +1791,24 @@
     var footKey = document.getElementById('foot-search-key');
     if (footKey) footKey.textContent = isMac ? '\u2318K' : 'Ctrl K';
 
-    if (!RAW.length) {
+
+    placeMobileControls();
+
+    var wanted = null;
+    try {
+      var qp = new URLSearchParams(location.search).get('atlas');
+      if (qp && ATLASES[qp]) wanted = qp;
+    } catch (err) { /* no URLSearchParams */ }
+    loadAtlas(wanted || ATLAS_ORDER[0]);
+    if (wanted && wanted !== ATLAS_ORDER[0]) markFound();
+    if (hasFound()) els.wheel.setAttribute('data-found', '1');
+    buildAtlasSwitch();
+
+    if (!ALL.length && !AGES.length) {
       els.emptyNote.textContent = 'No data loaded — check data/events.js';
       els.emptyNote.setAttribute('data-show', '1');
     }
 
-    placeMobileControls();
     var deepLinked = applyUrlState();
     updateLadderPressed();
 
