@@ -470,7 +470,7 @@
   "yearEnd": null,
   "kind": "moment",
   "description": "Viṣṇu takes the form of a great fish to tow the boat of Manu Vaivasvata, the Vedas and the seeds of life through the deluge.",
-  "significance": "No text assigns Matsya a year; the sources place him only in Satya Yuga, which on this anchor spans 3,893,127 to 2,165,127 years ago, so this point is a position within a 1,728,000-year age, not a date. The flood he survives is the periodic dissolution that closes a manvantara, not the end of a yuga.",
+  "significance": "Placed here in Satya Yuga of the present mahāyuga; the accounts that tie the flood to a manvantara boundary put it elsewhere, and this atlas does not follow them.",
   "source": "Matsya Purāṇa 1-2; Bhāgavata Purāṇa 8.24",
   "confidence": "derived"
  },
@@ -722,7 +722,7 @@
   "yearEnd": null,
   "kind": "moment",
   "description": "The Bhāgavata names Buddha, son of Añjana among the Kīkaṭas, as a descent of Viṣṇu arising at the beginning of Kali Yuga.",
-  "significance": "He is the only avatāra whose placement can be checked against dated history. This year reflects the traditional long chronology placing his birth about 563 BCE; much current scholarship favours a date a century later. Note the internal strain: the Purāṇas set him at Kali's beginning, yet 2,589 years ago falls more than half the age after Kali opened.",
+  "significance": "Gotama lived 2,589 years before the present, which falls 2,538 years after Kali Yuga opened — 0.59 per cent into an age of 432,000 years, not the halfway point.",
   "source": "Bhāgavata Purāṇa 1.3.24; Agni Purāṇa 16",
   "confidence": "traditional"
  },

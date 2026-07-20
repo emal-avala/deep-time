@@ -1150,3 +1150,179 @@ td.t-cat i {
 @media (max-width: 720px) {
   .masthead .atlas-switch { display: none; }   /* lives in the sheet on mobile */
 }
+
+/* ── Units sheet ──────────────────────────────────────────────────────── */
+
+.units-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 210;
+  display: grid;
+  justify-items: center;
+  align-items: start;
+  padding: 8vh 20px 20px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .16s ease, visibility 0s linear .16s;
+}
+.units-sheet[data-open="1"] { visibility: visible; opacity: 1; transition: opacity .16s ease; }
+
+.units-scrim {
+  position: fixed;
+  inset: 0;
+  background: color-mix(in srgb, var(--ground) 82%, transparent);
+  backdrop-filter: blur(3px);
+}
+
+.units-box {
+  position: relative;
+  width: min(680px, 100%);
+  max-height: min(78vh, 720px);
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--rule-strong);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transform: translateY(-6px);
+  transition: transform .18s cubic-bezier(.22, .61, .36, 1);
+}
+.units-sheet[data-open="1"] .units-box { transform: none; }
+
+.units-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px 13px;
+  border-bottom: 1px solid var(--rule);
+  flex: none;
+}
+.units-eyebrow {
+  margin: 0 0 3px;
+  font-family: var(--font-data);
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.units-head h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 650;
+  letter-spacing: -.02em;
+  text-wrap: balance;
+}
+.units-close {
+  margin-left: auto;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: var(--ink-3);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 4px;
+}
+.units-close:hover { color: var(--ink); }
+
+.units-body {
+  padding: 16px 18px 22px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.units-lede {
+  margin: 0 0 6px;
+  font-size: 14.5px;
+  font-weight: 560;
+  color: var(--ink);
+  line-height: 1.45;
+  text-wrap: balance;
+}
+.units-intro { margin: 0 0 18px; font-size: 13px; color: var(--ink-2); line-height: 1.55; }
+
+.units-h {
+  margin: 20px 0 9px;
+  font-family: var(--font-data);
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* The ladder of units. Each step shows what it is built from. */
+.units-chain { display: grid; gap: 1px; }
+.chain-step {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 14px;
+  padding: 9px 11px;
+  border-radius: 7px;
+  background: var(--surface-2);
+}
+.chain-term { color: var(--ink); font-size: 13px; font-weight: 570; }
+.chain-native {
+  color: var(--ink-3);
+  font-size: 11.5px;
+  font-style: italic;
+  margin-left: 6px;
+  font-weight: 400;
+}
+.chain-value {
+  font-family: var(--font-data);
+  font-size: 12px;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  text-align: right;
+}
+.chain-deriv {
+  grid-column: 1 / -1;
+  font-family: var(--font-data);
+  font-size: 10.5px;
+  color: var(--ink-3);
+}
+.chain-note { grid-column: 1 / -1; font-size: 12px; color: var(--ink-2); line-height: 1.45; }
+
+/* The tradition's own image for the size of its unit. */
+.units-story {
+  margin-bottom: 10px;
+  padding: 12px 14px;
+  border-left: 2px solid var(--rule-strong);
+  background: var(--surface-2);
+  border-radius: 0 7px 7px 0;
+}
+.units-story h4 { margin: 0 0 2px; font-size: 13px; font-weight: 620; }
+.units-story .ref {
+  font-family: var(--font-data);
+  font-size: 10px;
+  color: var(--ink-3);
+  letter-spacing: .06em;
+}
+.units-story p { margin: 5px 0 0; font-size: 12.5px; color: var(--ink-2); line-height: 1.55; }
+
+.units-conv { display: grid; gap: 7px; }
+.units-conv div { font-size: 12.5px; color: var(--ink-2); line-height: 1.5; }
+.units-conv b { color: var(--ink); font-weight: 600; }
+.units-conv .caveat { color: var(--ink-3); font-size: 12px; }
+
+.units-landmark {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  font-size: 12.5px;
+  color: var(--ink-2);
+  line-height: 1.55;
+}
+
+@media (max-width: 720px) {
+  .units-sheet { padding: 0; }
+  .units-box { width: 100%; height: 100svh; max-height: 100svh; border: 0; border-radius: 0; }
+  .units-head { padding-top: calc(14px + env(safe-area-inset-top)); }
+  .units-body { padding-bottom: calc(28px + env(safe-area-inset-bottom)); }
+  .masthead #btn-units { display: none; }   /* lives in the sheet on mobile */
+}
