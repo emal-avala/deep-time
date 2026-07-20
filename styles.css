@@ -1057,7 +1057,13 @@ td.t-cat i {
     right: 0;
     bottom: 0;
     width: 100%;
-    max-height: 66%;
+    /* Flex column so the inner element can be bounded by the sheet and scroll
+       inside it. With the panel at auto height, `height:100%` on the inner
+       resolved to auto, so it grew to its full content height and the panel's
+       overflow:hidden simply clipped the overspill with no way to reach it. */
+    display: flex;
+    flex-direction: column;
+    max-height: 72%;
     border-right: 0;
     border-top: 1px solid var(--rule-strong);
     border-radius: 14px 14px 0 0;
@@ -1068,7 +1074,13 @@ td.t-cat i {
   .panel[data-open="1"] { width: 100%; transform: none; }
   .panel-inner {
     width: 100%;
-    padding: 16px 16px calc(20px + env(safe-area-inset-bottom));
+    height: auto;
+    flex: 1 1 auto;
+    min-height: 0;          /* lets the flex child shrink so it can scroll */
+    overflow-y: auto;
+    overscroll-behavior: contain;   /* scrolling the sheet must not pan the page */
+    /* Top padding clears the grab handle. */
+    padding: 22px 16px calc(24px + env(safe-area-inset-bottom));
     -webkit-overflow-scrolling: touch;
   }
   /* A grab handle, so the sheet reads as a sheet. */
