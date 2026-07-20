@@ -90,7 +90,7 @@
     AXIS_H       = MOBILE ? 34 : 38;
     DENSITY_H    = MOBILE ? 24 : 34;
     var gap = (ATLAS && ATLAS.tickGap) || 62;
-    if (state.dir === 'future') gap = Math.max(gap, 90);
+    if (state.dir === 'future') gap = Math.max(gap, 118);
     MIN_TICK_GAP = MOBILE ? Math.max(82, gap) : gap;
   }
 
@@ -406,26 +406,10 @@
   function plotLeft() { return GUTTER; }
   function plotWidth() { return Math.max(60, W - GUTTER - PAD_R); }
 
-  // An axis measuring distance from now cannot place what is still to come:
-  // nine kappas ahead lands exactly where nine kappas ago does, and a reader
-  // reads it as ancient. So when an atlas carries future entries, a band is
-  // reserved to the right of NOW and they are plotted forwards into it.
-  function futureFrac() {
-    if (!ATLAS || !ATLAS.hasFuture || state.dir === 'future') return 0;
-    // Only when what is ahead fits within the scale already on screen.
-    return ATLAS.futureMax <= ATLAS.ceil ? 0.17 : 0;
-  }
-  function pastWidth() { return plotWidth() * (1 - futureFrac()); }
-  function nowX() { return plotLeft() + pastWidth(); }
+  // What is still to come gets the whole axis via the Facing toggle rather than
+  // a strip beside the past.
 
-  function xOfFuture(bp) {
-    var lo = Math.log10(Math.max(BP_FLOOR, 1e-300));
-    var hi = Math.log10(Math.max(ATLAS.futureMax, BP_FLOOR * 10));
-    var f = (Math.log10(Math.max(bp, BP_FLOOR)) - lo) / (hi - lo);
-    return nowX() + Math.max(0, Math.min(1, f)) * (plotWidth() - pastWidth());
-  }
-
-  function xOf(bp, future) {
+  function xOf(bp) {
     if (state.dir === 'future') {
       var lgHi2 = Math.log10(Math.max(state.bpMax, BP_FLOOR));
       var lgLo2 = Math.log10(Math.max(state.bpMin, BP_FLOOR));
@@ -433,8 +417,7 @@
       var lin2 = (bp - state.bpMin) / (state.bpMax - state.bpMin);
       return plotLeft() + (lin2 * (1 - state.m) + f2 * state.m) * plotWidth();
     }
-    if (future && futureFrac() > 0) return xOfFuture(bp);
-    var pw = pastWidth(), x0 = plotLeft();
+    var pw = plotWidth(), x0 = plotLeft();
     var lin = (state.bpMax - bp) / (state.bpMax - state.bpMin);
     var lgHi = Math.log10(Math.max(state.bpMax, BP_FLOOR));
     var lgLo = Math.log10(Math.max(state.bpMin, BP_FLOOR));
@@ -452,7 +435,7 @@
       var lo = Math.log10(Math.max(state.bpMin, BP_FLOOR));
       return Math.pow(10, lo + g * (hi - lo));
     }
-    var f = (x - plotLeft()) / pastWidth();
+    var f = (x - plotLeft()) / plotWidth();
     if (state.mode === 'linear') return state.bpMax - f * (state.bpMax - state.bpMin);
     var lgHi = Math.log10(Math.max(state.bpMax, BP_FLOOR));
     var lgLo = Math.log10(Math.max(state.bpMin, BP_FLOOR));
@@ -462,26 +445,34 @@
   function sOf(bp) { return state.mode === 'linear' ? bp : Math.log10(Math.max(bp, BP_FLOOR)); }
   function sInv(s) { return state.mode === 'linear' ? s : Math.pow(10, s); }
 
-  function minSpanS() { return state.mode === 'linear' ? 20 : 0.14; }
-  function maxSpanS() { return sOf(BP_CEIL) - sOf(BP_FLOOR); }
+  function domainCeil() {
+    return state.dir === 'future'
+      ? Math.max(ATLAS.futureMax || BP_FLOOR * 10, BP_FLOOR * 10)
+      : BP_CEIL;
+  }
+  // Both bounds are in the atlas's own unit. A flat "20" was twenty years in
+  // the scientific atlas and twenty mahākappas in the Buddhist one.
+  function minSpanS() { return state.mode === 'linear' ? 20 * BP_FLOOR : 0.14; }
+  function maxSpanS() { return sOf(domainCeil()) - sOf(BP_FLOOR); }
 
   function clampDomain() {
+    var ceil = domainCeil();
     if (state.bpMin < BP_FLOOR) {
       var d = BP_FLOOR - state.bpMin;
       state.bpMin += d; state.bpMax += d;
     }
-    if (state.bpMax > BP_CEIL) {
-      var d2 = state.bpMax - BP_CEIL;
+    if (state.bpMax > ceil) {
+      var d2 = state.bpMax - ceil;
       state.bpMax -= d2;
       state.bpMin = Math.max(BP_FLOOR, state.bpMin - d2);
     }
-    if (state.bpMax - state.bpMin < 1) state.bpMax = state.bpMin + 1;
+    if (state.bpMax - state.bpMin < BP_FLOOR) state.bpMax = state.bpMin + BP_FLOOR;
   }
 
   function zoomBy(k, anchorX) {
     var sHi = sOf(state.bpMax), sLo = sOf(state.bpMin);
     var span = sHi - sLo;
-    var f = Math.min(1, Math.max(0, (anchorX - plotLeft()) / pastWidth()));
+    var f = Math.min(1, Math.max(0, (anchorX - plotLeft()) / plotWidth()));
     var sAnchor = state.dir === 'future' ? sLo + f * span : sHi - f * span;
     var next = Math.min(maxSpanS(), Math.max(minSpanS(), span * k));
     var nHi, nLo;
@@ -497,7 +488,7 @@
   function panBy(dxPx) {
     var sHi = sOf(state.bpMax), sLo = sOf(state.bpMin);
     var span = sHi - sLo;
-    var d = (dxPx / pastWidth()) * span * (state.dir === 'future' ? -1 : 1);
+    var d = (dxPx / plotWidth()) * span * (state.dir === 'future' ? -1 : 1);
     state.bpMax = sInv(sHi + d);
     state.bpMin = sInv(sLo + d);
     clampDomain();
@@ -523,22 +514,28 @@
     return String(n).split('').map(function (c) { return SUPS[c] || c; }).join('');
   }
 
+  // Keeps the mantissa. Log ticks land on 1, 2 and 5 times a power of ten, so
+  // dropping it made consecutive ticks print the same label.
+  function powLabel(bp) {
+    var e = Math.floor(Math.log10(bp));
+    var m = bp / Math.pow(10, e);
+    var mant = Math.round(m * 10) / 10;
+    if (mant >= 10) { mant = mant / 10; e += 1; }
+    return (Math.abs(mant - 1) < 0.05 ? '' : trim(mant, 1) + '\u00D7') + '10' + sup(e);
+  }
+
   function fmtKappas(bp, long) {
     if (bp >= 1e5) return trim(bp / 1e3, 0) + (long ? ' thousand kappas ago' : 'k kappas');
     if (bp >= 1) return trim(bp, 2) + (long ? ' kappas ago' : (bp === 1 ? ' kappa' : ' kappas'));
     if (bp >= 0.01) return trim(bp, 3) + (long ? ' of a kappa ago' : ' kappa');
-    var e = Math.round(Math.log10(bp));
-    return '10' + sup(e) + (long ? ' of a kappa ago' : ' kappa');
+    return powLabel(bp) + (long ? ' of a kappa ago' : ' kappa');
   }
 
   function fmtYearsAgo(bp, long) {
     // The far future runs to 10^100 years. Past about a quadrillion no prefix
     // helps and "1e+88 Tyr" is worse than useless, so it switches to plain
     // powers of ten — the same move the kappa axis makes below one kappa.
-    if (bp >= 1e15) {
-      var e = Math.round(Math.log10(bp));
-      return '10' + sup(e) + (long ? ' years ago' : ' yr');
-    }
+    if (bp >= 1e15) return powLabel(bp) + (long ? ' years ago' : ' yr');
     // Hindu cosmology reaches 311 trillion years — four decades past anything
     // the physical record needs, so the ladder starts higher than 'Ga'.
     if (bp >= 1e12) return trim(bp / 1e12, 2) + (long ? ' trillion years ago' : ' Tyr');
@@ -741,7 +738,7 @@
     ctx.clip();
 
     AGES.forEach(function (a) {
-      var ax = xOf(a.bpStart, a.future), bx = xOf(a.bpEnd, a.future);
+      var ax = xOf(a.bpStart), bx = xOf(a.bpEnd);
       if (bx < x0 - 400 || ax > x1 + 400) return;
       var L = Math.max(ax, x0 - 200), R = Math.min(bx, x1 + 200);
       // An era too narrow to carry any text reads as an empty box; leave it out
@@ -863,8 +860,8 @@
       var packable = [], context = [];
       for (var k = 0; k < list.length; k++) {
         var le = list[k];
-        var lax = xOf(le.bpStart, le.future);
-        var lbx = le.end === null ? lax : xOf(le.bpEnd, le.future);
+        var lax = xOf(le.bpStart);
+        var lbx = le.end === null ? lax : xOf(le.bpEnd);
         if (lbx < x0 - 300 || lax > x1 + 300) continue;
         shown++;
         var rec = { e: le, ax: lax, bx: lbx };
@@ -1130,20 +1127,6 @@
   }
 
   function drawNow(g) {
-    // The band to the right of NOW, when the atlas has one.
-    if (futureFrac() > 0) {
-      var fx = nowX(), fw = W - PAD_R - fx;
-      ctx.save();
-      ctx.fillStyle = alpha(theme['--ink'], theme.dark ? 0.03 : 0.022);
-      ctx.fillRect(fx, g.strataTop - 6, fw, g.axisTop - g.strataTop + 6);
-      ctx.font = '500 9.5px ' + dataFont();
-      ctx.fillStyle = theme['--ink-4'];
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'top';
-      ctx.fillText('STILL TO COME', fx + fw / 2, g.axisTop + 9);
-      ctx.textAlign = 'left';
-      ctx.restore();
-    }
     var x = xOf(BP_FLOOR);
     if (x < plotLeft() || x > W - PAD_R + 2) return;
     ctx.save();
@@ -1193,12 +1176,9 @@
 
   function updateReadout() {
     var span = state.bpMax - state.bpMin;
-    var spanTxt = span >= 1e15 ? '10' + sup(Math.round(Math.log10(span))) + ' yr'
-      : span >= 1e12 ? trim(span / 1e12, 2) + ' Tyr'
-      : span >= 1e9 ? trim(span / 1e9, 2) + ' Gyr'
-      : span >= 1e6 ? trim(span / 1e6, 2) + ' Myr'
-      : span >= 1e4 ? trim(span / 1e3, 1) + ' kyr'
-      : Math.round(span) + ' yr';
+    // A span of nine kappas is not "9 yr": use the atlas's own formatter and
+    // strip the direction word, which does not apply to a duration.
+    var spanTxt = fmtAgo(span, false).replace(/ (ago|ahead)$/, '');
     if (MOBILE) {
       els.readout.innerHTML = '<b>' + esc(spanTxt) + '</b>' +
         '<span style="color:var(--ink-4)">·</span>' +
@@ -1456,11 +1436,16 @@
   els.panelClose.addEventListener('click', closePanel);
 
   function focusEvent(e) {
-    var mid = e.end === null ? e.bpStart : Math.sqrt(Math.max(1, e.bpStart) * Math.max(1, e.bpEnd));
-    var span = e.end === null ? Math.max(mid * 0.9, 40) : Math.max((e.bpStart - e.bpEnd) * 6, mid * 0.5, 40);
-    var hi = Math.min(BP_CEIL, mid + span);
-    var lo = Math.max(BP_FLOOR, mid - span * 0.6);
-    if (state.mode === 'log') { hi = Math.min(BP_CEIL, mid * 6); lo = Math.max(BP_FLOOR, mid / 6); }
+    var floor = BP_FLOOR;
+    var mid = e.end === null ? e.bpStart
+      : Math.sqrt(Math.max(floor, e.bpStart) * Math.max(floor, e.bpEnd));
+    var pad = 40 * floor;
+    var span = e.end === null ? Math.max(mid * 0.9, pad)
+      : Math.max((e.bpStart - e.bpEnd) * 6, mid * 0.5, pad);
+    var ceil = domainCeil();
+    var hi = Math.min(ceil, mid + span);
+    var lo = Math.max(floor, mid - span * 0.6);
+    if (state.mode === 'log') { hi = Math.min(ceil, mid * 6); lo = Math.max(floor, mid / 6); }
     state.ladderIdx = -1;
     updateLadderPressed();
     gotoWindow(hi, lo, true);
@@ -1492,8 +1477,21 @@
     CATEGORIES.forEach(function (c) {
       var b = document.createElement('button');
       b.setAttribute('aria-pressed', String(!state.hidden[c.key]));
+      // A lane empty in this facing but populated in the other reads as broken
+      // unless it says where its entries went.
+      var here = byCat[c.key].length;
+      var other = ATLAS.hasFuture
+        ? ((state.dir === 'future' ? ATLAS.byCat : ATLAS.futureByCat)[c.key] || []).length
+        : 0;
+      var count = here
+        ? String(here)
+        : (other ? (state.dir === 'future' ? '\u2190' : '\u2192') + other : '0');
       b.innerHTML = '<span class="swatch"></span>' + esc(c.label) +
-        ' <span class="count">' + byCat[c.key].length + '</span>';
+        ' <span class="count">' + count + '</span>';
+      if (!here && other) {
+        b.title = other + ' ' + (state.dir === 'future' ? 'in the past' : 'still to come')
+          + ' — switch facing to see them';
+      }
       b.style.setProperty('--sw', 'var(' + c.v + ')');
       b.addEventListener('click', function () {
         state.hidden[c.key] = !state.hidden[c.key];
@@ -1940,6 +1938,7 @@
   // Any of these skips the opening animation and restores a specific view.
   var pendingOpen = null;
   var pendingSearch = null;
+  var pendingFacing = null;
 
   function applyUrlState() {
     var p;
@@ -1964,7 +1963,8 @@
     }
 
     var from = Number(p.get('from')), to = Number(p.get('to'));
-    if (isFinite(from) && isFinite(to) && p.get('from') !== null && p.get('to') !== null) {
+    if (ATLAS.scale === 'signedYears' &&
+        isFinite(from) && isFinite(to) && p.get('from') !== null && p.get('to') !== null) {
       // `from`/`to` are calendar years, oldest first.
       state.bpMax = Math.max(BP_FLOOR, NOW - Math.min(from, to));
       state.bpMin = Math.max(BP_FLOOR, NOW - Math.max(from, to));
@@ -1980,11 +1980,22 @@
     // event can be linked to directly rather than hunted for.
     var wanted = (p.get('event') || '').trim().toLowerCase();
     if (wanted) {
-      var hit = ALL.concat(AGES).filter(function (e) {
-        return e.name.toLowerCase().indexOf(wanted) >= 0;
-      })[0];
+      var find = function (list) {
+        return list.filter(function (e) {
+          return e.name.toLowerCase().indexOf(wanted) >= 0;
+        })[0];
+      };
+      var hit = find(ALL.concat(AGES));
+      if (!hit && ATLAS.hasFuture) {
+        // Look in the other facing too, and turn to face it.
+        hit = find(ATLAS.futureAll.concat(ATLAS.futureAges));
+        if (hit) pendingFacing = 'future';
+      }
       if (hit) { pendingOpen = hit; used = true; }
     }
+
+    var facing = (p.get('facing') || '').toLowerCase();
+    if (facing === 'future' && ATLAS.hasFuture) { pendingFacing = 'future'; used = true; }
 
     var sc = p.get('scale');
     if (sc === 'linear' || sc === 'log') {
@@ -2028,6 +2039,7 @@
     }
 
     var deepLinked = applyUrlState();
+    if (pendingFacing) { setDirection(pendingFacing); pendingFacing = null; }
     updateLadderPressed();
 
     // Opening sequence: the page performs its own thesis. Start linear —
