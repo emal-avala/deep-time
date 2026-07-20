@@ -136,16 +136,17 @@ The timeline is not tied to one cosmology. The renderer knows nothing about
 years, kappas or baktuns - it only knows *distance from now on a log axis*.
 Each tradition supplies its own units, threads and data as a **drop-in atlas**.
 
-Two ship today:
+Three ship today:
 
-| Atlas | Tradition | Unit | Span |
+| Atlas | Shown as | Unit | Span |
 |---|---|---|---|
-| `physical` | Modern science | years | 13.8 Ga to now |
-| `kappa` | Buddhist cosmology | mahakappas | 10^6 to 10^-13 kappas |
+| `physical` | Modern | years | 13.8 Ga to now |
+| `kappa` | Buddhist | mahakappas | 10^6 to 10^-13 kappas |
+| `yuga` | Hindu | years | 311 trillion years to now |
 
-The Buddhist atlas is reached through the **wheel** - a small dharmachakra in
-the corner of the plot. It is deliberately under-advertised; once found, a
-switcher appears in the header and stays. `?atlas=kappa` also works.
+Switch with the **Modern / Buddhist / Hindu** toggle in the header, or with
+`?atlas=kappa`. Buttons name the tradition rather than its unit, since the unit
+is already on the axis.
 
 ### Adding a tradition
 
@@ -204,6 +205,14 @@ atlas keeps its own confidence vocabulary: the scientific one uses
 `canonical`/`traditional`/`derived`, because the distinction that matters there
 is whether a claim is *in the suttas*, in the commentaries, or a modern
 calculation.
+
+The Hindu scheme is the opposite case, and worth stating plainly: where the
+Pali canon refuses a number, the Puranas are exact and internally consistent.
+The build script for that atlas **refuses to emit** unless the chain closes -
+1,728,000 + 1,296,000 + 864,000 + 432,000 = 4,320,000; 1,000 mahayugas = one
+kalpa; 14 manvantaras plus 15 junctions tile that kalpa exactly; 100 years of
+Brahma = 311,040,000,000,000 years. A tradition that gives you a checkable
+number should be checked.
 
 That last category earns its keep. The Pali canon **refuses** to put a number
 of years on a kappa - asked directly, the Buddha answered with two similes
