@@ -29,15 +29,16 @@
   // Reordering lanes changes which colours end up adjacent, and adjacency is
   // what the palette was validated on — so re-run the validator before changing
   // this. `v` stays bound to the category, never to its position: colour
-  // follows the entity, so a lane keeps its hue wherever it moves. Putting
-  // Human Origins (magenta) next to Science & Tech (orange) fails the
-  // normal-vision floor at dE 12.9, which is why Culture sits between them.
+  // follows the entity wherever possible. Putting Human Origins (magenta) next
+  // to orange fails the normal-vision floor at dE 12.9, so with Science & Tech
+  // in position 4 the two swap hues: Science wears violet, Culture wears
+  // orange. The colour SEQUENCE down the lanes is unchanged and still passes.
   var CATEGORIES = [
     { key: 'Cosmos & Earth',       label: 'Cosmos & Earth',   v: '--c1' },
     { key: 'Life & Extinctions',   label: 'Life',             v: '--c2' },
     { key: 'Human Origins',        label: 'Human Origins',    v: '--c3' },
-    { key: 'Culture & Art',        label: 'Culture & Art',    v: '--c7' },
-    { key: 'Science & Technology', label: 'Science & Tech',   v: '--c6' },
+    { key: 'Science & Technology', label: 'Science & Tech',   v: '--c7' },
+    { key: 'Culture & Art',        label: 'Culture & Art',    v: '--c6' },
     { key: 'Religion & Thought',   label: 'Religion & Ideas', v: '--c5' },
     { key: 'Empires & Politics',   label: 'Empires',          v: '--c4' }
   ];
